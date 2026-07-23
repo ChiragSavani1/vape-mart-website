@@ -52,3 +52,30 @@ h1 em,.eyebrow{color:#666}.primary{background:#111;color:#fff;border:1px solid #
   .hero-carousel .carousel-dots button.active{width:22px}
 }
 @media(prefers-reduced-motion:reduce){.banner-slide{transition:none!important}}
+
+/* Real store branding, category photography, and catalogue price filters */
+.logo span{overflow:hidden;background:#171717;border:1px solid #3d3d3d}
+.logo span img{display:block;width:100%;height:100%;object-fit:cover}
+.category-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.category-grid button{padding:0;overflow:hidden;background:#111;min-height:300px;color:#fff;border-color:#2e2e2e}
+.category-grid button:hover{border-color:#111}
+.category-photo{display:block;width:100%;height:205px;margin:0;background:#fff;overflow:hidden}
+.category-photo img{display:block;width:100%;height:100%;object-fit:contain;padding:15px;transition:transform .55s cubic-bezier(.2,.8,.2,1)}
+.category-grid button:hover .category-photo img{transform:scale(1.07)}
+.category-copy{display:flex;flex-direction:column;padding:20px 22px;text-align:left}
+.category-copy b{font:700 22px "Manrope"}
+.category-copy small{color:#b8b8b8;margin-top:6px}
+.catalogue-controls{grid-template-columns:1fr repeat(3,190px)}
+.banner-stack{aspect-ratio:1920/616}
+.contact-store-photo{height:360px;margin:38px 0 22px;border-radius:18px;overflow:hidden;background:#d8d8d8}
+.contact-store-photo img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 66%;filter:grayscale(1) contrast(1.05)}
+@media(max-width:900px){.catalogue-controls{grid-template-columns:1fr 1fr}.category-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){
+  .category-grid{grid-template-columns:1fr}
+  .category-grid button{min-height:270px}
+  .category-photo{height:180px}
+  .catalogue-controls{grid-template-columns:1fr}
+  .banner-stack{aspect-ratio:2/1}
+  .banner-slide img{object-fit:cover}
+  .contact-store-photo{height:300px}
+}

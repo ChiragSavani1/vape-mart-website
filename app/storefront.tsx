@@ -5,7 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { brands, categories, getProductVolume, products, type Product, store } from "./data";
 
 function Logo() {
-  return <Link className="logo" href="/"><span>V</span> VAPE MART</Link>;
+  return <Link className="logo" href="/"><span><img src="/brand/vape-mart-store-symbol.webp" alt="" /></span> VAPE MART</Link>;
 }
 
 export function Header() {
@@ -106,17 +106,30 @@ export function ProductCard({ product }: { product: Product }) {
 
 const arrivalBanners = [
   {
-    src: "/banners/envi-apex-new-arrivals.webp",
-    alt: "Envi Apex 2500 new arrivals — 13 flavours now in the Vape Mart catalogue",
+    src: "/banners/pacific-kraze-giga.webp",
+    alt: "Official Pacific Smoke Kraze Giga new release banner",
   },
   {
-    src: "/banners/flavour-beast-60ml.webp",
-    alt: "Flavour Beast 60 millilitre e-liquid collection",
+    src: "/banners/pacific-flavour-beast-max2.webp",
+    alt: "Official Pacific Smoke Flavour Beast Beast Mode Max 2 new flavours banner",
   },
-  {
-    src: "/banners/sour-gushin-60ml.webp",
-    alt: "Sour Gushin 60 millilitre new flavours",
-  },
+];
+
+const categoryImages: Record<string, string> = {
+  Accessories: "/products/catalog/stlth-loop-max-black-battery-01544.webp",
+  "Closed Pod Systems": "/products/catalog/loop-25k-peach-blue-razz-ice-95034.webp",
+  Disposables: "/products/flavour-beast-50k/fb-50k-bomb-blue-razz-82367.webp",
+  "E-Liquids": "/products/catalog/flavour-beast-60ml-weekend-watermelon-40152.webp",
+  Pods: "/products/catalog/zpods-strawberry-45267.webp",
+};
+
+const priceRanges = [
+  { value: "all", label: "All prices", min: 0, max: Infinity },
+  { value: "under-20", label: "Under $20", min: 0, max: 20 },
+  { value: "20-30", label: "$20 – $29.99", min: 20, max: 30 },
+  { value: "30-40", label: "$30 – $39.99", min: 30, max: 40 },
+  { value: "40-50", label: "$40 – $49.99", min: 40, max: 50 },
+  { value: "50-plus", label: "$50 and over", min: 50, max: Infinity },
 ];
 
 function HeroCarousel() {
@@ -162,20 +175,26 @@ export function Storefront() {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All products");
   const [brand, setBrand] = useState("All brands");
+  const [priceRange, setPriceRange] = useState("all");
   const [limit, setLimit] = useState(24);
+  const selectedPrice = priceRanges.find(range => range.value === priceRange) || priceRanges[0];
   const filtered = useMemo(() => products.filter(p =>
     (category === "All products" || p.category === category) &&
     (brand === "All brands" || p.brand === brand) &&
+    p.price >= selectedPrice.min && p.price < selectedPrice.max &&
     `${p.name} ${p.brand} ${p.flavour}`.toLowerCase().includes(query.toLowerCase())
-  ), [query, category, brand]);
-  useEffect(() => setLimit(24), [query, category, brand]);
+  ), [query, category, brand, selectedPrice]);
+  useEffect(() => setLimit(24), [query, category, brand, priceRange]);
   return <><AgeGate /><Header /><main>
     <HeroCarousel />
 
     <section className="trust-strip"><span>19+ age verified</span><span>Ontario retail store</span><span>Fast availability replies</span><span>Trusted brands</span></section>
 
     <section id="categories" className="section category-section"><p className="eyebrow">Browse your way</p><div className="section-heading"><h2>Shop by category</h2><a href="#catalogue">View all products →</a></div>
-      <div className="category-grid">{categories.slice(1).map((cat, i) => <button key={cat} onClick={() => { setCategory(cat); document.querySelector("#catalogue")?.scrollIntoView({ behavior: "smooth" }); }}><span>{["✦","◈","◉","◇","●"][i % 5]}</span><b>{cat}</b><small>{products.filter(p => p.category === cat).length} products</small></button>)}</div>
+      <div className="category-grid">{categories.slice(1).map(cat => <button key={cat} onClick={() => { setCategory(cat); document.querySelector("#catalogue")?.scrollIntoView({ behavior: "smooth" }); }}>
+        <span className="category-photo"><img src={categoryImages[cat]} alt="" /></span>
+        <span className="category-copy"><b>{cat}</b><small>{products.filter(p => p.category === cat).length} products</small></span>
+      </button>)}</div>
     </section>
 
     <section id="catalogue" className="section catalogue-section"><p className="eyebrow">The catalogue</p><div className="section-heading"><h2>What are you looking for?</h2><span>{filtered.length} products</span></div>
@@ -183,6 +202,7 @@ export function Storefront() {
         <label className="search"><span>⌕</span><input value={query} onChange={e => setQuery(e.target.value)} placeholder="Search flavour, product, or brand" /></label>
         <select value={category} onChange={e => setCategory(e.target.value)} aria-label="Filter by category">{categories.map(x => <option key={x}>{x}</option>)}</select>
         <select value={brand} onChange={e => setBrand(e.target.value)} aria-label="Filter by brand">{brands.map(x => <option key={x}>{x}</option>)}</select>
+        <select value={priceRange} onChange={e => setPriceRange(e.target.value)} aria-label="Filter by price">{priceRanges.map(range => <option value={range.value} key={range.value}>{range.label}</option>)}</select>
       </div>
       {filtered.length ? <><div className="product-grid">{filtered.slice(0, limit).map(p => <ProductCard product={p} key={p.id} />)}</div>{limit < filtered.length && <div className="load-more"><button className="primary" onClick={() => setLimit(value => value + 24)}>Load more products</button><small>Showing {Math.min(limit, filtered.length)} of {filtered.length}</small></div>}</> : <div className="empty-state"><b>No matches yet.</b><p>Try a different flavour, brand, or category.</p></div>}
     </section>
