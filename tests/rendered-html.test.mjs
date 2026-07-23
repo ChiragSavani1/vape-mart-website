@@ -46,6 +46,10 @@ test("uses exact Envi Apex artwork and price-validated e-liquid bottle sizes", a
   assert.equal(flavourBeast60.length, 30);
   assert.equal(flavourBeast60.every(product => auditedBySlug.get(product.slug)?.expectedVolume === "60 mL"), true);
   assert.equal(auditedBySlug.get("lemon-drop-boost-blue-razz-33079")?.expectedVolume, "30 mL");
-  assert.match(storefront, /arrivalPosters/);
+  assert.match(storefront, /arrivalBanners/);
+  assert.match(storefront, /\/banners\/envi-apex-new-arrivals\.webp/);
+  assert.match(storefront, /\/banners\/flavour-beast-60ml\.webp/);
+  assert.match(storefront, /\/banners\/sour-gushin-60ml\.webp/);
+  assert.doesNotMatch(storefront, /promo-band/);
   assert.match(storefront, /5500/);
 });

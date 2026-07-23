@@ -104,27 +104,18 @@ export function ProductCard({ product }: { product: Product }) {
   </article>;
 }
 
-const arrivalPosters = [
+const arrivalBanners = [
   {
-    eyebrow: "New arrival · Envi Apex",
-    title: "Small format. Big flavour.",
-    copy: "The Envi Apex 2500 range is now easier to browse with exact flavour artwork.",
-    productSlug: "envi-apex-2500-mango-iced-99009",
-    theme: "poster-charcoal",
+    src: "/banners/envi-apex-new-arrivals.webp",
+    alt: "Envi Apex 2500 new arrivals — 13 flavours now in the Vape Mart catalogue",
   },
   {
-    eyebrow: "Fresh in store · 60 mL",
-    title: "Flavour Beast, sized right.",
-    copy: "Explore the latest full-size salt collection with verified 60 mL bottle images.",
-    productSlug: "fb-60ml-gushin-watermelon-apple-58277",
-    theme: "poster-silver",
+    src: "/banners/flavour-beast-60ml.webp",
+    alt: "Flavour Beast 60 millilitre e-liquid collection",
   },
   {
-    eyebrow: "New arrivals · Sour Gushin",
-    title: "Turn up the sour.",
-    copy: "Five vivid Sour Gushin flavours have joined the 60 mL catalogue.",
-    productSlug: "fb-60ml-gushin-sour-strawberry-kiwi-58369",
-    theme: "poster-white",
+    src: "/banners/sour-gushin-60ml.webp",
+    alt: "Sour Gushin 60 millilitre new flavours",
   },
 ];
 
@@ -133,10 +124,10 @@ function HeroCarousel() {
   const [paused, setPaused] = useState(false);
   useEffect(() => {
     if (paused) return;
-    const timer = window.setInterval(() => setActive(value => (value + 1) % arrivalPosters.length), 5500);
+    const timer = window.setInterval(() => setActive(value => (value + 1) % arrivalBanners.length), 5500);
     return () => window.clearInterval(timer);
   }, [paused]);
-  const select = (index: number) => setActive((index + arrivalPosters.length) % arrivalPosters.length);
+  const select = (index: number) => setActive((index + arrivalBanners.length) % arrivalBanners.length);
   return <section
     className="hero-carousel"
     aria-label="New arrivals"
@@ -144,45 +135,26 @@ function HeroCarousel() {
     onMouseEnter={() => setPaused(true)}
     onMouseLeave={() => setPaused(false)}
   >
-    <div className="poster-stack">
-      {arrivalPosters.map((poster, index) => {
-        const product = products.find(item => item.slug === poster.productSlug) || products[0];
-        return <article className={`hero-poster ${poster.theme} ${index === active ? "active" : ""}`} aria-hidden={index !== active} key={poster.title}>
-          <div className="poster-copy">
-            <p className="eyebrow">{poster.eyebrow}</p>
-            <h1>{poster.title}</h1>
-            <p>{poster.copy}</p>
-            <div className="hero-actions">
-              <a className="primary" href="#catalogue">Browse new arrivals</a>
-              <Link className="poster-link" href={`/products/${product.slug}`}>View featured product →</Link>
-            </div>
-            <div className="hero-note"><span>✓</span> Catalogue only — check in-store availability before visiting</div>
-          </div>
-          <div className="poster-art">
-            <div className="poster-orbit orbit-one"/>
-            <div className="poster-orbit orbit-two"/>
-            <div className="poster-product"><ProductArt product={product}/></div>
-            <div className="poster-stamp">NEW<br/><b>ARRIVAL</b></div>
-            <div className="poster-product-name">{product.name}</div>
-          </div>
-        </article>;
-      })}
+    <div className="banner-stack">
+      {arrivalBanners.map((banner, index) => <a
+        className={`banner-slide ${index === active ? "active" : ""}`}
+        href="#catalogue"
+        aria-hidden={index !== active}
+        tabIndex={index === active ? 0 : -1}
+        key={banner.src}
+      ><img src={banner.src} alt={banner.alt}/></a>)}
     </div>
     <button className="carousel-arrow previous" onClick={() => select(active - 1)} aria-label="Previous poster">←</button>
     <button className="carousel-arrow next" onClick={() => select(active + 1)} aria-label="Next poster">→</button>
     <div className="carousel-dots">
-      {arrivalPosters.map((poster, index) => <button
+      {arrivalBanners.map((banner, index) => <button
         className={index === active ? "active" : ""}
         onClick={() => select(index)}
-        aria-label={`Show poster ${index + 1}: ${poster.title}`}
+        aria-label={`Show banner ${index + 1}: ${banner.alt}`}
         aria-current={index === active}
-        key={poster.title}
+        key={banner.src}
       />)}
     </div>
-    <div className="arrival-ticker" aria-hidden="true"><div>
-      <span>NEW ARRIVALS</span><i>✦</i><span>ENVI APEX 2500</span><i>✦</i><span>FLAVOUR BEAST 60 mL</span><i>✦</i><span>SOUR GUSHIN</span><i>✦</i>
-      <span>NEW ARRIVALS</span><i>✦</i><span>ENVI APEX 2500</span><i>✦</i><span>FLAVOUR BEAST 60 mL</span><i>✦</i><span>SOUR GUSHIN</span><i>✦</i>
-    </div></div>
   </section>;
 }
 
@@ -205,8 +177,6 @@ export function Storefront() {
     <section id="categories" className="section category-section"><p className="eyebrow">Browse your way</p><div className="section-heading"><h2>Shop by category</h2><a href="#catalogue">View all products →</a></div>
       <div className="category-grid">{categories.slice(1).map((cat, i) => <button key={cat} onClick={() => { setCategory(cat); document.querySelector("#catalogue")?.scrollIntoView({ behavior: "smooth" }); }}><span>{["✦","◈","◉","◇","●"][i % 5]}</span><b>{cat}</b><small>{products.filter(p => p.category === cat).length} products</small></button>)}</div>
     </section>
-
-    <section className="promo-band"><div><p className="eyebrow">Now in the catalogue</p><h2>More choice.<br/>One local store.</h2><p>Browse the current RetailzPOS catalogue and ask us to confirm in-store availability.</p><a className="light-button" href="#catalogue">Explore all products</a></div><div className="promo-type">OVER<br/><strong>900</strong><small>non-hardware products</small></div></section>
 
     <section id="catalogue" className="section catalogue-section"><p className="eyebrow">The catalogue</p><div className="section-heading"><h2>What are you looking for?</h2><span>{filtered.length} products</span></div>
       <div className="catalogue-controls">

@@ -16,7 +16,7 @@ export type Product = {
 
 import { importedProducts } from "./products.generated";
 
-export const products: Product[] = importedProducts;
+export const products: Product[] = importedProducts.filter(product => product.category !== "Null");
 export const categories = ["All products", ...Array.from(new Set(products.map(product => product.category))).sort()];
 export const brands = ["All brands", ...Array.from(new Set(products.map(product => product.brand))).sort()];
 export const getProductVolume = (product: Product) =>

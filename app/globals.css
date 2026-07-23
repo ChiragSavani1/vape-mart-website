@@ -33,3 +33,22 @@ h1 em,.eyebrow{color:#666}.primary{background:#111;color:#fff;border:1px solid #
 @media(max-width:900px){.poster-stack{min-height:820px}.hero-poster{grid-template-columns:1fr;padding:60px 64px 80px;gap:20px}.poster-copy h1{font-size:clamp(50px,10vw,82px)}.poster-art{min-height:330px}.poster-product{width:200px}.orbit-one{width:300px;height:300px}.orbit-two{width:220px;height:220px}.poster-stamp{right:15%;width:92px;height:92px}.carousel-dots{left:64px}.carousel-arrow.previous{left:12px}.carousel-arrow.next{right:12px}}
 @media(max-width:600px){.poster-stack{min-height:760px}.hero-poster{padding:45px 24px 74px}.poster-copy h1{font-size:48px}.poster-copy>p:not(.eyebrow){font-size:16px;margin:18px 0}.poster-copy .hero-actions{gap:16px}.poster-art{min-height:280px}.poster-product{width:165px}.orbit-one{width:250px;height:250px}.orbit-two{width:185px;height:185px}.poster-stamp{right:4%;top:4%;width:78px;height:78px;font-size:8px}.poster-product-name{right:2%;bottom:2%;max-width:180px;font-size:9px}.carousel-dots{left:24px;bottom:50px}.carousel-arrow{display:none}.arrival-ticker>div{gap:20px}.product-card:hover{transform:translateY(-4px)}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero-poster,.poster-product,.poster-orbit,.poster-stamp,.arrival-ticker>div,.product-card{animation:none!important;transition:none!important}.product-card:hover{transform:none}}
+
+/* Image-led promotional banner carousel */
+.hero-carousel{background:#080808;border-bottom:1px solid #222}
+.banner-stack{position:relative;width:100%;aspect-ratio:48/17;min-height:0}
+.banner-slide{position:absolute;inset:0;display:block;opacity:0;visibility:hidden;transform:scale(1.012);transition:opacity .75s ease,transform 1.1s cubic-bezier(.2,.8,.2,1),visibility .75s;pointer-events:none}
+.banner-slide.active{opacity:1;visibility:visible;transform:scale(1);pointer-events:auto;z-index:1}
+.banner-slide img{display:block;width:100%;height:100%;object-fit:cover}
+.hero-carousel .carousel-dots{left:50%;bottom:20px;transform:translateX(-50%);mix-blend-mode:normal}
+.hero-carousel .carousel-dots button{width:11px;height:11px;border:2px solid #fff;border-radius:50%;background:rgba(0,0,0,.32);box-shadow:0 2px 8px rgba(0,0,0,.35)}
+.hero-carousel .carousel-dots button.active{width:34px;border-radius:8px;background:#fff}
+.hero-carousel .carousel-arrow{top:50%;transform:translateY(-50%)}
+.hero-carousel .carousel-arrow:hover{transform:translateY(-50%) scale(1.07)}
+@media(max-width:700px){
+  .banner-stack{aspect-ratio:48/17}
+  .hero-carousel .carousel-dots{bottom:8px;gap:5px}
+  .hero-carousel .carousel-dots button{width:7px;height:7px;border-width:1px}
+  .hero-carousel .carousel-dots button.active{width:22px}
+}
+@media(prefers-reduced-motion:reduce){.banner-slide{transition:none!important}}
