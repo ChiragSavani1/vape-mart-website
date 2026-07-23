@@ -41,12 +41,12 @@ A deployable, age-gated product catalogue for an Ontario physical retail store. 
 
 ## Before production
 
-The homepage intentionally contains sample catalogue items and placeholder store contact details because the supplied project folder did not contain the referenced VAPE MART workbook, confirmed street address, phone number, or distributor image files. Before public launch:
+The current catalogue was generated from `/Users/chiragsavani/Downloads/VAPE MART.xlsx`: 1,037 source rows produced 902 valid non-Hardware products, with 116 Hardware rows excluded and no duplicate UPCs. The address and requested hours are current. The phone number remains a placeholder because a confirmed number was not provided.
 
-1. In Admin → Store, replace the placeholder address and phone number.
+1. In Admin → Store, replace the placeholder phone number.
 2. Add the real admin email to `ADMIN_EMAILS`.
-3. Import the RetailzPOS workbook.
-4. Review product names, prices, and missing items.
+3. Review the imported product names and prices.
+4. Provide a selective distributor file listing or smaller product-image export; the Valor shared-folder archive is approximately 38 GB and could not be safely downloaded wholesale.
 5. Sync distributor images and approve matches.
 6. Configure and test the email sender.
 7. Have Ontario counsel review the legal copy and required warnings.
@@ -147,8 +147,8 @@ Server failures use structured console labels such as `inquiry_create_failed` an
 
 ## Client handover checklist
 
-- Replace placeholder store details
-- Add real catalogue workbook
+- Replace the placeholder phone number
+- Review the imported 902-product catalogue
 - Verify no Hardware products are visible
 - Approve product-image matches
 - Configure sender domain and run test emails

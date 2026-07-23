@@ -53,6 +53,7 @@ function AgeGate() {
 }
 
 export function ProductArt({ product }: { product: Product }) {
+  if (product.image) return <div className="product-art product-photo"><img src={product.image} alt="" /></div>;
   return <div className="product-art" style={{ "--accent": product.accent } as React.CSSProperties}>
     <span className="art-brand">{product.brand}</span>
     <strong>{product.flavour}</strong>
@@ -106,11 +107,13 @@ export function Storefront() {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All products");
   const [brand, setBrand] = useState("All brands");
+  const [limit, setLimit] = useState(24);
   const filtered = useMemo(() => products.filter(p =>
     (category === "All products" || p.category === category) &&
     (brand === "All brands" || p.brand === brand) &&
     `${p.name} ${p.brand} ${p.flavour}`.toLowerCase().includes(query.toLowerCase())
   ), [query, category, brand]);
+  useEffect(() => setLimit(24), [query, category, brand]);
   return <><AgeGate /><Header /><main>
     <section className="hero">
       <div className="hero-copy"><p className="eyebrow">Ontario · Adults 19+ only</p><h1>Find your flavour.<br/><em>Check it in store.</em></h1>
@@ -124,10 +127,10 @@ export function Storefront() {
     <section className="trust-strip"><span>19+ age verified</span><span>Ontario retail store</span><span>Fast availability replies</span><span>Trusted brands</span></section>
 
     <section id="categories" className="section category-section"><p className="eyebrow">Browse your way</p><div className="section-heading"><h2>Shop by category</h2><a href="#catalogue">View all products →</a></div>
-      <div className="category-grid">{categories.slice(1).map((cat, i) => <button key={cat} onClick={() => { setCategory(cat); document.querySelector("#catalogue")?.scrollIntoView({ behavior: "smooth" }); }}><span>{["✦","◈","◉"][i]}</span><b>{cat}</b><small>{products.filter(p => p.category === cat).length} products</small></button>)}</div>
+      <div className="category-grid">{categories.slice(1).map((cat, i) => <button key={cat} onClick={() => { setCategory(cat); document.querySelector("#catalogue")?.scrollIntoView({ behavior: "smooth" }); }}><span>{["✦","◈","◉","◇","●"][i % 5]}</span><b>{cat}</b><small>{products.filter(p => p.category === cat).length} products</small></button>)}</div>
     </section>
 
-    <section className="promo-band"><div><p className="eyebrow">This week in store</p><h2>Featured flavours.<br/>Limited-time prices.</h2><p>Promotions are available at the physical store while quantities last.</p><a className="light-button" href="#catalogue">Explore featured products</a></div><div className="promo-type">SAVE<br/><strong>$5</strong><small>on selected items</small></div></section>
+    <section className="promo-band"><div><p className="eyebrow">Now in the catalogue</p><h2>More choice.<br/>One local store.</h2><p>Browse the current RetailzPOS catalogue and ask us to confirm in-store availability.</p><a className="light-button" href="#catalogue">Explore all products</a></div><div className="promo-type">OVER<br/><strong>900</strong><small>non-hardware products</small></div></section>
 
     <section id="catalogue" className="section catalogue-section"><p className="eyebrow">The catalogue</p><div className="section-heading"><h2>What are you looking for?</h2><span>{filtered.length} products</span></div>
       <div className="catalogue-controls">
@@ -135,9 +138,9 @@ export function Storefront() {
         <select value={category} onChange={e => setCategory(e.target.value)} aria-label="Filter by category">{categories.map(x => <option key={x}>{x}</option>)}</select>
         <select value={brand} onChange={e => setBrand(e.target.value)} aria-label="Filter by brand">{brands.map(x => <option key={x}>{x}</option>)}</select>
       </div>
-      {filtered.length ? <div className="product-grid">{filtered.map(p => <ProductCard product={p} key={p.id} />)}</div> : <div className="empty-state"><b>No matches yet.</b><p>Try a different flavour, brand, or category.</p></div>}
+      {filtered.length ? <><div className="product-grid">{filtered.slice(0, limit).map(p => <ProductCard product={p} key={p.id} />)}</div>{limit < filtered.length && <div className="load-more"><button className="primary" onClick={() => setLimit(value => value + 24)}>Load more products</button><small>Showing {Math.min(limit, filtered.length)} of {filtered.length}</small></div>}</> : <div className="empty-state"><b>No matches yet.</b><p>Try a different flavour, brand, or category.</p></div>}
     </section>
 
-    <section className="visit"><div><p className="eyebrow">Come say hello</p><h2>Your local Vape Mart</h2><p>See something you like? Check availability, then visit our Ontario store for age-verified, in-person service.</p><Link className="primary" href="/contact">Store details & hours</Link></div><div className="hours-card"><b>Today’s hours</b><strong>10:00 AM — 9:00 PM</strong><span>{store.address}</span></div></section>
+    <section className="visit"><div><p className="eyebrow">Come say hello</p><h2>Your local Vape Mart</h2><p>See something you like? Check availability, then visit our Barrie store for age-verified, in-person service.</p><Link className="primary" href="/contact">Store details & hours</Link></div><div className="hours-card"><b>Weekday hours</b><strong>9:00 AM — 10:00 PM</strong><span>{store.address}</span></div></section>
   </main><Footer /></>;
 }
