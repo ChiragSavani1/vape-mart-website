@@ -50,7 +50,7 @@ test("uses exact Envi Apex artwork and price-validated e-liquid bottle sizes", a
   assert.match(storefront, /\/banners\/envi-apex-new-arrivals\.webp/);
   assert.match(storefront, /\/banners\/flavour-beast-60ml\.webp/);
   assert.match(storefront, /\/banners\/sour-gushin-60ml\.webp/);
-  assert.match(storefront, /\/brand\/vape-mart-store-symbol\.webp/);
+  assert.match(storefront, /\/brand\/vape-mart-logo\.png/);
   assert.match(storefront, /priceRanges/);
   assert.match(storefront, /Filter by price/);
   assert.doesNotMatch(storefront, /promo-band/);

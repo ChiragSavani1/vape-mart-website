@@ -5,7 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { brands, categories, getProductVolume, products, type Product, store } from "./data";
 
 function Logo() {
-  return <Link className="logo" href="/"><span><img src="/brand/vape-mart-store-symbol.webp" alt="" /></span> VAPE MART</Link>;
+  return <Link className="logo" href="/"><span><img src="/brand/vape-mart-logo.png" alt="" /></span> VAPE MART</Link>;
 }
 
 export function Header() {
