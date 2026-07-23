@@ -180,7 +180,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/fb-50k-mega-mango-78261.webp"
   },
   {
     "id": "827152178247",
@@ -333,7 +334,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/fb-50k-orange-sparkle-01990.webp"
   },
   {
     "id": "827152202058",
@@ -346,7 +348,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/fb-50k-cherry-classic-02058.webp"
   },
   {
     "id": "827152178315",
@@ -429,7 +432,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/fb-50k-vibin-vanana-78308.webp"
   },
   {
     "id": "827152178292",
@@ -540,7 +544,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/fb-50k-matata-ice-38958.webp"
   },
   {
     "id": "827152238941",
@@ -553,7 +558,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/fb-50k-hakuna-ice-38941.webp"
   },
   {
     "id": "827152238972",
@@ -566,7 +572,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/fb-50k-tropika-ice-38972.webp"
   },
   {
     "id": "827152238934",
@@ -579,7 +586,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/fb-50k-kanzi-ice-38934.webp"
   },
   {
     "id": "827152238989",
@@ -592,7 +600,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/fb-50k-mangabyes-38989.webp"
   },
   {
     "id": "6942417238499",
@@ -604,7 +613,8 @@ export const importedProducts: Product[] = [
     "flavour": "Icon bar strawberry kiwi",
     "price": 21.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/icon-bar-strawberry-kiwi-38499.webp"
   },
   {
     "id": "6970925918497",
@@ -616,7 +626,8 @@ export const importedProducts: Product[] = [
     "flavour": "Icon bar mango ice",
     "price": 21.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/icon-bar-mango-ice-18497.webp"
   },
   {
     "id": "6975788629627",
@@ -628,7 +639,8 @@ export const importedProducts: Product[] = [
     "flavour": "Icon bar lychee ice",
     "price": 21.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/icon-bar-lychee-ice-29627.webp"
   },
   {
     "id": "6975788623601",
@@ -640,7 +652,8 @@ export const importedProducts: Product[] = [
     "flavour": "Icon bar watermelon strawberry",
     "price": 21.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/icon-bar-watermelon-strawberry-23601.webp"
   },
   {
     "id": "6975788623618",
@@ -652,7 +665,8 @@ export const importedProducts: Product[] = [
     "flavour": "Icon bar pink lemon",
     "price": 21.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/icon-bar-pink-lemon-23618.webp"
   },
   {
     "id": "6970925918619",
@@ -664,7 +678,8 @@ export const importedProducts: Product[] = [
     "flavour": "Icon bar cherry ice",
     "price": 21.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/icon-bar-cherry-ice-18619.webp"
   },
   {
     "id": "6970925918626",
@@ -676,7 +691,8 @@ export const importedProducts: Product[] = [
     "flavour": "Icon bar kiwi guava passionfruit",
     "price": 21.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/icon-bar-kiwi-guava-passionfruit-18626.webp"
   },
   {
     "id": "6975788629641",
@@ -688,7 +704,8 @@ export const importedProducts: Product[] = [
     "flavour": "Icon bar mint",
     "price": 21.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/icon-bar-mint-29641.webp"
   },
   {
     "id": "6975788623663",
@@ -700,7 +717,8 @@ export const importedProducts: Product[] = [
     "flavour": "Icon bar grape ice",
     "price": 21.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/icon-bar-grape-ice-23663.webp"
   },
   {
     "id": "6970925918510",
@@ -712,7 +730,8 @@ export const importedProducts: Product[] = [
     "flavour": "Icon bar watermelon ice",
     "price": 21.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/icon-bar-watermelon-ice-18510.webp"
   },
   {
     "id": "6975788629634",
@@ -724,7 +743,8 @@ export const importedProducts: Product[] = [
     "flavour": "Icon bar guava ice",
     "price": 21.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/icon-bar-guava-ice-29634.webp"
   },
   {
     "id": "6975788623670",
@@ -736,7 +756,8 @@ export const importedProducts: Product[] = [
     "flavour": "Icon bar sour apple ice",
     "price": 21.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/icon-bar-sour-apple-ice-23670.webp"
   },
   {
     "id": "6975788623588",
@@ -748,7 +769,8 @@ export const importedProducts: Product[] = [
     "flavour": "Icon bar classic fizz",
     "price": 21.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/icon-bar-classic-fizz-23588.webp"
   },
   {
     "id": "6942417238512",
@@ -760,7 +782,8 @@ export const importedProducts: Product[] = [
     "flavour": "Icon bar triple melon",
     "price": 21.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/icon-bar-triple-melon-38512.webp"
   },
   {
     "id": "6975788623649",
@@ -784,7 +807,8 @@ export const importedProducts: Product[] = [
     "flavour": "Icon bar blue razz ice",
     "price": 21.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/icon-bar-blue-razz-ice-38505.webp"
   },
   {
     "id": "6942417238482",
@@ -796,7 +820,8 @@ export const importedProducts: Product[] = [
     "flavour": "Icon bar raspberry dragon fruit ice",
     "price": 21.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/icon-bar-raspberry-dragon-fruit-ice-38482.webp"
   },
   {
     "id": "6975788623786",
@@ -808,7 +833,8 @@ export const importedProducts: Product[] = [
     "flavour": "Icon bar lemon peach passion fruit",
     "price": 21.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/icon-bar-lemon-peach-passion-fruit-23786.webp"
   },
   {
     "id": "6975788629658",
@@ -820,7 +846,8 @@ export const importedProducts: Product[] = [
     "flavour": "Icon bar dragon fruit strawberry ice",
     "price": 21.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/icon-bar-dragon-fruit-strawberry-ice-29658.webp"
   },
   {
     "id": "6970925918534",
@@ -832,7 +859,8 @@ export const importedProducts: Product[] = [
     "flavour": "Icon bar blueberry sour raspberry",
     "price": 21.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/icon-bar-blueberry-sour-raspberry-18534.webp"
   },
   {
     "id": "827152097838",
@@ -844,7 +872,8 @@ export const importedProducts: Product[] = [
     "flavour": "Allo 2500",
     "price": 31.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/allo-2500-banana-ice-97838.webp"
   },
   {
     "id": "827152097869",
@@ -856,7 +885,8 @@ export const importedProducts: Product[] = [
     "flavour": "Allo 2500",
     "price": 31.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/allo-2500-blue-raspberry-97869.webp"
   },
   {
     "id": "827152097814",
@@ -868,7 +898,8 @@ export const importedProducts: Product[] = [
     "flavour": "Allo 2500",
     "price": 31.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/allo-2500-blueberry-ice-97814.webp"
   },
   {
     "id": "827152097975",
@@ -880,7 +911,8 @@ export const importedProducts: Product[] = [
     "flavour": "Allo 2500",
     "price": 31.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/allo-2500-juicy-mango-97975.webp"
   },
   {
     "id": "827152097883",
@@ -892,7 +924,8 @@ export const importedProducts: Product[] = [
     "flavour": "Allo 2500",
     "price": 31.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/allo-2500-fruity-explosion-97883.webp"
   },
   {
     "id": "827152098019",
@@ -904,7 +937,8 @@ export const importedProducts: Product[] = [
     "flavour": "Allo 2500",
     "price": 31.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/allo-2500-mixed-berries-98019.webp"
   },
   {
     "id": "827152097944",
@@ -916,7 +950,8 @@ export const importedProducts: Product[] = [
     "flavour": "Allo 2500",
     "price": 31.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/allo-2500-green-apple-97944.webp"
   },
   {
     "id": "827152098071",
@@ -928,7 +963,8 @@ export const importedProducts: Product[] = [
     "flavour": "Allo 2500",
     "price": 31.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/allo-2500-peach-98071.webp"
   },
   {
     "id": "827152098101",
@@ -940,7 +976,8 @@ export const importedProducts: Product[] = [
     "flavour": "Allo 2500",
     "price": 31.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/allo-2500-strawberry-kiwi-98101.webp"
   },
   {
     "id": "827152098149",
@@ -952,7 +989,8 @@ export const importedProducts: Product[] = [
     "flavour": "Allo 2500",
     "price": 31.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/allo-2500-spearmint-98149.webp"
   },
   {
     "id": "827152098170",
@@ -964,7 +1002,8 @@ export const importedProducts: Product[] = [
     "flavour": "Allo 2500",
     "price": 31.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/allo-2500-watermelon-ice-98170.webp"
   },
   {
     "id": "827152098125",
@@ -976,7 +1015,8 @@ export const importedProducts: Product[] = [
     "flavour": "Allo 2500",
     "price": 31.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/allo-2500-strawberry-banana-98125.webp"
   },
   {
     "id": "827152098002",
@@ -988,7 +1028,8 @@ export const importedProducts: Product[] = [
     "flavour": "Allo 2500",
     "price": 31.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/allo-2500-lemon-lime-cranberry-98002.webp"
   },
   {
     "id": "827152097555",
@@ -1000,7 +1041,8 @@ export const importedProducts: Product[] = [
     "flavour": "Allo 1600",
     "price": 26.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/allo-1600-banana-ice-97555.webp"
   },
   {
     "id": "827152097777",
@@ -1012,7 +1054,8 @@ export const importedProducts: Product[] = [
     "flavour": "Allo 1600",
     "price": 26.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/allo-1600-watermelon-ice-97777.webp"
   },
   {
     "id": "827152097760",
@@ -1024,7 +1067,8 @@ export const importedProducts: Product[] = [
     "flavour": "Allo 1600",
     "price": 26.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/allo-1600-strawberry-97760.webp"
   },
   {
     "id": "827152097739",
@@ -1036,7 +1080,8 @@ export const importedProducts: Product[] = [
     "flavour": "Allo 1600",
     "price": 26.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/allo-1600-strawberry-kiwi-97739.webp"
   },
   {
     "id": "827152097708",
@@ -1048,7 +1093,8 @@ export const importedProducts: Product[] = [
     "flavour": "Allo 1600",
     "price": 26.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/allo-1600-peach-97708.webp"
   },
   {
     "id": "827152097722",
@@ -1060,7 +1106,8 @@ export const importedProducts: Product[] = [
     "flavour": "Allo 1600",
     "price": 26.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/allo-1600-pink-lemon-97722.webp"
   },
   {
     "id": "827152097654",
@@ -1072,7 +1119,8 @@ export const importedProducts: Product[] = [
     "flavour": "Allo 1600",
     "price": 26.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/allo-1600-lychee-watermelon-strawberry-97654.webp"
   },
   {
     "id": "827152097623",
@@ -1084,7 +1132,8 @@ export const importedProducts: Product[] = [
     "flavour": "Allo 1600",
     "price": 26.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/allo-1600-juicy-mango-97623.webp"
   },
   {
     "id": "827152097616",
@@ -1096,7 +1145,8 @@ export const importedProducts: Product[] = [
     "flavour": "Allo 1600",
     "price": 26.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/allo-1600-grape-ice-97616.webp"
   },
   {
     "id": "827152097593",
@@ -1108,7 +1158,8 @@ export const importedProducts: Product[] = [
     "flavour": "Allo 1600",
     "price": 26.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/allo-1600-fuji-apple-ice-97593.webp"
   },
   {
     "id": "827152097531",
@@ -1120,7 +1171,8 @@ export const importedProducts: Product[] = [
     "flavour": "Allo 1600",
     "price": 26.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/allo-1600-blueberry-ice-97531.webp"
   },
   {
     "id": "827152097548",
@@ -1132,7 +1184,8 @@ export const importedProducts: Product[] = [
     "flavour": "Allo 1600",
     "price": 26.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/allo-1600-blue-raspberry-lemon-97548.webp"
   },
   {
     "id": "827152097562",
@@ -1144,7 +1197,8 @@ export const importedProducts: Product[] = [
     "flavour": "Allo 1600",
     "price": 26.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/allo-1600-blue-raspberry-97562.webp"
   },
   {
     "id": "827152098064",
@@ -1205,7 +1259,8 @@ export const importedProducts: Product[] = [
     "price": 50.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "80,000"
+    "puffCount": "80,000",
+    "image": "/products/catalog/stlth-x-geekbar-blueberry-watermelon-ice-80k-24659.webp"
   },
   {
     "id": "691584124734",
@@ -1218,7 +1273,8 @@ export const importedProducts: Product[] = [
     "price": 50.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "80,000"
+    "puffCount": "80,000",
+    "image": "/products/catalog/stlth-x-geekbar-mango-peach-ice-80k-24734.webp"
   },
   {
     "id": "691584124635",
@@ -1231,7 +1287,8 @@ export const importedProducts: Product[] = [
     "price": 50.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "80,000"
+    "puffCount": "80,000",
+    "image": "/products/catalog/stlth-x-geekbar-banana-burst-ice-80k-24635.webp"
   },
   {
     "id": "691584124666",
@@ -1244,7 +1301,8 @@ export const importedProducts: Product[] = [
     "price": 50.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "80,000"
+    "puffCount": "80,000",
+    "image": "/products/catalog/stlth-x-geekbar-cherry-blast-ice-80k-24666.webp"
   },
   {
     "id": "691584124697",
@@ -1256,7 +1314,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth x Geek bar",
     "price": 50.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-x-geekbar-green-apple-ice-24697.webp"
   },
   {
     "id": "691584124703",
@@ -1269,7 +1328,8 @@ export const importedProducts: Product[] = [
     "price": 50.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "80,000"
+    "puffCount": "80,000",
+    "image": "/products/catalog/stlth-x-geekbar-ice-mint-80k-24703.webp"
   },
   {
     "id": "691584124727",
@@ -1281,7 +1341,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth x Geek bar",
     "price": 50.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-x-geekbar-juicy-peach-ice-24727.webp"
   },
   {
     "id": "691584125434",
@@ -1294,7 +1355,8 @@ export const importedProducts: Product[] = [
     "price": 50.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "80,000"
+    "puffCount": "80,000",
+    "image": "/products/catalog/stlth-x-geekbar-tropical-mango-80k-25434.webp"
   },
   {
     "id": "691584125427",
@@ -1307,7 +1369,8 @@ export const importedProducts: Product[] = [
     "price": 50.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "80,000"
+    "puffCount": "80,000",
+    "image": "/products/catalog/stlth-x-geekbar-strawberry-kiwi-ice-80k-25427.webp"
   },
   {
     "id": "691584125441",
@@ -1320,7 +1383,8 @@ export const importedProducts: Product[] = [
     "price": 50.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "80,000"
+    "puffCount": "80,000",
+    "image": "/products/catalog/stlth-x-geekbar-wild-watermelon-ice-80k-25441.webp"
   },
   {
     "id": "691584124642",
@@ -1332,7 +1396,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth x Geek bar",
     "price": 50.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-x-geekbar-blue-razz-24642.webp"
   },
   {
     "id": "691584124758",
@@ -1344,7 +1409,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth x Geek bar",
     "price": 50.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-x-geekbar-purple-grape-ice-24758.webp"
   },
   {
     "id": "691584124765",
@@ -1357,7 +1423,8 @@ export const importedProducts: Product[] = [
     "price": 50.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "80,000"
+    "puffCount": "80,000",
+    "image": "/products/catalog/stlth-x-geekbar-red-punch-ice-80k-24765.webp"
   },
   {
     "id": "6937643590473",
@@ -1370,7 +1437,8 @@ export const importedProducts: Product[] = [
     "price": 40.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/lost-mary-muskoka-mint-50k-90473.webp"
   },
   {
     "id": "6937643590503",
@@ -1382,7 +1450,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lost mary 50k",
     "price": 40.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lost-mary-mango-berry-chill-90503.webp"
   },
   {
     "id": "6937643590534",
@@ -1394,7 +1463,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lost mary 50k",
     "price": 40.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lost-mary-white-grape-ice-90534.webp"
   },
   {
     "id": "6937643590558",
@@ -1407,7 +1477,8 @@ export const importedProducts: Product[] = [
     "price": 40.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/lost-mary-bomb-blue-razz-50k-90558.webp"
   },
   {
     "id": "6937643590480",
@@ -1420,7 +1491,8 @@ export const importedProducts: Product[] = [
     "price": 40.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/lost-mary-strawberry-kiwi-ice-50k-90480.webp"
   },
   {
     "id": "6937643590565",
@@ -1433,7 +1505,8 @@ export const importedProducts: Product[] = [
     "price": 40.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/lost-mary-juicy-peach-ice-50k-90565.webp"
   },
   {
     "id": "6937643590541",
@@ -1446,7 +1519,8 @@ export const importedProducts: Product[] = [
     "price": 40.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/lost-mary-tropical-frost-50k-90541.webp"
   },
   {
     "id": "6937643590510",
@@ -1459,7 +1533,8 @@ export const importedProducts: Product[] = [
     "price": 40.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/lost-mary-frozen-pineapple-50k-90510.webp"
   },
   {
     "id": "691584096406",
@@ -1472,7 +1547,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/stlth-titan-max-banana-ice-50k-96406.webp"
   },
   {
     "id": "691584096437",
@@ -1485,7 +1561,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/stlth-titan-max-blue-razz-50k-96437.webp"
   },
   {
     "id": "691584096482",
@@ -1498,7 +1575,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/stlth-titan-max-juicy-grapefruit-ice-50k-96482.webp"
   },
   {
     "id": "691584096499",
@@ -1511,7 +1589,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/stlth-titan-max-juicy-peach-ice-50k-96499.webp"
   },
   {
     "id": "691584096451",
@@ -1524,7 +1603,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/stlth-titan-max-cherry-classic-ice-50k-96451.webp"
   },
   {
     "id": "691584096420",
@@ -1537,7 +1617,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/stlth-titan-max-blue-peach-ice-50k-96420.webp"
   },
   {
     "id": "691584096659",
@@ -1550,7 +1631,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/stlth-titan-max-white-grape-ice-50k-96659.webp"
   },
   {
     "id": "691584096550",
@@ -1563,7 +1645,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/stlth-titan-max-quad-berry-ice-50k-96550.webp"
   },
   {
     "id": "691584096642",
@@ -1576,7 +1659,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/stlth-titan-max-tropical-mango-ice-50k-96642.webp"
   },
   {
     "id": "691584096666",
@@ -1589,7 +1673,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/stlth-titan-max-white-grape-melon-ice-50k-96666.webp"
   },
   {
     "id": "691584096611",
@@ -1602,7 +1687,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/stlth-titan-max-spearmint-50k-96611.webp"
   },
   {
     "id": "691584096628",
@@ -1615,7 +1701,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/stlth-titan-max-strawberry-kiwi-ice-50k-96628.webp"
   },
   {
     "id": "691584096635",
@@ -1628,7 +1715,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/stlth-titan-max-strawnana-orange-ice-50k-96635.webp"
   },
   {
     "id": "691584096604",
@@ -1641,7 +1729,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/stlth-titan-max-smooth-mint-50k-96604.webp"
   },
   {
     "id": "691584096567",
@@ -1654,7 +1743,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/stlth-titan-max-razz-currant-ice-50k-96567.webp"
   },
   {
     "id": "691584096543",
@@ -1667,7 +1757,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/stlth-titan-max-punch-ice-50k-96543.webp"
   },
   {
     "id": "691584126899",
@@ -1680,7 +1771,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/stlth-titan-max-sour-blue-razz-50k-26899.webp"
   },
   {
     "id": "691584096390",
@@ -1693,7 +1785,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/stlth-titan-max-apple-kiwi-ice-50k-96390.webp"
   },
   {
     "id": "691584096512",
@@ -1706,7 +1799,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/catalog/stlth-titan-max-peach-white-grape-ice-50k-96512.webp"
   },
   {
     "id": "691584125410",
@@ -1719,7 +1813,8 @@ export const importedProducts: Product[] = [
     "price": 50.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "80,000"
+    "puffCount": "80,000",
+    "image": "/products/catalog/stlth-x-geekbar-strawberry-banana-ice-80k-25410.webp"
   },
   {
     "id": "691584124741",
@@ -1732,7 +1827,8 @@ export const importedProducts: Product[] = [
     "price": 50.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "80,000"
+    "puffCount": "80,000",
+    "image": "/products/catalog/stlth-x-geekbar-peach-berry-ice-80k-24741.webp"
   },
   {
     "id": "827152235131",
@@ -1745,7 +1841,8 @@ export const importedProducts: Product[] = [
     "price": 28.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "16,000"
+    "puffCount": "16,000",
+    "image": "/products/catalog/dripin-16k-banana-ice-35131.webp"
   },
   {
     "id": "827152215157",
@@ -1758,7 +1855,8 @@ export const importedProducts: Product[] = [
     "price": 28.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "16,000"
+    "puffCount": "16,000",
+    "image": "/products/catalog/dripin-16k-green-apple-15157.webp"
   },
   {
     "id": "827152235148",
@@ -1771,7 +1869,8 @@ export const importedProducts: Product[] = [
     "price": 28.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "16,000"
+    "puffCount": "16,000",
+    "image": "/products/catalog/dripin-16k-mint-blast-ice-35148.webp"
   },
   {
     "id": "827152215188",
@@ -1784,7 +1883,8 @@ export const importedProducts: Product[] = [
     "price": 28.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "16,000"
+    "puffCount": "16,000",
+    "image": "/products/catalog/dripin-16k-raspberry-peach-mango-ice-15188.webp"
   },
   {
     "id": "827152215201",
@@ -1797,7 +1897,8 @@ export const importedProducts: Product[] = [
     "price": 28.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "16,000"
+    "puffCount": "16,000",
+    "image": "/products/catalog/dripin-16k-triple-berry-15201.webp"
   },
   {
     "id": "827152215140",
@@ -1810,7 +1911,8 @@ export const importedProducts: Product[] = [
     "price": 28.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "16,000"
+    "puffCount": "16,000",
+    "image": "/products/catalog/dripin-16k-grape-ice-15140.webp"
   },
   {
     "id": "827152215171",
@@ -1823,7 +1925,8 @@ export const importedProducts: Product[] = [
     "price": 28.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "16,000"
+    "puffCount": "16,000",
+    "image": "/products/catalog/dripin-16k-peach-blue-razz-ice-15171.webp"
   },
   {
     "id": "827152215164",
@@ -1835,7 +1938,8 @@ export const importedProducts: Product[] = [
     "flavour": "Dripin 8ml",
     "price": 28.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/dripin-mango-peach-watermelon-15164.webp"
   },
   {
     "id": "827152215126",
@@ -1848,7 +1952,8 @@ export const importedProducts: Product[] = [
     "price": 28.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "16,000"
+    "puffCount": "16,000",
+    "image": "/products/catalog/dripin-16k-blue-razz-15126.webp"
   },
   {
     "id": "827152215133",
@@ -1861,7 +1966,8 @@ export const importedProducts: Product[] = [
     "price": 28.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "16,000"
+    "puffCount": "16,000",
+    "image": "/products/catalog/dripin-16k-electric-fruit-blast-15133.webp"
   },
   {
     "id": "827152215218",
@@ -1874,7 +1980,8 @@ export const importedProducts: Product[] = [
     "price": 28.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "16,000"
+    "puffCount": "16,000",
+    "image": "/products/catalog/dripin-16k-watermelona-cg-15218.webp"
   },
   {
     "id": "827152215195",
@@ -1887,7 +1994,8 @@ export const importedProducts: Product[] = [
     "price": 28.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "16,000"
+    "puffCount": "16,000",
+    "image": "/products/catalog/dripin-16k-snazzy-storm-15195.webp"
   },
   {
     "id": "827152242115",
@@ -1900,7 +2008,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/dripin-70k-strawberry-watermelon-ice-42115.webp"
   },
   {
     "id": "827152235247",
@@ -1913,7 +2022,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/dripin-70k-rb-35247.webp"
   },
   {
     "id": "827152222346",
@@ -1926,7 +2036,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/dripin-70k-green-apple-22346.webp"
   },
   {
     "id": "827152222353",
@@ -1939,7 +2050,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/dripin-70k-mango-peach-watermelon-22353.webp"
   },
   {
     "id": "827152222360",
@@ -1952,7 +2064,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/dripin-70k-peach-blue-razz-ice-22360.webp"
   },
   {
     "id": "827152222377",
@@ -1965,7 +2078,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/dripin-70k-raspberry-peach-mango-ice-22377.webp"
   },
   {
     "id": "827152222339",
@@ -1978,7 +2092,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/dripin-70k-grape-ice-22339.webp"
   },
   {
     "id": "827152235254",
@@ -1991,7 +2106,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/dripin-70k-banana-ice-35254.webp"
   },
   {
     "id": "827152235261",
@@ -2004,7 +2120,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/dripin-70k-mint-blast-ice-35261.webp"
   },
   {
     "id": "827152222391",
@@ -2017,7 +2134,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/dripin-70k-triple-berry-22391.webp"
   },
   {
     "id": "827152222407",
@@ -2030,7 +2148,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/dripin-70k-watermelona-cg-22407.webp"
   },
   {
     "id": "827152168866",
@@ -2043,7 +2162,8 @@ export const importedProducts: Product[] = [
     "price": 43.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "28,000"
+    "puffCount": "28,000",
+    "image": "/products/catalog/dripin-28k-pink-lemon-ice-68866.webp"
   },
   {
     "id": "827152139286",
@@ -2056,7 +2176,8 @@ export const importedProducts: Product[] = [
     "price": 43.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "28,000"
+    "puffCount": "28,000",
+    "image": "/products/catalog/dripin-28k-blueberry-swirl-39286.webp"
   },
   {
     "id": "827152139378",
@@ -2069,7 +2190,8 @@ export const importedProducts: Product[] = [
     "price": 43.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "28,000"
+    "puffCount": "28,000",
+    "image": "/products/catalog/dripin-28k-watermelon-cantaloupe-honeydew-ice-39378.webp"
   },
   {
     "id": "827152139316",
@@ -2082,7 +2204,8 @@ export const importedProducts: Product[] = [
     "price": 43.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "28,000"
+    "puffCount": "28,000",
+    "image": "/products/catalog/dripin-28k-peach-zing-39316.webp"
   },
   {
     "id": "6977863390279",
@@ -2094,7 +2217,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-sour-peach-ice-90279.webp"
   },
   {
     "id": "6977454903314",
@@ -2106,7 +2230,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-razz-mango-ice-03314.webp"
   },
   {
     "id": "6976908877652",
@@ -2118,7 +2243,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-watermelon-ice-77652.webp"
   },
   {
     "id": "6978873090067",
@@ -2130,7 +2256,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-peach-berry-lime-ice-90067.webp"
   },
   {
     "id": "6976908874170",
@@ -2142,7 +2269,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-banana-ice-74170.webp"
   },
   {
     "id": "6977454903130",
@@ -2154,7 +2282,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-juicy-peach-ice-03130.webp"
   },
   {
     "id": "6977863390330",
@@ -2166,7 +2295,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-sour-blue-ice-90330.webp"
   },
   {
     "id": "6976908877553",
@@ -2178,7 +2308,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-mango-pineapple-ice-77553.webp"
   },
   {
     "id": "6977454903352",
@@ -2190,7 +2321,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-mango-peach-ice-03352.webp"
   },
   {
     "id": "6977454903215",
@@ -2202,7 +2334,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-raspberry-citrus-ice-03215.webp"
   },
   {
     "id": "6978873091781",
@@ -2214,7 +2347,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-grape-honeydew-ice-91781.webp"
   },
   {
     "id": "6978873091804",
@@ -2226,7 +2360,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-pineapple-lime-ice-91804.webp"
   },
   {
     "id": "6977454903178",
@@ -2238,7 +2373,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-classic-ice-03178.webp"
   },
   {
     "id": "6976908874217",
@@ -2250,7 +2386,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-grapefruit-ice-74217.webp"
   },
   {
     "id": "6976908877638",
@@ -2262,7 +2399,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-tropical-orange-ice-77638.webp"
   },
   {
     "id": "6977454903239",
@@ -2274,7 +2412,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-coconut-ice-03239.webp"
   },
   {
     "id": "6977454903154",
@@ -2286,7 +2425,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-white-grape-ice-03154.webp"
   },
   {
     "id": "6977863390316",
@@ -2298,7 +2438,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-sour-strawberry-ice-90316.webp"
   },
   {
     "id": "6977454903291",
@@ -2310,7 +2451,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-apple-kiwi-ice-03291.webp"
   },
   {
     "id": "827152213993",
@@ -2323,7 +2465,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "42,000"
+    "puffCount": "42,000",
+    "image": "/products/catalog/kraze-luna-pina-colada-ice-42k-13993.webp"
   },
   {
     "id": "827152189281",
@@ -2336,7 +2479,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "42,000"
+    "puffCount": "42,000",
+    "image": "/products/catalog/kraze-luna-blue-razz-ice-42k-89281.webp"
   },
   {
     "id": "827152220823",
@@ -2349,7 +2493,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "42,000"
+    "puffCount": "42,000",
+    "image": "/products/catalog/kraze-luna-strawberry-kiwi-ice-42k-20823.webp"
   },
   {
     "id": "827152189267",
@@ -2362,7 +2507,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "42,000"
+    "puffCount": "42,000",
+    "image": "/products/catalog/kraze-luna-ruby-peach-watermelon-ice-42k-89267.webp"
   },
   {
     "id": "827152213986",
@@ -2375,7 +2521,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "42,000"
+    "puffCount": "42,000",
+    "image": "/products/catalog/kraze-luna-miami-mint-ice-42k-13986.webp"
   },
   {
     "id": "827152220793",
@@ -2388,7 +2535,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "42,000"
+    "puffCount": "42,000",
+    "image": "/products/catalog/kraze-luna-grape-ice-42k-20793.webp"
   },
   {
     "id": "827152189236",
@@ -2400,7 +2548,8 @@ export const importedProducts: Product[] = [
     "flavour": "Kraze luna",
     "price": 46.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/kraze-luna-fruit-jewel-ice-89236.webp"
   },
   {
     "id": "827152213979",
@@ -2413,7 +2562,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "42,000"
+    "puffCount": "42,000",
+    "image": "/products/catalog/kraze-luna-watermelon-apple-42k-13979.webp"
   },
   {
     "id": "827152213955",
@@ -2426,7 +2576,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "42,000"
+    "puffCount": "42,000",
+    "image": "/products/catalog/kraze-luna-frizzy-peach-g-ice-42k-13955.webp"
   },
   {
     "id": "827152189229",
@@ -2439,7 +2590,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "42,000"
+    "puffCount": "42,000",
+    "image": "/products/catalog/kraze-luna-green-grape-42k-89229.webp"
   },
   {
     "id": "827152213931",
@@ -2452,7 +2604,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "42,000"
+    "puffCount": "42,000",
+    "image": "/products/catalog/kraze-luna-aquamarine-star-b-ice-42k-13931.webp"
   },
   {
     "id": "827152189304",
@@ -2465,7 +2618,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "42,000"
+    "puffCount": "42,000",
+    "image": "/products/catalog/kraze-luna-scarlet-cherry-g-ice-42k-89304.webp"
   },
   {
     "id": "691584103487",
@@ -2477,7 +2631,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco",
     "price": 19.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-razzy-grape-ice-03487.webp"
   },
   {
     "id": "691584103418",
@@ -2489,7 +2644,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco",
     "price": 19.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-cherry-lemon-ice-03418.webp"
   },
   {
     "id": "691584103463",
@@ -2501,7 +2657,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco",
     "price": 19.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-polar-mint-03463.webp"
   },
   {
     "id": "691584103401",
@@ -2513,7 +2670,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco",
     "price": 19.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-blue-razz-ice-03401.webp"
   },
   {
     "id": "691584103470",
@@ -2525,7 +2683,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco",
     "price": 19.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-razz-apple-ice-03470.webp"
   },
   {
     "id": "691584123027",
@@ -2537,7 +2696,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco",
     "price": 19.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-green-apple-23027.webp"
   },
   {
     "id": "691584103517",
@@ -2549,7 +2709,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco",
     "price": 19.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-strawberry-kiwi-ice-03517.webp"
   },
   {
     "id": "691584123010",
@@ -2561,7 +2722,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco",
     "price": 19.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-golden-tobacco-23010.webp"
   },
   {
     "id": "691584123058",
@@ -2573,7 +2735,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco",
     "price": 19.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-strawberry-banana-23058.webp"
   },
   {
     "id": "691584103456",
@@ -2585,7 +2748,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco",
     "price": 19.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-peach-ice-03456.webp"
   },
   {
     "id": "691584123034",
@@ -2597,7 +2761,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco",
     "price": 19.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-juicy-peach-23034.webp"
   },
   {
     "id": "691584121283",
@@ -2609,7 +2774,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco box",
     "price": 28.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-box-blueberry-raspberry-21283.webp"
   },
   {
     "id": "691584121269",
@@ -2621,7 +2787,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco box",
     "price": 28.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-box-blue-lemon-ice-21269.webp"
   },
   {
     "id": "691584121405",
@@ -2633,7 +2800,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco box",
     "price": 28.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-box-purple-grape-ice-21405.webp"
   },
   {
     "id": "691584121436",
@@ -2645,7 +2813,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco box",
     "price": 28.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-box-strawnana-ice-21436.webp"
   },
   {
     "id": "691584121344",
@@ -2657,7 +2826,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco box",
     "price": 28.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-box-juicy-peach-ice-21344.webp"
   },
   {
     "id": "691584121375",
@@ -2669,7 +2839,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco box",
     "price": 28.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-box-polar-mint-21375.webp"
   },
   {
     "id": "691584121320",
@@ -2681,7 +2852,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco box",
     "price": 28.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-box-green-apple-ice-21320.webp"
   },
   {
     "id": "691584121412",
@@ -2693,7 +2865,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco box",
     "price": 28.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-box-strawberry-kiwi-ice-21412.webp"
   },
   {
     "id": "691584127308",
@@ -2705,7 +2878,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco XL",
     "price": 37.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-xl-blueberry-raspberry-27308.webp"
   },
   {
     "id": "691584127414",
@@ -2717,7 +2891,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco XL",
     "price": 37.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-xl-watermelon-lime-ice-27414.webp"
   },
   {
     "id": "691584127339",
@@ -2729,7 +2904,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco XL",
     "price": 37.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-xl-juicy-peach-ice-27339.webp"
   },
   {
     "id": "691584127377",
@@ -2741,7 +2917,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco XL",
     "price": 37.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-xl-purple-grape-ice-27377.webp"
   },
   {
     "id": "691584127322",
@@ -2753,7 +2930,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco XL",
     "price": 37.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-xl-green-apple-ice-27322.webp"
   },
   {
     "id": "691584127353",
@@ -2765,7 +2943,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco XL",
     "price": 37.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-xl-polar-mint-27353.webp"
   },
   {
     "id": "691584127315",
@@ -2777,7 +2956,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco XL",
     "price": 37.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-xl-cherry-blast-ice-27315.webp"
   },
   {
     "id": "691584127384",
@@ -2789,7 +2969,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco XL",
     "price": 37.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-xl-strawberry-kiwi-ice-27384.webp"
   },
   {
     "id": "627183055964",
@@ -2801,7 +2982,8 @@ export const importedProducts: Product[] = [
     "flavour": "Vice box 2 70k",
     "price": 48.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/vice-box-2-razz-mango-punch-ice-55964.webp"
   },
   {
     "id": "627183055933",
@@ -2813,7 +2995,8 @@ export const importedProducts: Product[] = [
     "flavour": "Vice box 2 70k",
     "price": 48.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/vice-box-2-mint-ice-55933.webp"
   },
   {
     "id": "627183055889",
@@ -2825,7 +3008,8 @@ export const importedProducts: Product[] = [
     "flavour": "Vice box 2 70k",
     "price": 48.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/vice-box-2-frosty-green-apple-55889.webp"
   },
   {
     "id": "627183055827",
@@ -2837,7 +3021,8 @@ export const importedProducts: Product[] = [
     "flavour": "Vice box 2 70k",
     "price": 48.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/vice-box-2-arctic-blue-melon-55827.webp"
   },
   {
     "id": "627183055902",
@@ -2849,7 +3034,8 @@ export const importedProducts: Product[] = [
     "flavour": "Vice box 2 70k",
     "price": 48.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/vice-box-2-icy-orange-peach-55902.webp"
   },
   {
     "id": "627183055995",
@@ -2861,7 +3047,8 @@ export const importedProducts: Product[] = [
     "flavour": "Vice box 2 70k",
     "price": 48.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/vice-box-2-strawberry-ice-55995.webp"
   },
   {
     "id": "627183055872",
@@ -2873,7 +3060,8 @@ export const importedProducts: Product[] = [
     "flavour": "Vice box 2 70k",
     "price": 48.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/vice-box-2-cherry-blast-ice-55872.webp"
   },
   {
     "id": "627183055896",
@@ -2885,7 +3073,8 @@ export const importedProducts: Product[] = [
     "flavour": "Vice box 2 70k",
     "price": 48.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/vice-box-2-grape-ice-55896.webp"
   },
   {
     "id": "627183055940",
@@ -2897,7 +3086,8 @@ export const importedProducts: Product[] = [
     "flavour": "Vice box 2 70k",
     "price": 48.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/vice-box-2-peach-ice-55940.webp"
   },
   {
     "id": "627183055926",
@@ -2909,7 +3099,8 @@ export const importedProducts: Product[] = [
     "flavour": "Vice box 2 70k",
     "price": 48.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/vice-box-2-mango-tango-ice-55926.webp"
   },
   {
     "id": "627183050082",
@@ -2921,7 +3112,8 @@ export const importedProducts: Product[] = [
     "flavour": "Vice 2500",
     "price": 22.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/vice-2500-strawberry-ice-50082.webp"
   },
   {
     "id": "627183050051",
@@ -2933,7 +3125,8 @@ export const importedProducts: Product[] = [
     "flavour": "Vice 2500",
     "price": 22.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/vice-2500-mint-50051.webp"
   },
   {
     "id": "627183051980",
@@ -2945,7 +3138,8 @@ export const importedProducts: Product[] = [
     "flavour": "Vice 2500",
     "price": 22.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/vice-2500-strawberry-watermelon-51980.webp"
   },
   {
     "id": "627183050075",
@@ -2957,7 +3151,8 @@ export const importedProducts: Product[] = [
     "flavour": "Vice 2500",
     "price": 22.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/vice-2500-peach-ice-50075.webp"
   },
   {
     "id": "627183050006",
@@ -2969,7 +3164,8 @@ export const importedProducts: Product[] = [
     "flavour": "Vice 2500",
     "price": 22.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/vice-2500-banana-ice-50006.webp"
   },
   {
     "id": "627183050020",
@@ -2981,7 +3177,8 @@ export const importedProducts: Product[] = [
     "flavour": "Vice 2500",
     "price": 22.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/vice-2500-green-apple-ice-50020.webp"
   },
   {
     "id": "627183051379",
@@ -2993,7 +3190,8 @@ export const importedProducts: Product[] = [
     "flavour": "Vice 2500",
     "price": 22.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/vice-2500-classic-ice-51379.webp"
   },
   {
     "id": "627183050013",
@@ -3005,7 +3203,8 @@ export const importedProducts: Product[] = [
     "flavour": "Vice 2500",
     "price": 22.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/vice-2500-grape-ice-50013.webp"
   },
   {
     "id": "627183050211",
@@ -3017,7 +3216,8 @@ export const importedProducts: Product[] = [
     "flavour": "Vice 2500",
     "price": 22.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/vice-2500-bluerazz-melon-ice-50211.webp"
   },
   {
     "id": "691584030899",
@@ -3030,7 +3230,8 @@ export const importedProducts: Product[] = [
     "price": 38.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "8,000"
+    "puffCount": "8,000",
+    "image": "/products/catalog/stlth-8k-pro-strawberry-lime-ice-30899.webp"
   },
   {
     "id": "691584030851",
@@ -3043,7 +3244,8 @@ export const importedProducts: Product[] = [
     "price": 38.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "8,000"
+    "puffCount": "8,000",
+    "image": "/products/catalog/stlth-8k-pro-punch-ice-30851.webp"
   },
   {
     "id": "691584035801",
@@ -3056,7 +3258,8 @@ export const importedProducts: Product[] = [
     "price": 38.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "8,000"
+    "puffCount": "8,000",
+    "image": "/products/catalog/stlth-8k-pro-juicy-peach-35801.webp"
   },
   {
     "id": "691584030783",
@@ -3069,7 +3272,8 @@ export const importedProducts: Product[] = [
     "price": 38.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "8,000"
+    "puffCount": "8,000",
+    "image": "/products/catalog/stlth-8k-pro-juicy-peach-ice-30783.webp"
   },
   {
     "id": "691584030790",
@@ -3082,7 +3286,8 @@ export const importedProducts: Product[] = [
     "price": 38.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "8,000"
+    "puffCount": "8,000",
+    "image": "/products/catalog/stlth-8k-pro-kiwi-dragon-berry-ice-30790.webp"
   },
   {
     "id": "691584030776",
@@ -3095,7 +3300,8 @@ export const importedProducts: Product[] = [
     "price": 38.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "8,000"
+    "puffCount": "8,000",
+    "image": "/products/catalog/stlth-8k-pro-ice-mint-30776.webp"
   },
   {
     "id": "691584035382",
@@ -3108,7 +3314,8 @@ export const importedProducts: Product[] = [
     "price": 38.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "8,000"
+    "puffCount": "8,000",
+    "image": "/products/catalog/stlth-8k-pro-banana-ice-35382.webp"
   },
   {
     "id": "691584035788",
@@ -3121,7 +3328,8 @@ export const importedProducts: Product[] = [
     "price": 38.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "8,000"
+    "puffCount": "8,000",
+    "image": "/products/catalog/stlth-8k-pro-blue-razz-35788.webp"
   },
   {
     "id": "691584030677",
@@ -3134,7 +3342,8 @@ export const importedProducts: Product[] = [
     "price": 38.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "8,000"
+    "puffCount": "8,000",
+    "image": "/products/catalog/stlth-8k-pro-arctic-mint-30677.webp"
   },
   {
     "id": "691584030691",
@@ -3160,7 +3369,8 @@ export const importedProducts: Product[] = [
     "price": 38.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "8,000"
+    "puffCount": "8,000",
+    "image": "/products/catalog/stlth-8k-pro-lychee-melon-ice-30813.webp"
   },
   {
     "id": "691584030837",
@@ -3173,7 +3383,8 @@ export const importedProducts: Product[] = [
     "price": 38.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "8,000"
+    "puffCount": "8,000",
+    "image": "/products/catalog/stlth-8k-pro-peach-blue-razz-ice-30837.webp"
   },
   {
     "id": "691584030844",
@@ -3186,7 +3397,8 @@ export const importedProducts: Product[] = [
     "price": 38.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "8,000"
+    "puffCount": "8,000",
+    "image": "/products/catalog/stlth-8k-pro-peach-mango-ice-30844.webp"
   },
   {
     "id": "691584030905",
@@ -3199,7 +3411,8 @@ export const importedProducts: Product[] = [
     "price": 38.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "8,000"
+    "puffCount": "8,000",
+    "image": "/products/catalog/stlth-8k-pro-tropical-storm-ice-30905.webp"
   },
   {
     "id": "691584030769",
@@ -3212,7 +3425,8 @@ export const importedProducts: Product[] = [
     "price": 38.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "8,000"
+    "puffCount": "8,000",
+    "image": "/products/catalog/stlth-8k-pro-hawaiian-mist-ice-30769.webp"
   },
   {
     "id": "691584035405",
@@ -3225,7 +3439,8 @@ export const importedProducts: Product[] = [
     "price": 38.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "8,000"
+    "puffCount": "8,000",
+    "image": "/products/catalog/stlth-8k-pro-cherry-grape-ice-35405.webp"
   },
   {
     "id": "827152098958",
@@ -3249,7 +3464,8 @@ export const importedProducts: Product[] = [
     "flavour": "Envi apex drippin",
     "price": 26.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/envi-apex-2500-blue-razz-98897.webp"
   },
   {
     "id": "827152099047",
@@ -3273,7 +3489,8 @@ export const importedProducts: Product[] = [
     "flavour": "Envi apex drippin",
     "price": 26.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/envi-apex-2500-mango-peach-watermelon-99016.webp"
   },
   {
     "id": "827152098880",
@@ -3285,7 +3502,8 @@ export const importedProducts: Product[] = [
     "flavour": "Envi apex drippin",
     "price": 26.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/envi-apex-2500-banana-iced-98880.webp"
   },
   {
     "id": "827152099009",
@@ -3370,7 +3588,8 @@ export const importedProducts: Product[] = [
     "price": 33.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "25,000"
+    "puffCount": "25,000",
+    "image": "/products/catalog/loop-25k-rich-tobacco-95096.webp"
   },
   {
     "id": "691584095034",
@@ -3383,7 +3602,8 @@ export const importedProducts: Product[] = [
     "price": 33.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "25,000"
+    "puffCount": "25,000",
+    "image": "/products/catalog/loop-25k-peach-blue-razz-ice-95034.webp"
   },
   {
     "id": "691584094945",
@@ -3396,7 +3616,8 @@ export const importedProducts: Product[] = [
     "price": 33.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "25,000"
+    "puffCount": "25,000",
+    "image": "/products/catalog/loop-25k-green-apple-ice-94945.webp"
   },
   {
     "id": "691584094891",
@@ -3409,7 +3630,8 @@ export const importedProducts: Product[] = [
     "price": 33.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "25,000"
+    "puffCount": "25,000",
+    "image": "/products/catalog/loop-25k-classic-ice-94891.webp"
   },
   {
     "id": "691584094839",
@@ -3422,7 +3644,8 @@ export const importedProducts: Product[] = [
     "price": 33.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "25,000"
+    "puffCount": "25,000",
+    "image": "/products/catalog/loop-25k-blue-razz-lemon-ice-94839.webp"
   },
   {
     "id": "691584094983",
@@ -3435,7 +3658,8 @@ export const importedProducts: Product[] = [
     "price": 33.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "25,000"
+    "puffCount": "25,000",
+    "image": "/products/catalog/loop-25k-juicy-peach-94983.webp"
   },
   {
     "id": "691584094808",
@@ -3448,7 +3672,8 @@ export const importedProducts: Product[] = [
     "price": 33.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "25,000"
+    "puffCount": "25,000",
+    "image": "/products/catalog/loop-25k-blood-orange-ice-94808.webp"
   },
   {
     "id": "691584094860",
@@ -3461,7 +3686,8 @@ export const importedProducts: Product[] = [
     "price": 33.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "25,000"
+    "puffCount": "25,000",
+    "image": "/products/catalog/loop-25k-cherry-grape-ice-94860.webp"
   },
   {
     "id": "691584095140",
@@ -3474,7 +3700,8 @@ export const importedProducts: Product[] = [
     "price": 33.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "25,000"
+    "puffCount": "25,000",
+    "image": "/products/catalog/loop-25k-tropical-storm-ice-95140.webp"
   },
   {
     "id": "691584095119",
@@ -3487,7 +3714,8 @@ export const importedProducts: Product[] = [
     "price": 33.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "25,000"
+    "puffCount": "25,000",
+    "image": "/products/catalog/loop-25k-strawnana-95119.webp"
   },
   {
     "id": "691584095089",
@@ -3500,7 +3728,8 @@ export const importedProducts: Product[] = [
     "price": 33.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "25,000"
+    "puffCount": "25,000",
+    "image": "/products/catalog/loop-25k-punch-ice-95089.webp"
   },
   {
     "id": "691584094822",
@@ -3513,7 +3742,8 @@ export const importedProducts: Product[] = [
     "price": 33.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "25,000"
+    "puffCount": "25,000",
+    "image": "/products/catalog/loop-25k-blue-razz-94822.webp"
   },
   {
     "id": "691584095058",
@@ -3526,7 +3756,8 @@ export const importedProducts: Product[] = [
     "price": 33.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "25,000"
+    "puffCount": "25,000",
+    "image": "/products/catalog/loop-25k-peach-watermelon-ice-95058.webp"
   },
   {
     "id": "691584094792",
@@ -3539,7 +3770,8 @@ export const importedProducts: Product[] = [
     "price": 33.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "25,000"
+    "puffCount": "25,000",
+    "image": "/products/catalog/loop-25k-banana-ice-94792.webp"
   },
   {
     "id": "691584094785",
@@ -3552,7 +3784,8 @@ export const importedProducts: Product[] = [
     "price": 33.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "25,000"
+    "puffCount": "25,000",
+    "image": "/products/catalog/loop-25k-arctic-mint-94785.webp"
   },
   {
     "id": "691584095157",
@@ -3565,7 +3798,8 @@ export const importedProducts: Product[] = [
     "price": 33.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "25,000"
+    "puffCount": "25,000",
+    "image": "/products/catalog/loop-25k-watermelon-lime-ice-95157.webp"
   },
   {
     "id": "691584095126",
@@ -3578,7 +3812,8 @@ export const importedProducts: Product[] = [
     "price": 33.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "25,000"
+    "puffCount": "25,000",
+    "image": "/products/catalog/loop-25k-strawberry-lime-ice-95126.webp"
   },
   {
     "id": "691584094976",
@@ -3591,7 +3826,8 @@ export const importedProducts: Product[] = [
     "price": 33.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "25,000"
+    "puffCount": "25,000",
+    "image": "/products/catalog/loop-25k-ice-mint-94976.webp"
   },
   {
     "id": "6978093762300",
@@ -3604,7 +3840,8 @@ export const importedProducts: Product[] = [
     "price": 41.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "40,000"
+    "puffCount": "40,000",
+    "image": "/products/catalog/nasha-40k-blue-razz-lemon-62300.webp"
   },
   {
     "id": "6978093762348",
@@ -3617,7 +3854,8 @@ export const importedProducts: Product[] = [
     "price": 41.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "40,000"
+    "puffCount": "40,000",
+    "image": "/products/catalog/nasha-40k-mint-62348.webp"
   },
   {
     "id": "6978093762331",
@@ -3630,7 +3868,8 @@ export const importedProducts: Product[] = [
     "price": 41.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "40,000"
+    "puffCount": "40,000",
+    "image": "/products/catalog/nasha-40k-mango-kiwi-ice-62331.webp"
   },
   {
     "id": "6978093762324",
@@ -3643,7 +3882,8 @@ export const importedProducts: Product[] = [
     "price": 41.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "40,000"
+    "puffCount": "40,000",
+    "image": "/products/catalog/nasha-40k-watermelon-peach-62324.webp"
   },
   {
     "id": "691584040355",
@@ -3655,7 +3895,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth switch",
     "price": 32.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-switch-juicy-peach-white-grape-40355.webp"
   },
   {
     "id": "691584040348",
@@ -3667,7 +3908,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth switch",
     "price": 32.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-switch-green-apple-white-grape-ice-40348.webp"
   },
   {
     "id": "691584040386",
@@ -3679,7 +3921,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth switch",
     "price": 32.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-switch-peppermint-spearmint-40386.webp"
   },
   {
     "id": "691584038888",
@@ -3691,7 +3934,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth switch",
     "price": 32.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-switch-cherry-grape-punch-ice-38888.webp"
   },
   {
     "id": "691584038901",
@@ -3703,7 +3947,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth switch",
     "price": 32.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-switch-blue-razz-juicy-peach-38901.webp"
   },
   {
     "id": "691584040317",
@@ -3715,7 +3960,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth switch",
     "price": 32.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-switch-cherry-ice-citrus-burst-ice-40317.webp"
   },
   {
     "id": "6937643533135",
@@ -3728,7 +3974,8 @@ export const importedProducts: Product[] = [
     "price": 39.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "10,000"
+    "puffCount": "10,000",
+    "image": "/products/catalog/elfbar-10k-red-berry-cherry-33135.webp"
   },
   {
     "id": "6941976257156",
@@ -3754,7 +4001,8 @@ export const importedProducts: Product[] = [
     "price": 39.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "10,000"
+    "puffCount": "10,000",
+    "image": "/products/catalog/elfbar-10k-blueberry-mint-33081.webp"
   },
   {
     "id": "6937643533111",
@@ -3767,7 +4015,8 @@ export const importedProducts: Product[] = [
     "price": 39.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "10,000"
+    "puffCount": "10,000",
+    "image": "/products/catalog/elfbar-10k-peach-mango-33111.webp"
   },
   {
     "id": "6937643533142",
@@ -3780,7 +4029,8 @@ export const importedProducts: Product[] = [
     "price": 39.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "10,000"
+    "puffCount": "10,000",
+    "image": "/products/catalog/elfbar-10k-strawberry-kiwi-ice-33142.webp"
   },
   {
     "id": "6937080528992",
@@ -3793,7 +4043,8 @@ export const importedProducts: Product[] = [
     "price": 39.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "10,000"
+    "puffCount": "10,000",
+    "image": "/products/catalog/elfbar-10k-strawberry-banana-28992.webp"
   },
   {
     "id": "6937643533241",
@@ -3806,7 +4057,8 @@ export const importedProducts: Product[] = [
     "price": 39.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "10,000"
+    "puffCount": "10,000",
+    "image": "/products/catalog/elfbar-10k-double-mango-33241.webp"
   },
   {
     "id": "6937080529104",
@@ -3819,7 +4071,8 @@ export const importedProducts: Product[] = [
     "price": 39.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "10,000"
+    "puffCount": "10,000",
+    "image": "/products/catalog/elfbar-10k-tropical-prism-blast-29104.webp"
   },
   {
     "id": "6937643533098",
@@ -3832,7 +4085,8 @@ export const importedProducts: Product[] = [
     "price": 39.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "10,000"
+    "puffCount": "10,000",
+    "image": "/products/catalog/elfbar-10k-cherry-watermelon-33098.webp"
   },
   {
     "id": "6937080528961",
@@ -3845,7 +4099,8 @@ export const importedProducts: Product[] = [
     "price": 39.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "10,000"
+    "puffCount": "10,000",
+    "image": "/products/catalog/elfbar-10k-kiwi-guava-ice-28961.webp"
   },
   {
     "id": "6937080529081",
@@ -3858,7 +4113,8 @@ export const importedProducts: Product[] = [
     "price": 39.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "10,000"
+    "puffCount": "10,000",
+    "image": "/products/catalog/elfbar-10k-sakura-grape-29081.webp"
   },
   {
     "id": "6937643533258",
@@ -3871,7 +4127,8 @@ export const importedProducts: Product[] = [
     "price": 39.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "10,000"
+    "puffCount": "10,000",
+    "image": "/products/catalog/elfbar-10k-grape-ice-33258.webp"
   },
   {
     "id": "6937080528978",
@@ -3884,7 +4141,8 @@ export const importedProducts: Product[] = [
     "price": 39.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "10,000"
+    "puffCount": "10,000",
+    "image": "/products/catalog/elfbar-10k-peach-berry-28978.webp"
   },
   {
     "id": "6937643533265",
@@ -3897,7 +4155,8 @@ export const importedProducts: Product[] = [
     "price": 39.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "10,000"
+    "puffCount": "10,000",
+    "image": "/products/catalog/elfbar-10k-peach-ice-33265.webp"
   },
   {
     "id": "6937643533074",
@@ -3910,7 +4169,8 @@ export const importedProducts: Product[] = [
     "price": 39.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "10,000"
+    "puffCount": "10,000",
+    "image": "/products/catalog/elfbar-10k-blue-razz-ice-33074.webp"
   },
   {
     "id": "691584101834",
@@ -3923,7 +4183,8 @@ export const importedProducts: Product[] = [
     "price": 38.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/stlth-loop-max-70k-strawberry-kiwi-01834.webp"
   },
   {
     "id": "691584101681",
@@ -3936,7 +4197,8 @@ export const importedProducts: Product[] = [
     "price": 37.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/stlth-loop-max-70k-cherry-watermelon-ice-01681.webp"
   },
   {
     "id": "691584101773",
@@ -3949,7 +4211,8 @@ export const importedProducts: Product[] = [
     "price": 38.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/stlth-loop-max-70k-peach-berry-01773.webp"
   },
   {
     "id": "691584101858",
@@ -3962,7 +4225,8 @@ export const importedProducts: Product[] = [
     "price": 38.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/stlth-loop-max-70k-strawberry-mango-ice-01858.webp"
   },
   {
     "id": "691584101780",
@@ -3975,7 +4239,8 @@ export const importedProducts: Product[] = [
     "price": 38.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/stlth-loop-max-70k-peach-mango-ice-01780.webp"
   },
   {
     "id": "691584101742",
@@ -3988,7 +4253,8 @@ export const importedProducts: Product[] = [
     "price": 38.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/stlth-loop-max-70k-juicy-peach-01742.webp"
   },
   {
     "id": "691584101810",
@@ -4001,7 +4267,8 @@ export const importedProducts: Product[] = [
     "price": 38.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/stlth-loop-max-70k-razz-apple-ice-01810.webp"
   },
   {
     "id": "691584101674",
@@ -4014,7 +4281,8 @@ export const importedProducts: Product[] = [
     "price": 38.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/stlth-loop-max-70k-cherry-lime-ice-01674.webp"
   },
   {
     "id": "691584101766",
@@ -4027,7 +4295,8 @@ export const importedProducts: Product[] = [
     "price": 38.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/stlth-loop-max-70k-mango-pineapple-ice-01766.webp"
   },
   {
     "id": "691584101698",
@@ -4040,7 +4309,8 @@ export const importedProducts: Product[] = [
     "price": 38.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/stlth-loop-max-70k-coconut-ice-01698.webp"
   },
   {
     "id": "6941976233037",
@@ -4053,7 +4323,8 @@ export const importedProducts: Product[] = [
     "price": 42.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "20,000"
+    "puffCount": "20,000",
+    "image": "/products/catalog/elfbar-20k-strawberry-grape-33037.webp"
   },
   {
     "id": "6937080563726",
@@ -4066,7 +4337,8 @@ export const importedProducts: Product[] = [
     "price": 42.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "20,000"
+    "puffCount": "20,000",
+    "image": "/products/catalog/elfbar-20k-strawberry-ice-63726.webp"
   },
   {
     "id": "6937080563634",
@@ -4079,7 +4351,8 @@ export const importedProducts: Product[] = [
     "price": 42.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "20,000"
+    "puffCount": "20,000",
+    "image": "/products/catalog/elfbar-20k-blue-razz-ice-63634.webp"
   },
   {
     "id": "6937080563696",
@@ -4092,7 +4365,8 @@ export const importedProducts: Product[] = [
     "price": 42.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "20,000"
+    "puffCount": "20,000",
+    "image": "/products/catalog/elfbar-20k-peach-mango-watermelon-63696.webp"
   },
   {
     "id": "6937080563689",
@@ -4105,7 +4379,8 @@ export const importedProducts: Product[] = [
     "price": 42.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "20,000"
+    "puffCount": "20,000",
+    "image": "/products/catalog/elfbar-20k-miami-mint-63689.webp"
   },
   {
     "id": "6941976232993",
@@ -4118,7 +4393,8 @@ export const importedProducts: Product[] = [
     "price": 42.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "20,000"
+    "puffCount": "20,000",
+    "image": "/products/catalog/elfbar-20k-burst-32993.webp"
   },
   {
     "id": "6937080563702",
@@ -4131,7 +4407,8 @@ export const importedProducts: Product[] = [
     "price": 42.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "20,000"
+    "puffCount": "20,000",
+    "image": "/products/catalog/elfbar-20k-sakura-grape-63702.webp"
   },
   {
     "id": "6932570114099",
@@ -4144,7 +4421,8 @@ export const importedProducts: Product[] = [
     "price": 42.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "20,000"
+    "puffCount": "20,000",
+    "image": "/products/catalog/elfbar-20k-great-white-peach-14099.webp"
   },
   {
     "id": "6937080563658",
@@ -4157,7 +4435,8 @@ export const importedProducts: Product[] = [
     "price": 42.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "20,000"
+    "puffCount": "20,000",
+    "image": "/products/catalog/elfbar-20k-grape-ice-63658.webp"
   },
   {
     "id": "6941976233006",
@@ -4170,7 +4449,8 @@ export const importedProducts: Product[] = [
     "price": 42.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "20,000"
+    "puffCount": "20,000",
+    "image": "/products/catalog/elfbar-20k-peach-berry-33006.webp"
   },
   {
     "id": "6937080563672",
@@ -4183,7 +4463,8 @@ export const importedProducts: Product[] = [
     "price": 42.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "20,000"
+    "puffCount": "20,000",
+    "image": "/products/catalog/elfbar-20k-ice-mint-63672.webp"
   },
   {
     "id": "6932570114129",
@@ -4196,7 +4477,8 @@ export const importedProducts: Product[] = [
     "price": 42.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "20,000"
+    "puffCount": "20,000",
+    "image": "/products/catalog/elfbar-20k-mango-magic-14129.webp"
   },
   {
     "id": "6937080563641",
@@ -4209,7 +4491,8 @@ export const importedProducts: Product[] = [
     "price": 42.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "20,000"
+    "puffCount": "20,000",
+    "image": "/products/catalog/elfbar-20k-blueberry-pear-63641.webp"
   },
   {
     "id": "6932570114112",
@@ -4222,7 +4505,8 @@ export const importedProducts: Product[] = [
     "price": 42.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "20,000"
+    "puffCount": "20,000",
+    "image": "/products/catalog/elfbar-20k-wiggly-berries-14112.webp"
   },
   {
     "id": "6941976233044",
@@ -4235,7 +4519,8 @@ export const importedProducts: Product[] = [
     "price": 42.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "20,000"
+    "puffCount": "20,000",
+    "image": "/products/catalog/elfbar-20k-straw-watermelon-glubble-33044.webp"
   },
   {
     "id": "6932570126757",
@@ -4248,7 +4533,8 @@ export const importedProducts: Product[] = [
     "price": 42.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "20,000"
+    "puffCount": "20,000",
+    "image": "/products/catalog/elfbar-20k-sour-strawberry-dragonfruit-26757.webp"
   },
   {
     "id": "6937080563719",
@@ -4261,7 +4547,8 @@ export const importedProducts: Product[] = [
     "price": 42.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "20,000"
+    "puffCount": "20,000",
+    "image": "/products/catalog/elfbar-20k-strawberry-banana-63719.webp"
   },
   {
     "id": "827152131631",
@@ -4273,7 +4560,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra",
     "price": 35.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-dripin-canada-d-ice-31631.webp"
   },
   {
     "id": "827152130337",
@@ -4285,7 +4573,8 @@ export const importedProducts: Product[] = [
     "flavour": "Level x g2 pods",
     "price": 34.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-blueberry-mint-30337.webp"
   },
   {
     "id": "827152130375",
@@ -4297,7 +4586,8 @@ export const importedProducts: Product[] = [
     "flavour": "Level x g2 pods",
     "price": 34.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-lychee-watermelon-iced-30375.webp"
   },
   {
     "id": "827152130382",
@@ -4309,7 +4599,8 @@ export const importedProducts: Product[] = [
     "flavour": "Level x g2 pods",
     "price": 34.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-super-spearmint-iced-30382.webp"
   },
   {
     "id": "827152191703",
@@ -4321,7 +4612,8 @@ export const importedProducts: Product[] = [
     "flavour": "Level x g2 pods",
     "price": 34.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-vanana-91703.webp"
   },
   {
     "id": "827152130290",
@@ -4333,7 +4625,8 @@ export const importedProducts: Product[] = [
     "flavour": "Level x g2 pods",
     "price": 34.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-super-sour-peach-iced-30290.webp"
   },
   {
     "id": "827152130276",
@@ -4345,7 +4638,8 @@ export const importedProducts: Product[] = [
     "flavour": "Level x g2 pods",
     "price": 34.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-super-sour-blue-razz-iced-30276.webp"
   },
   {
     "id": "827152130108",
@@ -4357,7 +4651,8 @@ export const importedProducts: Product[] = [
     "flavour": "Level x g2 pods",
     "price": 34.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-super-sour-blueberry-iced-30108.webp"
   },
   {
     "id": "827152130306",
@@ -4369,7 +4664,8 @@ export const importedProducts: Product[] = [
     "flavour": "Level x g2 pods",
     "price": 34.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-super-sour-pineapple-30306.webp"
   },
   {
     "id": "827152134151",
@@ -4381,7 +4677,8 @@ export const importedProducts: Product[] = [
     "flavour": "Level x g2 pods",
     "price": 34.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-epic-watermelon-kiwi-34151.webp"
   },
   {
     "id": "827152231447",
@@ -4393,7 +4690,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-strawberry-cherry-watermelon-31447.webp"
   },
   {
     "id": "827152231461",
@@ -4405,7 +4703,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-pineapple-coconut-iced-31461.webp"
   },
   {
     "id": "827152231423",
@@ -4429,7 +4728,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-pink-bomb-iced-31386.webp"
   },
   {
     "id": "827152231478",
@@ -4441,7 +4741,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-tangy-berries-31478.webp"
   },
   {
     "id": "0827152231454",
@@ -4453,7 +4754,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-strawberry-raspberry-blueberry-31454.webp"
   },
   {
     "id": "827152231492",
@@ -4465,7 +4767,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-watermelon-strawberry-kiwi-iced-31492.webp"
   },
   {
     "id": "827152204564",
@@ -4477,7 +4780,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-ragin-razz-mango-04564.webp"
   },
   {
     "id": "827152216598",
@@ -4489,7 +4793,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-starwberry-classic-iced-16598.webp"
   },
   {
     "id": "827152199488",
@@ -4525,7 +4830,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-trippin-triple-berry-04588.webp"
   },
   {
     "id": "827152204502",
@@ -4537,7 +4843,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-packin-peach-berry-04502.webp"
   },
   {
     "id": "827152204465",
@@ -4549,7 +4856,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-wild-white-grape-iced-04465.webp"
   },
   {
     "id": "827152204472",
@@ -4561,7 +4869,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-blood-orange-iced-04472.webp"
   },
   {
     "id": "827152204441",
@@ -4573,7 +4882,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-bomb-blue-razz-04441.webp"
   },
   {
     "id": "827152204540",
@@ -4585,7 +4895,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-gusto-green-apple-04540.webp"
   },
   {
     "id": "827152204571",
@@ -4597,7 +4908,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-slammin-sts-04571.webp"
   },
   {
     "id": "827152204533",
@@ -4609,7 +4921,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-flippin-fruit-flash-04533.webp"
   },
   {
     "id": "827152204526",
@@ -4621,7 +4934,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-sic-strawberry-iced-04526.webp"
   },
   {
     "id": "827152204557",
@@ -4633,7 +4947,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-groovy-grape-passionfruit-iced-04557.webp"
   },
   {
     "id": "827152204458",
@@ -4645,7 +4960,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-extreme-mint-iced-04458.webp"
   },
   {
     "id": "827152204496",
@@ -4657,7 +4973,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-bussin-banana-iced-04496.webp"
   },
   {
     "id": "827152204519",
@@ -4669,7 +4986,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-mad-mango-peach-04519.webp"
   },
   {
     "id": "827152199518",
@@ -4681,7 +4999,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-frizzy-peach-iced-99518.webp"
   },
   {
     "id": "827152217939",
@@ -4717,7 +5036,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-epic-peach-mango-17922.webp"
   },
   {
     "id": "827152228928",
@@ -4741,7 +5061,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-epic-grape-17908.webp"
   },
   {
     "id": "827152217946",
@@ -4790,7 +5111,8 @@ export const importedProducts: Product[] = [
     "price": 42.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "20,000"
+    "puffCount": "20,000",
+    "image": "/products/catalog/elfbar-20k-green-apple-ice-63665.webp"
   },
   {
     "id": "6941976257194",
@@ -4803,7 +5125,8 @@ export const importedProducts: Product[] = [
     "price": 39.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "10,000"
+    "puffCount": "10,000",
+    "image": "/products/catalog/elfbar-10k-miami-mint-57194.webp"
   },
   {
     "id": "827152223886",
@@ -4815,7 +5138,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra",
     "price": 35.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-dripin-red-classic-ice-23886.webp"
   },
   {
     "id": "827152230112",
@@ -4827,7 +5151,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra",
     "price": 35.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-dripin-mango-peach-watermelon-30112.webp"
   },
   {
     "id": "827152223855",
@@ -4839,7 +5164,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra",
     "price": 35.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-dripin-orange-fizz-ice-23855.webp"
   },
   {
     "id": "827152230105",
@@ -4851,7 +5177,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra",
     "price": 35.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-dripin-hawaiian-storm-ice-30105.webp"
   },
   {
     "id": "827152223862",
@@ -4875,7 +5202,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra",
     "price": 35.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-dripin-spritz-ice-23893.webp"
   },
   {
     "id": "827152230136",
@@ -4899,7 +5227,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra",
     "price": 35.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-dripin-r-b-ice-23879.webp"
   },
   {
     "id": "827152230129",
@@ -4923,7 +5252,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-tm-hakuna-iced-40326.webp"
   },
   {
     "id": "827152240333",
@@ -4935,7 +5265,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-tm-matata-iced-40333.webp"
   },
   {
     "id": "827152240357",
@@ -4947,7 +5278,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-tm-tropika-iced-40357.webp"
   },
   {
     "id": "827152240319",
@@ -4959,7 +5291,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-tm-kanzi-iced-40319.webp"
   },
   {
     "id": "827152240340",
@@ -4971,7 +5304,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-tm-harambae-iced-40340.webp"
   },
   {
     "id": "827152240364",
@@ -4983,7 +5317,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-tm-mangabeys-iced-40364.webp"
   },
   {
     "id": "850026145267",
@@ -4995,7 +5330,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods strawberry",
     "price": 22.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-strawberry-45267.webp"
   },
   {
     "id": "850032541299",
@@ -5007,7 +5343,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods blueraspberry peach",
     "price": 22.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-blueraspberry-peach-41299.webp"
   },
   {
     "id": "673869551589",
@@ -5019,7 +5356,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods fruit clouds",
     "price": 22.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-fruit-clouds-51589.webp"
   },
   {
     "id": "616361424630",
@@ -5031,7 +5369,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods blueberry",
     "price": 22.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-blueberry-24630.webp"
   },
   {
     "id": "673869551572",
@@ -5043,7 +5382,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods banana",
     "price": 22.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-banana-51572.webp"
   },
   {
     "id": "616361423824",
@@ -5055,7 +5395,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods strawnana",
     "price": 22.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-strawnana-23824.webp"
   },
   {
     "id": "673869551183",
@@ -5067,7 +5408,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods blueraspberry",
     "price": 22.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-blueraspberry-51183.webp"
   },
   {
     "id": "610452957366",
@@ -5079,7 +5421,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods BF",
     "price": 22.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-bf-57366.webp"
   },
   {
     "id": "850029648000",
@@ -5091,7 +5434,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods fruit nector",
     "price": 22.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-fruit-nector-48000.webp"
   },
   {
     "id": "850032541794",
@@ -5103,7 +5447,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods mango pineapple",
     "price": 22.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-mango-pineapple-41794.webp"
   },
   {
     "id": "673869551534",
@@ -5115,7 +5460,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods berry mix",
     "price": 22.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-berry-mix-51534.webp"
   },
   {
     "id": "616361424678",
@@ -5127,7 +5473,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods watermelon",
     "price": 22.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-watermelon-24678.webp"
   },
   {
     "id": "673869551602",
@@ -5139,7 +5486,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods crystal sting",
     "price": 22.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-crystal-sting-51602.webp"
   },
   {
     "id": "610452957403",
@@ -5151,7 +5499,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods pink glubule",
     "price": 22.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-pink-glubule-57403.webp"
   },
   {
     "id": "850032541602",
@@ -5163,7 +5512,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods watermelon peach mango",
     "price": 22.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-watermelon-peach-mango-41602.webp"
   },
   {
     "id": "810105342352",
@@ -5175,7 +5525,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods mango peach pineapple",
     "price": 22.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-mango-peach-pineapple-42352.webp"
   },
   {
     "id": "616361423855",
@@ -5187,7 +5538,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods wiings",
     "price": 22.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-wiings-23855.webp"
   },
   {
     "id": "850027190587",
@@ -5199,7 +5551,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods strawberry mango",
     "price": 22.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-strawberry-mango-90587.webp"
   },
   {
     "id": "850029648048",
@@ -5211,7 +5564,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods strawberry peach",
     "price": 22.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-strawberry-peach-48048.webp"
   },
   {
     "id": "850032541640",
@@ -5223,7 +5577,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods wild berry burst",
     "price": 22.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-wild-berry-burst-41640.webp"
   },
   {
     "id": "850032541084",
@@ -5235,7 +5590,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods strawberry watermelon",
     "price": 22.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-strawberry-watermelon-41084.webp"
   },
   {
     "id": "850027190686",
@@ -5247,7 +5603,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods hawaiian fruit nectar",
     "price": 22.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-hawaiian-fruit-nectar-90686.webp"
   },
   {
     "id": "850029648031",
@@ -5259,7 +5616,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods blueberry dragonfruit guava",
     "price": 22.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-blueberry-dragonfruit-guava-48031.webp"
   },
   {
     "id": "850032927062",
@@ -5271,7 +5629,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods peak dew",
     "price": 22.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-peak-dew-27062.webp"
   },
   {
     "id": "850032541725",
@@ -5283,7 +5642,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods cherry frost",
     "price": 22.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-cherry-frost-41725.webp"
   },
   {
     "id": "850032541169",
@@ -5295,7 +5655,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods caribbean white",
     "price": 22.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-caribbean-white-41169.webp"
   },
   {
     "id": "850032541114",
@@ -5307,7 +5668,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods apple cranberry",
     "price": 22.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-apple-cranberry-41114.webp"
   },
   {
     "id": "850025076845",
@@ -5319,7 +5681,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods strawberry kiwi",
     "price": 22.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-strawberry-kiwi-76845.webp"
   },
   {
     "id": "810090982090",
@@ -5331,7 +5694,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods grapes gone wild",
     "price": 22.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-grapes-gone-wild-82090.webp"
   },
   {
     "id": "850025076838",
@@ -5355,7 +5719,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods white grape watermelon",
     "price": 22.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-white-grape-watermelon-29865.webp"
   },
   {
     "id": "810124829087",
@@ -5367,7 +5732,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods strbst",
     "price": 22.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-strbst-29087.webp"
   },
   {
     "id": "810183997222",
@@ -5379,7 +5745,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods fun multipack",
     "price": 22.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-fun-multipack-97222.webp"
   },
   {
     "id": "850026145670",
@@ -5391,7 +5758,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods wiggly b ice",
     "price": 22.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-wiggly-b-ice-45670.webp"
   },
   {
     "id": "810090982007",
@@ -5403,7 +5771,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods peach ice",
     "price": 22.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-peach-ice-82007.webp"
   },
   {
     "id": "850030506412",
@@ -5415,7 +5784,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods ice grape",
     "price": 22.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-ice-grape-06412.webp"
   },
   {
     "id": "673869551152",
@@ -5427,7 +5797,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods mint",
     "price": 22.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-mint-51152.webp"
   },
   {
     "id": "850029648512",
@@ -5439,7 +5810,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods banana iced",
     "price": 22.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-banana-iced-48512.webp"
   },
   {
     "id": "850030506399",
@@ -5451,7 +5823,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods rootstock",
     "price": 22.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-rootstock-06399.webp"
   },
   {
     "id": "810090983424",
@@ -5463,7 +5836,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods mango pineapple ice",
     "price": 22.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-mango-pineapple-ice-83424.webp"
   },
   {
     "id": "616361423862",
@@ -5475,7 +5849,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods watermelon ice",
     "price": 22.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-watermelon-ice-23862.webp"
   },
   {
     "id": "850025076852",
@@ -5487,7 +5862,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods guava ice",
     "price": 22.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-guava-ice-76852.webp"
   },
   {
     "id": "673869551558",
@@ -5499,7 +5875,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods honeydew melon ice",
     "price": 22.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-honeydew-melon-ice-51558.webp"
   },
   {
     "id": "850032541831",
@@ -5511,7 +5888,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods iced hawaiian fruit nectar",
     "price": 22.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-iced-hawaiian-fruit-nectar-41831.webp"
   },
   {
     "id": "810105348705",
@@ -5523,7 +5901,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods lemon lime ice",
     "price": 22.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-lemon-lime-ice-48705.webp"
   },
   {
     "id": "850032541008",
@@ -5535,7 +5914,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods pineapple kiwi ice",
     "price": 22.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-pineapple-kiwi-ice-41008.webp"
   },
   {
     "id": "850027190921",
@@ -5547,7 +5927,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods ice peachy strawberry",
     "price": 22.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-ice-peachy-strawberry-90921.webp"
   },
   {
     "id": "850027190679",
@@ -5559,7 +5940,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods strawberry kiwi ice",
     "price": 22.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-strawberry-kiwi-ice-90679.webp"
   },
   {
     "id": "850032541626",
@@ -5571,7 +5953,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods raspberry watermelon ice",
     "price": 22.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-raspberry-watermelon-ice-41626.webp"
   },
   {
     "id": "850032541176",
@@ -5595,7 +5978,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods fruit nectar watermelon ice",
     "price": 22.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-fruit-nectar-watermelon-ice-82724.webp"
   },
   {
     "id": "850027190662",
@@ -5607,7 +5991,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods burst ice",
     "price": 22.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-burst-ice-90662.webp"
   },
   {
     "id": "810105349139",
@@ -5619,7 +6004,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods strawberry raspberry peach ice",
     "price": 22.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-strawberry-raspberry-peach-ice-49139.webp"
   },
   {
     "id": "850027190594",
@@ -5631,7 +6017,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods fruity pineapple strawberry",
     "price": 22.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-fruity-pineapple-strawberry-90594.webp"
   },
   {
     "id": "850027190655",
@@ -5643,7 +6030,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods ice pineapple",
     "price": 22.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-ice-pineapple-90655.webp"
   },
   {
     "id": "850027190693",
@@ -5655,7 +6043,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods cherry classic",
     "price": 22.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-cherry-classic-90693.webp"
   },
   {
     "id": "616361423848",
@@ -5667,7 +6056,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods ice apple",
     "price": 22.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-ice-apple-23848.webp"
   },
   {
     "id": "673869551176",
@@ -5679,7 +6069,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods tobacco",
     "price": 22.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-tobacco-51176.webp"
   },
   {
     "id": "850032541152",
@@ -5691,7 +6082,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods cranberry lemon",
     "price": 22.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-cranberry-lemon-41152.webp"
   },
   {
     "id": "616361423817",
@@ -5703,7 +6095,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods pineapple lemon",
     "price": 22.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-pineapple-lemon-23817.webp"
   },
   {
     "id": "850032541145",
@@ -5727,7 +6120,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods blue lemon",
     "price": 22.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-blue-lemon-51541.webp"
   },
   {
     "id": "673869551565",
@@ -5739,7 +6133,8 @@ export const importedProducts: Product[] = [
     "flavour": "Zpods watermelon lemon",
     "price": 22.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/zpods-watermelon-lemon-51565.webp"
   },
   {
     "id": "691584038338",
@@ -5751,7 +6146,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth titan pro 15000",
     "price": 39.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-titan-pro-smooth-tobacco-38338.webp"
   },
   {
     "id": "691584038406",
@@ -5763,7 +6159,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth titan pro 15000",
     "price": 39.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-titan-pro-blueberry-watermelon-ice-38406.webp"
   },
   {
     "id": "691584000229",
@@ -5775,7 +6172,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth pod berry blast",
     "price": 22.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-pod-berry-blast-00229.webp"
   },
   {
     "id": "691584014493",
@@ -5787,7 +6185,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth pod grape ice",
     "price": 22.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-pod-grape-ice-14493.webp"
   },
   {
     "id": "691584000328",
@@ -5799,7 +6198,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth pod mango",
     "price": 22.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-pod-mango-00328.webp"
   },
   {
     "id": "691584000472",
@@ -5811,7 +6211,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth pod strawberry",
     "price": 22.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-pod-strawberry-00472.webp"
   },
   {
     "id": "691584000373",
@@ -5823,7 +6224,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth pod flavourless",
     "price": 22.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-pod-flavourless-00373.webp"
   },
   {
     "id": "691584010471",
@@ -5835,7 +6237,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth bold50 tobacco blend",
     "price": 22.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-bold50-tobacco-blend-10471.webp"
   },
   {
     "id": "691584000175",
@@ -5847,7 +6250,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth pod tobacco blend",
     "price": 22.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-pod-tobacco-blend-00175.webp"
   },
   {
     "id": "691584010686",
@@ -5859,7 +6263,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth bold50 frost mint",
     "price": 22.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-bold50-frost-mint-10686.webp"
   },
   {
     "id": "691584001172",
@@ -5871,7 +6276,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth pod frost mint",
     "price": 22.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-pod-frost-mint-01172.webp"
   },
   {
     "id": "691584001127",
@@ -5883,7 +6289,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth pod blue raspberry",
     "price": 22.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-pod-blue-raspberry-01127.webp"
   },
   {
     "id": "691584010563",
@@ -5895,7 +6302,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth bold50 mango",
     "price": 22.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-bold50-mango-10563.webp"
   },
   {
     "id": "691584006443",
@@ -5907,7 +6315,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth pod mint",
     "price": 22.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-pod-mint-06443.webp"
   },
   {
     "id": "691584010778",
@@ -5919,7 +6328,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth bold50 mint",
     "price": 22.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-bold50-mint-10778.webp"
   },
   {
     "id": "827152100583",
@@ -5943,7 +6353,8 @@ export const importedProducts: Product[] = [
     "flavour": "Fb pod sic strawberry",
     "price": 22.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-pod-sic-strawberry-00590.webp"
   },
   {
     "id": "827152100415",
@@ -5955,7 +6366,8 @@ export const importedProducts: Product[] = [
     "flavour": "Fb pod extreme mint",
     "price": 22.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-pod-extreme-mint-00415.webp"
   },
   {
     "id": "827152100323",
@@ -5967,7 +6379,8 @@ export const importedProducts: Product[] = [
     "flavour": "Fb pod blazin banana blackberry",
     "price": 22.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-pod-blazin-banana-blackberry-00323.webp"
   },
   {
     "id": "827152100538",
@@ -5979,7 +6392,8 @@ export const importedProducts: Product[] = [
     "flavour": "Fb pod packin peach berry",
     "price": 22.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-pod-packin-peach-berry-00538.webp"
   },
   {
     "id": "827152099863",
@@ -5991,7 +6405,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-super-sour-blueberry-99863.webp"
   },
   {
     "id": "827152227624",
@@ -6003,7 +6418,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-strawberry-raspberry-blueberry-27624.webp"
   },
   {
     "id": "827152099788",
@@ -6015,7 +6431,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-packin-peach-berry-99788.webp"
   },
   {
     "id": "827152099948",
@@ -6027,7 +6444,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-trippin-triple-berry-99948.webp"
   },
   {
     "id": "827152099986",
@@ -6039,7 +6457,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-wild-white-grape-99986.webp"
   },
   {
     "id": "827152099580",
@@ -6051,7 +6470,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-extreme-mint-99580.webp"
   },
   {
     "id": "827152099825",
@@ -6063,7 +6483,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-ragin-razz-mango-99825.webp"
   },
   {
     "id": "827152099740",
@@ -6075,7 +6496,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-lit-lychee-watermelon-99740.webp"
   },
   {
     "id": "827152227617",
@@ -6087,7 +6509,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-tangy-berries-27617.webp"
   },
   {
     "id": "827152099689",
@@ -6099,7 +6522,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-hip-honeydew-mango-99689.webp"
   },
   {
     "id": "827152225644",
@@ -6111,7 +6535,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-frizzy-peach-25644.webp"
   },
   {
     "id": "827152099764",
@@ -6123,7 +6548,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-mad-mango-peach-99764.webp"
   },
   {
     "id": "827152099849",
@@ -6135,7 +6561,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-str8-up-strawberry-banana-99849.webp"
   },
   {
     "id": "827152099962",
@@ -6147,7 +6574,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-watermelon-g-99962.webp"
   },
   {
     "id": "827152099474",
@@ -6159,7 +6587,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-bomb-blue-razz-99474.webp"
   },
   {
     "id": "827152099436",
@@ -6171,7 +6600,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-bussin-banana-99436.webp"
   },
   {
     "id": "827152099450",
@@ -6183,7 +6613,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-blessed-blueberry-mint-99450.webp"
   },
   {
     "id": "827152099627",
@@ -6195,7 +6626,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-gusto-green-apple-99627.webp"
   },
   {
     "id": "827152099542",
@@ -6207,7 +6639,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-dope-double-kiwi-99542.webp"
   },
   {
     "id": "827152099566",
@@ -6219,7 +6652,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-dreamy-dragonfruit-lychee-99566.webp"
   },
   {
     "id": "827152225637",
@@ -6231,7 +6665,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-cherry-blast-25637.webp"
   },
   {
     "id": "827152227594",
@@ -6255,7 +6690,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-groovy-grape-passionfruit-99641.webp"
   },
   {
     "id": "827152099511",
@@ -6267,7 +6703,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-boss-blueberry-99511.webp"
   },
   {
     "id": "827152225590",
@@ -6279,7 +6716,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-vibin-vanana-25590.webp"
   },
   {
     "id": "827152138586",
@@ -6291,7 +6729,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-double-mocha-38586.webp"
   },
   {
     "id": "827152138593",
@@ -6303,7 +6742,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-iced-tea-38593.webp"
   },
   {
     "id": "827152124008",
@@ -6315,7 +6755,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-epic-watermelon-kiwi-24008.webp"
   },
   {
     "id": "827152200603",
@@ -6327,7 +6768,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-bangin-blood-orange-00603.webp"
   },
   {
     "id": "827152227655",
@@ -6339,7 +6781,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-pineapple-coconut-27655.webp"
   },
   {
     "id": "827152126897",
@@ -6351,7 +6794,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-super-sour-lemon-26897.webp"
   },
   {
     "id": "827152099900",
@@ -6363,7 +6807,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-slammin-sts-99900.webp"
   },
   {
     "id": "827152099887",
@@ -6375,7 +6820,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-sic-strawberry-99887.webp"
   },
   {
     "id": "827152227648",
@@ -6387,7 +6833,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-watermelon-strawberry-kiwi-27648.webp"
   },
   {
     "id": "827152227662",
@@ -6399,7 +6846,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-strawberry-cherry-watermelon-27662.webp"
   },
   {
     "id": "827152126910",
@@ -6411,7 +6859,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-super-sour-pineapple-26910.webp"
   },
   {
     "id": "827152126880",
@@ -6423,7 +6872,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-super-sour-blue-razz-26880.webp"
   },
   {
     "id": "827152126859",
@@ -6435,7 +6885,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-wicked-white-peach-26859.webp"
   },
   {
     "id": "827152225620",
@@ -6447,7 +6898,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-mega-mango-25620.webp"
   },
   {
     "id": "827152126903",
@@ -6459,7 +6911,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-super-sour-peach-26903.webp"
   },
   {
     "id": "827152227693",
@@ -6471,7 +6924,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-pink-bomb-27693.webp"
   },
   {
     "id": "827152225613",
@@ -6483,7 +6937,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-miami-mint-25613.webp"
   },
   {
     "id": "827152227631",
@@ -6495,7 +6950,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-blue-raspberry-cherry-27631.webp"
   },
   {
     "id": "827152238040",
@@ -6507,7 +6963,8 @@ export const importedProducts: Product[] = [
     "flavour": "twelve monkeys 20mg",
     "price": 36.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-tm-tropica-iced-38040.webp"
   },
   {
     "id": "827152238033",
@@ -6519,7 +6976,8 @@ export const importedProducts: Product[] = [
     "flavour": "twelve monkeys 20mg",
     "price": 36.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-tm-harambae-iced-38033.webp"
   },
   {
     "id": "827152238026",
@@ -6531,7 +6989,8 @@ export const importedProducts: Product[] = [
     "flavour": "twelve monkeys 20mg",
     "price": 36.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-tm-matata-iced-38026.webp"
   },
   {
     "id": "827152238002",
@@ -6543,7 +7002,8 @@ export const importedProducts: Product[] = [
     "flavour": "twelve monkeys 20mg",
     "price": 36.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-tm-kanzi-iced-38002.webp"
   },
   {
     "id": "827152238019",
@@ -6555,7 +7015,8 @@ export const importedProducts: Product[] = [
     "flavour": "twelve monkeys 20mg",
     "price": 36.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-tm-hakuna-iced-38019.webp"
   },
   {
     "id": "827152238057",
@@ -6567,7 +7028,8 @@ export const importedProducts: Product[] = [
     "flavour": "twelve monkeys 20mg",
     "price": 36.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-tm-mangabeys-iced-38057.webp"
   },
   {
     "id": "628148094967",
@@ -6579,7 +7041,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg",
     "price": 35.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-20mg-banana-94967.webp"
   },
   {
     "id": "628148052851",
@@ -6591,7 +7054,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg",
     "price": 35.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-20mg-black-currant-52851.webp"
   },
   {
     "id": "628148094813",
@@ -6603,7 +7067,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg",
     "price": 35.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-20mg-blood-orange-94813.webp"
   },
   {
     "id": "628148094905",
@@ -6615,7 +7080,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg",
     "price": 35.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-20mg-grape-94905.webp"
   },
   {
     "id": "628148094875",
@@ -6627,7 +7093,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg",
     "price": 35.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-20mg-blueberry-94875.webp"
   },
   {
     "id": "628148094844",
@@ -6639,7 +7106,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg",
     "price": 35.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-20mg-green-apple-94844.webp"
   },
   {
     "id": "628148052899",
@@ -6651,7 +7119,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg",
     "price": 35.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-20mg-grapefruit-52899.webp"
   },
   {
     "id": "628148052912",
@@ -6663,7 +7132,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg",
     "price": 35.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-20mg-lychee-52912.webp"
   },
   {
     "id": "628148094639",
@@ -6675,7 +7145,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg",
     "price": 35.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-20mg-strawberry-94639.webp"
   },
   {
     "id": "628148094721",
@@ -6687,7 +7158,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg",
     "price": 35.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-20mg-peach-94721.webp"
   },
   {
     "id": "628148094578",
@@ -6699,7 +7171,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg",
     "price": 35.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-20mg-pink-94578.webp"
   },
   {
     "id": "628148094608",
@@ -6711,7 +7184,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg",
     "price": 35.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-20mg-punch-94608.webp"
   },
   {
     "id": "628148095155",
@@ -6723,7 +7197,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg",
     "price": 35.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-20mg-white-grape-95155.webp"
   },
   {
     "id": "628148094752",
@@ -6735,7 +7210,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg",
     "price": 35.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-20mg-wild-berry-94752.webp"
   },
   {
     "id": "628148094691",
@@ -6747,7 +7223,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg",
     "price": 35.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-20mg-mango-94691.webp"
   },
   {
     "id": "628148094547",
@@ -6759,7 +7236,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg",
     "price": 35.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-20mg-blue-raspberry-94547.webp"
   },
   {
     "id": "628148094660",
@@ -6771,7 +7249,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg",
     "price": 35.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-20mg-watermelon-94660.webp"
   },
   {
     "id": "628148096473",
@@ -6783,7 +7262,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg ice",
     "price": 35.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-iced-20mg-banana-96473.webp"
   },
   {
     "id": "628148096299",
@@ -6795,7 +7275,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg ice",
     "price": 35.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-iced-20mg-black-cherry-96299.webp"
   },
   {
     "id": "628148096053",
@@ -6807,7 +7288,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg ice",
     "price": 35.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-iced-20mg-blue-raspberry-96053.webp"
   },
   {
     "id": "628148096381",
@@ -6819,7 +7301,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg ice",
     "price": 35.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-iced-20mg-blueberry-96381.webp"
   },
   {
     "id": "628148096329",
@@ -6831,7 +7314,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg ice",
     "price": 35.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-iced-20mg-blood-orange-96329.webp"
   },
   {
     "id": "628148096503",
@@ -6843,7 +7327,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg ice",
     "price": 35.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-iced-20mg-black-currant-96503.webp"
   },
   {
     "id": "628148096350",
@@ -6855,7 +7340,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg ice",
     "price": 35.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-iced-20mg-green-apple-96350.webp"
   },
   {
     "id": "628148096596",
@@ -6867,7 +7353,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg ice",
     "price": 35.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-iced-20mg-lychee-96596.webp"
   },
   {
     "id": "628148096565",
@@ -6879,7 +7366,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg ice",
     "price": 35.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-iced-20mg-grapefruit-96565.webp"
   },
   {
     "id": "628148096411",
@@ -6891,7 +7379,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg ice",
     "price": 35.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-iced-20mg-grape-96411.webp"
   },
   {
     "id": "628148096084",
@@ -6903,7 +7392,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg ice",
     "price": 35.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-iced-20mg-pink-96084.webp"
   },
   {
     "id": "628148096237",
@@ -6915,7 +7405,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg ice",
     "price": 35.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-iced-20mg-peach-96237.webp"
   },
   {
     "id": "628148096176",
@@ -6927,7 +7418,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg ice",
     "price": 35.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-iced-20mg-watermelon-96176.webp"
   },
   {
     "id": "628148096206",
@@ -6939,7 +7431,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg ice",
     "price": 35.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-iced-20mg-wild-berry-96206.webp"
   },
   {
     "id": "628148096145",
@@ -6951,7 +7444,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg ice",
     "price": 35.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-iced-20mg-strawberry-96145.webp"
   },
   {
     "id": "628148096268",
@@ -6963,7 +7457,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop salt 20mg ice",
     "price": 35.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-iced-20mg-mango-96268.webp"
   },
   {
     "id": "628148094530",
@@ -6975,7 +7470,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop 12mg",
     "price": 35.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-12mg-blue-raspberry-94530.webp"
   },
   {
     "id": "628148094950",
@@ -6987,7 +7483,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop 12mg",
     "price": 35.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-12mg-banana-94950.webp"
   },
   {
     "id": "628148095070",
@@ -6999,7 +7496,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop 12mg",
     "price": 35.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-12mg-lychee-95070.webp"
   },
   {
     "id": "628148094776",
@@ -7011,7 +7509,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop 12mg",
     "price": 35.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-12mg-black-cherry-94776.webp"
   },
   {
     "id": "628148094684",
@@ -7023,7 +7522,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop 12mg",
     "price": 35.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-12mg-mango-94684.webp"
   },
   {
     "id": "628148095049",
@@ -7035,7 +7535,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop 12mg",
     "price": 35.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-12mg-grapefruit-95049.webp"
   },
   {
     "id": "628148094899",
@@ -7047,7 +7548,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop 12mg",
     "price": 35.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-12mg-grape-94899.webp"
   },
   {
     "id": "628148094714",
@@ -7059,7 +7561,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop 12mg",
     "price": 35.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-12mg-peach-94714.webp"
   },
   {
     "id": "628148094561",
@@ -7071,7 +7574,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop 12mg",
     "price": 35.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-12mg-pink-94561.webp"
   },
   {
     "id": "628148094653",
@@ -7083,7 +7587,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop 12mg",
     "price": 35.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-12mg-watermelon-94653.webp"
   },
   {
     "id": "628148094745",
@@ -7095,7 +7600,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop 12mg",
     "price": 35.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-12mg-wild-berry-94745.webp"
   },
   {
     "id": "628148095148",
@@ -7107,7 +7613,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop 12mg",
     "price": 35.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-12mg-white-grape-95148.webp"
   },
   {
     "id": "628148094929",
@@ -7119,7 +7626,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop 12mg",
     "price": 35.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-12mg-pineapple-94929.webp"
   },
   {
     "id": "628148133123",
@@ -7131,7 +7639,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop boost salt 20mg",
     "price": 35.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-boost-blue-razz-ice-33123.webp"
   },
   {
     "id": "628148133130",
@@ -7143,7 +7652,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop boost salt 20mg",
     "price": 35.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-boost-peach-ice-33130.webp"
   },
   {
     "id": "628148133147",
@@ -7155,7 +7665,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop boost salt 20mg",
     "price": 35.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-boost-pink-ice-33147.webp"
   },
   {
     "id": "628148133161",
@@ -7167,7 +7678,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop boost salt 20mg",
     "price": 35.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-boost-wild-berry-ice-33161.webp"
   },
   {
     "id": "628148133086",
@@ -7179,7 +7691,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop boost salt 20mg",
     "price": 35.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-boost-peach-33086.webp"
   },
   {
     "id": "628148133109",
@@ -7191,7 +7704,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop boost salt 20mg",
     "price": 35.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-boost-punch-33109.webp"
   },
   {
     "id": "628148133079",
@@ -7203,7 +7717,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop boost salt 20mg",
     "price": 35.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-boost-blue-razz-33079.webp"
   },
   {
     "id": "628148133093",
@@ -7215,7 +7730,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop boost salt 20mg",
     "price": 35.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-boost-pink-33093.webp"
   },
   {
     "id": "628148133116",
@@ -7227,7 +7743,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop boost salt 20mg",
     "price": 35.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-boost-wild-berry-33116.webp"
   },
   {
     "id": "827152102969",
@@ -7239,7 +7756,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/twelve-monkeys-harambae-3mg-02969.webp"
   },
   {
     "id": "827152103133",
@@ -7251,7 +7769,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/twelve-monkeys-kanzi-6mg-03133.webp"
   },
   {
     "id": "827152102976",
@@ -7263,7 +7782,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/twelve-monkeys-harambae-6mg-02976.webp"
   },
   {
     "id": "827152103256",
@@ -7275,7 +7795,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/twelve-monkeys-mangabeys-6mg-03256.webp"
   },
   {
     "id": "827152103249",
@@ -7287,7 +7808,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/twelve-monkeys-mangabeys-3mg-03249.webp"
   },
   {
     "id": "827152103164",
@@ -7299,7 +7821,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/twelve-monkeys-matata-3mg-03164.webp"
   },
   {
     "id": "827152103171",
@@ -7311,7 +7834,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/twelve-monkeys-matata-6mg-03171.webp"
   },
   {
     "id": "827152102921",
@@ -7323,7 +7847,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/twelve-monkeys-hakuna-3mg-02921.webp"
   },
   {
     "id": "827152102938",
@@ -7335,7 +7860,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/twelve-monkeys-hakuna-6mg-02938.webp"
   },
   {
     "id": "628148093915",
@@ -7347,7 +7873,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-6mg-grape-93915.webp"
   },
   {
     "id": "628148093892",
@@ -7359,7 +7886,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-grape-nf-93892.webp"
   },
   {
     "id": "628148093908",
@@ -7371,7 +7899,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-grape-3mg-93908.webp"
   },
   {
     "id": "628148093540",
@@ -7383,7 +7912,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-blue-razz-3mg-93540.webp"
   },
   {
     "id": "628148093533",
@@ -7395,7 +7925,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-blue-razz-nf-93533.webp"
   },
   {
     "id": "628148093977",
@@ -7431,7 +7962,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-peach-6mg-93472.webp"
   },
   {
     "id": "628148093465",
@@ -7443,7 +7975,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-peach-3mg-93465.webp"
   },
   {
     "id": "628148093458",
@@ -7455,7 +7988,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-peach-nf-93458.webp"
   },
   {
     "id": "628148093878",
@@ -7467,7 +8001,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-blueberry-6mg-93878.webp"
   },
   {
     "id": "628148093861",
@@ -7479,7 +8014,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-blueberry-3mg-93861.webp"
   },
   {
     "id": "628148093854",
@@ -7491,7 +8027,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-blueberry-nf-93854.webp"
   },
   {
     "id": "628148093816",
@@ -7503,7 +8040,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-green-apple-nf-93816.webp"
   },
   {
     "id": "628148093830",
@@ -7515,7 +8053,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-green-apple-6mg-93830.webp"
   },
   {
     "id": "628148093823",
@@ -7527,7 +8066,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-green-apple-3mg-93823.webp"
   },
   {
     "id": "628148093625",
@@ -7539,7 +8079,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-punch-3mg-93625.webp"
   },
   {
     "id": "628148093632",
@@ -7551,7 +8092,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-punch-6mg-93632.webp"
   },
   {
     "id": "628148093427",
@@ -7563,7 +8105,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-mango-3mg-93427.webp"
   },
   {
     "id": "628148093434",
@@ -7575,7 +8118,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-mango-6mg-93434.webp"
   },
   {
     "id": "628148093410",
@@ -7587,7 +8131,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-mango-nf-93410.webp"
   },
   {
     "id": "628148093793",
@@ -7623,7 +8168,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-strawberry-6mg-93670.webp"
   },
   {
     "id": "628148093663",
@@ -7635,7 +8181,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-strawberry-3mg-93663.webp"
   },
   {
     "id": "628148093656",
@@ -7647,7 +8194,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-strawberry-nf-93656.webp"
   },
   {
     "id": "691584001103",
@@ -7659,7 +8207,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth nic free blue raspberry",
     "price": 22.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-nic-free-blue-raspberry-01103.webp"
   },
   {
     "id": "691584000151",
@@ -7671,7 +8220,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth nic free tobacco blend",
     "price": 22.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-nic-free-tobacco-blend-00151.webp"
   },
   {
     "id": "691584001158",
@@ -7683,7 +8233,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth nic free frost mint",
     "price": 22.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-nic-free-frost-mint-01158.webp"
   },
   {
     "id": "691584006429",
@@ -7719,7 +8270,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth 12mg tobacco blend",
     "price": 22.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-12mg-tobacco-blend-00168.webp"
   },
   {
     "id": "691584000212",
@@ -7731,7 +8283,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth 12mg berry blast",
     "price": 22.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-12mg-berry-blast-00212.webp"
   },
   {
     "id": "691584001165",
@@ -7743,7 +8296,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth 12mg frost mint",
     "price": 22.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-12mg-frost-mint-01165.webp"
   },
   {
     "id": "691584094310",
@@ -7755,7 +8309,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth peach blue razz ice",
     "price": 35.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-peach-blue-razz-ice-94310.webp"
   },
   {
     "id": "691584094327",
@@ -7767,7 +8322,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth punch ice",
     "price": 35.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-punch-ice-94327.webp"
   },
   {
     "id": "691584094235",
@@ -7779,7 +8335,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth blue razz lemon ice",
     "price": 35.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-blue-razz-lemon-ice-94235.webp"
   },
   {
     "id": "691584094204",
@@ -7791,7 +8348,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth arctic mint",
     "price": 35.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-arctic-mint-94204.webp"
   },
   {
     "id": "691584094242",
@@ -7803,7 +8361,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth cherry grape ice",
     "price": 35.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-cherry-grape-ice-94242.webp"
   },
   {
     "id": "691584094259",
@@ -7815,7 +8374,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth citrus burst ice",
     "price": 35.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-citrus-burst-ice-94259.webp"
   },
   {
     "id": "691584094266",
@@ -7827,7 +8387,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth green apple ice",
     "price": 35.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-green-apple-ice-94266.webp"
   },
   {
     "id": "691584094341",
@@ -7839,7 +8400,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth tropical storm ice",
     "price": 35.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-tropical-storm-ice-94341.webp"
   },
   {
     "id": "691584094228",
@@ -7851,7 +8413,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth blue razz",
     "price": 35.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-blue-razz-94228.webp"
   },
   {
     "id": "691584094273",
@@ -7863,7 +8426,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth hawaiian mist ice",
     "price": 35.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-hawaiian-mist-ice-94273.webp"
   },
   {
     "id": "691584094297",
@@ -7875,7 +8439,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth kiwi dragon berry ice",
     "price": 35.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-kiwi-dragon-berry-ice-94297.webp"
   },
   {
     "id": "691584094303",
@@ -7887,7 +8452,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth lychee melon ice",
     "price": 35.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-lychee-melon-ice-94303.webp"
   },
   {
     "id": "628148112548",
@@ -7911,7 +8477,8 @@ export const importedProducts: Product[] = [
     "flavour": "Nkd100 euro gold 12mg",
     "price": 35.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/nkd100-euro-gold-12mg-12630.webp"
   },
   {
     "id": "628148112647",
@@ -7923,7 +8490,8 @@ export const importedProducts: Product[] = [
     "flavour": "Nkd100 euro gold 20mg",
     "price": 35.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/nkd100-euro-gold-20mg-12647.webp"
   },
   {
     "id": "628148112579",
@@ -7935,7 +8503,8 @@ export const importedProducts: Product[] = [
     "flavour": "Nkd100 american patriots 12mg",
     "price": 35.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/nkd100-american-patriots-12mg-12579.webp"
   },
   {
     "id": "628148112586",
@@ -7947,7 +8516,8 @@ export const importedProducts: Product[] = [
     "flavour": "Nkd100 American patriots 20mg",
     "price": 35.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/nkd100-american-patriots-20mg-12586.webp"
   },
   {
     "id": "628148099870",
@@ -7983,7 +8553,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geekbar 20mg watermelon ice",
     "price": 35.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-20mg-watermelon-ice-33666.webp"
   },
   {
     "id": "628148133574",
@@ -7995,7 +8566,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geekbar 20mg banana ice",
     "price": 35.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-20mg-banana-ice-33574.webp"
   },
   {
     "id": "628148133604",
@@ -8007,7 +8579,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geekbar 20mg ice blast",
     "price": 35.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-20mg-ice-blast-33604.webp"
   },
   {
     "id": "628148133611",
@@ -8019,7 +8592,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geekbar 20mg juicy peach ice",
     "price": 35.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-20mg-juicy-peach-ice-33611.webp"
   },
   {
     "id": "628148133659",
@@ -8031,7 +8605,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geekbar 20mg strawberry twist ice",
     "price": 35.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-20mg-strawberry-twist-ice-33659.webp"
   },
   {
     "id": "628148133581",
@@ -8043,7 +8618,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geekbar 20mg cherry blast ice",
     "price": 35.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-20mg-cherry-blast-ice-33581.webp"
   },
   {
     "id": "6943498653980",
@@ -8055,7 +8631,8 @@ export const importedProducts: Product[] = [
     "flavour": "Vaporesso vibe se blue",
     "price": 17.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/vaporesso-vibe-se-blue-53980.webp"
   },
   {
     "id": "6941736556789",
@@ -8067,7 +8644,8 @@ export const importedProducts: Product[] = [
     "flavour": "Caliburn g3 lite canvas green",
     "price": 17.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/caliburn-g3-lite-canvas-green-56789.webp"
   },
   {
     "id": "6978093762362",
@@ -8080,7 +8658,8 @@ export const importedProducts: Product[] = [
     "price": 41.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "40,000"
+    "puffCount": "40,000",
+    "image": "/products/catalog/nasha-40k-peach-ice-62362.webp"
   },
   {
     "id": "6978093762379",
@@ -8093,7 +8672,8 @@ export const importedProducts: Product[] = [
     "price": 41.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "40,000"
+    "puffCount": "40,000",
+    "image": "/products/catalog/nasha-40k-blueberry-dragonfruit-62379.webp"
   },
   {
     "id": "6978093762294",
@@ -8106,7 +8686,8 @@ export const importedProducts: Product[] = [
     "price": 41.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "40,000"
+    "puffCount": "40,000",
+    "image": "/products/catalog/nasha-40k-strbry-rspbry-chry-62294.webp"
   },
   {
     "id": "6978093762317",
@@ -8119,7 +8700,8 @@ export const importedProducts: Product[] = [
     "price": 41.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "40,000"
+    "puffCount": "40,000",
+    "image": "/products/catalog/nasha-40k-apple-grape-blueberry-62317.webp"
   },
   {
     "id": "6978093767756",
@@ -8132,7 +8714,8 @@ export const importedProducts: Product[] = [
     "price": 41.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "40,000"
+    "puffCount": "40,000",
+    "image": "/products/catalog/nasha-40k-strawberry-pear-peach-67756.webp"
   },
   {
     "id": "827152097852",
@@ -8144,7 +8727,8 @@ export const importedProducts: Product[] = [
     "flavour": "Allo 2500 10mg",
     "price": 31.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/allo-2500-10mg-blue-raspberry-97852.webp"
   },
   {
     "id": "6978873090043",
@@ -8156,7 +8740,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-miami-mint-90043.webp"
   },
   {
     "id": "691584040294",
@@ -8168,7 +8753,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth switch",
     "price": 32.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-switch-arctic-mint-ice-40294.webp"
   },
   {
     "id": "6977863390231",
@@ -8180,7 +8766,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-cherry-blast-ice-90231.webp"
   },
   {
     "id": "6978873091767",
@@ -8192,7 +8779,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-pulse-x-blue-razz-91767.webp"
   },
   {
     "id": "691584121382",
@@ -8204,7 +8792,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco box",
     "price": 28.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-box-punch-ice-21382.webp"
   },
   {
     "id": "0691584101544",
@@ -8216,7 +8805,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth loop Max black battery",
     "price": 14.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-loop-max-black-battery-01544.webp"
   },
   {
     "id": "0691584143131",
@@ -8228,7 +8818,8 @@ export const importedProducts: Product[] = [
     "flavour": "stlth loop max battery gold",
     "price": 14.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-loop-max-battery-gold-43131.webp"
   },
   {
     "id": "0691584143155",
@@ -8240,7 +8831,8 @@ export const importedProducts: Product[] = [
     "flavour": "stlth loop Max battery peach",
     "price": 14.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-loop-max-battery-peach-43155.webp"
   },
   {
     "id": "0691584143124",
@@ -8252,7 +8844,8 @@ export const importedProducts: Product[] = [
     "flavour": "stlth loop max battery blue",
     "price": 14.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-loop-max-battery-blue-43124.webp"
   },
   {
     "id": "0691584143148",
@@ -8264,7 +8857,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth loop max battery green",
     "price": 14.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-loop-max-battery-green-43148.webp"
   },
   {
     "id": "6941736557793",
@@ -8300,7 +8894,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast Capsl",
     "price": 42.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavour-beast-capsl-banana-ice-45499.webp"
   },
   {
     "id": "6978873090081",
@@ -8312,7 +8907,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-watermelon-ice-90081.webp"
   },
   {
     "id": "6937643590572",
@@ -8324,7 +8920,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lost mary 50k",
     "price": 40.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lost-mary-watermelon-freeze-90572.webp"
   },
   {
     "id": "827152238965",
@@ -8336,7 +8933,8 @@ export const importedProducts: Product[] = [
     "flavour": "Beast mode max 50k",
     "price": 45.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-harambae-iced-38965.webp"
   },
   {
     "id": "6978873092955",
@@ -8348,7 +8946,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-strawberry-twist-ice-92955.webp"
   },
   {
     "id": "691584094990",
@@ -8361,7 +8960,8 @@ export const importedProducts: Product[] = [
     "price": 33.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "25,000"
+    "puffCount": "25,000",
+    "image": "/products/catalog/loop-25k-juicy-peach-ice-94990.webp"
   },
   {
     "id": "827152237593",
@@ -8387,7 +8987,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-weekend-watermelon-00002.webp"
   },
   {
     "id": "827152237630",
@@ -8438,7 +9039,8 @@ export const importedProducts: Product[] = [
     "flavour": "Allo 2500",
     "price": 26.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/allo-2500-pineapple-ice-62225.webp"
   },
   {
     "id": "827152062195",
@@ -8450,7 +9052,8 @@ export const importedProducts: Product[] = [
     "flavour": "Allo 2500",
     "price": 26.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/allo-2500-fuji-apple-ice-62195.webp"
   },
   {
     "id": "827152204489",
@@ -8462,7 +9065,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-weekend-watermelon-04489.webp"
   },
   {
     "id": "691584123041",
@@ -8474,7 +9078,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco",
     "price": 19.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-mango-ice-23041.webp"
   },
   {
     "id": "827152232741",
@@ -8486,7 +9091,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-hawaiian-red-32741.webp"
   },
   {
     "id": "827152199556",
@@ -8498,7 +9104,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-fb-polar-mint-99556.webp"
   },
   {
     "id": "827152130351",
@@ -8523,7 +9130,8 @@ export const importedProducts: Product[] = [
     "price": 33.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "25,000"
+    "puffCount": "25,000",
+    "image": "/products/catalog/loop-25k-blueberry-kiwi-94853.webp"
   },
   {
     "id": "827152220816",
@@ -8536,7 +9144,8 @@ export const importedProducts: Product[] = [
     "price": 46.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "42,000"
+    "puffCount": "42,000",
+    "image": "/products/catalog/kraze-luna-raspberry-lemon-ice-42k-20816.webp"
   },
   {
     "id": "6937643533289",
@@ -8549,7 +9158,8 @@ export const importedProducts: Product[] = [
     "price": 39.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "10,000"
+    "puffCount": "10,000",
+    "image": "/products/catalog/elfbar-10k-strawberry-ice-33289.webp"
   },
   {
     "id": "827152098934",
@@ -8561,7 +9171,8 @@ export const importedProducts: Product[] = [
     "flavour": "Envi apex drippin",
     "price": 26.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/envi-apex-2500-green-apple-98934.webp"
   },
   {
     "id": "827152140091",
@@ -8597,7 +9208,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 36.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-flipin-fruit-flash-99801.webp"
   },
   {
     "id": "628148095131",
@@ -8645,7 +9257,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-rich-tobacco-06346.webp"
   },
   {
     "id": "6978873090166",
@@ -8657,7 +9270,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-juicy-peach-ice-90166.webp"
   },
   {
     "id": "6978873090142",
@@ -8669,7 +9283,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-citrus-smash-ice-90142.webp"
   },
   {
     "id": "6932467666038",
@@ -8682,7 +9297,8 @@ export const importedProducts: Product[] = [
     "price": 42.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "20,000"
+    "puffCount": "20,000",
+    "image": "/products/catalog/oxbar-zero-peach-ice-20k-66038.webp"
   },
   {
     "id": "6932467666007",
@@ -8695,7 +9311,8 @@ export const importedProducts: Product[] = [
     "price": 42.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "20,000"
+    "puffCount": "20,000",
+    "image": "/products/catalog/oxbar-zero-raspberry-watermelon-ice-20k-66007.webp"
   },
   {
     "id": "6932467666021",
@@ -8708,7 +9325,8 @@ export const importedProducts: Product[] = [
     "price": 42.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "20,000"
+    "puffCount": "20,000",
+    "image": "/products/catalog/oxbar-zero-raspberry-lemon-20k-66021.webp"
   },
   {
     "id": "6932467666014",
@@ -8746,7 +9364,8 @@ export const importedProducts: Product[] = [
     "price": 43.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/elfbar-70k-watermelon-ice-45641.webp"
   },
   {
     "id": "6941976245467",
@@ -8759,7 +9378,8 @@ export const importedProducts: Product[] = [
     "price": 43.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/elfbar-70k-sakuragrape-ice-45467.webp"
   },
   {
     "id": "6941976245528",
@@ -8772,7 +9392,8 @@ export const importedProducts: Product[] = [
     "price": 43.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/elfbar-70k-strawberry-ice-45528.webp"
   },
   {
     "id": "6941976245405",
@@ -8785,7 +9406,8 @@ export const importedProducts: Product[] = [
     "price": 43.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/elfbar-70k-mango-ice-45405.webp"
   },
   {
     "id": "6941976245481",
@@ -8798,7 +9420,8 @@ export const importedProducts: Product[] = [
     "price": 43.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/elfbar-70k-sour-peach-ice-45481.webp"
   },
   {
     "id": "6941976245351",
@@ -8811,7 +9434,8 @@ export const importedProducts: Product[] = [
     "price": 43.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/elfbar-70k-apple-ice-45351.webp"
   },
   {
     "id": "6941976245474",
@@ -8824,7 +9448,8 @@ export const importedProducts: Product[] = [
     "price": 43.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/elfbar-70k-sour-blue-razz-ice-45474.webp"
   },
   {
     "id": "6941976245368",
@@ -8837,7 +9462,8 @@ export const importedProducts: Product[] = [
     "price": 43.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/elfbar-70k-banana-ice-45368.webp"
   },
   {
     "id": "628148133154",
@@ -8849,7 +9475,8 @@ export const importedProducts: Product[] = [
     "flavour": "Lemon drop boost salt 20mg",
     "price": 35.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/boost-punch-ice-33154.webp"
   },
   {
     "id": "827152222315",
@@ -8862,7 +9489,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "70,000"
+    "puffCount": "70,000",
+    "image": "/products/catalog/dripin-70k-blue-razz-22315.webp"
   },
   {
     "id": "827152191208",
@@ -8886,7 +9514,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-cherry-blast-ice-93686.webp"
   },
   {
     "id": "6978873090029",
@@ -8898,7 +9527,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-sour-blue-ice-90029.webp"
   },
   {
     "id": "6978873093723",
@@ -8910,7 +9540,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-mango-pineapple-ice-93723.webp"
   },
   {
     "id": "6978873093709",
@@ -8922,7 +9553,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-banana-ice-93709.webp"
   },
   {
     "id": "6978873093747",
@@ -8934,7 +9566,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-sour-peach-ice-93747.webp"
   },
   {
     "id": "6978873090203",
@@ -8946,7 +9579,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-raspberry-citrus-ice-90203.webp"
   },
   {
     "id": "6978873090265",
@@ -8958,7 +9592,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-strawberry-kiwi-90265.webp"
   },
   {
     "id": "6978873093051",
@@ -8970,7 +9605,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-coconut-ice-93051.webp"
   },
   {
     "id": "6978873092979",
@@ -8982,7 +9618,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-white-grape-ice-92979.webp"
   },
   {
     "id": "6978873090005",
@@ -8994,7 +9631,8 @@ export const importedProducts: Product[] = [
     "flavour": "Geek bar pulse x",
     "price": 44.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/geekbar-sour-strawberry-ice-90005.webp"
   },
   {
     "id": "691584129937",
@@ -9006,7 +9644,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth x Geek bar",
     "price": 50.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-x-geek-bar-sour-grape-ice-29937.webp"
   },
   {
     "id": "691584129920",
@@ -9018,7 +9657,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth x Geek bar",
     "price": 50.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-x-geek-bar-sour-blue-ice-29920.webp"
   },
   {
     "id": "691584129951",
@@ -9030,7 +9670,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth x Geek bar",
     "price": 50.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-x-geek-bar-sour-strawberry-ice-29951.webp"
   },
   {
     "id": "691584129944",
@@ -9042,7 +9683,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth x Geek bar",
     "price": 50.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-x-geek-bar-sour-peach-ice-29944.webp"
   },
   {
     "id": "827152250394",
@@ -9078,7 +9720,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 52.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavour-beast-60ml-weekend-watermelon-40152.webp"
   },
   {
     "id": "827152139996",
@@ -9102,7 +9745,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 52.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavourbeast-60ml-packin-peach-berry-40077.webp"
   },
   {
     "id": "827152140039",
@@ -9114,7 +9758,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 52.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavour-beast-60ml-fruit-flash-40039.webp"
   },
   {
     "id": "827152176137",
@@ -9126,7 +9771,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 52.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavourbeast-60ml-boss-blueberry-76137.webp"
   },
   {
     "id": "827152140008",
@@ -9138,7 +9784,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 52.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavour-beast-60ml-bussin-banana-40008.webp"
   },
   {
     "id": "827152140046",
@@ -9150,7 +9797,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 52.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavour-beast-60ml-groovy-grape-passion-fruit-40046.webp"
   },
   {
     "id": "827152140138",
@@ -9162,7 +9810,8 @@ export const importedProducts: Product[] = [
     "flavour": "flavour beast 60ml trippin triple berry",
     "price": 52.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavour-beast-60ml-trippin-triple-berry-40138.webp"
   },
   {
     "id": "827152140053",
@@ -9174,7 +9823,8 @@ export const importedProducts: Product[] = [
     "flavour": "flavour beast 60ml gusto green apple",
     "price": 51.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavour-beast-60ml-gusto-green-apple-40053.webp"
   },
   {
     "id": "827152140022",
@@ -9186,7 +9836,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 52.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavour-beast-60ml-extreme-mint-40022.webp"
   },
   {
     "id": "827152140060",
@@ -9198,7 +9849,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 52.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavour-beast-60ml-mad-mango-peach-40060.webp"
   },
   {
     "id": "827152139989",
@@ -9210,7 +9862,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 52.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavour-beast-60ml-blood-orange-39989.webp"
   },
   {
     "id": "6941736560724",
@@ -9222,7 +9875,8 @@ export const importedProducts: Product[] = [
     "flavour": "uwell zetta",
     "price": 29.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/uwell-zetta-60724.webp"
   },
   {
     "id": "827152248339",
@@ -9234,7 +9888,8 @@ export const importedProducts: Product[] = [
     "flavour": "Alpha 30 ml",
     "price": 50.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-alpha-meta-melon-citrus-48339.webp"
   },
   {
     "id": "827152248292",
@@ -9246,7 +9901,8 @@ export const importedProducts: Product[] = [
     "flavour": "Alpha 30 ml",
     "price": 50.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-alpha-atomic-apple-48292.webp"
   },
   {
     "id": "827152248315",
@@ -9258,7 +9914,8 @@ export const importedProducts: Product[] = [
     "flavour": "Alpha 30 ml",
     "price": 50.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-alpha-extreme-mint-48315.webp"
   },
   {
     "id": "827152248346",
@@ -9270,7 +9927,8 @@ export const importedProducts: Product[] = [
     "flavour": "Alpha 30 ml",
     "price": 50.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-alpha-primo-pina-colada-48346.webp"
   },
   {
     "id": "827152248308",
@@ -9282,7 +9940,8 @@ export const importedProducts: Product[] = [
     "flavour": "Alpha 30 ml",
     "price": 50.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-alpha-bomb-blue-razz-48308.webp"
   },
   {
     "id": "827152248384",
@@ -9294,7 +9953,8 @@ export const importedProducts: Product[] = [
     "flavour": "Alpha 30 ml",
     "price": 50.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-alpha-wild-white-grape-48384.webp"
   },
   {
     "id": "827152248377",
@@ -9306,7 +9966,8 @@ export const importedProducts: Product[] = [
     "flavour": "Alpha 30 ml",
     "price": 50.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-alpha-weekend-watermelon-48377.webp"
   },
   {
     "id": "827152248322",
@@ -9318,7 +9979,8 @@ export const importedProducts: Product[] = [
     "flavour": "Alpha 30 ml",
     "price": 50.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-alpha-jumpin-juicy-peach-48322.webp"
   },
   {
     "id": "827152248353",
@@ -9330,7 +9992,8 @@ export const importedProducts: Product[] = [
     "flavour": "Alpha 30 ml",
     "price": 50.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-alpha-supreme-strawberry-kiwi-48353.webp"
   },
   {
     "id": "827152248360",
@@ -9342,7 +10005,8 @@ export const importedProducts: Product[] = [
     "flavour": "Alpha 30 ml",
     "price": 50.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-alpha-trippin-triple-berry-48360.webp"
   },
   {
     "id": "691584135464",
@@ -9366,7 +10030,8 @@ export const importedProducts: Product[] = [
     "flavour": "Vice loop max",
     "price": 38.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-vice-loop-max-lush-ice-35457.webp"
   },
   {
     "id": "691584135372",
@@ -9378,7 +10043,8 @@ export const importedProducts: Product[] = [
     "flavour": "Vice loop max",
     "price": 38.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-vice-loop-max-banana-ice-35372.webp"
   },
   {
     "id": "691584135518",
@@ -9390,7 +10056,8 @@ export const importedProducts: Product[] = [
     "flavour": "Vice loop max",
     "price": 38.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-vice-loop-max-strawberry-ice-35518.webp"
   },
   {
     "id": "691584135433",
@@ -9402,7 +10069,8 @@ export const importedProducts: Product[] = [
     "flavour": "Vice loop max",
     "price": 38.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-vice-loop-max-grape-ice-35433.webp"
   },
   {
     "id": "691584135488",
@@ -9414,7 +10082,8 @@ export const importedProducts: Product[] = [
     "flavour": "Vice loop max",
     "price": 38.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-vice-loop-max-peach-ice-35488.webp"
   },
   {
     "id": "691584135501",
@@ -9426,7 +10095,8 @@ export const importedProducts: Product[] = [
     "flavour": "Vice loop max",
     "price": 38.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-vice-loop-max-sour-blue-razz-35501.webp"
   },
   {
     "id": "691584135471",
@@ -9438,7 +10108,8 @@ export const importedProducts: Product[] = [
     "flavour": "Vice loop max",
     "price": 38.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-vice-loop-max-mint-ice-35471.webp"
   },
   {
     "id": "827152176267",
@@ -9450,7 +10121,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 52.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavourbeast-60ml-super-sour-peach-76267.webp"
   },
   {
     "id": "827152176243",
@@ -9462,7 +10134,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 52.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavourbeast-60ml-super-sour-blueberry-76243.webp"
   },
   {
     "id": "827152176250",
@@ -9498,7 +10171,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco box",
     "price": 28.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-box-blue-razz-ice-45609.webp"
   },
   {
     "id": "691584121290",
@@ -9510,7 +10184,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco box",
     "price": 28.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-box-cherry-blast-ice-21290.webp"
   },
   {
     "id": "6978818937570",
@@ -9523,7 +10198,8 @@ export const importedProducts: Product[] = [
     "price": 41.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "40,000"
+    "puffCount": "40,000",
+    "image": "/products/catalog/nasha-40k-double-apple-37570.webp"
   },
   {
     "id": "6978818937594",
@@ -9561,7 +10237,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco XL",
     "price": 37.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-xl-pineapple-lime-ice-27346.webp"
   },
   {
     "id": "827152250400",
@@ -9573,7 +10250,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-g2-ultra-sraspberry-lemon-50400.webp"
   },
   {
     "id": "827152250431",
@@ -9585,7 +10263,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-g2-ultra-sstrawberry-kiwi-50431.webp"
   },
   {
     "id": "827152230150",
@@ -9621,7 +10300,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 52.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-60ml-dreamy-dragonfruit-lychee-40015.webp"
   },
   {
     "id": "827152140084",
@@ -9633,7 +10313,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 52.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-60ml-ragin-razz-mango-40084.webp"
   },
   {
     "id": "827152176199",
@@ -9645,7 +10326,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 52.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-60ml-lit-lychee-watermelon-76199.webp"
   },
   {
     "id": "827152140145",
@@ -9657,7 +10339,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 52.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-60ml-watermelona-g-40145.webp"
   },
   {
     "id": "827152140176",
@@ -9669,7 +10352,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 52.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-60ml-wid-white-grape-40176.webp"
   },
   {
     "id": "628148093694",
@@ -9681,7 +10365,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-60ml-watermelon-0-nic-93694.webp"
   },
   {
     "id": "827152103126",
@@ -9693,7 +10378,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/twelve-monkeys-kanzi-3mg-03126.webp"
   },
   {
     "id": "628148094004",
@@ -9717,7 +10403,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-60ml-blue-razz-6mg-93557.webp"
   },
   {
     "id": "628148093991",
@@ -9741,7 +10428,8 @@ export const importedProducts: Product[] = [
     "flavour": "lemon drop free base 60ml",
     "price": 51.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/lemon-drop-60ml-watermelon-3mg-93700.webp"
   },
   {
     "id": "827152176274",
@@ -9753,7 +10441,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 52.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-60ml-super-sour-pineapple-76274.webp"
   },
   {
     "id": "691584144305",
@@ -9765,7 +10454,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco mini",
     "price": 11.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-mini-strawberry-kiwi-ice-44305.webp"
   },
   {
     "id": "691584144275",
@@ -9777,7 +10467,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco mini",
     "price": 11.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-mini-peach-ice-44275.webp"
   },
   {
     "id": "691584144244",
@@ -9789,7 +10480,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco mini",
     "price": 11.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-mini-juicy-peach-44244.webp"
   },
   {
     "id": "691584144237",
@@ -9801,7 +10493,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco mini",
     "price": 11.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-mini-green-apple-44237.webp"
   },
   {
     "id": "691584144251",
@@ -9813,7 +10506,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco mini",
     "price": 11.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-mini-mango-ice-44251.webp"
   },
   {
     "id": "691584144282",
@@ -9825,7 +10519,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco mini",
     "price": 11.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-mini-polar-mint-44282.webp"
   },
   {
     "id": "691584144299",
@@ -9837,7 +10532,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco mini",
     "price": 11.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-mini-razzy-grape-ice-44299.webp"
   },
   {
     "id": "691584144213",
@@ -9849,7 +10545,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth eco mini",
     "price": 11.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-eco-mini-blue-razz-ice-44213.webp"
   },
   {
     "id": "827152257515",
@@ -9861,7 +10558,8 @@ export const importedProducts: Product[] = [
     "flavour": "Alpha 30 ml",
     "price": 50.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-alpha-fruity-g-yellow-pineapple-57515.webp"
   },
   {
     "id": "827152257492",
@@ -9873,7 +10571,8 @@ export const importedProducts: Product[] = [
     "flavour": "Alpha 30 ml",
     "price": 50.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-alpha-fruity-g-purple-grape-57492.webp"
   },
   {
     "id": "827152257508",
@@ -9885,7 +10584,8 @@ export const importedProducts: Product[] = [
     "flavour": "Alpha 30 ml",
     "price": 50.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-alpha-fruity-g-red-strawberry-57508.webp"
   },
   {
     "id": "827152257478",
@@ -9897,7 +10597,8 @@ export const importedProducts: Product[] = [
     "flavour": "Alpha 30 ml",
     "price": 50.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-alpha-fruity-g-golden-mango-57478.webp"
   },
   {
     "id": "827152257485",
@@ -9909,7 +10610,8 @@ export const importedProducts: Product[] = [
     "flavour": "Alpha 30 ml",
     "price": 50.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-alpha-fruity-g-green-apple-57485.webp"
   },
   {
     "id": "827152258277",
@@ -9921,7 +10623,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 52.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-60ml-gushin-watermelon-apple-58277.webp"
   },
   {
     "id": "827152258321",
@@ -9933,7 +10636,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 52.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-60ml-gushin-sour-blueberry-grape-58321.webp"
   },
   {
     "id": "827152258345",
@@ -9945,7 +10649,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 52.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-60ml-gushin-sour-cherry-watermeon-58345.webp"
   },
   {
     "id": "827152258338",
@@ -9957,7 +10662,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 52.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-60ml-gushin-sour-raspberry-lemon-58338.webp"
   },
   {
     "id": "827152258369",
@@ -9969,7 +10675,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 52.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-60ml-gushin-sour-strawberry-kiwi-58369.webp"
   },
   {
     "id": "827152140121",
@@ -9981,7 +10688,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 52.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-60ml-super-spearmint-40121.webp"
   },
   {
     "id": "691584142660",
@@ -9993,7 +10701,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth loop max open replacement pod",
     "price": 8.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-loop-max-open-replacement-pod-42660.webp"
   },
   {
     "id": "6936760868267",
@@ -10005,7 +10714,8 @@ export const importedProducts: Product[] = [
     "flavour": "Smok nord rpm 4 0.6(nord 6)",
     "price": 22.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/smok-nord-rpm-4-06nord-6-68267.webp"
   },
   {
     "id": "6936760868243",
@@ -10017,7 +10727,8 @@ export const importedProducts: Product[] = [
     "flavour": "smok Nord rpm4 0.15(Nord 6)",
     "price": 22.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/smok-nord-rpm4-015nord-6-68243.webp"
   },
   {
     "id": "691584128831",
@@ -10029,7 +10740,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth loop max 70k",
     "price": 38.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-loop-max-peach-blue-razz-ice-28831.webp"
   },
   {
     "id": "691584101667",
@@ -10041,7 +10753,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth loop max 70k",
     "price": 38.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-loop-max-blue-razz-01667.webp"
   },
   {
     "id": "691584101865",
@@ -10053,7 +10766,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth loop max 70k",
     "price": 38.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-loop-max-strawnana-ice-01865.webp"
   },
   {
     "id": "691584101650",
@@ -10065,7 +10779,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth loop max 70k",
     "price": 38.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-loop-max-banana-ice-01650.webp"
   },
   {
     "id": "827152263578",
@@ -10077,7 +10792,8 @@ export const importedProducts: Product[] = [
     "flavour": "Max 3 60k",
     "price": 45.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-max-3-bussin-banana-63578.webp"
   },
   {
     "id": "827152263530",
@@ -10089,7 +10805,8 @@ export const importedProducts: Product[] = [
     "flavour": "Max 3 60k",
     "price": 45.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-max-3-bomb-blue-razz-63530.webp"
   },
   {
     "id": "827152251094",
@@ -10101,7 +10818,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/leave-x-g2-ultra-watermelon-g-51094.webp"
   },
   {
     "id": "827152259199",
@@ -10113,7 +10831,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-g2-ultra-super-s-blue-razz-59199.webp"
   },
   {
     "id": "827152251056",
@@ -10125,7 +10844,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-g2-ultra-51056.webp"
   },
   {
     "id": "827152259212",
@@ -10137,7 +10857,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-g2-ultra-super-s-blueberry-59212.webp"
   },
   {
     "id": "827152259205",
@@ -10149,7 +10870,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-g2-ultra-super-s-peach-59205.webp"
   },
   {
     "id": "827152259229",
@@ -10161,7 +10883,8 @@ export const importedProducts: Product[] = [
     "flavour": "level x g2 ultra pods",
     "price": 35.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/level-x-g2-ultra-super-s-pineapple-59229.webp"
   },
   {
     "id": "827152263639",
@@ -10173,7 +10896,8 @@ export const importedProducts: Product[] = [
     "flavour": "Max 3 60k",
     "price": 45.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-max-3-blood-orange-63639.webp"
   },
   {
     "id": "827152263608",
@@ -10185,7 +10909,8 @@ export const importedProducts: Product[] = [
     "flavour": "Max 3 60k",
     "price": 45.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-max-3-winnin-winterberry-63608.webp"
   },
   {
     "id": "827152263622",
@@ -10197,7 +10922,8 @@ export const importedProducts: Product[] = [
     "flavour": "Max 3 60k",
     "price": 45.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-max-3-juicy-peach-63622.webp"
   },
   {
     "id": "827152266241",
@@ -10209,7 +10935,8 @@ export const importedProducts: Product[] = [
     "flavour": "Max 3 60k",
     "price": 45.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-max-3-epic-peach-mango-66241.webp"
   },
   {
     "id": "827152266234",
@@ -10221,7 +10948,8 @@ export const importedProducts: Product[] = [
     "flavour": "Max 3 60k",
     "price": 45.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-max-3-epic-grape-66234.webp"
   },
   {
     "id": "827152266210",
@@ -10233,7 +10961,8 @@ export const importedProducts: Product[] = [
     "flavour": "Max 3 60k",
     "price": 45.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-max-3-epic-fruit-bomb-66210.webp"
   },
   {
     "id": "827152266258",
@@ -10245,7 +10974,8 @@ export const importedProducts: Product[] = [
     "flavour": "Max 3 60k",
     "price": 45.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-max-3-epic-peppermint-66258.webp"
   },
   {
     "id": "827152263547",
@@ -10257,7 +10987,8 @@ export const importedProducts: Product[] = [
     "flavour": "Max 3 60k",
     "price": 45.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-max-3-extreme-mint-63547.webp"
   },
   {
     "id": "827152266265",
@@ -10269,7 +11000,8 @@ export const importedProducts: Product[] = [
     "flavour": "Max 3 60k",
     "price": 45.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-max-3-epic-sour-berries-66265.webp"
   },
   {
     "id": "827152263615",
@@ -10281,7 +11013,8 @@ export const importedProducts: Product[] = [
     "flavour": "Max 3 60k",
     "price": 45.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-max-3-strawberry-kiwi-63615.webp"
   },
   {
     "id": "827152261994",
@@ -10293,7 +11026,8 @@ export const importedProducts: Product[] = [
     "flavour": "Daily 100k",
     "price": 48.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/dripin-daily-just-strawberry-kiwi-61994.webp"
   },
   {
     "id": "827152261956",
@@ -10305,7 +11039,8 @@ export const importedProducts: Product[] = [
     "flavour": "Daily 100k",
     "price": 48.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/dripin-daily-just-green-apple-61956.webp"
   },
   {
     "id": "827152262014",
@@ -10317,7 +11052,8 @@ export const importedProducts: Product[] = [
     "flavour": "Daily 100k",
     "price": 48.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/dripin-daily-just-watermelon-62014.webp"
   },
   {
     "id": "827152261932",
@@ -10329,7 +11065,8 @@ export const importedProducts: Product[] = [
     "flavour": "Daily 100k",
     "price": 48.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/dripin-daily-just-banana-61932.webp"
   },
   {
     "id": "827152261963",
@@ -10341,7 +11078,8 @@ export const importedProducts: Product[] = [
     "flavour": "Daily 100k",
     "price": 48.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/dripin-daily-just-peach-61963.webp"
   },
   {
     "id": "827152261987",
@@ -10353,7 +11091,8 @@ export const importedProducts: Product[] = [
     "flavour": "Daily 100k",
     "price": 48.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/dripin-daily-just-punch-61987.webp"
   },
   {
     "id": "827152261949",
@@ -10365,7 +11104,8 @@ export const importedProducts: Product[] = [
     "flavour": "Daily 100k",
     "price": 48.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/dripin-daily-just-blue-razz-61949.webp"
   },
   {
     "id": "827152262021",
@@ -10377,7 +11117,8 @@ export const importedProducts: Product[] = [
     "flavour": "Daily 100k",
     "price": 48.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/dripin-daily-just-white-grape-62021.webp"
   },
   {
     "id": "827152262007",
@@ -10389,7 +11130,8 @@ export const importedProducts: Product[] = [
     "flavour": "Daily 100k",
     "price": 48.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/dripin-daily-just-mango-62007.webp"
   },
   {
     "id": "827152261970",
@@ -10401,7 +11143,8 @@ export const importedProducts: Product[] = [
     "flavour": "Daily 100k",
     "price": 48.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/dripin-daily-just-mint-61970.webp"
   },
   {
     "id": "827152253258",
@@ -10449,7 +11192,8 @@ export const importedProducts: Product[] = [
     "flavour": "Max 3 60k",
     "price": 45.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-max-3-packin-peach-berry-65886.webp"
   },
   {
     "id": "827152263691",
@@ -10461,7 +11205,8 @@ export const importedProducts: Product[] = [
     "flavour": "Max 3 60k",
     "price": 45.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-max-3-razz-mango-63691.webp"
   },
   {
     "id": "827152263646",
@@ -10473,7 +11218,8 @@ export const importedProducts: Product[] = [
     "flavour": "Max 3 60k",
     "price": 45.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-max-3-sic-strawberry-63646.webp"
   },
   {
     "id": "827152263677",
@@ -10485,7 +11231,8 @@ export const importedProducts: Product[] = [
     "flavour": "Max 3 60k",
     "price": 45.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-max-3-mango-peach-63677.webp"
   },
   {
     "id": "827152263707",
@@ -10497,7 +11244,8 @@ export const importedProducts: Product[] = [
     "flavour": "Max 3 60k",
     "price": 45.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-max-3-green-apple-63707.webp"
   },
   {
     "id": "827152263554",
@@ -10509,7 +11257,8 @@ export const importedProducts: Product[] = [
     "flavour": "Max 3 60k",
     "price": 45.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-max-3-triple-berry-63554.webp"
   },
   {
     "id": "628148136704",
@@ -10521,7 +11270,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour drop 30ml frozen clouds",
     "price": 33.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavour-drop-30ml-frozen-clouds-36704.webp"
   },
   {
     "id": "628148136674",
@@ -10533,7 +11283,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour drop 30ml cherry burst ice",
     "price": 33.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavour-drop-30ml-cherry-burst-ice-36674.webp"
   },
   {
     "id": "628148136667",
@@ -10545,7 +11296,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour drop 30ml bomb blue razz",
     "price": 33.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavour-drop-30ml-bomb-blue-razz-36667.webp"
   },
   {
     "id": "628148136797",
@@ -10557,7 +11309,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour drop 30ml sour peach ice",
     "price": 33.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavour-drop-30ml-sour-peach-ice-36797.webp"
   },
   {
     "id": "628148136810",
@@ -10569,7 +11322,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour drop 30ml strawberry kiwi ice",
     "price": 33.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavour-drop-30ml-strawberry-kiwi-ice-36810.webp"
   },
   {
     "id": "628148136698",
@@ -10581,7 +11335,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour drop 30ml frozen belts",
     "price": 33.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavour-drop-30ml-frozen-belts-36698.webp"
   },
   {
     "id": "628148136780",
@@ -10593,7 +11348,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour drop 30ml sour grape freeze",
     "price": 33.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavour-drop-30ml-sour-grape-freeze-36780.webp"
   },
   {
     "id": "628148136766",
@@ -10605,7 +11361,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour drop 30ml razz mango ice",
     "price": 33.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavour-drop-30ml-razz-mango-ice-36766.webp"
   },
   {
     "id": "628148136650",
@@ -10617,7 +11374,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour drop 30ml banana breeze",
     "price": 33.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavour-drop-30ml-banana-breeze-36650.webp"
   },
   {
     "id": "628148136834",
@@ -10629,7 +11387,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour drop 30ml watermelon gush ice",
     "price": 33.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavour-drop-30ml-watermelon-gush-ice-36834.webp"
   },
   {
     "id": "6977212103185",
@@ -10642,7 +11401,8 @@ export const importedProducts: Product[] = [
     "price": 50.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "120,000"
+    "puffCount": "120,000",
+    "image": "/products/catalog/orbito-120k-grape-ice-03185.webp"
   },
   {
     "id": "6977212103154",
@@ -10655,7 +11415,8 @@ export const importedProducts: Product[] = [
     "price": 50.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "120,000"
+    "puffCount": "120,000",
+    "image": "/products/catalog/orbito-120k-blueberry-raspberry-03154.webp"
   },
   {
     "id": "6977212103192",
@@ -10668,7 +11429,8 @@ export const importedProducts: Product[] = [
     "price": 50.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "120,000"
+    "puffCount": "120,000",
+    "image": "/products/catalog/orbito-120k-peach-ice-03192.webp"
   },
   {
     "id": "6977212103116",
@@ -10681,7 +11443,8 @@ export const importedProducts: Product[] = [
     "price": 50.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "120,000"
+    "puffCount": "120,000",
+    "image": "/products/catalog/orbito-120k-mint-03116.webp"
   },
   {
     "id": "6977212103161",
@@ -10694,7 +11457,8 @@ export const importedProducts: Product[] = [
     "price": 50.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "120,000"
+    "puffCount": "120,000",
+    "image": "/products/catalog/orbito-120k-route-03161.webp"
   },
   {
     "id": "6977212103123",
@@ -10707,7 +11471,8 @@ export const importedProducts: Product[] = [
     "price": 50.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "120,000"
+    "puffCount": "120,000",
+    "image": "/products/catalog/orbito-120k-strawberry-kiwi-ice-03123.webp"
   },
   {
     "id": "6977212103147",
@@ -10720,7 +11485,8 @@ export const importedProducts: Product[] = [
     "price": 50.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "120,000"
+    "puffCount": "120,000",
+    "image": "/products/catalog/orbito-120k-strawberry-watermelon-ice-03147.webp"
   },
   {
     "id": "827152268443",
@@ -10732,7 +11498,8 @@ export const importedProducts: Product[] = [
     "flavour": "Alpha 30 ml",
     "price": 50.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-alpha-blended-cherry-pom-68443.webp"
   },
   {
     "id": "827152268474",
@@ -10744,7 +11511,8 @@ export const importedProducts: Product[] = [
     "flavour": "Alpha 30 ml",
     "price": 50.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-alpha-blended-straw-banana-68474.webp"
   },
   {
     "id": "827152268436",
@@ -10756,7 +11524,8 @@ export const importedProducts: Product[] = [
     "flavour": "Alpha 30 ml",
     "price": 50.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-alpha-blended-wildberry-bomb-68436.webp"
   },
   {
     "id": "827152268467",
@@ -10768,7 +11537,8 @@ export const importedProducts: Product[] = [
     "flavour": "Alpha 30 ml",
     "price": 50.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-alpha-blended-pineapple-peach-68467.webp"
   },
   {
     "id": "827152268450",
@@ -10780,7 +11550,8 @@ export const importedProducts: Product[] = [
     "flavour": "Alpha 30 ml",
     "price": 50.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-alpha-blended-mango-tornado-68450.webp"
   },
   {
     "id": "691584124710",
@@ -10792,7 +11563,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth x Geek bar",
     "price": 50.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-x-geekbar-juicy-peach-24710.webp"
   },
   {
     "id": "827152275526",
@@ -10804,7 +11576,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast oxva red berries ice",
     "price": 36.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavour-beast-oxva-red-berries-ice-75526.webp"
   },
   {
     "id": "827152275458",
@@ -10816,7 +11589,8 @@ export const importedProducts: Product[] = [
     "flavour": "flavour beast oxva cherry berry ice",
     "price": 36.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavour-beast-oxva-cherry-berry-ice-75458.webp"
   },
   {
     "id": "827152275533",
@@ -10828,7 +11602,8 @@ export const importedProducts: Product[] = [
     "flavour": "flavour beast oxva Mango ice",
     "price": 36.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavour-beast-oxva-mango-ice-75533.webp"
   },
   {
     "id": "827152275472",
@@ -10840,7 +11615,8 @@ export const importedProducts: Product[] = [
     "flavour": "flavor beast oxva dragon fruit ice",
     "price": 36.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavor-beast-oxva-dragon-fruit-ice-75472.webp"
   },
   {
     "id": "827152275496",
@@ -10852,7 +11628,8 @@ export const importedProducts: Product[] = [
     "flavour": "flavor beast oxva mint ice",
     "price": 36.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavor-beast-oxva-mint-ice-75496.webp"
   },
   {
     "id": "827152275489",
@@ -10864,7 +11641,8 @@ export const importedProducts: Product[] = [
     "flavour": "flavour beast fruity cg ice",
     "price": 36.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavour-beast-fruity-cg-ice-75489.webp"
   },
   {
     "id": "827152275519",
@@ -10876,7 +11654,8 @@ export const importedProducts: Product[] = [
     "flavour": "flavor beast oxva green apple ice",
     "price": 36.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavor-beast-oxva-green-apple-ice-75519.webp"
   },
   {
     "id": "827152275441",
@@ -10888,7 +11667,8 @@ export const importedProducts: Product[] = [
     "flavour": "flavor beast oxva wild berries ice",
     "price": 36.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavor-beast-oxva-wild-berries-ice-75441.webp"
   },
   {
     "id": "827152275465",
@@ -10900,7 +11680,8 @@ export const importedProducts: Product[] = [
     "flavour": "flavour beast oxva peach cherry lemon ice",
     "price": 36.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavour-beast-oxva-peach-cherry-lemon-ice-75465.webp"
   },
   {
     "id": "827152275502",
@@ -10912,7 +11693,8 @@ export const importedProducts: Product[] = [
     "flavour": "flavour beast oxva triple grape ice",
     "price": 36.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavour-beast-oxva-triple-grape-ice-75502.webp"
   },
   {
     "id": "6977212103208",
@@ -10925,7 +11707,8 @@ export const importedProducts: Product[] = [
     "price": 50.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "120,000"
+    "puffCount": "120,000",
+    "image": "/products/catalog/orbito-120k-green-apple-03208.webp"
   },
   {
     "id": "6977212103451",
@@ -10938,7 +11721,8 @@ export const importedProducts: Product[] = [
     "price": 50.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "120,000"
+    "puffCount": "120,000",
+    "image": "/products/catalog/orbito-120k-mango-peach-03451.webp"
   },
   {
     "id": "827152263585",
@@ -10950,7 +11734,8 @@ export const importedProducts: Product[] = [
     "flavour": "Max 3 60k",
     "price": 45.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-max-3-wild-white-grape-63585.webp"
   },
   {
     "id": "827152260034",
@@ -10963,7 +11748,8 @@ export const importedProducts: Product[] = [
     "price": 48.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "100,000"
+    "puffCount": "100,000",
+    "image": "/products/catalog/dripin-100k-green-apple-60034.webp"
   },
   {
     "id": "691584151556",
@@ -10999,7 +11785,8 @@ export const importedProducts: Product[] = [
     "flavour": "Alpha 30 ml",
     "price": 50.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-alpha-s-cherry-watermelon-72938.webp"
   },
   {
     "id": "827152272921",
@@ -11011,7 +11798,8 @@ export const importedProducts: Product[] = [
     "flavour": "Alpha 30 ml",
     "price": 50.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-alpha-s-blueberry-grape-72921.webp"
   },
   {
     "id": "6977212103437",
@@ -11024,7 +11812,8 @@ export const importedProducts: Product[] = [
     "price": 50.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "120,000"
+    "puffCount": "120,000",
+    "image": "/products/catalog/orbito-120k-berry-ice-03437.webp"
   },
   {
     "id": "6977212103178",
@@ -11050,7 +11839,8 @@ export const importedProducts: Product[] = [
     "price": 50.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "120,000"
+    "puffCount": "120,000",
+    "image": "/products/catalog/orbito-120k-watermelon-berries-03130.webp"
   },
   {
     "id": "691584124680",
@@ -11062,7 +11852,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth x Geek bar",
     "price": 50.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-x-geek-bar-coconut-ice-24680.webp"
   },
   {
     "id": "691584129876",
@@ -11074,7 +11865,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth x Geek bar",
     "price": 50.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-x-geek-bar-lychee-melon-ice-29876.webp"
   },
   {
     "id": "691584129975",
@@ -11086,7 +11878,8 @@ export const importedProducts: Product[] = [
     "flavour": "Stlth x Geek bar",
     "price": 50.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/stlth-x-geek-bar-strawberry-twist-ice-29975.webp"
   },
   {
     "id": "827152272945",
@@ -11098,6 +11891,7 @@ export const importedProducts: Product[] = [
     "flavour": "Alpha 30 ml",
     "price": 50.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-alpha-s-orange-lime-72945.webp"
   }
 ];
