@@ -64,16 +64,28 @@ export function ProductArt({ product }: { product: Product }) {
 function Inquiry({ product, close }: { product: Product; close: () => void }) {
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState("");
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setSending(true);
-    const form = new FormData(e.currentTarget);
-    const response = await fetch("/api/inquiries", { method: "POST", body: JSON.stringify({
-      productId: product.id, productName: product.name, name: form.get("name"),
-      contact: form.get("contact"), website: form.get("website"),
-    }), headers: { "content-type": "application/json" } });
-    setSending(false);
-    setSent(response.ok);
+    setError("");
+    try {
+      const form = new FormData(e.currentTarget);
+      const response = await fetch("/api/inquiries", { method: "POST", body: JSON.stringify({
+        productId: product.id, productName: product.name, name: form.get("name"),
+        contact: form.get("contact"), website: form.get("website"),
+      }), headers: { "content-type": "application/json" } });
+      const data = await response.json().catch(() => null);
+      if (!response.ok) {
+        if (response.status === 401) throw new Error("Your sign-in has expired. Refresh the page and sign in again.");
+        throw new Error(data?.error || "We could not send your request right now.");
+      }
+      setSent(true);
+    } catch (reason) {
+      setError(reason instanceof Error ? reason.message : "We could not send your request right now.");
+    } finally {
+      setSending(false);
+    }
   }
   return <div className="modal-backdrop" onMouseDown={close}><div className="inquiry-modal" onMouseDown={e => e.stopPropagation()}>
     <button className="modal-close" onClick={close} aria-label="Close">×</button>
@@ -84,6 +96,7 @@ function Inquiry({ product, close }: { product: Product; close: () => void }) {
         <label>Your name<input name="name" required minLength={2} placeholder="First and last name" /></label>
         <label>Email or phone<input name="contact" required placeholder="you@example.com or (416) 555-0123" /></label>
         <input className="honeypot" name="website" tabIndex={-1} autoComplete="off" />
+        {error && <p className="form-error" role="alert">{error} You can also call <a href="tel:+17057218181">(705) 721-8181</a>.</p>}
         <button className="primary" disabled={sending}>{sending ? "Sending…" : "Send availability request"}</button>
       </form>
       <small>By submitting, you agree that Vape Mart may contact you about this request.</small>

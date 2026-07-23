@@ -4,17 +4,34 @@ import { useState } from "react";
 import Link from "next/link";
 import { products as seedProducts } from "../data";
 
-const initialRequests = [
-  { id:"REQ-1048", customer:"Taylor M.", contact:"taylor@example.com", product:"Blue Razz Ice 20K", time:"12 min ago", status:"Pending" },
-  { id:"REQ-1047", customer:"Morgan D.", contact:"(416) 555-0123", product:"Polar Mint 30K", time:"1 hour ago", status:"Available" },
-  { id:"REQ-1046", customer:"Alex K.", contact:"alex@example.com", product:"Grape Ice 20mg", time:"Yesterday", status:"Unavailable" },
-];
+type RequestStatus = "Pending" | "Available" | "Unavailable";
+export type AdminInquiry = {
+  id:string;
+  customer:string;
+  contact:string;
+  product:string;
+  time:string;
+  status:RequestStatus;
+};
 const tabs = ["Overview","Products","Imports","Images","Promotions","Requests","Content","Store"];
 
-export function AdminDashboard({ user, signOut }: { user:string; signOut:string }) {
+export function AdminDashboard({
+  user,
+  signOut,
+  initialRequests,
+  emailConfigured,
+  databaseError,
+}: {
+  user:string;
+  signOut:string;
+  initialRequests:AdminInquiry[];
+  emailConfigured:boolean;
+  databaseError:string;
+}) {
   const [tab,setTab]=useState("Overview");
   const [products,setProducts]=useState(seedProducts.map(p=>({...p,visible:true})));
   const [requests,setRequests]=useState(initialRequests);
+  const [requestError,setRequestError]=useState(databaseError);
   const [importSummary,setImportSummary]=useState<{added:number;updated:number;duplicates:number;hardware:number;review:number}|null>(null);
   const [importing,setImporting]=useState(false);
   const [promotion,setPromotion]=useState(false);
@@ -26,10 +43,24 @@ export function AdminDashboard({ user, signOut }: { user:string; signOut:string 
     const data=await response.json().catch(()=>null);
     setImportSummary(data?.summary || {added:0,updated:0,duplicates:0,hardware:0,review:0}); setImporting(false);
   }
-  function status(id:string,status:string){setRequests(rows=>rows.map(r=>r.id===id?{...r,status}:r)); fetch(`/api/admin/inquiries/${id}`,{method:"PATCH",headers:{"content-type":"application/json"},body:JSON.stringify({status})});}
+  async function status(id:string,status:RequestStatus){
+    const previous=requests;
+    setRequestError("");
+    setRequests(rows=>rows.map(r=>r.id===id?{...r,status}:r));
+    try{
+      const response=await fetch(`/api/admin/inquiries/${id}`,{method:"PATCH",headers:{"content-type":"application/json"},body:JSON.stringify({status})});
+      const data=await response.json().catch(()=>null);
+      if(!response.ok)throw new Error(data?.error||"The reply could not be saved.");
+    }catch(reason){
+      setRequests(previous);
+      setRequestError(reason instanceof Error?reason.message:"The reply could not be saved.");
+    }
+  }
   return <div className="admin-shell">
     <aside className="admin-side"><Link className="logo" href="/"><span><img src="/brand/vape-mart-logo.png" alt="" /></span> VAPE MART</Link><p>Catalogue admin</p><nav>{tabs.map(item=><button key={item} className={tab===item?"active":""} onClick={()=>setTab(item)}><i>{item.slice(0,1)}</i>{item}</button>)}</nav><div className="admin-profile"><b>{user}</b><small>Administrator</small><a href={signOut}>Sign out</a></div></aside>
     <main className="admin-main"><header className="admin-top"><div><p className="eyebrow">Vape Mart admin</p><h1>{tab}</h1></div><div><Link href="/" target="_blank">View catalogue ↗</Link><button className="admin-primary">+ Add product</button></div></header>
+      {!emailConfigured&&<div className="admin-alert"><b>Email delivery is not configured.</b> Requests are saved here, but Vape Mart and customers will not receive email until a verified mail sender is connected.</div>}
+      {requestError&&<div className="admin-alert error" role="alert">{requestError}</div>}
       {tab==="Overview"&&<><div className="metric-grid"><Metric label="Visible products" value={String(products.filter(p=>p.visible).length)} note="Hardware excluded"/><Metric label="Pending requests" value={String(requests.filter(r=>r.status==="Pending").length)} note="Needs a reply" warn/><Metric label="Image matches" value="75%" note="2 need review"/><Metric label="Active promotions" value={promotion?"1":"0"} note="Auto-expiry enabled"/></div><div className="admin-grid"><Panel title="Recent availability requests" action={()=>setTab("Requests")} actionLabel="View all">{<RequestTable rows={requests} status={status}/>}</Panel><Panel title="Catalogue health"><div className="health-list"><Health label="Products with images" value="6 of 8"/><Health label="Missing from latest import" value="0"/><Health label="Duplicate UPCs" value="0"/><Health label="Hardware products excluded" value="Automatic" good/></div></Panel></div></>}
       {tab==="Products"&&<Panel title="Product catalogue" actionLabel="Add product"><div className="admin-toolbar"><input placeholder="Search by name, UPC, or brand"/><select><option>All categories</option><option>Disposables</option><option>E-Liquids</option><option>Closed Pod Systems</option><option>Pods</option><option>Accessories</option></select></div><table className="admin-table"><thead><tr><th>Product</th><th>UPC</th><th>Price</th><th>Featured</th><th>Visible</th><th></th></tr></thead><tbody>{products.slice(0,200).map(p=><tr key={p.id}><td><span className="mini-art" style={{background:p.accent}}></span><b>{p.name}</b><small>{p.brand} · {p.category}</small></td><td>{p.upc}</td><td>${p.price.toFixed(2)}</td><td><input type="checkbox" checked={!!p.featured} onChange={()=>setProducts(x=>x.map(i=>i.id===p.id?{...i,featured:!i.featured}:i))}/></td><td><input type="checkbox" checked={p.visible} onChange={()=>setProducts(x=>x.map(i=>i.id===p.id?{...i,visible:!i.visible}:i))}/></td><td><button className="kebab">•••</button></td></tr>)}</tbody></table><p className="panel-intro">Showing the first 200 of {products.length} imported products. Use search to narrow the catalogue.</p></Panel>}
       {tab==="Imports"&&<div className="two-columns"><Panel title="Import RetailzPOS Excel export"><div className="upload-zone"><span>⇧</span><h3>Drop an .xlsx, .xls, or .csv file here</h3><p>Products match by UPC. Hardware is excluded automatically, and missing rows are flagged—not deleted.</p><label className="admin-primary">{importing?"Analysing…":"Choose Excel file"}<input type="file" accept=".xlsx,.xls,.csv" hidden onChange={e=>importFile(e.target.files?.[0])}/></label></div></Panel><Panel title="Last import summary">{importSummary?<div className="summary-grid"><Metric label="Added" value={String(importSummary.added)} note="New UPCs"/><Metric label="Updated" value={String(importSummary.updated)} note="Prices & details"/><Metric label="Duplicates" value={String(importSummary.duplicates)} note="Review required" warn/><Metric label="Hardware skipped" value={String(importSummary.hardware)} note="Automatic"/><Metric label="Missing / review" value={String(importSummary.review)} note="Not deleted"/></div>:<div className="blank"><b>No import in this session</b><p>Upload a RetailzPOS export to see a row-by-row summary.</p></div>}</Panel></div>}
@@ -44,4 +75,7 @@ export function AdminDashboard({ user, signOut }: { user:string; signOut:string 
 function Metric({label,value,note,warn}:{label:string,value:string,note:string,warn?:boolean}){return <div className="metric"><span>{label}</span><strong className={warn?"warn":""}>{value}</strong><small>{note}</small></div>}
 function Panel({title,children,action,actionLabel}:{title:string;children:React.ReactNode;action?:()=>void;actionLabel?:string}){return <section className="admin-panel"><header><h2>{title}</h2>{actionLabel&&<button onClick={action}>{actionLabel} →</button>}</header>{children}</section>}
 function Health({label,value,good}:{label:string,value:string,good?:boolean}){return <div><span>{label}</span><b className={good?"good":""}>{value}</b></div>}
-function RequestTable({rows,status}:{rows:typeof initialRequests;status:(id:string,status:string)=>void}){return <div className="table-scroll"><table className="admin-table request-table"><thead><tr><th>Request</th><th>Customer</th><th>Product</th><th>Received</th><th>Status / reply</th></tr></thead><tbody>{rows.map(r=><tr key={r.id}><td><b>{r.id}</b></td><td>{r.customer}<small>{r.contact}</small></td><td>{r.product}</td><td>{r.time}</td><td><select value={r.status} onChange={e=>status(r.id,e.target.value)} className={`status ${r.status.toLowerCase()}`}><option>Pending</option><option>Available</option><option>Unavailable</option></select></td></tr>)}</tbody></table></div>}
+function RequestTable({rows,status}:{rows:AdminInquiry[];status:(id:string,status:RequestStatus)=>void}){
+  if(!rows.length)return <div className="blank"><b>No availability requests yet</b><p>New customer requests will appear here automatically.</p></div>;
+  return <div className="table-scroll"><table className="admin-table request-table"><thead><tr><th>Request</th><th>Customer</th><th>Product</th><th>Received</th><th>Status / reply</th></tr></thead><tbody>{rows.map(r=><tr key={r.id}><td><b>{r.id}</b></td><td>{r.customer}<small>{r.contact}</small></td><td>{r.product}</td><td>{r.time}</td><td><select value={r.status} onChange={e=>status(r.id,e.target.value as RequestStatus)} className={`status ${r.status.toLowerCase()}`}><option>Pending</option><option>Available</option><option>Unavailable</option></select></td></tr>)}</tbody></table></div>;
+}

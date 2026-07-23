@@ -78,3 +78,8 @@ h1 em,.eyebrow{color:#666}.primary{background:#111;color:#fff;border:1px solid #
   .banner-stack{aspect-ratio:48/17}
   .banner-slide img{object-fit:cover}
 }
+
+.form-error{margin:0;padding:10px 12px;border-radius:7px;background:#fff0f0;color:#8d2727;font-size:13px;line-height:1.45}
+.form-error a{color:inherit;text-decoration:underline;font-weight:700}
+.admin-alert{margin:-12px 0 18px;padding:13px 16px;border:1px solid #e6d5ad;border-radius:9px;background:#fff7e2;color:#705420;font-size:13px;line-height:1.5}
+.admin-alert.error{border-color:#e2b9b9;background:#fff0f0;color:#8d2727}
