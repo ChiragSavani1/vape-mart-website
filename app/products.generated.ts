@@ -3452,7 +3452,8 @@ export const importedProducts: Product[] = [
     "flavour": "Envi apex drippin",
     "price": 26.99,
     "accent": "#767676",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/envi-apex-2500-intense-mint-98958.webp"
   },
   {
     "id": "827152098897",
@@ -3477,7 +3478,8 @@ export const importedProducts: Product[] = [
     "flavour": "Envi apex drippin",
     "price": 26.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/envi-apex-2500-pink-lemon-99047.webp"
   },
   {
     "id": "827152099016",
@@ -3515,7 +3517,8 @@ export const importedProducts: Product[] = [
     "flavour": "Envi apex drippin",
     "price": 26.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/envi-apex-2500-mango-iced-99009.webp"
   },
   {
     "id": "827152099078",
@@ -3527,7 +3530,8 @@ export const importedProducts: Product[] = [
     "flavour": "Envi apex drippin",
     "price": 26.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/envi-apex-2500-strawberry-iced-99078.webp"
   },
   {
     "id": "827152098989",
@@ -3539,7 +3543,8 @@ export const importedProducts: Product[] = [
     "flavour": "Envi apex drippin",
     "price": 26.99,
     "accent": "#909090",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/envi-apex-2500-lush-iced-98989.webp"
   },
   {
     "id": "827152098972",
@@ -3551,7 +3556,8 @@ export const importedProducts: Product[] = [
     "flavour": "Envi apex drippin",
     "price": 26.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/envi-apex-2500-lychee-watermelon-strawberry-iced-98972.webp"
   },
   {
     "id": "827152099085",
@@ -3563,7 +3569,8 @@ export const importedProducts: Product[] = [
     "flavour": "Envi apex drippin",
     "price": 26.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/envi-apex-2500-white-grape-iced-99085.webp"
   },
   {
     "id": "827152099030",
@@ -3575,7 +3582,8 @@ export const importedProducts: Product[] = [
     "flavour": "Envi apex drippin",
     "price": 26.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/envi-apex-2500-peach-berry-99030.webp"
   },
   {
     "id": "691584095096",
@@ -9184,7 +9192,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 52.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-60-ml-sic-strawberry-40091.webp"
   },
   {
     "id": "628148084746",
@@ -9351,7 +9360,8 @@ export const importedProducts: Product[] = [
     "flavour": "Envi apex drippin",
     "price": 26.99,
     "accent": "#2a2a2a",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/envi-apex-intense-mint-60849.webp"
   },
   {
     "id": "6941976245641",
@@ -9733,7 +9743,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 52.99,
     "accent": "#111111",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavorbeast-60ml-bomb-blue-razz-39996.webp"
   },
   {
     "id": "827152140077",
@@ -10147,7 +10158,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 52.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavourbeast-60-ml-super-sour-bluerazz-76250.webp"
   },
   {
     "id": "827152140114",
@@ -10159,7 +10171,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 52.99,
     "accent": "#444444",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/flavourbeast-60-ml-strawberry-banana-40114.webp"
   },
   {
     "id": "691584145609",
@@ -10288,7 +10301,8 @@ export const importedProducts: Product[] = [
     "flavour": "Flavour beast 20mg",
     "price": 52.99,
     "accent": "#5d5d5d",
-    "featured": false
+    "featured": false,
+    "image": "/products/catalog/fb-60-ml-wicked-white-peach-40169.webp"
   },
   {
     "id": "827152140015",

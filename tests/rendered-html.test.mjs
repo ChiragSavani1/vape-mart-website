@@ -24,3 +24,28 @@ test("uses the Barrie store details and monochrome theme", async () => {
   assert.match(css, /Monochrome Vape Mart theme/);
   assert.doesNotMatch(css.split("Monochrome Vape Mart theme").pop(), /#44766d|#cced47|#5c63e8/i);
 });
+
+test("uses exact Envi Apex artwork and price-validated e-liquid bottle sizes", async () => {
+  const [generated, corrections, storefront] = await Promise.all([
+    readFile(new URL("app/products.generated.ts", root), "utf8"),
+    readFile(new URL("scripts/product-image-corrections.json", root), "utf8"),
+    readFile(new URL("app/storefront.tsx", root), "utf8"),
+  ]);
+  const products = JSON.parse(generated.slice(generated.indexOf("= [") + 2, generated.lastIndexOf("]") + 1));
+  const audited = JSON.parse(corrections);
+  const auditedBySlug = new Map(audited.map(item => [item.slug, item]));
+  const apex = products.filter(product => /envi apex/i.test(product.name));
+  const flavourBeast60 = products.filter(product =>
+    product.category === "E-Liquids"
+    && product.price > 50
+    && /\bfb\b|flavou?r\s*beast/i.test(product.name)
+  );
+
+  assert.equal(apex.length, 13);
+  assert.equal(apex.every(product => product.image && auditedBySlug.has(product.slug)), true);
+  assert.equal(flavourBeast60.length, 30);
+  assert.equal(flavourBeast60.every(product => auditedBySlug.get(product.slug)?.expectedVolume === "60 mL"), true);
+  assert.equal(auditedBySlug.get("lemon-drop-boost-blue-razz-33079")?.expectedVolume, "30 mL");
+  assert.match(storefront, /arrivalPosters/);
+  assert.match(storefront, /5500/);
+});

@@ -1,0 +1,416 @@
+[
+  {
+    "slug": "envi-apex-2500-intense-mint-98958",
+    "productName": "Envi apex 2500 intense mint",
+    "reason": "Exact Envi Apex flavour and model",
+    "expectedVolume": "6 mL",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0366/3563/9852/files/Intense_Mint_20mg_-_Family.png?v=1771954032",
+    "image": "/products/catalog/envi-apex-2500-intense-mint-98958.webp"
+  },
+  {
+    "slug": "envi-apex-2500-blue-razz-98897",
+    "productName": "Envi apex 2500 blue razz",
+    "reason": "Exact Envi Apex flavour and model",
+    "expectedVolume": "6 mL",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0366/3563/9852/files/Blue_Razz_20mg_-_Family.png?v=1771954032",
+    "image": "/products/catalog/envi-apex-2500-blue-razz-98897.webp"
+  },
+  {
+    "slug": "envi-apex-2500-pink-lemon-99047",
+    "productName": "Envi apex 2500 pink lemon",
+    "reason": "Exact Envi Apex flavour and model",
+    "expectedVolume": "6 mL",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0366/3563/9852/files/Pink_Lemon_20mg_-_Family.png?v=1771954032",
+    "image": "/products/catalog/envi-apex-2500-pink-lemon-99047.webp"
+  },
+  {
+    "slug": "envi-apex-2500-mango-peach-watermelon-99016",
+    "productName": "Envi apex 2500 mango peach watermelon",
+    "reason": "Exact Envi Apex flavour and model",
+    "expectedVolume": "6 mL",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0948/6077/1625/files/MangoPeachWatermelon_4be4fcef-626e-4d50-99fc-b057df9fde70.jpg?v=1765940036",
+    "image": "/products/catalog/envi-apex-2500-mango-peach-watermelon-99016.webp"
+  },
+  {
+    "slug": "envi-apex-2500-banana-iced-98880",
+    "productName": "Envi apex 2500 banana iced",
+    "reason": "Exact Envi Apex flavour and model",
+    "expectedVolume": "6 mL",
+    "sourceUrl": "https://mistervapor.ca/cdn/shop/products/enviapexbananaice.jpg?v=1631555348",
+    "image": "/products/catalog/envi-apex-2500-banana-iced-98880.webp"
+  },
+  {
+    "slug": "envi-apex-2500-mango-iced-99009",
+    "productName": "Envi apex 2500 mango iced",
+    "reason": "Exact Envi Apex flavour and model",
+    "expectedVolume": "6 mL",
+    "sourceUrl": "https://infinitevapes.com/cdn/shop/products/envi-apex-mango-iced_3f4324ee-1eec-4afd-9914-34b27c2d2541.jpg?v=1695002486&width=1946",
+    "image": "/products/catalog/envi-apex-2500-mango-iced-99009.webp"
+  },
+  {
+    "slug": "envi-apex-2500-strawberry-iced-99078",
+    "productName": "Envi apex 2500 strawberry iced",
+    "reason": "Exact Envi Apex flavour and model",
+    "expectedVolume": "6 mL",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0397/9932/4821/files/envi_apex-2022-render-fam_20mg_strawberryiced.webp?v=1767467278",
+    "image": "/products/catalog/envi-apex-2500-strawberry-iced-99078.webp"
+  },
+  {
+    "slug": "envi-apex-2500-lush-iced-98989",
+    "productName": "Envi apex 2500 lush iced",
+    "reason": "Exact Envi Apex flavour and model",
+    "expectedVolume": "6 mL",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0263/5887/4178/products/104FA985-A6BB-46E6-AC21-3E77EEFFBCF8.jpg?v=1636127186",
+    "image": "/products/catalog/envi-apex-2500-lush-iced-98989.webp"
+  },
+  {
+    "slug": "envi-apex-2500-lychee-watermelon-strawberry-iced-98972",
+    "productName": "Envi apex 2500 lychee watermelon strawberry iced",
+    "reason": "Exact Envi Apex flavour and model",
+    "expectedVolume": "6 mL",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/1092/6888/files/Lychee-Watermelon-Strawberry-Iced-Envi-Apex-Disposable-Vape-Canada-Vape360.jpg?v=1741435437",
+    "image": "/products/catalog/envi-apex-2500-lychee-watermelon-strawberry-iced-98972.webp"
+  },
+  {
+    "slug": "envi-apex-2500-white-grape-iced-99085",
+    "productName": "Envi apex 2500 white grape iced",
+    "reason": "Exact Envi Apex flavour and model",
+    "expectedVolume": "6 mL",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0676/0765/8708/products/envi-apex-white-grape-iced_be82f143-f04b-46cd-8f67-17fcca7d13e1.jpg?v=1741986795",
+    "image": "/products/catalog/envi-apex-2500-white-grape-iced-99085.webp"
+  },
+  {
+    "slug": "envi-apex-2500-peach-berry-99030",
+    "productName": "Envi apex 2500 peach berry",
+    "reason": "Exact Envi Apex flavour and model",
+    "expectedVolume": "6 mL",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0948/6077/1625/files/PeachBerry_066543a4-e593-4a05-ad12-e66177a8b991.jpg?v=1765940041",
+    "image": "/products/catalog/envi-apex-2500-peach-berry-99030.webp"
+  },
+  {
+    "slug": "envi-apex-2500-green-apple-98934",
+    "productName": "Envi apex 2500 green apple",
+    "reason": "Exact Envi Apex flavour and model",
+    "expectedVolume": "6 mL",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0948/6077/1625/files/GreenApple_38f37d78-a9dd-43d4-aea3-a32e74401c66.jpg?v=1765940032",
+    "image": "/products/catalog/envi-apex-2500-green-apple-98934.webp"
+  },
+  {
+    "slug": "fb-60-ml-sic-strawberry-40091",
+    "productName": "Fb 60 ml Sic strawberry",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "Sic Strawberry Iced by Flavour Beast Salt 60ml / 20mg",
+    "source": "vipvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0797/2280/7521/files/FlavourBeast_EL_60mL-OCT2024-RENDER-BTL_20mg_SicStrawberry.webp?v=1769839283",
+    "image": "/products/catalog/fb-60-ml-sic-strawberry-40091.webp"
+  },
+  {
+    "slug": "envi-apex-intense-mint-60849",
+    "productName": "Envi apex intense mint",
+    "reason": "Exact Envi Apex flavour and model",
+    "expectedVolume": "6 mL",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0823/5817/3921/files/imgi_2_imgi_24_envi-apex-intense-mint-2500-puffs-20mg-1.jpg?v=1776979863",
+    "image": "/products/catalog/envi-apex-intense-mint-60849.webp"
+  },
+  {
+    "slug": "flavour-beast-60ml-weekend-watermelon-40152",
+    "productName": "FLAVOUR BEAST 60ml weekend watermelon",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "Weekend Watermelon Iced by Flavour Beast Salt 60ml / 20mg",
+    "source": "vipvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0797/2280/7521/files/FlavourBeast_EL_60mL-OCT2024-RENDER-BTL_20mg_WeekendWatermelon.webp?v=1769840712",
+    "image": "/products/catalog/flavour-beast-60ml-weekend-watermelon-40152.webp"
+  },
+  {
+    "slug": "flavorbeast-60ml-bomb-blue-razz-39996",
+    "productName": "Flavorbeast 60ml bomb blue razz",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "Bomb Blue Razz by Flavour Beast Salt 60ml / 20mg",
+    "source": "vipvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0797/2280/7521/files/FlavourBeast_EL_60mL-OCT2024-RENDER-BTL_20mg_BombBlueRazz.webp?v=1769832961",
+    "image": "/products/catalog/flavorbeast-60ml-bomb-blue-razz-39996.webp"
+  },
+  {
+    "slug": "flavourbeast-60ml-packin-peach-berry-40077",
+    "productName": "flavourbeast 60ml packin peach berry",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "Packin Peach Berry by Flavour Beast Salt 60ml / 20mg",
+    "source": "vipvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0797/2280/7521/files/FlavourBeast_EL_60mL-OCT2024-RENDER-BTL_20mg_PackinPeachBerry.webp?v=1769838446",
+    "image": "/products/catalog/flavourbeast-60ml-packin-peach-berry-40077.webp"
+  },
+  {
+    "slug": "flavour-beast-60ml-fruit-flash-40039",
+    "productName": "flavour beast 60ml fruit flash",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "Flippin Fruit Flash by Flavour Beast Salt 60ml / 20mg",
+    "source": "vipvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0797/2280/7521/files/FlavourBeast_EL_60mL-OCT2024-RENDER-BTL_20mg_FlippinFruitFlash.webp?v=1769837115",
+    "image": "/products/catalog/flavour-beast-60ml-fruit-flash-40039.webp"
+  },
+  {
+    "slug": "flavourbeast-60ml-boss-blueberry-76137",
+    "productName": "flavourbeast 60ml boss blueberry",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "Boss Blueberry Iced by Flavour Beast Salt 60ml / 20mg",
+    "source": "vipvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0797/2280/7521/files/FlavourBeast_EL_60mL-JAN2025-RENDER-BTL_20mg-BossBlueberry.webp?v=1769833045",
+    "image": "/products/catalog/flavourbeast-60ml-boss-blueberry-76137.webp"
+  },
+  {
+    "slug": "flavour-beast-60ml-bussin-banana-40008",
+    "productName": "flavour beast 60ml bussin banana",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "Bussin' Banana Iced by Flavour Beast Salt 60ml / 20mg",
+    "source": "vipvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0797/2280/7521/files/FlavourBeast_EL_60mL-OCT2024-RENDER-BTL_20mg_BussinBanana.webp?v=1769833151",
+    "image": "/products/catalog/flavour-beast-60ml-bussin-banana-40008.webp"
+  },
+  {
+    "slug": "flavour-beast-60ml-groovy-grape-passion-fruit-40046",
+    "productName": "flavour beast 60ml groovy grape passion fruit",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "Groovy Grape Passionfruit Iced by Flavour Beast Salt 60ml / 20mg",
+    "source": "vipvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0797/2280/7521/files/FlavourBeast_EL_60mL-OCT2024-RENDER-BTL_20mg_GroovyGrapePassionfruit.webp?v=1769837399",
+    "image": "/products/catalog/flavour-beast-60ml-groovy-grape-passion-fruit-40046.webp"
+  },
+  {
+    "slug": "flavour-beast-60ml-trippin-triple-berry-40138",
+    "productName": "flavour beast 60ml trippin triple berry",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "Trippin Triple Berry by Flavour Beast Salt 60ml / 20mg",
+    "source": "vipvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0797/2280/7521/files/FlavourBeast_EL_60mL-OCT2024-RENDER-BTL_20mg_TrippinTripleBerry.webp?v=1769840278",
+    "image": "/products/catalog/flavour-beast-60ml-trippin-triple-berry-40138.webp"
+  },
+  {
+    "slug": "flavour-beast-60ml-gusto-green-apple-40053",
+    "productName": "flavour beast 60ml gusto green apple",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "Gusto Green Apple by Flavour Beast Salt 60ml / 20mg",
+    "source": "vipvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0797/2280/7521/files/FlavourBeast_EL_60mL-OCT2024-RENDER-BTL_20mg_GustoGreenApple.webp?v=1769837519",
+    "image": "/products/catalog/flavour-beast-60ml-gusto-green-apple-40053.webp"
+  },
+  {
+    "slug": "flavour-beast-60ml-extreme-mint-40022",
+    "productName": "flavour beast 60ml extreme mint",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "Extreme Mint Iced by Flavour Beast Salt 60ml / 20mg",
+    "source": "vipvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0797/2280/7521/files/FlavourBeast_EL_60mL-OCT2024-RENDER-BTL_20mg_ExtremeMint.webp?v=1769836641",
+    "image": "/products/catalog/flavour-beast-60ml-extreme-mint-40022.webp"
+  },
+  {
+    "slug": "flavour-beast-60ml-mad-mango-peach-40060",
+    "productName": "flavour beast 60ml mad mango peach",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "Mad Mango Peach by Flavour Beast Salt 60ml / 20mg",
+    "source": "vipvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0797/2280/7521/files/FlavourBeast_EL_60mL-OCT2024-RENDER-BTL_20mg_MadMangoPeach.webp?v=1769838159",
+    "image": "/products/catalog/flavour-beast-60ml-mad-mango-peach-40060.webp"
+  },
+  {
+    "slug": "flavour-beast-60ml-blood-orange-39989",
+    "productName": "flavour beast 60ml blood orange",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "Bangin' Blood Orange Iced by Flavour Beast Salt 60ml / 20mg",
+    "source": "vipvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0797/2280/7521/files/FlavourBeast_EL_60mL-OCT2024-RENDER-BTL_20mg_BanginBloodOrange.webp?v=1769831871",
+    "image": "/products/catalog/flavour-beast-60ml-blood-orange-39989.webp"
+  },
+  {
+    "slug": "flavourbeast-60ml-super-sour-peach-76267",
+    "productName": "Flavourbeast 60ml super sour peach",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "Super Sour Peach by Flavour Beast Salt 60ml / 20mg",
+    "source": "vipvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0797/2280/7521/files/FlavourBeast_EL_60mL-JAN2025-RENDER-BTL_20mg-SuperSourPeach.webp?v=1769839907",
+    "image": "/products/catalog/flavourbeast-60ml-super-sour-peach-76267.webp"
+  },
+  {
+    "slug": "flavourbeast-60ml-super-sour-blueberry-76243",
+    "productName": "Flavourbeast 60ml super sour blueberry",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "Super Sour Blueberry Iced by Flavour Beast Salt 60ml / 20mg",
+    "source": "vipvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0797/2280/7521/files/FlavourBeast_EL_60mL-JAN2025-RENDER-BTL_20mg-SuperSourBlueberry.webp?v=1769839801",
+    "image": "/products/catalog/flavourbeast-60ml-super-sour-blueberry-76243.webp"
+  },
+  {
+    "slug": "flavourbeast-60-ml-super-sour-bluerazz-76250",
+    "productName": "Flavourbeast 60 ml super sour bluerazz",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "Super Sour Blue Razz by Flavour Beast Salt 60ml / 20mg",
+    "source": "vipvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0797/2280/7521/files/FlavourBeast_EL_60mL-JAN2025-RENDER-BTL_20mg-SuperSourBlueRazz.webp?v=1769839728",
+    "image": "/products/catalog/flavourbeast-60-ml-super-sour-bluerazz-76250.webp"
+  },
+  {
+    "slug": "flavourbeast-60-ml-strawberry-banana-40114",
+    "productName": "Flavourbeast 60 ml strawberry banana",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "STR8 Up Strawberry Banana Iced by Flavour Beast Salt 60ml / 20mg",
+    "source": "vipvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0797/2280/7521/files/FlavourBeast_EL_60mL-OCT2024-RENDER-BTL_20mg_Str8UpStrawberryBanana.webp?v=1769839549",
+    "image": "/products/catalog/flavourbeast-60-ml-strawberry-banana-40114.webp"
+  },
+  {
+    "slug": "fb-60-ml-wicked-white-peach-40169",
+    "productName": "Fb 60 ml wicked white peach",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "Wicked White Peach by Flavour Beast Salt 60ml / 20mg",
+    "source": "vipvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0797/2280/7521/files/FlavourBeast_EL_60mL-OCT2024-RENDER-BTL_20mg_WickedWhitePeach.webp?v=1769840826",
+    "image": "/products/catalog/fb-60-ml-wicked-white-peach-40169.webp"
+  },
+  {
+    "slug": "fb-60ml-dreamy-dragonfruit-lychee-40015",
+    "productName": "Fb 60ml dreamy dragonfruit lychee",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "Dreamy Dragonfruit Lychee Iced by Flavour Beast Salt 20mg / 60ml",
+    "source": "vipvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0797/2280/7521/files/FlavourBeast_EL_60mL-OCT2024-RENDER-BTL_20mg_DreamyDragonfruitLychee.webp?v=1769834734",
+    "image": "/products/catalog/fb-60ml-dreamy-dragonfruit-lychee-40015.webp"
+  },
+  {
+    "slug": "fb-60ml-ragin-razz-mango-40084",
+    "productName": "Fb 60ml ragin razz mango",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "Ragin' Razz Mango Iced by Flavour Beast Salt 60ml / 20mg",
+    "source": "vipvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0797/2280/7521/files/FlavourBeast_EL_60mL-OCT2024-RENDER-BTL_20mg_RaginRazzMango.webp?v=1769839074",
+    "image": "/products/catalog/fb-60ml-ragin-razz-mango-40084.webp"
+  },
+  {
+    "slug": "fb-60ml-lit-lychee-watermelon-76199",
+    "productName": "Fb 60ml lit lychee watermelon",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "Lit Lychee Watermelon Iced by Flavour Beast Salt 60ml / 20mg",
+    "source": "vipvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0797/2280/7521/files/FlavourBeast_EL_60mL-JAN2025-RENDER-BTL_20mg-LitLycheeWatermelon.webp?v=1769837994",
+    "image": "/products/catalog/fb-60ml-lit-lychee-watermelon-76199.webp"
+  },
+  {
+    "slug": "fb-60ml-watermelona-g-40145",
+    "productName": "Fb 60ml watermelona g",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "Watermelon G by Flavour Beast Salt 60ml / 20mg",
+    "source": "vipvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0797/2280/7521/files/FlavourBeast_EL_60mL-OCT2024-RENDER-BTL_20mg_WatermelonG.webp?v=1769840594",
+    "image": "/products/catalog/fb-60ml-watermelona-g-40145.webp"
+  },
+  {
+    "slug": "fb-60ml-wid-white-grape-40176",
+    "productName": "Fb 60ml wid white grape",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "Wild White Grape Iced by Flavour Beast Salt 60ml / 20mg",
+    "source": "vipvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0797/2280/7521/files/FlavourBeast_EL_60mL-OCT2024-RENDER-BTL_20mg_WildWhiteGrape.webp?v=1769840940",
+    "image": "/products/catalog/fb-60ml-wid-white-grape-40176.webp"
+  },
+  {
+    "slug": "fb-60ml-super-sour-pineapple-76274",
+    "productName": "Fb 60ml super sour pineapple",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "Super Sour Pineapple by Flavour Beast Salt 60ml / 20mg",
+    "source": "vipvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0797/2280/7521/files/FlavourBeast_EL_60mL-JAN2025-RENDER-BTL_20mg-SuperSourPineapple.webp?v=1769840099",
+    "image": "/products/catalog/fb-60ml-super-sour-pineapple-76274.webp"
+  },
+  {
+    "slug": "fb-60ml-gushin-watermelon-apple-58277",
+    "productName": "Fb 60ml gushin watermelon apple",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "Gushin Watermelon Apple Salt by Flavour Beast E-Liquid (AB) 60ml / 20mg",
+    "source": "bayvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0088/5997/5761/files/FlavourBeast_EL_60mL-APR2026-RENDER-BTL_20mg-WatermelonApple.jpg?v=1776448444",
+    "image": "/products/catalog/fb-60ml-gushin-watermelon-apple-58277.webp"
+  },
+  {
+    "slug": "fb-60ml-gushin-sour-blueberry-grape-58321",
+    "productName": "Fb 60ml gushin sour blueberry grape",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "Gushin S. Blueberry Grape Salt by Flavour Beast E-Liquid (AB) 60ml / 20mg",
+    "source": "bayvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0088/5997/5761/files/FlavourBeast_EL_60mL-APR2026-RENDER-BTL_20mg-S.BlueberryGrape.jpg?v=1776448460",
+    "image": "/products/catalog/fb-60ml-gushin-sour-blueberry-grape-58321.webp"
+  },
+  {
+    "slug": "fb-60ml-gushin-sour-cherry-watermeon-58345",
+    "productName": "Fb 60ml gushin sour cherry watermeon",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "Gushin S. Cherry Watermelon Salt by Flavour Beast E-Liquid (AB) 60ml / 20mg",
+    "source": "bayvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0088/5997/5761/files/FlavourBeast_EL_60mL-APR2026-RENDER-BTL_20mg-S.CherryWatermelon.jpg?v=1776448445",
+    "image": "/products/catalog/fb-60ml-gushin-sour-cherry-watermeon-58345.webp"
+  },
+  {
+    "slug": "fb-60ml-gushin-sour-raspberry-lemon-58338",
+    "productName": "Fb 60ml gushin sour raspberry lemon",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "Gushin S. Raspberry Lemon Salt by Flavour Beast E-Liquid (AB) 60ml / 20mg",
+    "source": "bayvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0088/5997/5761/files/FlavourBeast_EL_60mL-APR2026-RENDER-BTL_20mg-S.RaspberryLemon.jpg?v=1776448445",
+    "image": "/products/catalog/fb-60ml-gushin-sour-raspberry-lemon-58338.webp"
+  },
+  {
+    "slug": "fb-60ml-gushin-sour-strawberry-kiwi-58369",
+    "productName": "Fb 60ml gushin sour strawberry kiwi",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "Gushin S. Strawberry Kiwi Salt by Flavour Beast E-Liquid (AB) 60ml / 20mg",
+    "source": "bayvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0088/5997/5761/files/FlavourBeast_EL_60mL-APR2026-RENDER-BTL_20mg-S.StrawberryKiwi.jpg?v=1776448445",
+    "image": "/products/catalog/fb-60ml-gushin-sour-strawberry-kiwi-58369.webp"
+  },
+  {
+    "slug": "fb-60ml-super-spearmint-40121",
+    "productName": "Fb 60ml super spearmint",
+    "reason": "Price-validated 60 mL e-liquid image",
+    "expectedVolume": "60 mL",
+    "sourceTitle": "Super Spearmint by Flavour Beast Salt 60ml / 20mg",
+    "source": "vipvape-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0797/2280/7521/files/FlavourBeast_EL_60mL-JAN2025-RENDER-BTL_20mg-SuperSpearmint.webp?v=1769840175",
+    "image": "/products/catalog/fb-60ml-super-spearmint-40121.webp"
+  },
+  {
+    "slug": "lemon-drop-boost-blue-razz-33079",
+    "productName": "Lemon drop boost blue razz",
+    "reason": "Price-validated 30 mL e-liquid image",
+    "expectedVolume": "30 mL",
+    "sourceTitle": "Blue Raspberry by Lemon Drop Boost Salt — 30mL",
+    "source": "qualityvapes-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0397/9932/4821/files/BLUE-RASPBERRY-BY-LEMON-DROP-BOOST-SALT.jpg?v=1752120477",
+    "image": "/products/catalog/lemon-drop-boost-blue-razz-33079.webp"
+  }
+]

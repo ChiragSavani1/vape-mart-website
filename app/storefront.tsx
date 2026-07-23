@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { brands, categories, products, type Product, store } from "./data";
+import { brands, categories, getProductVolume, products, type Product, store } from "./data";
 
 function Logo() {
   return <Link className="logo" href="/"><span>V</span> VAPE MART</Link>;
@@ -93,14 +93,97 @@ function Inquiry({ product, close }: { product: Product; close: () => void }) {
 
 export function ProductCard({ product }: { product: Product }) {
   const [ask, setAsk] = useState(false);
+  const volume = getProductVolume(product);
   return <article className="product-card">
     <Link href={`/products/${product.slug}`} className="product-image"><ProductArt product={product} />{product.promoPrice && <span className="sale-badge">Sale</span>}</Link>
-    <div className="product-meta"><span>{product.brand} · {product.category}</span><h3><Link href={`/products/${product.slug}`}>{product.name}</Link></h3>
+    <div className="product-meta"><span>{product.brand} · {product.category}{volume ? ` · ${volume}` : ""}</span><h3><Link href={`/products/${product.slug}`}>{product.name}</Link></h3>
       <div className="price">{product.promoPrice ? <><del>${product.price.toFixed(2)}</del> ${product.promoPrice.toFixed(2)}</> : `$${product.price.toFixed(2)}`}</div>
       <button className="outline-button" onClick={() => setAsk(true)}>Check availability <span>→</span></button>
     </div>
     {ask && <Inquiry product={product} close={() => setAsk(false)} />}
   </article>;
+}
+
+const arrivalPosters = [
+  {
+    eyebrow: "New arrival · Envi Apex",
+    title: "Small format. Big flavour.",
+    copy: "The Envi Apex 2500 range is now easier to browse with exact flavour artwork.",
+    productSlug: "envi-apex-2500-mango-iced-99009",
+    theme: "poster-charcoal",
+  },
+  {
+    eyebrow: "Fresh in store · 60 mL",
+    title: "Flavour Beast, sized right.",
+    copy: "Explore the latest full-size salt collection with verified 60 mL bottle images.",
+    productSlug: "fb-60ml-gushin-watermelon-apple-58277",
+    theme: "poster-silver",
+  },
+  {
+    eyebrow: "New arrivals · Sour Gushin",
+    title: "Turn up the sour.",
+    copy: "Five vivid Sour Gushin flavours have joined the 60 mL catalogue.",
+    productSlug: "fb-60ml-gushin-sour-strawberry-kiwi-58369",
+    theme: "poster-white",
+  },
+];
+
+function HeroCarousel() {
+  const [active, setActive] = useState(0);
+  const [paused, setPaused] = useState(false);
+  useEffect(() => {
+    if (paused) return;
+    const timer = window.setInterval(() => setActive(value => (value + 1) % arrivalPosters.length), 5500);
+    return () => window.clearInterval(timer);
+  }, [paused]);
+  const select = (index: number) => setActive((index + arrivalPosters.length) % arrivalPosters.length);
+  return <section
+    className="hero-carousel"
+    aria-label="New arrivals"
+    aria-roledescription="carousel"
+    onMouseEnter={() => setPaused(true)}
+    onMouseLeave={() => setPaused(false)}
+  >
+    <div className="poster-stack">
+      {arrivalPosters.map((poster, index) => {
+        const product = products.find(item => item.slug === poster.productSlug) || products[0];
+        return <article className={`hero-poster ${poster.theme} ${index === active ? "active" : ""}`} aria-hidden={index !== active} key={poster.title}>
+          <div className="poster-copy">
+            <p className="eyebrow">{poster.eyebrow}</p>
+            <h1>{poster.title}</h1>
+            <p>{poster.copy}</p>
+            <div className="hero-actions">
+              <a className="primary" href="#catalogue">Browse new arrivals</a>
+              <Link className="poster-link" href={`/products/${product.slug}`}>View featured product →</Link>
+            </div>
+            <div className="hero-note"><span>✓</span> Catalogue only — check in-store availability before visiting</div>
+          </div>
+          <div className="poster-art">
+            <div className="poster-orbit orbit-one"/>
+            <div className="poster-orbit orbit-two"/>
+            <div className="poster-product"><ProductArt product={product}/></div>
+            <div className="poster-stamp">NEW<br/><b>ARRIVAL</b></div>
+            <div className="poster-product-name">{product.name}</div>
+          </div>
+        </article>;
+      })}
+    </div>
+    <button className="carousel-arrow previous" onClick={() => select(active - 1)} aria-label="Previous poster">←</button>
+    <button className="carousel-arrow next" onClick={() => select(active + 1)} aria-label="Next poster">→</button>
+    <div className="carousel-dots">
+      {arrivalPosters.map((poster, index) => <button
+        className={index === active ? "active" : ""}
+        onClick={() => select(index)}
+        aria-label={`Show poster ${index + 1}: ${poster.title}`}
+        aria-current={index === active}
+        key={poster.title}
+      />)}
+    </div>
+    <div className="arrival-ticker" aria-hidden="true"><div>
+      <span>NEW ARRIVALS</span><i>✦</i><span>ENVI APEX 2500</span><i>✦</i><span>FLAVOUR BEAST 60 mL</span><i>✦</i><span>SOUR GUSHIN</span><i>✦</i>
+      <span>NEW ARRIVALS</span><i>✦</i><span>ENVI APEX 2500</span><i>✦</i><span>FLAVOUR BEAST 60 mL</span><i>✦</i><span>SOUR GUSHIN</span><i>✦</i>
+    </div></div>
+  </section>;
 }
 
 export function Storefront() {
@@ -115,14 +198,7 @@ export function Storefront() {
   ), [query, category, brand]);
   useEffect(() => setLimit(24), [query, category, brand]);
   return <><AgeGate /><Header /><main>
-    <section className="hero">
-      <div className="hero-copy"><p className="eyebrow">Ontario · Adults 19+ only</p><h1>Find your flavour.<br/><em>Check it in store.</em></h1>
-        <p>Browse our catalogue, explore trusted brands, and send a quick availability request before you visit.</p>
-        <div className="hero-actions"><a className="primary" href="#catalogue">Browse products</a><Link className="text-link" href="/contact">Visit the store →</Link></div>
-        <div className="hero-note"><span>✓</span> Catalogue only — no online ordering, shipping, or delivery</div>
-      </div>
-      <div className="hero-visual"><div className="float-card card-a"><ProductArt product={products[2]} /></div><div className="float-card card-b"><ProductArt product={products[0]} /></div><div className="circle-label">NEW<br/><b>FLAVOURS</b></div></div>
-    </section>
+    <HeroCarousel />
 
     <section className="trust-strip"><span>19+ age verified</span><span>Ontario retail store</span><span>Fast availability replies</span><span>Trusted brands</span></section>
 

@@ -19,6 +19,8 @@ import { importedProducts } from "./products.generated";
 export const products: Product[] = importedProducts;
 export const categories = ["All products", ...Array.from(new Set(products.map(product => product.category))).sort()];
 export const brands = ["All brands", ...Array.from(new Set(products.map(product => product.brand))).sort()];
+export const getProductVolume = (product: Product) =>
+  product.category === "E-Liquids" ? (product.price < 40 ? "30 mL" : "60 mL") : undefined;
 
 export const store = {
   name: "Vape Mart",
