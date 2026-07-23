@@ -12,7 +12,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#2a2a2a",
     "featured": true,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-bomb-blue-razz-82367.webp"
   },
   {
     "id": "827152182350",
@@ -25,7 +26,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#444444",
     "featured": true,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-bangin-blood-orange-82350.webp"
   },
   {
     "id": "827152182374",
@@ -38,7 +40,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#444444",
     "featured": true,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-bussin-banana-82374.webp"
   },
   {
     "id": "827152178223",
@@ -51,7 +54,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#909090",
     "featured": true,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-cherry-blast-78223.webp"
   },
   {
     "id": "827152182381",
@@ -64,7 +68,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#5d5d5d",
     "featured": true,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-miami-mint-82381.webp"
   },
   {
     "id": "827152182435",
@@ -77,7 +82,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#909090",
     "featured": true,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-slammin-sts-82435.webp"
   },
   {
     "id": "827152182404",
@@ -90,7 +96,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#767676",
     "featured": true,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-packin-peach-berry-82404.webp"
   },
   {
     "id": "827152178285",
@@ -103,7 +110,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#2a2a2a",
     "featured": true,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-pumped-up-pineapple-78285.webp"
   },
   {
     "id": "827152182411",
@@ -116,7 +124,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-ragin-razz-mango-82411.webp"
   },
   {
     "id": "827152182428",
@@ -129,7 +138,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-sic-strawberry-82428.webp"
   },
   {
     "id": "827152178254",
@@ -142,7 +152,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-groovy-grape-passion-fruit-78254.webp"
   },
   {
     "id": "827152182398",
@@ -155,7 +166,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-mad-mango-peach-82398.webp"
   },
   {
     "id": "827152178261",
@@ -181,7 +193,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-frizzy-peach-78247.webp"
   },
   {
     "id": "827152197491",
@@ -194,7 +207,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-super-sour-blueberry-97491.webp"
   },
   {
     "id": "827152197521",
@@ -207,7 +221,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-super-sour-peach-97521.webp"
   },
   {
     "id": "827152178230",
@@ -220,7 +235,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-flippin-fruit-flash-78230.webp"
   },
   {
     "id": "827152197569",
@@ -233,7 +249,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-watermelon-g-97569.webp"
   },
   {
     "id": "827152197507",
@@ -246,7 +263,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#2a2a2a",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-super-sour-blue-razz-97507.webp"
   },
   {
     "id": "827152197484",
@@ -259,7 +277,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-super-sour-apple-97484.webp"
   },
   {
     "id": "827152197538",
@@ -272,7 +291,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-super-sour-pineapple-97538.webp"
   },
   {
     "id": "827152202003",
@@ -285,7 +305,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-canada-d-02003.webp"
   },
   {
     "id": "827152202065",
@@ -298,7 +319,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-purple-fizz-02065.webp"
   },
   {
     "id": "827152201990",
@@ -337,7 +359,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-weekend-watermelon-78315.webp"
   },
   {
     "id": "827152197552",
@@ -350,7 +373,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-super-spearmint-97552.webp"
   },
   {
     "id": "827152201983",
@@ -363,7 +387,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-spritz-01983.webp"
   },
   {
     "id": "827152197576",
@@ -376,7 +401,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-wicked-white-peach-97576.webp"
   },
   {
     "id": "827152182442",
@@ -389,7 +415,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-wild-white-grape-82442.webp"
   },
   {
     "id": "827152178308",
@@ -415,7 +442,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#444444",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-trippin-triple-berry-78292.webp"
   },
   {
     "id": "827152178278",
@@ -428,7 +456,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-miami-mint-78278.webp"
   },
   {
     "id": "827152237616",
@@ -441,7 +470,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#767676",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-gushin-blue-razz-37616.webp"
   },
   {
     "id": "827152237623",
@@ -454,7 +484,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-gushin-cherry-37623.webp"
   },
   {
     "id": "827152237609",
@@ -467,7 +498,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-gushin-strawberry-37609.webp"
   },
   {
     "id": "827152197545",
@@ -480,7 +512,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-strawberry-banana-97545.webp"
   },
   {
     "id": "827152202041",
@@ -493,7 +526,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#909090",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-rb-02041.webp"
   },
   {
     "id": "827152238958",
@@ -8340,7 +8374,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#5d5d5d",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-watermelon-apple-37593.webp"
   },
   {
     "id": "827152100002",
@@ -8365,7 +8400,8 @@ export const importedProducts: Product[] = [
     "price": 45.99,
     "accent": "#111111",
     "featured": false,
-    "puffCount": "50,000"
+    "puffCount": "50,000",
+    "image": "/products/flavour-beast-50k/fb-50k-gushin-grape-37630.webp"
   },
   {
     "id": "827152029914",

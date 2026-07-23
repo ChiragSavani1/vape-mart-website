@@ -23,7 +23,7 @@ export const brands = ["All brands", ...Array.from(new Set(products.map(product 
 export const store = {
   name: "Vape Mart",
   address: "307 Cundles Road East, Barrie, ON",
-  phone: "(000) 000-0000",
+  phone: "(705) 721-8181",
   email: "vapemart307@gmail.com",
   hours: [
     ["Monday – Friday", "9:00 AM – 10:00 PM"],
