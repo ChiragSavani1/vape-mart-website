@@ -1,0 +1,20 @@
+[
+  {
+    "slug": "elfbar-10k-kiwi-guava-ice-28961",
+    "productName": "Elfbar 10k kiwi guava ice",
+    "sourceTitle": "Elf Bar BC10K - Vape Cloud Canada 20mg ON Tax / Kiwi Guava Ice",
+    "source": "vapecloud-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0676/0765/8708/files/Kiwi_Guava_Ice.jpg?v=1752847329",
+    "confidence": 0.985,
+    "image": "/products/catalog/elfbar-10k-kiwi-guava-ice-28961.webp"
+  },
+  {
+    "slug": "elfbar-10k-sakura-grape-29081",
+    "productName": "Elfbar 10k sakura grape",
+    "sourceTitle": "Elf Bar BC10K - Vape Cloud Canada 20mg ON Tax / Sakura Grape",
+    "source": "vapecloud-ca",
+    "sourceUrl": "https://cdn.shopify.com/s/files/1/0676/0765/8708/files/Sakura-Grape.jpg?v=1752847647",
+    "confidence": 0.985,
+    "image": "/products/catalog/elfbar-10k-sakura-grape-29081.webp"
+  }
+]
