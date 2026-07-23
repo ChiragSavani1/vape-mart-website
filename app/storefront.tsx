@@ -106,12 +106,16 @@ export function ProductCard({ product }: { product: Product }) {
 
 const arrivalBanners = [
   {
-    src: "/banners/pacific-kraze-giga.webp",
-    alt: "Official Pacific Smoke Kraze Giga new release banner",
+    src: "/banners/envi-apex-new-arrivals.webp",
+    alt: "Envi Apex 2500 new arrivals — 13 flavours now in the Vape Mart catalogue",
   },
   {
-    src: "/banners/pacific-flavour-beast-max2.webp",
-    alt: "Official Pacific Smoke Flavour Beast Beast Mode Max 2 new flavours banner",
+    src: "/banners/flavour-beast-60ml.webp",
+    alt: "Flavour Beast 60 millilitre e-liquid collection",
+  },
+  {
+    src: "/banners/sour-gushin-60ml.webp",
+    alt: "Sour Gushin 60 millilitre new flavours",
   },
 ];
 
