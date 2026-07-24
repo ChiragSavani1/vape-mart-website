@@ -20,6 +20,7 @@ export async function ensureDatabase() {
     `CREATE TABLE IF NOT EXISTS promotions (id TEXT PRIMARY KEY, name TEXT NOT NULL, banner_key TEXT, promotional_price REAL NOT NULL, starts_at TEXT NOT NULL, expires_at TEXT NOT NULL, approved INTEGER NOT NULL DEFAULT 0, created_at TEXT NOT NULL)`,
     `CREATE TABLE IF NOT EXISTS promotion_products (promotion_id TEXT NOT NULL, product_id TEXT NOT NULL)`,
     `CREATE TABLE IF NOT EXISTS settings (key TEXT PRIMARY KEY, value TEXT NOT NULL, updated_at TEXT NOT NULL)`,
+    `CREATE TABLE IF NOT EXISTS product_deletions (product_id TEXT PRIMARY KEY, deleted_at TEXT NOT NULL)`,
   ];
   await db.batch(statements.map(sql => db.prepare(sql)));
   initialized = true;
