@@ -6,14 +6,17 @@ export type AdminProduct = Product & {visible:boolean;missingReview:boolean};
 
 export async function ensureProductSeed(){
   const db=await ensureDatabase();
-  const count=await db.prepare("SELECT COUNT(*) AS count FROM products").first<{count:number}>();
-  if((count?.count||0)===0){
+  const seedKey="catalog_seed_902_v1";
+  const seeded=await db.prepare("SELECT value FROM settings WHERE key = ?").bind(seedKey).first<{value:string}>();
+  if(!seeded){
     const now=new Date().toISOString();
     for(let offset=0;offset<importedProducts.length;offset+=50){
       await db.batch(importedProducts.slice(offset,offset+50).map(product=>db.prepare(
         "INSERT OR IGNORE INTO products (id,upc,slug,name,brand,category,flavour,price,image_key,visible,featured,updated_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)"
       ).bind(product.id,product.upc,product.slug,product.name,product.brand,product.category,product.flavour,product.price,product.image||null,1,product.featured?1:0,now)));
     }
+    await db.prepare("INSERT OR REPLACE INTO settings (key,value,updated_at) VALUES (?,?,?)")
+      .bind(seedKey,String(importedProducts.length),now).run();
   }
   return db;
 }
@@ -22,7 +25,7 @@ export async function loadProducts(includeHidden=false):Promise<AdminProduct[]>{
   const db=await ensureProductSeed();
   const result=await db.prepare(`SELECT * FROM products ${includeHidden?"":"WHERE visible = 1"} ORDER BY featured DESC, name ASC`).all<Record<string,unknown>>();
   const staticByUpc=new Map(importedProducts.map(product=>[product.upc,product]));
-  return (result.results||[]).filter(row=>String(row.category).toLowerCase()!=="hardware").map(row=>{
+  return (result.results||[]).filter(row=>!["hardware","null"].includes(String(row.category).toLowerCase())).map(row=>{
     const fallback=staticByUpc.get(String(row.upc));
     return {
       id:String(row.id),upc:String(row.upc),slug:String(row.slug),name:String(row.name),brand:String(row.brand),

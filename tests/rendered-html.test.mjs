@@ -81,3 +81,10 @@ test("admin product controls persist through protected APIs", async () => {
   assert.match(productDetailApi, /export async function DELETE/);
   assert.doesNotMatch(dashboard, /Taylor M\.|taylor@example\.com/);
 });
+
+test("database seed merges the complete catalogue even when products already exist", async () => {
+  const catalogue = await readFile(new URL("db/catalog.ts", root), "utf8");
+  assert.match(catalogue, /catalog_seed_902_v1/);
+  assert.match(catalogue, /INSERT OR IGNORE INTO products/);
+  assert.doesNotMatch(catalogue, /COUNT\(\*\) AS count FROM products/);
+});
