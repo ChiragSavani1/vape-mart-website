@@ -56,3 +56,28 @@ test("uses exact Envi Apex artwork and price-validated e-liquid bottle sizes", a
   assert.doesNotMatch(storefront, /promo-band/);
   assert.match(storefront, /5500/);
 });
+
+test("provides a non-transactional cart with Ontario HST and no checkout", async () => {
+  const [cart, storefront] = await Promise.all([
+    readFile(new URL("app/cart/cart-client.tsx", root), "utf8"),
+    readFile(new URL("app/storefront.tsx", root), "utf8"),
+  ]);
+  assert.match(storefront, /Add to cart/);
+  assert.match(storefront, /href="\/cart"/);
+  assert.match(cart, /subtotal\*0\.13/);
+  assert.match(cart, /Checkout coming soon/);
+  assert.doesNotMatch(cart, /paymentIntent|checkoutSession|Place order/);
+});
+
+test("admin product controls persist through protected APIs", async () => {
+  const [dashboard, productApi, productDetailApi] = await Promise.all([
+    readFile(new URL("app/admin/dashboard.tsx", root), "utf8"),
+    readFile(new URL("app/api/admin/products/route.ts", root), "utf8"),
+    readFile(new URL("app/api/admin/products/[id]/route.ts", root), "utf8"),
+  ]);
+  assert.match(dashboard, /Save product/);
+  assert.match(productApi, /authorizeAdmin/);
+  assert.match(productDetailApi, /export async function PATCH/);
+  assert.match(productDetailApi, /export async function DELETE/);
+  assert.doesNotMatch(dashboard, /Taylor M\.|taylor@example\.com/);
+});

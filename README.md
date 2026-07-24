@@ -1,6 +1,6 @@
 # Vape Mart catalogue and availability website
 
-A deployable, age-gated product catalogue for an Ontario physical retail store. It intentionally has **no cart, checkout, payment, shipping, delivery, reservation, or online-ordering workflow**.
+A deployable, age-gated product catalogue for an Ontario physical retail store. It includes a persistent planning cart with quantity controls and a 13% Ontario HST estimate. **Checkout, payment, shipping, delivery, reservation, and order submission remain disabled** until the retailer receives its required approvals and connects an approved vape-capable payment provider.
 
 ## Delivered phases
 
@@ -11,7 +11,7 @@ A deployable, age-gated product catalogue for an Ontario physical retail store. 
 - Responsive homepage, catalogue, category and brand filters, search, product detail pages, contact page, and legal pages
 - Catalogue fields: name, brand, category, price, image/placeholder, UPC, flavour, and availability request
 - Hardware-category products excluded from catalogue import
-- Admin dashboard for catalogue visibility, featured products, product review, content, warnings, store details, requests, imports, images, and promotions
+- Database-backed admin dashboard for adding, editing, hiding, featuring, and deleting products; reviewing requests; and importing RetailzPOS files
 - Admin routes protected by ChatGPT sign-in plus an optional server-side email allowlist
 
 ### Phase 2 — Excel import and availability
@@ -29,15 +29,21 @@ A deployable, age-gated product catalogue for an Ontario physical retail store. 
 - Customer email reply after Available/Unavailable selection
 - Honeypot spam protection, input validation, hashed-IP rate limit (five requests per hour)
 
-### Phase 3 — Images and promotions
+### Phase 3 — Images and promotions preparation
 
 - R2 object storage binding prepared for owned image storage
-- Distributor image-review UI with matching source, reason, and confidence
-- Review actions for approve, reject, or manual selection
+- Distributor image matching scripts and storage model
 - Matching policy: exact UPC first; otherwise normalized brand, series, flavour, puff count, and product name
 - Unmatched products retain placeholders
-- Promotion editor with participating products, banner, price, start/expiry, and required approval
 - Promotion data model supports automatic start and expiry at display time
+
+## Cart-only interim launch
+
+- Cart data is stored in the customer browser and does not create an order.
+- Prices are snapshots of the displayed catalogue price when an item is added.
+- The cart calculates subtotal, 13% Ontario HST, and an estimated total in CAD.
+- Checkout is visibly disabled and no payment or delivery information is collected.
+- When regulatory and merchant approval is complete, replace this boundary with server-priced order creation, an approved vape-payment authorization flow, owner approval, payment capture, and proof-of-age delivery.
 
 ## Before production
 

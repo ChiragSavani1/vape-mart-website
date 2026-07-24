@@ -2,7 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
-import { brands, categories, getProductVolume, products, type Product, store } from "./data";
+import { getProductVolume, products, type Product, store } from "./data";
+import { addToCart } from "./cart/cart-storage";
 
 function Logo() {
   return <Link className="logo" href="/"><span><img src="/brand/vape-mart-logo.png" alt="" /></span> VAPE MART</Link>;
@@ -19,6 +20,7 @@ export function Header() {
         <Link href="/#catalogue">Shop catalogue</Link>
         <Link href="/#categories">Categories</Link>
         <Link href="/contact">Visit us</Link>
+        <Link className="nav-cart" href="/cart">Cart</Link>
         <Link className="nav-admin" href="/admin">Admin</Link>
       </nav>
     </header>
@@ -106,11 +108,13 @@ function Inquiry({ product, close }: { product: Product; close: () => void }) {
 
 export function ProductCard({ product }: { product: Product }) {
   const [ask, setAsk] = useState(false);
+  const [added, setAdded] = useState(false);
   const volume = getProductVolume(product);
   return <article className="product-card">
     <Link href={`/products/${product.slug}`} className="product-image"><ProductArt product={product} />{product.promoPrice && <span className="sale-badge">Sale</span>}</Link>
     <div className="product-meta"><span>{product.brand} · {product.category}{volume ? ` · ${volume}` : ""}</span><h3><Link href={`/products/${product.slug}`}>{product.name}</Link></h3>
       <div className="price">{product.promoPrice ? <><del>${product.price.toFixed(2)}</del> ${product.promoPrice.toFixed(2)}</> : `$${product.price.toFixed(2)}`}</div>
+      <button className="primary add-cart" onClick={()=>{addToCart(product);setAdded(true);window.setTimeout(()=>setAdded(false),1600)}}>{added?"Added to cart ✓":"Add to cart"}</button>
       <button className="outline-button" onClick={() => setAsk(true)}>Check availability <span>→</span></button>
     </div>
     {ask && <Inquiry product={product} close={() => setAsk(false)} />}
@@ -188,19 +192,21 @@ function HeroCarousel() {
   </section>;
 }
 
-export function Storefront() {
+export function Storefront({ catalogue = products }: { catalogue?: Product[] }) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All products");
   const [brand, setBrand] = useState("All brands");
   const [priceRange, setPriceRange] = useState("all");
   const [limit, setLimit] = useState(24);
+  const categories = useMemo(()=>["All products",...Array.from(new Set(catalogue.map(product=>product.category))).sort()],[catalogue]);
+  const brands = useMemo(()=>["All brands",...Array.from(new Set(catalogue.map(product=>product.brand))).sort()],[catalogue]);
   const selectedPrice = priceRanges.find(range => range.value === priceRange) || priceRanges[0];
-  const filtered = useMemo(() => products.filter(p =>
+  const filtered = useMemo(() => catalogue.filter(p =>
     (category === "All products" || p.category === category) &&
     (brand === "All brands" || p.brand === brand) &&
     p.price >= selectedPrice.min && p.price < selectedPrice.max &&
     `${p.name} ${p.brand} ${p.flavour}`.toLowerCase().includes(query.toLowerCase())
-  ), [query, category, brand, selectedPrice]);
+  ), [query, category, brand, selectedPrice, catalogue]);
   useEffect(() => setLimit(24), [query, category, brand, priceRange]);
   return <><AgeGate /><Header /><main>
     <HeroCarousel />
@@ -210,7 +216,7 @@ export function Storefront() {
     <section id="categories" className="section category-section"><p className="eyebrow">Browse your way</p><div className="section-heading"><h2>Shop by category</h2><a href="#catalogue">View all products →</a></div>
       <div className="category-grid">{categories.slice(1).map(cat => <button key={cat} onClick={() => { setCategory(cat); document.querySelector("#catalogue")?.scrollIntoView({ behavior: "smooth" }); }}>
         <span className="category-photo"><img src={categoryImages[cat]} alt="" /></span>
-        <span className="category-copy"><b>{cat}</b><small>{products.filter(p => p.category === cat).length} products</small></span>
+        <span className="category-copy"><b>{cat}</b><small>{catalogue.filter(p => p.category === cat).length} products</small></span>
       </button>)}</div>
     </section>
 

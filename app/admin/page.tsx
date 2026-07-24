@@ -1,6 +1,7 @@
 import { chatGPTSignOutPath, requireChatGPTUser } from "../chatgpt-auth";
 import { AdminDashboard } from "./dashboard";
 import { ensureDatabase } from "../../db/runtime";
+import { loadProducts, type AdminProduct } from "../../db/catalog";
 
 export const dynamic = "force-dynamic";
 
@@ -11,6 +12,7 @@ export default async function AdminPage() {
     return <main className="admin-denied"><div><h1>Access restricted</h1><p>{user.email} is signed in but is not on the Vape Mart admin allowlist.</p><a href={chatGPTSignOutPath("/")}>Sign out</a></div></main>;
   }
   let databaseError = "";
+  let adminProducts:AdminProduct[] = [];
   let initialRequests: Array<{id:string;customer:string;contact:string;product:string;time:string;status:"Pending"|"Available"|"Unavailable"}> = [];
   try {
     const db = await ensureDatabase();
@@ -29,11 +31,18 @@ export default async function AdminPage() {
     console.error("admin_inquiries_load_failed", error);
     databaseError = "Availability requests could not be loaded. Refresh the page to try again.";
   }
+  try {
+    adminProducts = await loadProducts(true);
+  } catch (error) {
+    console.error("admin_products_load_failed", error);
+    databaseError = databaseError || "Products could not be loaded. Refresh the page to try again.";
+  }
   return <AdminDashboard
     user={user.displayName}
     signOut={chatGPTSignOutPath("/")}
     initialRequests={initialRequests}
     emailConfigured={Boolean(process.env.RESEND_API_KEY && process.env.EMAIL_FROM)}
     databaseError={databaseError}
+    initialProducts={adminProducts}
   />;
 }
