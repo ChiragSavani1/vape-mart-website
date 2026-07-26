@@ -30,7 +30,7 @@ export async function POST(request:NextRequest) {
     const rows = utils.sheet_to_json<ImportRow>(sheet,{defval:""});
     const db = await ensureDatabase();
     const seen = new Set<string>(), imported = new Set<string>();
-    let added=0,updated=0,duplicates=0,hardware=0;
+    let added=0,updated=0,duplicates=0,hardware=0,imagesMatched=0,imagesUnmatched=0;
     for(const row of rows){
       const upc=cleanUpc(findValue(row,["upc","barcode","upc code","sku/upc"]));
       const name=String(findValue(row,["product name","name","item","description"])).trim();
@@ -46,18 +46,19 @@ export async function POST(request:NextRequest) {
           .bind(name,brand,category,price,new Date().toISOString(),upc).run(); updated++;
         if(!existing.image_key){
           const match=await findAutomaticImage(upc,name,brand);
-          if(match)await db.prepare("UPDATE products SET image_key=? WHERE upc=?").bind(match.image,upc).run();
+          if(match){await db.prepare("UPDATE products SET image_key=? WHERE upc=?").bind(match.image,upc).run();imagesMatched++}
         }
       }else{
         const match=await findAutomaticImage(upc,name,brand);
         await db.prepare("INSERT INTO products (id, upc, slug, name, brand, category, price, image_key, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)")
           .bind(crypto.randomUUID(),upc,`${slugify(name)}-${upc.slice(-4)}`,name,brand,category,price,match?.image||null,new Date().toISOString()).run(); added++;
+        if(match)imagesMatched++;else imagesUnmatched++;
       }
     }
     const existingUpcs=await db.prepare("SELECT upc FROM products WHERE visible = 1").all<{upc:string}>();
     const missing=existingUpcs.results.filter(x=>!imported.has(x.upc)).map(x=>x.upc);
     if(missing.length) await db.batch(missing.map(upc=>db.prepare("UPDATE products SET missing_review = 1 WHERE upc = ?").bind(upc)));
-    const summary={added,updated,duplicates,hardware,review:missing.length};
+    const summary={added,updated,duplicates,hardware,review:missing.length,imagesMatched,imagesUnmatched};
     await db.prepare("INSERT INTO import_runs (id,filename,added,updated,duplicates,hardware_skipped,review,created_at) VALUES (?,?,?,?,?,?,?,?)")
       .bind(crypto.randomUUID(),file.name,added,updated,duplicates,hardware,missing.length,new Date().toISOString()).run();
     return NextResponse.json({ok:true,summary});

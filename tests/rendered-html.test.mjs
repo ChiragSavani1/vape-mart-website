@@ -100,6 +100,8 @@ test("admin manages up to six owned hero banners with defaults as fallback", asy
   assert.match(storefront, /banners\.length\?banners:defaultArrivalBanners/);
   assert.match(bannerApi, /maximum of six hero banners/i);
   assert.match(dashboard, /Hero banners/);
+  assert.match(dashboard, /compressHeroBanner/);
+  assert.match(dashboard, /800_000/);
 });
 
 test("Excel imports automatically match approved product images", async () => {
@@ -111,4 +113,7 @@ test("Excel imports automatically match approved product images", async () => {
   assert.match(assets, /digits\.includes\(upc\)/);
   assert.match(assets, /best\.score>=0\.72/);
   assert.match(assets, /uploaded-library/);
+  assert.match(importApi, /imagesMatched/);
+  assert.match(importApi, /imagesUnmatched/);
+  assert.doesNotMatch((await readFile(new URL("app/admin/dashboard.tsx", root), "utf8")), /tab==="Images"/);
 });

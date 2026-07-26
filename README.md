@@ -110,7 +110,7 @@ Sources:
 Operational flow:
 
 1. Download the distributor folders to a secure operator machine. Do not embed Dropbox URLs.
-2. In Admin → Images, upload/sync those assets into the site-owned R2 `STORAGE` bucket.
+2. Add approved distributor assets to the site-owned R2 `STORAGE` bucket as part of a managed catalogue image sync.
 3. Normalize filenames and product text by lowercasing, removing punctuation and pack-size noise, and standardizing spaces.
 4. Match exact UPCs first (confidence 98–100%).
 5. For assets without UPC, score brand, product series, flavour, puff count, and normalized product name. Require admin review below the chosen confidence threshold.
@@ -118,12 +118,12 @@ Operational flow:
 7. Approve, reject, or manually select each candidate. Only approved objects may populate `products.image_key`.
 8. Preserve placeholders for all unmatched or unapproved products.
 
-The working admin image library accepts up to 100 image files (50 MB combined) per upload. Keep the UPC in each distributor filename whenever possible. New Excel products are matched automatically against the built-in catalogue and uploaded library using exact UPC first, then normalized brand and product-name overlap. Unmatched products keep their placeholder and must be reviewed manually.
+New Excel products are matched automatically against the existing approved image catalogue using exact UPC first, then exact normalized product name. The import summary reports both **Images found** and **Need an image**. A truly new product whose image is not already in the approved catalogue keeps its placeholder; RetailzPOS exports do not include enough image data to safely identify and copy a distributor image from the public internet.
 
 ## Homepage banners
 
 1. Open Admin → Banners.
-2. Upload up to six image files, each under 12 MB, and provide a useful description.
+2. Upload up to six image files and provide a useful description. The admin automatically converts and compresses each file before upload to meet the production request limit.
 3. Custom banners rotate in their displayed order and replace the built-in hero posters.
 4. Remove individual banners as promotions expire.
 5. When all custom banners are removed, the original three built-in banners return automatically.
