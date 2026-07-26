@@ -121,7 +121,7 @@ export function ProductCard({ product }: { product: Product }) {
   </article>;
 }
 
-const arrivalBanners = [
+export const defaultArrivalBanners = [
   {
     src: "/banners/envi-apex-new-arrivals.webp",
     alt: "Envi Apex 2500 new arrivals — 13 flavours now in the Vape Mart catalogue",
@@ -153,15 +153,15 @@ const priceRanges = [
   { value: "50-plus", label: "$50 and over", min: 50, max: Infinity },
 ];
 
-function HeroCarousel() {
+function HeroCarousel({banners}:{banners:{src:string;alt:string}[]}) {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
   useEffect(() => {
     if (paused) return;
-    const timer = window.setInterval(() => setActive(value => (value + 1) % arrivalBanners.length), 5500);
+    const timer = window.setInterval(() => setActive(value => (value + 1) % banners.length), 5500);
     return () => window.clearInterval(timer);
-  }, [paused]);
-  const select = (index: number) => setActive((index + arrivalBanners.length) % arrivalBanners.length);
+  }, [paused,banners.length]);
+  const select = (index: number) => setActive((index + banners.length) % banners.length);
   return <section
     className="hero-carousel"
     aria-label="New arrivals"
@@ -170,7 +170,7 @@ function HeroCarousel() {
     onMouseLeave={() => setPaused(false)}
   >
     <div className="banner-stack">
-      {arrivalBanners.map((banner, index) => <a
+      {banners.map((banner, index) => <a
         className={`banner-slide ${index === active ? "active" : ""}`}
         href="#catalogue"
         aria-hidden={index !== active}
@@ -181,7 +181,7 @@ function HeroCarousel() {
     <button className="carousel-arrow previous" onClick={() => select(active - 1)} aria-label="Previous poster">←</button>
     <button className="carousel-arrow next" onClick={() => select(active + 1)} aria-label="Next poster">→</button>
     <div className="carousel-dots">
-      {arrivalBanners.map((banner, index) => <button
+      {banners.map((banner, index) => <button
         className={index === active ? "active" : ""}
         onClick={() => select(index)}
         aria-label={`Show banner ${index + 1}: ${banner.alt}`}
@@ -192,7 +192,7 @@ function HeroCarousel() {
   </section>;
 }
 
-export function Storefront({ catalogue = products }: { catalogue?: Product[] }) {
+export function Storefront({ catalogue = products, banners = defaultArrivalBanners }: { catalogue?: Product[];banners?:{src:string;alt:string}[] }) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All products");
   const [brand, setBrand] = useState("All brands");
@@ -209,7 +209,7 @@ export function Storefront({ catalogue = products }: { catalogue?: Product[] }) 
   ), [query, category, brand, selectedPrice, catalogue]);
   useEffect(() => setLimit(24), [query, category, brand, priceRange]);
   return <><AgeGate /><Header /><main>
-    <HeroCarousel />
+    <HeroCarousel banners={banners.length?banners:defaultArrivalBanners} />
 
     <section className="trust-strip"><span>19+ age verified</span><span>Ontario retail store</span><span>Fast availability replies</span><span>Trusted brands</span></section>
 

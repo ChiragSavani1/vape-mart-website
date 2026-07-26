@@ -46,7 +46,7 @@ test("uses exact Envi Apex artwork and price-validated e-liquid bottle sizes", a
   assert.equal(flavourBeast60.length, 30);
   assert.equal(flavourBeast60.every(product => auditedBySlug.get(product.slug)?.expectedVolume === "60 mL"), true);
   assert.equal(auditedBySlug.get("lemon-drop-boost-blue-razz-33079")?.expectedVolume, "30 mL");
-  assert.match(storefront, /arrivalBanners/);
+  assert.match(storefront, /defaultArrivalBanners/);
   assert.match(storefront, /\/banners\/envi-apex-new-arrivals\.webp/);
   assert.match(storefront, /\/banners\/flavour-beast-60ml\.webp/);
   assert.match(storefront, /\/banners\/sour-gushin-60ml\.webp/);
@@ -88,4 +88,27 @@ test("database overlay keeps the complete catalogue without a heavy startup seed
   assert.match(catalogue, /databaseByUpc/);
   assert.match(catalogue, /product_deletions/);
   assert.doesNotMatch(catalogue, /INSERT OR IGNORE INTO products/);
+});
+
+test("admin manages up to six owned hero banners with defaults as fallback", async () => {
+  const [storefront,bannerApi,dashboard] = await Promise.all([
+    readFile(new URL("app/storefront.tsx", root), "utf8"),
+    readFile(new URL("app/api/admin/banners/route.ts", root), "utf8"),
+    readFile(new URL("app/admin/dashboard.tsx", root), "utf8"),
+  ]);
+  assert.match(storefront, /defaultArrivalBanners/);
+  assert.match(storefront, /banners\.length\?banners:defaultArrivalBanners/);
+  assert.match(bannerApi, /maximum of six hero banners/i);
+  assert.match(dashboard, /Hero banners/);
+});
+
+test("Excel imports automatically match approved product images", async () => {
+  const [importApi,assets] = await Promise.all([
+    readFile(new URL("app/api/admin/import/route.ts", root), "utf8"),
+    readFile(new URL("db/assets.ts", root), "utf8"),
+  ]);
+  assert.match(importApi, /findAutomaticImage/);
+  assert.match(assets, /digits\.includes\(upc\)/);
+  assert.match(assets, /best\.score>=0\.72/);
+  assert.match(assets, /uploaded-library/);
 });

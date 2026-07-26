@@ -118,6 +118,18 @@ Operational flow:
 7. Approve, reject, or manually select each candidate. Only approved objects may populate `products.image_key`.
 8. Preserve placeholders for all unmatched or unapproved products.
 
+The working admin image library accepts up to 100 image files (50 MB combined) per upload. Keep the UPC in each distributor filename whenever possible. New Excel products are matched automatically against the built-in catalogue and uploaded library using exact UPC first, then normalized brand and product-name overlap. Unmatched products keep their placeholder and must be reviewed manually.
+
+## Homepage banners
+
+1. Open Admin → Banners.
+2. Upload up to six image files, each under 12 MB, and provide a useful description.
+3. Custom banners rotate in their displayed order and replace the built-in hero posters.
+4. Remove individual banners as promotions expire.
+5. When all custom banners are removed, the original three built-in banners return automatically.
+
+Banner and product-library files are stored in the site-owned R2 `STORAGE` bucket and are served through the website, never through Dropbox links.
+
 ## Email
 
 This implementation uses the Resend HTTPS API, which is compatible with the Cloudflare runtime.

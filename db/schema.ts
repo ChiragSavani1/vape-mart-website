@@ -76,3 +76,24 @@ export const settings = sqliteTable("settings", {
   value: text("value").notNull(),
   updatedAt: text("updated_at").notNull(),
 });
+
+export const productDeletions = sqliteTable("product_deletions", {
+  productId: text("product_id").primaryKey(),
+  deletedAt: text("deleted_at").notNull(),
+});
+
+export const banners = sqliteTable("banners", {
+  id: text("id").primaryKey(),
+  objectKey: text("object_key").notNull().unique(),
+  altText: text("alt_text").notNull(),
+  position: integer("position").notNull(),
+  createdAt: text("created_at").notNull(),
+});
+
+export const imageAssets = sqliteTable("image_assets", {
+  id: text("id").primaryKey(),
+  objectKey: text("object_key").notNull().unique(),
+  originalName: text("original_name").notNull(),
+  normalizedName: text("normalized_name").notNull(),
+  createdAt: text("created_at").notNull(),
+});

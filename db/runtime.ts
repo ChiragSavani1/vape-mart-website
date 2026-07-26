@@ -5,6 +5,11 @@ export function getD1(): D1Database {
   return env.DB as D1Database;
 }
 
+export function getStorage(): R2Bucket {
+  if (!env.STORAGE) throw new Error("Object storage binding STORAGE is unavailable.");
+  return env.STORAGE as R2Bucket;
+}
+
 let initialized = false;
 export async function ensureDatabase() {
   if (initialized) return getD1();
@@ -21,6 +26,8 @@ export async function ensureDatabase() {
     `CREATE TABLE IF NOT EXISTS promotion_products (promotion_id TEXT NOT NULL, product_id TEXT NOT NULL)`,
     `CREATE TABLE IF NOT EXISTS settings (key TEXT PRIMARY KEY, value TEXT NOT NULL, updated_at TEXT NOT NULL)`,
     `CREATE TABLE IF NOT EXISTS product_deletions (product_id TEXT PRIMARY KEY, deleted_at TEXT NOT NULL)`,
+    `CREATE TABLE IF NOT EXISTS banners (id TEXT PRIMARY KEY, object_key TEXT NOT NULL UNIQUE, alt_text TEXT NOT NULL, position INTEGER NOT NULL, created_at TEXT NOT NULL)`,
+    `CREATE TABLE IF NOT EXISTS image_assets (id TEXT PRIMARY KEY, object_key TEXT NOT NULL UNIQUE, original_name TEXT NOT NULL, normalized_name TEXT NOT NULL, created_at TEXT NOT NULL)`,
   ];
   await db.batch(statements.map(sql => db.prepare(sql)));
   initialized = true;

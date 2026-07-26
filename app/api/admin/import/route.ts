@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { read, utils } from "xlsx";
 import { ensureDatabase } from "../../../../db/runtime";
+import { findAutomaticImage } from "../../../../db/assets";
 import { getChatGPTUser } from "../../../chatgpt-auth";
 
 export const dynamic = "force-dynamic";
@@ -39,13 +40,18 @@ export async function POST(request:NextRequest) {
       if(category.toLowerCase().includes("hardware")){hardware++;continue}
       if(!upc||!name||!Number.isFinite(price))continue;
       if(seen.has(upc)){duplicates++;continue} seen.add(upc); imported.add(upc);
-      const existing=await db.prepare("SELECT id, manual_name, manual_brand, manual_category FROM products WHERE upc = ?").bind(upc).first<{id:string;manual_name:number;manual_brand:number;manual_category:number}>();
+      const existing=await db.prepare("SELECT id, image_key, manual_name, manual_brand, manual_category FROM products WHERE upc = ?").bind(upc).first<{id:string;image_key:string|null;manual_name:number;manual_brand:number;manual_category:number}>();
       if(existing){
         await db.prepare("UPDATE products SET name = CASE WHEN manual_name = 1 THEN name ELSE ? END, brand = CASE WHEN manual_brand = 1 THEN brand ELSE ? END, category = CASE WHEN manual_category = 1 THEN category ELSE ? END, price = ?, missing_review = 0, updated_at = ? WHERE upc = ?")
           .bind(name,brand,category,price,new Date().toISOString(),upc).run(); updated++;
+        if(!existing.image_key){
+          const match=await findAutomaticImage(upc,name,brand);
+          if(match)await db.prepare("UPDATE products SET image_key=? WHERE upc=?").bind(match.image,upc).run();
+        }
       }else{
-        await db.prepare("INSERT INTO products (id, upc, slug, name, brand, category, price, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?)")
-          .bind(crypto.randomUUID(),upc,`${slugify(name)}-${upc.slice(-4)}`,name,brand,category,price,new Date().toISOString()).run(); added++;
+        const match=await findAutomaticImage(upc,name,brand);
+        await db.prepare("INSERT INTO products (id, upc, slug, name, brand, category, price, image_key, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)")
+          .bind(crypto.randomUUID(),upc,`${slugify(name)}-${upc.slice(-4)}`,name,brand,category,price,match?.image||null,new Date().toISOString()).run(); added++;
       }
     }
     const existingUpcs=await db.prepare("SELECT upc FROM products WHERE visible = 1").all<{upc:string}>();

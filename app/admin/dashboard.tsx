@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import type { AdminProduct } from "../../db/catalog";
+import type { SiteBanner } from "../../db/assets";
 
 type RequestStatus = "Pending" | "Available" | "Unavailable";
 export type AdminInquiry = {
@@ -13,7 +14,7 @@ export type AdminInquiry = {
   time:string;
   status:RequestStatus;
 };
-const tabs = ["Overview","Products","Imports","Requests"];
+const tabs = ["Overview","Products","Imports","Banners","Images","Requests"];
 
 export function AdminDashboard({
   user,
@@ -22,6 +23,7 @@ export function AdminDashboard({
   emailConfigured,
   databaseError,
   initialProducts,
+  initialBanners,
 }: {
   user:string;
   signOut:string;
@@ -29,6 +31,7 @@ export function AdminDashboard({
   emailConfigured:boolean;
   databaseError:string;
   initialProducts:AdminProduct[];
+  initialBanners:SiteBanner[];
 }) {
   const [tab,setTab]=useState("Overview");
   const [products,setProducts]=useState(initialProducts);
@@ -40,6 +43,9 @@ export function AdminDashboard({
   const [productCategory,setProductCategory]=useState("All categories");
   const [editing,setEditing]=useState<AdminProduct|Partial<AdminProduct>|null>(null);
   const [savingProduct,setSavingProduct]=useState(false);
+  const [banners,setBanners]=useState(initialBanners);
+  const [uploading,setUploading]=useState(false);
+  const [imageSummary,setImageSummary]=useState("");
 
   async function importFile(file?:File){
     if(!file)return; setImporting(true);
@@ -91,6 +97,26 @@ export function AdminDashboard({
     if(response.ok)setProducts(rows=>rows.filter(row=>row.id!==product.id));
     else setRequestError("The product could not be deleted.");
   }
+  async function uploadBanner(form:HTMLFormElement){
+    setUploading(true);setRequestError("");
+    const response=await fetch("/api/admin/banners",{method:"POST",body:new FormData(form)});
+    const data=await response.json().catch(()=>null);
+    if(response.ok){setBanners(data.banners);form.reset()}else setRequestError(data?.error||"The banner could not be uploaded.");
+    setUploading(false);
+  }
+  async function deleteBanner(id:string){
+    const response=await fetch(`/api/admin/banners/${id}`,{method:"DELETE"});
+    const data=await response.json().catch(()=>null);
+    if(response.ok)setBanners(data.banners);else setRequestError(data?.error||"The banner could not be removed.");
+  }
+  async function uploadProductImages(files:FileList|null){
+    if(!files?.length)return;setUploading(true);setRequestError("");const body=new FormData();
+    Array.from(files).forEach(file=>body.append("files",file));
+    const response=await fetch("/api/admin/image-assets",{method:"POST",body});
+    const data=await response.json().catch(()=>null);
+    if(response.ok)setImageSummary(`${data.uploaded} images stored; ${data.exactMatches} existing database products matched immediately.`);else setRequestError(data?.error||"The product images could not be uploaded.");
+    setUploading(false);
+  }
   const categories=["All categories",...Array.from(new Set(products.map(product=>product.category))).sort()];
   const filteredProducts=products.filter(product=>(productCategory==="All categories"||product.category===productCategory)&&`${product.name} ${product.upc} ${product.brand}`.toLowerCase().includes(productQuery.toLowerCase()));
   return <div className="admin-shell">
@@ -101,6 +127,8 @@ export function AdminDashboard({
       {tab==="Overview"&&<><div className="metric-grid"><Metric label="Visible products" value={String(products.filter(p=>p.visible).length)} note="Hardware excluded"/><Metric label="Pending requests" value={String(requests.filter(r=>r.status==="Pending").length)} note="Needs a reply" warn/><Metric label="Products with images" value={String(products.filter(p=>p.image).length)} note={`of ${products.length}`}/><Metric label="Import review" value={String(products.filter(p=>p.missingReview).length)} note="Missing from latest file"/></div><div className="admin-grid"><Panel title="Recent availability requests" action={()=>setTab("Requests")} actionLabel="View all">{<RequestTable rows={requests.slice(0,8)} status={status}/>}</Panel><Panel title="Launch status"><div className="health-list"><Health label="Catalogue database" value="Connected" good/><Health label="Cart & tax estimate" value="Live" good/><Health label="Checkout & payment" value="Disabled"/><Health label="Hardware products" value="Excluded" good/></div></Panel></div></>}
       {tab==="Products"&&<Panel title="Product catalogue" action={()=>setEditing({visible:true,featured:false,price:0})} actionLabel="Add product"><div className="admin-toolbar"><input value={productQuery} onChange={event=>setProductQuery(event.target.value)} placeholder="Search by name, UPC, or brand"/><select value={productCategory} onChange={event=>setProductCategory(event.target.value)}>{categories.map(category=><option key={category}>{category}</option>)}</select></div><div className="table-scroll"><table className="admin-table"><thead><tr><th>Product</th><th>UPC</th><th>Price</th><th>Featured</th><th>Visible</th><th>Actions</th></tr></thead><tbody>{filteredProducts.slice(0,300).map(p=><tr key={p.id}><td><span className="mini-art" style={{background:p.accent}}></span><b>{p.name}</b><small>{p.brand} · {p.category}</small></td><td>{p.upc}</td><td>${p.price.toFixed(2)}</td><td><input type="checkbox" checked={!!p.featured} onChange={()=>updateProduct(p.id,{featured:!p.featured})}/></td><td><input type="checkbox" checked={p.visible} onChange={()=>updateProduct(p.id,{visible:!p.visible})}/></td><td><button className="table-action" onClick={()=>setEditing(p)}>Edit</button><button className="table-action danger" onClick={()=>deleteProduct(p)}>Delete</button></td></tr>)}</tbody></table></div><p className="panel-intro">Showing {Math.min(300,filteredProducts.length)} of {filteredProducts.length} matching products. Changes are saved to the live catalogue database.</p></Panel>}
       {tab==="Imports"&&<div className="two-columns"><Panel title="Import RetailzPOS Excel export"><div className="upload-zone"><span>⇧</span><h3>Drop an .xlsx, .xls, or .csv file here</h3><p>Products match by UPC. Hardware is excluded automatically, and missing rows are flagged—not deleted.</p><label className="admin-primary">{importing?"Analysing…":"Choose Excel file"}<input type="file" accept=".xlsx,.xls,.csv" hidden onChange={e=>importFile(e.target.files?.[0])}/></label></div></Panel><Panel title="Last import summary">{importSummary?<div className="summary-grid"><Metric label="Added" value={String(importSummary.added)} note="New UPCs"/><Metric label="Updated" value={String(importSummary.updated)} note="Prices & details"/><Metric label="Duplicates" value={String(importSummary.duplicates)} note="Review required" warn/><Metric label="Hardware skipped" value={String(importSummary.hardware)} note="Automatic"/><Metric label="Missing / review" value={String(importSummary.review)} note="Not deleted"/></div>:<div className="blank"><b>No import in this session</b><p>Upload a RetailzPOS export to see a row-by-row summary.</p></div>}</Panel></div>}
+      {tab==="Banners"&&<><Panel title={`Hero banners (${banners.length}/6)`}><form className="banner-upload" onSubmit={event=>{event.preventDefault();uploadBanner(event.currentTarget)}}><label>Banner image<input name="file" type="file" accept="image/*" required disabled={banners.length>=6}/></label><label>Accessible description<input name="alt" placeholder="New arrival promotion" required/></label><button className="admin-primary" disabled={uploading||banners.length>=6}>{uploading?"Uploading…":"Upload banner"}</button></form><p className="panel-intro">{banners.length?"These banners replace the default hero rotation. Delete all custom banners to restore the original three.":"No custom banners uploaded. The original three banners are currently shown."}</p><div className="banner-admin-grid">{banners.map(banner=><article key={banner.id}><img src={banner.src} alt=""/><div><b>{banner.alt}</b><button onClick={()=>deleteBanner(banner.id)}>Remove</button></div></article>)}</div></Panel></>}
+      {tab==="Images"&&<Panel title="Automatic product-image library"><div className="upload-zone"><span>⇧</span><h3>Upload distributor product images</h3><p>Use filenames containing the UPC whenever possible. Excel imports match UPC first, then compare normalized product and brand names. Approved files are stored on this website.</p><label className="admin-primary">{uploading?"Uploading…":"Choose product images"}<input type="file" accept="image/*" multiple hidden onChange={event=>uploadProductImages(event.target.files)}/></label>{imageSummary&&<p className="save-note">{imageSummary}</p>}</div></Panel>}
       {tab==="Requests"&&<Panel title="Availability requests"><RequestTable rows={requests} status={status}/></Panel>}
       {editing&&<ProductEditor product={editing} saving={savingProduct} close={()=>setEditing(null)} save={saveProduct}/>}
     </main>

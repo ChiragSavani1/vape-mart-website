@@ -2,6 +2,7 @@ import { chatGPTSignOutPath, requireChatGPTUser } from "../chatgpt-auth";
 import { AdminDashboard } from "./dashboard";
 import { ensureDatabase } from "../../db/runtime";
 import { loadProducts, type AdminProduct } from "../../db/catalog";
+import { loadBanners, type SiteBanner } from "../../db/assets";
 
 export const dynamic = "force-dynamic";
 
@@ -13,6 +14,7 @@ export default async function AdminPage() {
   }
   let databaseError = "";
   let adminProducts:AdminProduct[] = [];
+  let initialBanners:SiteBanner[] = [];
   let initialRequests: Array<{id:string;customer:string;contact:string;product:string;time:string;status:"Pending"|"Available"|"Unavailable"}> = [];
   try {
     const db = await ensureDatabase();
@@ -32,7 +34,7 @@ export default async function AdminPage() {
     databaseError = "Availability requests could not be loaded. Refresh the page to try again.";
   }
   try {
-    adminProducts = await loadProducts(true);
+    [adminProducts,initialBanners] = await Promise.all([loadProducts(true),loadBanners()]);
   } catch (error) {
     console.error("admin_products_load_failed", error);
     databaseError = databaseError || "Products could not be loaded. Refresh the page to try again.";
@@ -44,5 +46,6 @@ export default async function AdminPage() {
     emailConfigured={Boolean(process.env.RESEND_API_KEY && process.env.EMAIL_FROM)}
     databaseError={databaseError}
     initialProducts={adminProducts}
+    initialBanners={initialBanners}
   />;
 }
