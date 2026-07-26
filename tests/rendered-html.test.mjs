@@ -70,15 +70,20 @@ test("provides a non-transactional cart with Ontario HST and no checkout", async
 });
 
 test("admin product controls persist through protected APIs", async () => {
-  const [dashboard, productApi, productDetailApi] = await Promise.all([
+  const [dashboard, productApi, productDetailApi, productImageApi] = await Promise.all([
     readFile(new URL("app/admin/dashboard.tsx", root), "utf8"),
     readFile(new URL("app/api/admin/products/route.ts", root), "utf8"),
     readFile(new URL("app/api/admin/products/[id]/route.ts", root), "utf8"),
+    readFile(new URL("app/api/admin/products/[id]/image/route.ts", root), "utf8"),
   ]);
   assert.match(dashboard, /Save product/);
   assert.match(productApi, /authorizeAdmin/);
   assert.match(productDetailApi, /export async function PATCH/);
   assert.match(productDetailApi, /export async function DELETE/);
+  assert.match(dashboard, /Change image/);
+  assert.match(dashboard, /compressProductImage/);
+  assert.match(productImageApi, /manual_image=1/);
+  assert.match(productImageApi, /getStorage\(\)\.put/);
   assert.doesNotMatch(dashboard, /Taylor M\.|taylor@example\.com/);
 });
 

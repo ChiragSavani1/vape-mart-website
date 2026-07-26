@@ -16,7 +16,7 @@ export type AdminInquiry = {
 };
 const tabs = ["Overview","Products","Imports","Banners","Requests"];
 
-async function compressHeroBanner(file:File){
+async function compressImage(file:File,maxWidth:number,maxHeight:number,targetBytes:number){
   const source=URL.createObjectURL(file);
   try{
     const image=await new Promise<HTMLImageElement>((resolve,reject)=>{
@@ -25,8 +25,9 @@ async function compressHeroBanner(file:File){
       element.onerror=()=>reject(new Error("The selected image could not be read."));
       element.src=source;
     });
-    let width=Math.min(image.naturalWidth,2400);
-    let height=Math.round(image.naturalHeight*(width/image.naturalWidth));
+    const scale=Math.min(1,maxWidth/image.naturalWidth,maxHeight/image.naturalHeight);
+    let width=Math.round(image.naturalWidth*scale);
+    let height=Math.round(image.naturalHeight*scale);
     let blob:Blob|null=null;
     for(let attempt=0;attempt<5;attempt++){
       const canvas=document.createElement("canvas");
@@ -35,13 +36,15 @@ async function compressHeroBanner(file:File){
       canvas.getContext("2d")?.drawImage(image,0,0,canvas.width,canvas.height);
       const quality=Math.max(.48,.86-attempt*.1);
       blob=await new Promise(resolve=>canvas.toBlob(resolve,"image/webp",quality));
-      if(blob&&blob.size<=800_000)break;
+      if(blob&&blob.size<=targetBytes)break;
       width*=.82;height*=.82;
     }
-    if(!blob||blob.size>900_000)throw new Error("This banner could not be compressed enough. Please use a simpler image.");
+    if(!blob||blob.size>targetBytes+100_000)throw new Error("This image could not be compressed enough. Please use a simpler image.");
     return new File([blob],`${file.name.replace(/\.[^.]+$/,"")}.webp`,{type:"image/webp"});
   }finally{URL.revokeObjectURL(source)}
 }
+const compressHeroBanner=(file:File)=>compressImage(file,2400,1400,800_000);
+const compressProductImage=(file:File)=>compressImage(file,1400,1400,700_000);
 
 export function AdminDashboard({
   user,
@@ -157,7 +160,7 @@ export function AdminDashboard({
       {tab==="Imports"&&<div className="two-columns"><Panel title="Import RetailzPOS Excel export"><div className="upload-zone"><span>⇧</span><h3>Drop an .xlsx, .xls, or .csv file here</h3><p>Products match by UPC. New rows are checked against the existing 844-image catalogue by UPC first and normalized product name second. Hardware is excluded automatically, and missing rows are flagged—not deleted.</p><label className="admin-primary">{importing?"Analysing…":"Choose Excel file"}<input type="file" accept=".xlsx,.xls,.csv" hidden onChange={e=>importFile(e.target.files?.[0])}/></label></div></Panel><Panel title="Last import summary">{importSummary?<div className="summary-grid"><Metric label="Added" value={String(importSummary.added)} note="New UPCs"/><Metric label="Updated" value={String(importSummary.updated)} note="Prices & details"/><Metric label="Images found" value={String(importSummary.imagesMatched)} note="Matched automatically"/><Metric label="Need an image" value={String(importSummary.imagesUnmatched)} note="New products to review" warn={importSummary.imagesUnmatched>0}/><Metric label="Duplicates" value={String(importSummary.duplicates)} note="Review required" warn/><Metric label="Hardware skipped" value={String(importSummary.hardware)} note="Automatic"/><Metric label="Missing / review" value={String(importSummary.review)} note="Not deleted"/></div>:<div className="blank"><b>No import in this session</b><p>Upload a RetailzPOS export to see product and automatic-image matching results.</p></div>}</Panel></div>}
       {tab==="Banners"&&<><Panel title={`Hero banners (${banners.length}/6)`}><form className="banner-upload" onSubmit={event=>{event.preventDefault();uploadBanner(event.currentTarget)}}><label>Banner image<input name="file" type="file" accept="image/*" required disabled={banners.length>=6}/></label><label>Accessible description<input name="alt" placeholder="New arrival promotion" required/></label><button className="admin-primary" disabled={uploading||banners.length>=6}>{uploading?"Uploading…":"Upload banner"}</button></form><p className="panel-intro">{banners.length?"These banners replace the default hero rotation. Delete all custom banners to restore the original three.":"No custom banners uploaded. The original three banners are currently shown."}</p><div className="banner-admin-grid">{banners.map(banner=><article key={banner.id}><img src={banner.src} alt=""/><div><b>{banner.alt}</b><button onClick={()=>deleteBanner(banner.id)}>Remove</button></div></article>)}</div></Panel></>}
       {tab==="Requests"&&<Panel title="Availability requests"><RequestTable rows={requests} status={status}/></Panel>}
-      {editing&&<ProductEditor product={editing} saving={savingProduct} close={()=>setEditing(null)} save={saveProduct}/>}
+      {editing&&<ProductEditor product={editing} saving={savingProduct} close={()=>setEditing(null)} save={saveProduct} imageUploaded={(id,image)=>setProducts(rows=>rows.map(row=>row.id===id?{...row,image}:row))}/>}
     </main>
   </div>
 }
@@ -168,9 +171,24 @@ function RequestTable({rows,status}:{rows:AdminInquiry[];status:(id:string,statu
   if(!rows.length)return <div className="blank"><b>No availability requests yet</b><p>New customer requests will appear here automatically.</p></div>;
   return <div className="table-scroll"><table className="admin-table request-table"><thead><tr><th>Request</th><th>Customer</th><th>Product</th><th>Received</th><th>Status / reply</th></tr></thead><tbody>{rows.map(r=><tr key={r.id}><td><b>{r.id}</b></td><td>{r.customer}<small>{r.contact}</small></td><td>{r.product}</td><td>{r.time}</td><td><select value={r.status} onChange={e=>status(r.id,e.target.value as RequestStatus)} className={`status ${r.status.toLowerCase()}`}><option>Pending</option><option>Available</option><option>Unavailable</option></select></td></tr>)}</tbody></table></div>;
 }
-function ProductEditor({product,saving,close,save}:{product:Partial<AdminProduct>;saving:boolean;close:()=>void;save:(product:Partial<AdminProduct>)=>void}){
+function ProductEditor({product,saving,close,save,imageUploaded}:{product:Partial<AdminProduct>;saving:boolean;close:()=>void;save:(product:Partial<AdminProduct>)=>void;imageUploaded:(id:string,image:string)=>void}){
   const [draft,setDraft]=useState(product);
+  const [uploadingImage,setUploadingImage]=useState(false);
+  const [imageError,setImageError]=useState("");
   const field=(key:keyof AdminProduct,value:unknown)=>setDraft(current=>({...current,[key]:value}));
+  async function uploadImage(file?:File){
+    if(!file||!draft.id)return;
+    setUploadingImage(true);setImageError("");
+    try{
+      const body=new FormData();
+      body.append("file",await compressProductImage(file));
+      const response=await fetch(`/api/admin/products/${draft.id}/image`,{method:"POST",body});
+      const data=await response.json().catch(()=>null);
+      if(!response.ok)throw new Error(data?.error||"The product image could not be uploaded.");
+      field("image",data.image);imageUploaded(draft.id,data.image);
+    }catch(reason){setImageError(reason instanceof Error?reason.message:"The product image could not be uploaded.")}
+    finally{setUploadingImage(false)}
+  }
   return <div className="modal-backdrop" onMouseDown={close}><div className="admin-editor" onMouseDown={event=>event.stopPropagation()}>
     <button className="modal-close" onClick={close} aria-label="Close">×</button>
     <p className="eyebrow">{draft.id?"Edit product":"New product"}</p><h2>{draft.id?draft.name:"Add a catalogue product"}</h2>
@@ -179,7 +197,13 @@ function ProductEditor({product,saving,close,save}:{product:Partial<AdminProduct
       <div className="form-row"><label>UPC<input required inputMode="numeric" value={draft.upc||""} disabled={Boolean(draft.id)} onChange={event=>field("upc",event.target.value)}/></label><label>Price<input required min="0" step=".01" type="number" value={draft.price??0} onChange={event=>field("price",Number(event.target.value))}/></label></div>
       <div className="form-row"><label>Brand<input required value={draft.brand||""} onChange={event=>field("brand",event.target.value)}/></label><label>Category<input required value={draft.category||""} onChange={event=>field("category",event.target.value)}/></label></div>
       <label>Flavour / variant<input value={draft.flavour||""} onChange={event=>field("flavour",event.target.value)}/></label>
-      <label>Image path<input placeholder="/products/catalog/example.webp" value={draft.image||""} onChange={event=>field("image",event.target.value)}/></label>
+      <div className="product-image-editor">
+        <div className="product-image-preview">{draft.image?<img src={draft.image} alt="Current product"/>:<span>Placeholder currently shown</span>}</div>
+        <div><b>Product image</b><p>Upload a clear, front-facing product image. It will replace the current image or placeholder.</p>
+          {draft.id?<label className="admin-primary">{uploadingImage?"Uploading…":draft.image?"Change image":"Upload image"}<input type="file" accept="image/*" hidden disabled={uploadingImage} onChange={event=>uploadImage(event.target.files?.[0])}/></label>:<small>Save the new product first, then reopen it to upload its image.</small>}
+          {imageError&&<p className="field-error">{imageError}</p>}
+        </div>
+      </div>
       <div className="editor-checks"><label><input type="checkbox" checked={draft.visible!==false} onChange={event=>field("visible",event.target.checked)}/> Visible</label><label><input type="checkbox" checked={Boolean(draft.featured)} onChange={event=>field("featured",event.target.checked)}/> Featured</label></div>
       <button className="admin-primary" disabled={saving}>{saving?"Saving…":"Save product"}</button>
     </form>

@@ -97,6 +97,7 @@ Backups:
 4. Review Added, Updated, Duplicate, Hardware skipped, and Missing/review counts.
 5. Resolve duplicate UPCs in the source workbook.
 6. Review missing products and hide/delete them manually only when appropriate.
+7. For an unmatched product, open Admin → Products → Edit and use **Upload image**. Existing product images can be replaced from the same editor with **Change image**.
 
 The importer never reads cost into the public model and never deletes missing products automatically.
 
