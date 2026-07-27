@@ -76,6 +76,22 @@ test("provides a non-transactional cart with Ontario HST and no checkout", async
   assert.doesNotMatch(cart, /paymentIntent|checkoutSession|Place order/);
 });
 
+test("product pages use a dark detail layout with cart and availability actions", async () => {
+  const [page, detail, css] = await Promise.all([
+    readFile(new URL("app/products/[slug]/page.tsx", root), "utf8"),
+    readFile(new URL("app/products/[slug]/product-detail-client.tsx", root), "utf8"),
+    readFile(new URL("app/globals.css", root), "utf8"),
+  ]);
+  assert.match(page, /product-detail-theme/);
+  assert.doesNotMatch(page, /ProductCard/);
+  assert.match(detail, /Add to cart/);
+  assert.match(detail, /Check availability/);
+  assert.match(detail, /addToCart/);
+  assert.match(detail, /<Inquiry/);
+  assert.match(css, /Dark editorial product-detail experience/);
+  assert.match(css, /\.product-detail-page/);
+});
+
 test("admin product controls persist through protected APIs", async () => {
   const [dashboard, productApi, productDetailApi, productImageApi] = await Promise.all([
     readFile(new URL("app/admin/dashboard.tsx", root), "utf8"),

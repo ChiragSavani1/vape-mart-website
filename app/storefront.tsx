@@ -63,7 +63,7 @@ export function ProductArt({ product }: { product: Product }) {
   </div>;
 }
 
-function Inquiry({ product, close }: { product: Product; close: () => void }) {
+export function Inquiry({ product, close }: { product: Product; close: () => void }) {
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
   const [error, setError] = useState("");
