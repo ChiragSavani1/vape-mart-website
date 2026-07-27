@@ -1,14 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { ensureDatabase } from "../../../../../db/runtime";
 import { sendEmail } from "../../../../../db/email";
-import { getChatGPTUser } from "../../../../chatgpt-auth";
+import { authorizeAdmin } from "../../authorize";
 
 export const dynamic = "force-dynamic";
 
 export async function PATCH(request:NextRequest,{params}:{params:Promise<{id:string}>}){
-  const user=await getChatGPTUser(); if(!user)return NextResponse.json({error:"Unauthorized"},{status:401});
-  const allowed=(process.env.ADMIN_EMAILS||"").split(",").map(x=>x.trim().toLowerCase()).filter(Boolean);
-  if(allowed.length&&!allowed.includes(user.email.toLowerCase()))return NextResponse.json({error:"Forbidden"},{status:403});
+  if(!await authorizeAdmin())return NextResponse.json({error:"Unauthorized"},{status:401});
   const {id}=await params; const {status}=await request.json() as {status:string};
   if(!["Pending","Available","Unavailable"].includes(status))return NextResponse.json({error:"Invalid status"},{status:400});
   const db=await ensureDatabase();

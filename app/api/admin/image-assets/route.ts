@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { normalizeAssetName } from "../../../../db/assets";
-import { ensureDatabase, getStorage } from "../../../../db/runtime";
+import { ensureDatabase } from "../../../../db/runtime";
+import { putObject } from "../../../../db/storage";
 import { authorizeAdmin } from "../authorize";
 
 const safeName=(value:string)=>value.toLowerCase().replace(/[^a-z0-9._-]+/g,"-").slice(-120);
@@ -15,7 +16,7 @@ export async function POST(request:NextRequest){
     const db=await ensureDatabase();let exactMatches=0;
     for(const file of files){
       const id=crypto.randomUUID(),key=`product-library/${id}-${safeName(file.name)}`;
-      await getStorage().put(key,await file.arrayBuffer(),{httpMetadata:{contentType:file.type}});
+      await putObject(key,await file.arrayBuffer(),file.type);
       await db.prepare("INSERT INTO image_assets (id,object_key,original_name,normalized_name,created_at) VALUES (?,?,?,?,?)")
         .bind(id,key,file.name,normalizeAssetName(file.name),new Date().toISOString()).run();
       const digits=file.name.match(/\d{8,14}/)?.[0]||"";

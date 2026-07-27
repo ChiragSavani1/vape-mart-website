@@ -1,0 +1,44 @@
+services:
+  - type: web
+    name: vape-mart
+    runtime: node
+    buildCommand: npm ci && npm run db:migrate && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 22.13.0
+      - key: DATABASE_URL
+        fromDatabase:
+          name: vape-mart-db
+          property: connectionString
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: RATE_LIMIT_SALT
+        generateValue: true
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD_HASH
+        sync: false
+      - key: S3_ENDPOINT
+        sync: false
+      - key: S3_REGION
+        sync: false
+      - key: S3_BUCKET
+        sync: false
+      - key: S3_ACCESS_KEY_ID
+        sync: false
+      - key: S3_SECRET_ACCESS_KEY
+        sync: false
+      - key: S3_FORCE_PATH_STYLE
+        value: "false"
+      - key: RESEND_API_KEY
+        sync: false
+      - key: EMAIL_FROM
+        sync: false
+      - key: AVAILABILITY_TO
+        value: vapemart307@gmail.com
+databases:
+  - name: vape-mart-db
+    databaseName: vape_mart
+    user: vape_mart

@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { read, utils } from "xlsx";
-import { ensureDatabase } from "../../../../db/runtime";
+import { ensureDatabase, type PostgresPreparedQuery } from "../../../../db/runtime";
 import { findAutomaticImage } from "../../../../db/assets";
-import { getChatGPTUser } from "../../../chatgpt-auth";
+import { authorizeAdmin } from "../authorize";
 import { importedProducts } from "../../../products.generated";
 
 export const dynamic = "force-dynamic";
@@ -32,14 +32,8 @@ const readRows=(workbook:ReturnType<typeof read>)=>{
   return null;
 };
 
-async function authorized() {
-  const user = await getChatGPTUser(); if (!user) return false;
-  const allowed = (process.env.ADMIN_EMAILS || "").split(",").map(x=>x.trim().toLowerCase()).filter(Boolean);
-  return allowed.length === 0 || allowed.includes(user.email.toLowerCase());
-}
-
 export async function POST(request:NextRequest) {
-  if (!await authorized()) return NextResponse.json({error:"Unauthorized"},{status:401});
+  if (!await authorizeAdmin()) return NextResponse.json({error:"Unauthorized"},{status:401});
   try {
     const form = await request.formData(); const file = form.get("file");
     if (!(file instanceof File) || file.size > 20_000_000) return NextResponse.json({error:"Choose an Excel or CSV file under 20 MB."},{status:400});
@@ -67,7 +61,7 @@ export async function POST(request:NextRequest) {
     const staticByUpc=new Map(importedProducts.map(product=>[product.upc,product]));
     const databaseRows=await db.prepare("SELECT id,upc,slug,image_key FROM products").all<{id:string;upc:string;slug:string;image_key:string|null}>();
     const databaseByUpc=new Map((databaseRows.results||[]).map(product=>[product.upc,product]));
-    const writes:D1PreparedStatement[]=[];
+    const writes:PostgresPreparedQuery[]=[];
     let added=0,updated=0,imagesMatched=0,imagesUnmatched=0;
     for(const {upc,name,category,brand,flavour,price} of products){
       const existing=databaseByUpc.get(upc);
