@@ -182,3 +182,21 @@ test("mobile catalogue defers and caches product imagery", async () => {
   assert.match(assetRoute, /max-age=31536000, immutable/);
   assert.match(css, /content-visibility:auto/);
 });
+
+test("availability requests remain saved and report email delivery state", async () => {
+  const [publicApi, adminApi, email, storefront, dashboard] = await Promise.all([
+    readFile(new URL("app/api/inquiries/route.ts", root), "utf8"),
+    readFile(new URL("app/api/admin/inquiries/[id]/route.ts", root), "utf8"),
+    readFile(new URL("db/email.ts", root), "utf8"),
+    readFile(new URL("app/storefront.tsx", root), "utf8"),
+    readFile(new URL("app/admin/dashboard.tsx", root), "utf8"),
+  ]);
+  assert.match(publicApi, /notification: notification\.status/);
+  assert.match(publicApi, /AVAILABILITY_TO/);
+  assert.match(email, /not_configured/);
+  assert.match(email, /transactional_email_rejected/);
+  assert.match(adminApi, /manual_phone_follow_up/);
+  assert.match(adminApi, /delivery/);
+  assert.match(storefront, /request is saved in the store dashboard/i);
+  assert.match(dashboard, /Status saved and the customer email was sent/);
+});

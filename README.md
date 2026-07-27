@@ -149,7 +149,18 @@ Copy `.env.example` for local work. Set production values through the Sites envi
 - `ADMIN_EMAILS`: comma-separated server-side admin allowlist
 - `RESEND_API_KEY`: transactional email credential
 - `EMAIL_FROM`: verified sender
+- `AVAILABILITY_TO`: store inbox for new requests (defaults to `vapemart307@gmail.com`)
 - `RATE_LIMIT_SALT`: long random secret used when hashing IP addresses
+
+## Render migration readiness
+
+The current production build uses Cloudflare D1 for structured records, R2 for owned images, and Sites-provided identity headers for administrator sign-in. A Render deployment must therefore be a **Node web service**, not a static site, and it needs three replacements before launch:
+
+1. Move D1 records to Render Postgres and replace D1 queries with a Postgres-compatible data layer.
+2. Move R2 uploads to an object-storage provider that Render can access, or attach a paid persistent disk and accept its single-instance limitation.
+3. Replace Sites-provided administrator identity with app-owned secure login and session cookies.
+
+Do not deploy the existing Cloudflare build directly to Render: the catalogue may render, but database writes, uploaded assets, and administrator authentication would not be production-safe. Once the destination repository and Render workspace are connected, create the web service with Node 22, add the database and storage services, set the production secrets, migrate the live data, and test availability requests before switching the domain.
 
 ## Error logging
 

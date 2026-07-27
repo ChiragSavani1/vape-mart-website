@@ -3,6 +3,7 @@ import { AdminDashboard } from "./dashboard";
 import { ensureDatabase } from "../../db/runtime";
 import { loadProducts, type AdminProduct } from "../../db/catalog";
 import { loadBanners, type SiteBanner } from "../../db/assets";
+import { emailIsConfigured } from "../../db/email";
 
 export const dynamic = "force-dynamic";
 
@@ -43,7 +44,7 @@ export default async function AdminPage() {
     user={user.displayName}
     signOut={chatGPTSignOutPath("/")}
     initialRequests={initialRequests}
-    emailConfigured={Boolean(process.env.RESEND_API_KEY && process.env.EMAIL_FROM)}
+    emailConfigured={emailIsConfigured()}
     databaseError={databaseError}
     initialProducts={adminProducts}
     initialBanners={initialBanners}

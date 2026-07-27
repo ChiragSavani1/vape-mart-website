@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { ensureDatabase, sha256 } from "../../../db/runtime";
+import { sendEmail } from "../../../db/email";
 
 export const dynamic = "force-dynamic";
 
@@ -28,8 +29,8 @@ export async function POST(request: NextRequest) {
     const createdAt = new Date().toISOString();
     await db.prepare("INSERT INTO inquiries (id, product_id, product_name, customer_name, contact, status, ip_hash, created_at) VALUES (?, ?, ?, ?, ?, 'Pending', ?, ?)")
       .bind(id, productId, productName, name, contact, ipHash, createdAt).run();
-    await notifyStore({ id, name, contact, productName, createdAt });
-    return NextResponse.json({ ok: true, id }, { status: 201 });
+    const notification = await notifyStore({ id, name, contact, productName, createdAt });
+    return NextResponse.json({ ok: true, id, notification: notification.status }, { status: 201 });
   } catch (error) {
     console.error("inquiry_create_failed", error);
     return NextResponse.json({ error: "Unable to send the request right now." }, { status: 500 });
@@ -37,12 +38,9 @@ export async function POST(request: NextRequest) {
 }
 
 async function notifyStore(input: {id:string;name:string;contact:string;productName:string;createdAt:string}) {
-  const key = process.env.RESEND_API_KEY;
-  if (!key) { console.info("availability_email_skipped", { inquiryId: input.id }); return; }
-  await fetch("https://api.resend.com/emails", {
-    method: "POST", headers: { authorization: `Bearer ${key}`, "content-type": "application/json" },
-    body: JSON.stringify({ from: process.env.EMAIL_FROM || "Vape Mart <inquiries@example.com>", to: ["vapemart307@gmail.com"],
-      subject: `Availability request: ${input.productName}`,
-      text: `New availability request\n\nProduct: ${input.productName}\nCustomer: ${input.name}\nContact: ${input.contact}\nRequest: ${input.id}\nReceived: ${input.createdAt}` }),
+  return sendEmail({
+    to: process.env.AVAILABILITY_TO || "vapemart307@gmail.com",
+    subject: `Availability request: ${input.productName}`,
+    text: `New availability request\n\nProduct: ${input.productName}\nCustomer: ${input.name}\nContact: ${input.contact}\nRequest: ${input.id}\nReceived: ${input.createdAt}`,
   });
 }

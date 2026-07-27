@@ -72,7 +72,7 @@ export function ProductArt({ product, priority = false }: { product: Product; pr
 
 export function Inquiry({ product, close }: { product: Product; close: () => void }) {
   const [sending, setSending] = useState(false);
-  const [sent, setSent] = useState(false);
+  const [receipt, setReceipt] = useState<{id:string;notification:string}|null>(null);
   const [error, setError] = useState("");
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -89,7 +89,7 @@ export function Inquiry({ product, close }: { product: Product; close: () => voi
         if (response.status === 401) throw new Error("Your sign-in has expired. Refresh the page and sign in again.");
         throw new Error(data?.error || "We could not send your request right now.");
       }
-      setSent(true);
+      setReceipt({id:String(data?.id||""),notification:String(data?.notification||"saved")});
     } catch (reason) {
       setError(reason instanceof Error ? reason.message : "We could not send your request right now.");
     } finally {
@@ -98,7 +98,9 @@ export function Inquiry({ product, close }: { product: Product; close: () => voi
   }
   return <div className="modal-backdrop" onMouseDown={close}><div className="inquiry-modal" onMouseDown={e => e.stopPropagation()}>
     <button className="modal-close" onClick={close} aria-label="Close">×</button>
-    {sent ? <div className="success"><span>✓</span><h2>Request received</h2><p>We’ll check the store and reply using the contact details you provided.</p><button className="primary" onClick={close}>Done</button></div> : <>
+    {receipt ? <div className="success"><span>✓</span><h2>Request received</h2><p>{receipt.notification==="sent"
+      ?"The store has been notified. We’ll check the product and reply using the contact details you provided."
+      :"Your request is saved in the store dashboard. Email notification is still being configured; for an urgent answer, call (705) 721-8181."}</p>{receipt.id&&<small>Request reference: {receipt.id.slice(0,8).toUpperCase()}</small>}<button className="primary" onClick={close}>Done</button></div> : <>
       <p className="eyebrow">In-store availability</p><h2>Check {product.name}</h2>
       <p className="muted">This is an availability request only—not an order or reservation.</p>
       <form onSubmit={submit}>
