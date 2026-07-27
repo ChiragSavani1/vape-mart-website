@@ -11907,5 +11907,19 @@ export const importedProducts: Product[] = [
     "accent": "#5d5d5d",
     "featured": false,
     "image": "/products/catalog/fb-alpha-s-orange-lime-72945.webp"
+  },
+  {
+    "id": "691584126875",
+    "slug": "stlth-titan-max-juicy-peach-50k-26875",
+    "upc": "691584126875",
+    "name": "Stlth titan max juicy peach 50k",
+    "brand": "Stlth",
+    "category": "Disposables",
+    "flavour": "Stlth titan max 50k",
+    "price": 46.99,
+    "accent": "#7a7a7a",
+    "featured": false,
+    "puffCount": "50,000",
+    "image": "/products/catalog/stlth-titan-max-juicy-peach-50k-26875.webp"
   }
 ];

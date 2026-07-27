@@ -192,6 +192,33 @@ function HeroCarousel({banners}:{banners:{src:string;alt:string}[]}) {
   </section>;
 }
 
+function VapeDimension() {
+  return <section className="vape-dimension" aria-label="Explore the Vape Mart catalogue">
+    <div className="dimension-copy">
+      <p className="eyebrow">Vape Mart in motion</p>
+      <h2>A different angle<br/>on the catalogue.</h2>
+      <p>Browse current products, compare prices, and ask the Barrie store to confirm availability.</p>
+      <a href="#catalogue">Explore all products <span>↘</span></a>
+    </div>
+    <div className="vape-scene" aria-hidden="true">
+      <div className="scene-ring ring-one"></div><div className="scene-ring ring-two"></div>
+      <div className="scene-grid"></div>
+      <div className="vape-shadow"></div>
+      <div className="vape-device">
+        <div className="vape-mouthpiece"><i></i></div>
+        <div className="vape-side"></div>
+        <div className="vape-face">
+          <span className="device-brand">VAPE<br/>MART</span>
+          <div className="device-screen"><small>CATALOGUE</small><strong>19+</strong><i></i><b>BARRIE</b></div>
+          <span className="device-mark">307</span>
+        </div>
+      </div>
+      <span className="scene-label label-one">900+ choices</span>
+      <span className="scene-label label-two">In-store availability</span>
+    </div>
+  </section>;
+}
+
 export function Storefront({ catalogue = products, banners = defaultArrivalBanners }: { catalogue?: Product[];banners?:{src:string;alt:string}[] }) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All products");
@@ -210,6 +237,7 @@ export function Storefront({ catalogue = products, banners = defaultArrivalBanne
   useEffect(() => setLimit(24), [query, category, brand, priceRange]);
   return <><AgeGate /><Header /><main>
     <HeroCarousel banners={banners.length?banners:defaultArrivalBanners} />
+    <VapeDimension />
 
     <section className="trust-strip"><span>19+ age verified</span><span>Ontario retail store</span><span>Fast availability replies</span><span>Trusted brands</span></section>
 

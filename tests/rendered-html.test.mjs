@@ -7,10 +7,11 @@ const root = new URL("../", import.meta.url);
 test("uses the imported RetailzPOS catalogue without Hardware products", async () => {
   const generated = await readFile(new URL("app/products.generated.ts", root), "utf8");
   const products = JSON.parse(generated.slice(generated.indexOf("= [") + 2, generated.lastIndexOf("]") + 1));
-  assert.equal(products.length, 902);
+  assert.equal(products.length, 903);
   assert.equal(products.some(product => product.category.toLowerCase().includes("hardware")), false);
   assert.equal(new Set(products.map(product => product.upc)).size, products.length);
   assert.equal(products.some(product => "cost" in product), false);
+  assert.equal(products.find(product=>product.upc==="691584126875")?.image,"/products/catalog/stlth-titan-max-juicy-peach-50k-26875.webp");
 });
 
 test("uses the Barrie store details and monochrome theme", async () => {
@@ -55,6 +56,8 @@ test("uses exact Envi Apex artwork and price-validated e-liquid bottle sizes", a
   assert.match(storefront, /Filter by price/);
   assert.doesNotMatch(storefront, /promo-band/);
   assert.match(storefront, /5500/);
+  assert.match(storefront, /VapeDimension/);
+  assert.match(storefront, /vape-device/);
 });
 
 test("provides a non-transactional cart with Ontario HST and no checkout", async () => {
