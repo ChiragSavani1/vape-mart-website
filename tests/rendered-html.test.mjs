@@ -120,5 +120,11 @@ test("Excel imports automatically match approved product images", async () => {
   assert.match(assets, /uploaded-library/);
   assert.match(importApi, /imagesMatched/);
   assert.match(importApi, /imagesUnmatched/);
+  assert.match(importApi, /item name/);
+  assert.match(importApi, /department name/);
+  assert.match(importApi, /category name/);
+  assert.match(importApi, /sub category name/);
+  assert.match(importApi, /skippedRows/);
+  assert.match(importApi, /No RetailzPOS product table was found/);
   assert.doesNotMatch((await readFile(new URL("app/admin/dashboard.tsx", root), "utf8")), /tab==="Images"/);
 });

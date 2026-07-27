@@ -93,8 +93,8 @@ Backups:
 
 1. Export products from RetailzPOS as Excel or CSV.
 2. In `/admin`, open Imports and choose the file.
-3. The importer recognizes common headings such as `UPC`, `Barcode`, `Product Name`, `Name`, `Category`, `Brand`, `Retail Price`, and `Selling Price`.
-4. Review Added, Updated, Duplicate, Hardware skipped, and Missing/review counts.
+3. The importer recognizes RetailzPOS headings including `UPC`, `Item Name`, `Department Name`, `Category Name`, `Sub Category Name`, and `Retail Price`, plus common generic alternatives.
+4. Review Added, Updated, Images found, Need an image, Duplicate, Hardware skipped, Rows skipped, and Missing/review counts.
 5. Resolve duplicate UPCs in the source workbook.
 6. Review missing products and hide/delete them manually only when appropriate.
 7. For an unmatched product, open Admin → Products → Edit and use **Upload image**. Existing product images can be replaced from the same editor with **Change image**.

@@ -3,16 +3,34 @@ import { read, utils } from "xlsx";
 import { ensureDatabase } from "../../../../db/runtime";
 import { findAutomaticImage } from "../../../../db/assets";
 import { getChatGPTUser } from "../../../chatgpt-auth";
+import { importedProducts } from "../../../products.generated";
 
 export const dynamic = "force-dynamic";
 
 type ImportRow = Record<string, unknown>;
+const normalizeHeader=(value:string)=>value.trim().toLowerCase().replace(/[^a-z0-9]+/g,"");
 const findValue = (row:ImportRow, names:string[]) => {
-  const key = Object.keys(row).find(k => names.includes(k.trim().toLowerCase()));
+  const accepted=new Set(names.map(normalizeHeader));
+  const key = Object.keys(row).find(k => accepted.has(normalizeHeader(k)));
   return key ? row[key] : "";
 };
-const cleanUpc = (value:unknown) => String(value ?? "").replace(/\D/g,"");
+const cleanUpc = (value:unknown) => String(value ?? "").match(/\d{8,14}/)?.[0]||"";
 const slugify = (value:string) => value.toLowerCase().normalize("NFKD").replace(/[^\w\s-]/g,"").trim().replace(/[\s_]+/g,"-").slice(0,90);
+const hasRequiredHeaders=(row:unknown[])=>{
+  const headers=new Set(row.map(value=>normalizeHeader(String(value||""))));
+  return ["upc","barcode","upccode","skuupc"].some(name=>headers.has(name))
+    && ["itemname","productname","name","item","description"].some(name=>headers.has(name))
+    && ["retailprice","price","sellingprice","msrp"].some(name=>headers.has(name));
+};
+const readRows=(workbook:ReturnType<typeof read>)=>{
+  for(const sheetName of workbook.SheetNames){
+    const sheet=workbook.Sheets[sheetName];
+    const preview=utils.sheet_to_json<unknown[]>(sheet,{header:1,defval:""});
+    const headerRow=preview.slice(0,25).findIndex(hasRequiredHeaders);
+    if(headerRow>=0)return utils.sheet_to_json<ImportRow>(sheet,{defval:"",range:headerRow});
+  }
+  return null;
+};
 
 async function authorized() {
   const user = await getChatGPTUser(); if (!user) return false;
@@ -26,39 +44,58 @@ export async function POST(request:NextRequest) {
     const form = await request.formData(); const file = form.get("file");
     if (!(file instanceof File) || file.size > 20_000_000) return NextResponse.json({error:"Choose an Excel or CSV file under 20 MB."},{status:400});
     const workbook = read(await file.arrayBuffer(), {type:"array"});
-    const sheet = workbook.Sheets[workbook.SheetNames[0]];
-    const rows = utils.sheet_to_json<ImportRow>(sheet,{defval:""});
-    const db = await ensureDatabase();
-    const seen = new Set<string>(), imported = new Set<string>();
-    let added=0,updated=0,duplicates=0,hardware=0,imagesMatched=0,imagesUnmatched=0;
+    const rows = readRows(workbook);
+    if(!rows)return NextResponse.json({error:"No RetailzPOS product table was found. The file must include UPC, Item Name, and Retail Price columns."},{status:400});
+    const seen = new Set<string>();
+    const products:{upc:string;name:string;category:string;brand:string;flavour:string;price:number}[]=[];
+    let duplicates=0,hardware=0,skippedRows=0;
     for(const row of rows){
       const upc=cleanUpc(findValue(row,["upc","barcode","upc code","sku/upc"]));
-      const name=String(findValue(row,["product name","name","item","description"])).trim();
-      const category=String(findValue(row,["category","department","product category"])).trim();
-      const brand=String(findValue(row,["brand","manufacturer"])).trim()||"Unbranded";
+      const name=String(findValue(row,["item name","product name","name","item","description"])).trim();
+      const category=String(findValue(row,["department name","department","category","product category"])).trim();
+      const brand=String(findValue(row,["category name","brand","manufacturer"])).trim()||"Unbranded";
+      const flavour=String(findValue(row,["sub category name","subcategory name","sub category","subcategory","flavour","flavor","variant"])).trim();
       const price=Number(findValue(row,["retail price","price","selling price","msrp"]));
       if(category.toLowerCase().includes("hardware")){hardware++;continue}
-      if(!upc||!name||!Number.isFinite(price))continue;
-      if(seen.has(upc)){duplicates++;continue} seen.add(upc); imported.add(upc);
-      const existing=await db.prepare("SELECT id, image_key, manual_name, manual_brand, manual_category FROM products WHERE upc = ?").bind(upc).first<{id:string;image_key:string|null;manual_name:number;manual_brand:number;manual_category:number}>();
-      if(existing){
-        await db.prepare("UPDATE products SET name = CASE WHEN manual_name = 1 THEN name ELSE ? END, brand = CASE WHEN manual_brand = 1 THEN brand ELSE ? END, category = CASE WHEN manual_category = 1 THEN category ELSE ? END, price = ?, missing_review = 0, updated_at = ? WHERE upc = ?")
-          .bind(name,brand,category,price,new Date().toISOString(),upc).run(); updated++;
-        if(!existing.image_key){
-          const match=await findAutomaticImage(upc,name,brand);
-          if(match){await db.prepare("UPDATE products SET image_key=? WHERE upc=?").bind(match.image,upc).run();imagesMatched++}
-        }
-      }else{
-        const match=await findAutomaticImage(upc,name,brand);
-        await db.prepare("INSERT INTO products (id, upc, slug, name, brand, category, price, image_key, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)")
-          .bind(crypto.randomUUID(),upc,`${slugify(name)}-${upc.slice(-4)}`,name,brand,category,price,match?.image||null,new Date().toISOString()).run(); added++;
-        if(match)imagesMatched++;else imagesUnmatched++;
-      }
+      if(!upc||!name||!category||category.toLowerCase()==="null"||!Number.isFinite(price)){skippedRows++;continue}
+      if(seen.has(upc)){duplicates++;continue}
+      seen.add(upc);products.push({upc,name,category,brand,flavour,price});
     }
+    if(!products.length)return NextResponse.json({error:"No importable products were found. Check the UPC, Item Name, Department Name, and Retail Price columns."},{status:400});
+    const db = await ensureDatabase();
+    const imported = new Set(products.map(product=>product.upc));
+    const staticByUpc=new Map(importedProducts.map(product=>[product.upc,product]));
+    const databaseRows=await db.prepare("SELECT id,upc,slug,image_key FROM products").all<{id:string;upc:string;slug:string;image_key:string|null}>();
+    const databaseByUpc=new Map((databaseRows.results||[]).map(product=>[product.upc,product]));
+    const writes:D1PreparedStatement[]=[];
+    let added=0,updated=0,imagesMatched=0,imagesUnmatched=0;
+    for(const {upc,name,category,brand,flavour,price} of products){
+      const existing=databaseByUpc.get(upc);
+      const staticProduct=staticByUpc.get(upc);
+      let image=existing?.image_key||staticProduct?.image||null;
+      if(!image){
+        const match=await findAutomaticImage(upc,name,brand);
+        image=match?.image||null;
+        if(match)imagesMatched++;
+      }
+      if(existing||staticProduct)updated++;else{added++;if(!image)imagesUnmatched++}
+      writes.push(db.prepare(`INSERT INTO products (id,upc,slug,name,brand,category,flavour,price,image_key,visible,featured,updated_at)
+        VALUES (?,?,?,?,?,?,?,?,?,?,?,?)
+        ON CONFLICT(upc) DO UPDATE SET
+          name=CASE WHEN products.manual_name=1 THEN products.name ELSE excluded.name END,
+          brand=CASE WHEN products.manual_brand=1 THEN products.brand ELSE excluded.brand END,
+          category=CASE WHEN products.manual_category=1 THEN products.category ELSE excluded.category END,
+          flavour=excluded.flavour,price=excluded.price,
+          image_key=CASE WHEN products.manual_image=1 THEN products.image_key ELSE COALESCE(NULLIF(products.image_key,''),excluded.image_key) END,
+          missing_review=0,updated_at=excluded.updated_at`)
+        .bind(existing?.id||staticProduct?.id||crypto.randomUUID(),upc,existing?.slug||staticProduct?.slug||`${slugify(name)}-${upc.slice(-4)}`,
+          name,brand,category,flavour,price,image,1,staticProduct?.featured?1:0,new Date().toISOString()));
+    }
+    for(let index=0;index<writes.length;index+=75)await db.batch(writes.slice(index,index+75));
     const existingUpcs=await db.prepare("SELECT upc FROM products WHERE visible = 1").all<{upc:string}>();
     const missing=existingUpcs.results.filter(x=>!imported.has(x.upc)).map(x=>x.upc);
     if(missing.length) await db.batch(missing.map(upc=>db.prepare("UPDATE products SET missing_review = 1 WHERE upc = ?").bind(upc)));
-    const summary={added,updated,duplicates,hardware,review:missing.length,imagesMatched,imagesUnmatched};
+    const summary={added,updated,duplicates,hardware,review:missing.length,imagesMatched,imagesUnmatched,skippedRows,totalRows:rows.length};
     await db.prepare("INSERT INTO import_runs (id,filename,added,updated,duplicates,hardware_skipped,review,created_at) VALUES (?,?,?,?,?,?,?,?)")
       .bind(crypto.randomUUID(),file.name,added,updated,duplicates,hardware,missing.length,new Date().toISOString()).run();
     return NextResponse.json({ok:true,summary});
