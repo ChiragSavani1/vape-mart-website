@@ -106,7 +106,7 @@ test("admin product controls persist through protected APIs", async () => {
   assert.match(dashboard, /Change image/);
   assert.match(dashboard, /compressProductImage/);
   assert.match(productImageApi, /manual_image=1/);
-  assert.match(productImageApi, /getStorage\(\)\.put/);
+  assert.match(productImageApi, /putObject\(/);
   assert.doesNotMatch(dashboard, /Taylor M\.|taylor@example\.com/);
 });
 
@@ -163,7 +163,7 @@ test("admin can run a controlled missing-image search", async () => {
   assert.match(imageSearch, /duckduckgo\.com/);
   assert.match(imageSearch, /trustedOfficialHosts/);
   assert.match(imageSearch, /confidence >= \.72/);
-  assert.match(imageSearch, /getStorage\(\)\.put/);
+  assert.match(imageSearch, /putObject\(/);
   assert.match(imageSearch, /image_matches/);
   assert.match(imageSearch, /NoMatch/);
 });

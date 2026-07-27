@@ -13,7 +13,7 @@ export async function PATCH(request:NextRequest,{params}:{params:Promise<{id:str
     if(!current){
       const source=importedProducts.find(product=>product.id===id);
       if(!source)return NextResponse.json({error:"Product not found."},{status:404});
-      await db.prepare("INSERT OR IGNORE INTO products (id,upc,slug,name,brand,category,flavour,price,image_key,visible,featured,updated_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)")
+      await db.prepare("INSERT INTO products (id,upc,slug,name,brand,category,flavour,price,image_key,visible,featured,updated_at) VALUES (?,?,?,?,?,?,?,?,?,?,?,?) ON CONFLICT(upc) DO NOTHING")
         .bind(source.id,source.upc,source.slug,source.name,source.brand,source.category,source.flavour,source.price,source.image||null,1,source.featured?1:0,new Date().toISOString()).run();
       current=await db.prepare("SELECT * FROM products WHERE id = ?").bind(id).first<Record<string,unknown>>();
     }
@@ -39,7 +39,7 @@ export async function DELETE(_:NextRequest,{params}:{params:Promise<{id:string}>
   const {id}=await params;
   const db=await ensureProductSeed();
   await db.batch([
-    db.prepare("INSERT OR REPLACE INTO product_deletions (product_id,deleted_at) VALUES (?,?)").bind(id,new Date().toISOString()),
+    db.prepare("INSERT INTO product_deletions (product_id,deleted_at) VALUES (?,?) ON CONFLICT(product_id) DO UPDATE SET deleted_at=excluded.deleted_at").bind(id,new Date().toISOString()),
     db.prepare("DELETE FROM products WHERE id = ?").bind(id),
   ]);
   return NextResponse.json({ok:true});

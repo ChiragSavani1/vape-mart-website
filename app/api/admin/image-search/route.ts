@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import type { AdminProduct } from "../../../../db/catalog";
 import { ensureProductSeed, loadProducts } from "../../../../db/catalog";
 import { assetUrl, findAutomaticImage, normalizeAssetName } from "../../../../db/assets";
-import { getStorage } from "../../../../db/runtime";
+import { putObject } from "../../../../db/storage";
 import { authorizeAdmin } from "../authorize";
 
 type WebResult = { title?: string; image?: string; url?: string };
@@ -111,7 +111,7 @@ async function downloadCandidate(product: AdminProduct, candidate: Candidate) {
   if (!bytes.byteLength || bytes.byteLength > 8_000_000) throw new Error("Candidate image is too large.");
   const extension = contentType.includes("png") ? "png" : contentType.includes("webp") ? "webp" : contentType.includes("avif") ? "avif" : "jpg";
   const key = `products/discovered/${product.id}/${crypto.randomUUID()}.${extension}`;
-  await getStorage().put(key, bytes, { httpMetadata: { contentType } });
+  await putObject(key, bytes, contentType);
   const image = assetUrl(key);
   await saveProductImage(product, image, "trusted-web-search", candidate.page, candidate.confidence);
   return image;

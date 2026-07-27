@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { loadBanners } from "../../../../db/assets";
-import { ensureDatabase, getStorage } from "../../../../db/runtime";
+import { ensureDatabase } from "../../../../db/runtime";
+import { putObject } from "../../../../db/storage";
 import { authorizeAdmin } from "../authorize";
 
 const safeName=(value:string)=>value.toLowerCase().replace(/[^a-z0-9._-]+/g,"-").slice(-100);
@@ -19,7 +20,7 @@ export async function POST(request:NextRequest){
     const count=await db.prepare("SELECT COUNT(*) AS count FROM banners").first<{count:number}>();
     if((count?.count||0)>=6)return NextResponse.json({error:"A maximum of six hero banners is allowed."},{status:400});
     const id=crypto.randomUUID(),key=`banners/${id}-${safeName(file.name)}`;
-    await getStorage().put(key,await file.arrayBuffer(),{httpMetadata:{contentType:file.type}});
+    await putObject(key,await file.arrayBuffer(),file.type);
     await db.prepare("INSERT INTO banners (id,object_key,alt_text,position,created_at) VALUES (?,?,?,?,?)")
       .bind(id,key,alt,count?.count||0,new Date().toISOString()).run();
     return NextResponse.json({ok:true,banners:await loadBanners()},{status:201});
