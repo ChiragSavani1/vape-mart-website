@@ -26,7 +26,7 @@ export function ProductDetailClient({ product }: { product: Product }) {
           <span className="detail-stage-label">Front view</span>
           <div className="detail-orbit orbit-large" aria-hidden="true"></div>
           <div className="detail-orbit orbit-small" aria-hidden="true"></div>
-          <div className="detail-product-art"><ProductArt product={product}/></div>
+          <div className="detail-product-art"><ProductArt product={product} priority/></div>
           <div className="detail-stage-foot"><span>19+ Ontario</span><span>In-store catalogue</span></div>
         </div>
 

@@ -51,7 +51,7 @@ test("uses exact Envi Apex artwork and price-validated e-liquid bottle sizes", a
   assert.match(storefront, /\/banners\/envi-apex-new-arrivals\.webp/);
   assert.match(storefront, /\/banners\/flavour-beast-60ml\.webp/);
   assert.match(storefront, /\/banners\/sour-gushin-60ml\.webp/);
-  assert.match(storefront, /\/brand\/vape-mart-logo\.png/);
+  assert.match(storefront, /\/brand\/vape-mart-logo-small\.webp/);
   assert.match(storefront, /priceRanges/);
   assert.match(storefront, /Filter by price/);
   assert.doesNotMatch(storefront, /promo-band/);
@@ -166,4 +166,19 @@ test("admin can run a controlled missing-image search", async () => {
   assert.match(imageSearch, /getStorage\(\)\.put/);
   assert.match(imageSearch, /image_matches/);
   assert.match(imageSearch, /NoMatch/);
+});
+
+test("mobile catalogue defers and caches product imagery", async () => {
+  const [storefront, assetRoute, css] = await Promise.all([
+    readFile(new URL("app/storefront.tsx", root), "utf8"),
+    readFile(new URL("app/api/assets/[...key]/route.ts", root), "utf8"),
+    readFile(new URL("app/globals.css", root), "utf8"),
+  ]);
+  assert.match(storefront, /loading=\{priority \? "eager" : "lazy"\}/);
+  assert.match(storefront, /decoding="async"/);
+  assert.match(storefront, /fetchPriority/);
+  assert.match(storefront, /useState\(12\)/);
+  assert.match(storefront, /vape-mart-logo-small\.webp/);
+  assert.match(assetRoute, /max-age=31536000, immutable/);
+  assert.match(css, /content-visibility:auto/);
 });

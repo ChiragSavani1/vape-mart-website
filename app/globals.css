@@ -116,6 +116,7 @@ h1 em,.eyebrow{color:#666}.primary{background:#111;color:#fff;border:1px solid #
 @media(prefers-reduced-motion:reduce){.scroll-progress,.pointer-halo{display:none}.motion-ready,.motion-ready.revealed{opacity:1;transform:none;transition:none}.hero-carousel .banner-stack{transform:none;transition:none}.hero-carousel:after,.trust-strip span,.visit{animation:none}.category-grid button,.category-grid button:after,.product-image:after,.hours-card{transition:none}.category-grid button:hover,.visit:hover .hours-card{transform:none}}
 
 .image-search-summary{margin:0 15px 15px;padding:12px 14px;border-radius:8px;background:#f1f1f1;color:#333;font-size:12px;line-height:1.5}.image-search-button{white-space:nowrap}.admin-primary:disabled{opacity:.55;cursor:wait}
+.product-card{content-visibility:auto;contain-intrinsic-size:420px 620px}
 
 /* Dark editorial product-detail experience */
 .product-detail-theme{min-height:100vh;background:#050505;color:#fff}.product-detail-theme .warning-bar{background:#f2f2f2;color:#111;border-bottom:1px solid #d6d6d6}.product-detail-theme header{background:rgba(7,7,7,.92);color:#fff;border-bottom-color:#292929;backdrop-filter:blur(18px)}.product-detail-theme header .nav-admin{border-color:#777}.product-detail-theme header .menu{color:#fff}.product-detail-theme footer{border-top:1px solid #292929}.product-detail-theme .inquiry-modal{color:#111}

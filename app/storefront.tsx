@@ -6,7 +6,7 @@ import { getProductVolume, products, type Product, store } from "./data";
 import { addToCart } from "./cart/cart-storage";
 
 function Logo() {
-  return <Link className="logo" href="/"><span><img src="/brand/vape-mart-logo.png" alt="" /></span> VAPE MART</Link>;
+  return <Link className="logo" href="/"><span><img src="/brand/vape-mart-logo-small.webp" width="160" height="160" alt="" /></span> VAPE MART</Link>;
 }
 
 export function Header() {
@@ -54,8 +54,15 @@ function AgeGate() {
   </div>;
 }
 
-export function ProductArt({ product }: { product: Product }) {
-  if (product.image) return <div className="product-art product-photo"><img src={product.image} alt="" /></div>;
+export function ProductArt({ product, priority = false }: { product: Product; priority?: boolean }) {
+  if (product.image) return <div className="product-art product-photo"><img
+    src={product.image}
+    alt={product.name}
+    loading={priority ? "eager" : "lazy"}
+    decoding="async"
+    fetchPriority={priority ? "high" : "auto"}
+    sizes={priority ? "(max-width: 1000px) 52vw, 360px" : "(max-width: 600px) 86vw, (max-width: 900px) 42vw, 22vw"}
+  /></div>;
   return <div className="product-art" style={{ "--accent": product.accent } as React.CSSProperties}>
     <span className="art-brand">{product.brand}</span>
     <strong>{product.flavour}</strong>
@@ -190,7 +197,7 @@ function HeroCarousel({banners}:{banners:{src:string;alt:string}[]}) {
         aria-hidden={index !== active}
         tabIndex={index === active ? 0 : -1}
         key={banner.src}
-      ><img src={banner.src} alt={banner.alt}/></a>)}
+      ><img src={banner.src} alt={banner.alt} loading={index === active ? "eager" : "lazy"} decoding="async" fetchPriority={index === active ? "high" : "low"}/></a>)}
     </div>
     <button className="carousel-arrow previous" onClick={() => select(active - 1)} aria-label="Previous poster">←</button>
     <button className="carousel-arrow next" onClick={() => select(active + 1)} aria-label="Next poster">→</button>
@@ -260,7 +267,7 @@ export function Storefront({ catalogue = products, banners = defaultArrivalBanne
   const [category, setCategory] = useState("All products");
   const [brand, setBrand] = useState("All brands");
   const [priceRange, setPriceRange] = useState("all");
-  const [limit, setLimit] = useState(24);
+  const [limit, setLimit] = useState(12);
   const categories = useMemo(()=>["All products",...Array.from(new Set(catalogue.map(product=>product.category))).sort()],[catalogue]);
   const brands = useMemo(()=>["All brands",...Array.from(new Set(catalogue.map(product=>product.brand))).sort()],[catalogue]);
   const selectedPrice = priceRanges.find(range => range.value === priceRange) || priceRanges[0];
@@ -270,7 +277,7 @@ export function Storefront({ catalogue = products, banners = defaultArrivalBanne
     p.price >= selectedPrice.min && p.price < selectedPrice.max &&
     `${p.name} ${p.brand} ${p.flavour}`.toLowerCase().includes(query.toLowerCase())
   ), [query, category, brand, selectedPrice, catalogue]);
-  useEffect(() => setLimit(24), [query, category, brand, priceRange]);
+  useEffect(() => setLimit(12), [query, category, brand, priceRange]);
   return <><AgeGate /><MotionLayer /><Header /><main>
     <HeroCarousel banners={banners.length?banners:defaultArrivalBanners} />
 
@@ -278,7 +285,7 @@ export function Storefront({ catalogue = products, banners = defaultArrivalBanne
 
     <section id="categories" className="section category-section" data-reveal><p className="eyebrow">Browse your way</p><div className="section-heading"><h2>Shop by category</h2><a href="#catalogue">View all products →</a></div>
       <div className="category-grid">{categories.slice(1).map(cat => <button data-reveal key={cat} onClick={() => { setCategory(cat); document.querySelector("#catalogue")?.scrollIntoView({ behavior: "smooth" }); }}>
-        <span className="category-photo"><img src={categoryImageFor(cat)} alt="" /></span>
+        <span className="category-photo"><img src={categoryImageFor(cat)} loading="lazy" decoding="async" alt="" /></span>
         <span className="category-copy"><b>{cat}</b><small>{catalogue.filter(p => p.category === cat).length} products</small></span>
       </button>)}</div>
     </section>
