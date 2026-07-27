@@ -56,8 +56,12 @@ test("uses exact Envi Apex artwork and price-validated e-liquid bottle sizes", a
   assert.match(storefront, /Filter by price/);
   assert.doesNotMatch(storefront, /promo-band/);
   assert.match(storefront, /5500/);
-  assert.match(storefront, /VapeDimension/);
-  assert.match(storefront, /vape-device/);
+  assert.doesNotMatch(storefront, /VapeDimension|vape-device|Vape Mart in motion/);
+  assert.match(storefront, /MotionLayer/);
+  assert.match(storefront, /data-reveal/);
+  assert.match(storefront, /categoryImageFor/);
+  assert.match(storefront, /closepod/);
+  assert.match(storefront, /eliquid/);
 });
 
 test("provides a non-transactional cart with Ontario HST and no checkout", async () => {
@@ -130,4 +134,20 @@ test("Excel imports automatically match approved product images", async () => {
   assert.match(importApi, /skippedRows/);
   assert.match(importApi, /No RetailzPOS product table was found/);
   assert.doesNotMatch((await readFile(new URL("app/admin/dashboard.tsx", root), "utf8")), /tab==="Images"/);
+});
+
+test("admin can run a controlled missing-image search", async () => {
+  const [dashboard, imageSearch] = await Promise.all([
+    readFile(new URL("app/admin/dashboard.tsx", root), "utf8"),
+    readFile(new URL("app/api/admin/image-search/route.ts", root), "utf8"),
+  ]);
+  assert.match(dashboard, /Find missing images/);
+  assert.match(dashboard, /Searching 5 products/);
+  assert.match(imageSearch, /authorizeAdmin/);
+  assert.match(imageSearch, /duckduckgo\.com/);
+  assert.match(imageSearch, /trustedOfficialHosts/);
+  assert.match(imageSearch, /confidence >= \.72/);
+  assert.match(imageSearch, /getStorage\(\)\.put/);
+  assert.match(imageSearch, /image_matches/);
+  assert.match(imageSearch, /NoMatch/);
 });

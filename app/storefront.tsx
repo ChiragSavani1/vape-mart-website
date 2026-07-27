@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { getProductVolume, products, type Product, store } from "./data";
 import { addToCart } from "./cart/cart-storage";
 
@@ -110,7 +110,7 @@ export function ProductCard({ product }: { product: Product }) {
   const [ask, setAsk] = useState(false);
   const [added, setAdded] = useState(false);
   const volume = getProductVolume(product);
-  return <article className="product-card">
+  return <article className="product-card" data-reveal>
     <Link href={`/products/${product.slug}`} className="product-image"><ProductArt product={product} />{product.promoPrice && <span className="sale-badge">Sale</span>}</Link>
     <div className="product-meta"><span>{product.brand} · {product.category}{volume ? ` · ${volume}` : ""}</span><h3><Link href={`/products/${product.slug}`}>{product.name}</Link></h3>
       <div className="price">{product.promoPrice ? <><del>${product.price.toFixed(2)}</del> ${product.promoPrice.toFixed(2)}</> : `$${product.price.toFixed(2)}`}</div>
@@ -136,13 +136,15 @@ export const defaultArrivalBanners = [
   },
 ];
 
-const categoryImages: Record<string, string> = {
-  Accessories: "/products/catalog/stlth-loop-max-black-battery-01544.webp",
-  "Closed Pod Systems": "/products/catalog/loop-25k-peach-blue-razz-ice-95034.webp",
-  Disposables: "/products/flavour-beast-50k/fb-50k-bomb-blue-razz-82367.webp",
-  "E-Liquids": "/products/catalog/flavour-beast-60ml-weekend-watermelon-40152.webp",
-  Pods: "/products/catalog/zpods-strawberry-45267.webp",
-};
+export function categoryImageFor(category: string) {
+  const key = category.toLowerCase().replace(/[^a-z]/g, "");
+  if (key.includes("accessor")) return "/products/catalog/stlth-loop-max-black-battery-01544.webp";
+  if (key.includes("closepod") || key.includes("closedpod")) return "/products/catalog/loop-25k-peach-blue-razz-ice-95034.webp";
+  if (key.includes("disposable")) return "/products/flavour-beast-50k/fb-50k-bomb-blue-razz-82367.webp";
+  if (key.includes("eliquid")) return "/products/catalog/flavour-beast-60ml-weekend-watermelon-40152.webp";
+  if (key === "pods" || key.includes("pod")) return "/products/catalog/zpods-strawberry-45267.webp";
+  return "/products/catalog/stlth-loop-max-black-battery-01544.webp";
+}
 
 const priceRanges = [
   { value: "all", label: "All prices", min: 0, max: Infinity },
@@ -162,12 +164,24 @@ function HeroCarousel({banners}:{banners:{src:string;alt:string}[]}) {
     return () => window.clearInterval(timer);
   }, [paused,banners.length]);
   const select = (index: number) => setActive((index + banners.length) % banners.length);
+  const move = (event: React.PointerEvent<HTMLElement>) => {
+    if (event.pointerType === "touch") return;
+    const bounds = event.currentTarget.getBoundingClientRect();
+    event.currentTarget.style.setProperty("--hero-x", `${((event.clientX - bounds.left) / bounds.width - .5) * 1.8}deg`);
+    event.currentTarget.style.setProperty("--hero-y", `${((event.clientY - bounds.top) / bounds.height - .5) * -1.2}deg`);
+  };
+  const reset = (element: HTMLElement) => {
+    element.style.setProperty("--hero-x", "0deg");
+    element.style.setProperty("--hero-y", "0deg");
+  };
   return <section
     className="hero-carousel"
     aria-label="New arrivals"
     aria-roledescription="carousel"
     onMouseEnter={() => setPaused(true)}
-    onMouseLeave={() => setPaused(false)}
+    onMouseLeave={event => { setPaused(false); reset(event.currentTarget); }}
+    onPointerMove={move}
+    onPointerCancel={event => reset(event.currentTarget)}
   >
     <div className="banner-stack">
       {banners.map((banner, index) => <a
@@ -192,31 +206,53 @@ function HeroCarousel({banners}:{banners:{src:string;alt:string}[]}) {
   </section>;
 }
 
-function VapeDimension() {
-  return <section className="vape-dimension" aria-label="Explore the Vape Mart catalogue">
-    <div className="dimension-copy">
-      <p className="eyebrow">Vape Mart in motion</p>
-      <h2>A different angle<br/>on the catalogue.</h2>
-      <p>Browse current products, compare prices, and ask the Barrie store to confirm availability.</p>
-      <a href="#catalogue">Explore all products <span>↘</span></a>
-    </div>
-    <div className="vape-scene" aria-hidden="true">
-      <div className="scene-ring ring-one"></div><div className="scene-ring ring-two"></div>
-      <div className="scene-grid"></div>
-      <div className="vape-shadow"></div>
-      <div className="vape-device">
-        <div className="vape-mouthpiece"><i></i></div>
-        <div className="vape-side"></div>
-        <div className="vape-face">
-          <span className="device-brand">VAPE<br/>MART</span>
-          <div className="device-screen"><small>CATALOGUE</small><strong>19+</strong><i></i><b>BARRIE</b></div>
-          <span className="device-mark">307</span>
-        </div>
-      </div>
-      <span className="scene-label label-one">900+ choices</span>
-      <span className="scene-label label-two">In-store availability</span>
-    </div>
-  </section>;
+function MotionLayer() {
+  const progress = useRef<HTMLDivElement>(null);
+  const halo = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const observer = reduced ? null : new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("revealed");
+          observer?.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .08, rootMargin: "0px 0px -4%" });
+    const observeNewElements = () => {
+      document.querySelectorAll<HTMLElement>("[data-reveal]:not(.motion-ready)").forEach((element, index) => {
+        element.classList.add("motion-ready");
+        element.style.setProperty("--reveal-delay", `${Math.min(index % 8, 5) * 45}ms`);
+        if (observer) observer.observe(element);
+        else element.classList.add("revealed");
+      });
+    };
+    const mutation = new MutationObserver(observeNewElements);
+    const updateProgress = () => {
+      const available = document.documentElement.scrollHeight - window.innerHeight;
+      progress.current?.style.setProperty("--page-progress", String(available > 0 ? window.scrollY / available : 0));
+    };
+    const followPointer = (event: PointerEvent) => {
+      if (!halo.current || event.pointerType === "touch") return;
+      halo.current.style.left = `${event.clientX}px`;
+      halo.current.style.top = `${event.clientY}px`;
+      halo.current.classList.add("visible");
+    };
+    observeNewElements();
+    mutation.observe(document.body, { childList: true, subtree: true });
+    updateProgress();
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+    window.addEventListener("pointermove", followPointer, { passive: true });
+    return () => {
+      observer?.disconnect();
+      mutation.disconnect();
+      window.removeEventListener("scroll", updateProgress);
+      window.removeEventListener("resize", updateProgress);
+      window.removeEventListener("pointermove", followPointer);
+    };
+  }, []);
+  return <><div className="scroll-progress" ref={progress} aria-hidden="true"/><div className="pointer-halo" ref={halo} aria-hidden="true"/></>;
 }
 
 export function Storefront({ catalogue = products, banners = defaultArrivalBanners }: { catalogue?: Product[];banners?:{src:string;alt:string}[] }) {
@@ -235,20 +271,19 @@ export function Storefront({ catalogue = products, banners = defaultArrivalBanne
     `${p.name} ${p.brand} ${p.flavour}`.toLowerCase().includes(query.toLowerCase())
   ), [query, category, brand, selectedPrice, catalogue]);
   useEffect(() => setLimit(24), [query, category, brand, priceRange]);
-  return <><AgeGate /><Header /><main>
+  return <><AgeGate /><MotionLayer /><Header /><main>
     <HeroCarousel banners={banners.length?banners:defaultArrivalBanners} />
-    <VapeDimension />
 
-    <section className="trust-strip"><span>19+ age verified</span><span>Ontario retail store</span><span>Fast availability replies</span><span>Trusted brands</span></section>
+    <section className="trust-strip" data-reveal><span>19+ age verified</span><span>Ontario retail store</span><span>Fast availability replies</span><span>Trusted brands</span></section>
 
-    <section id="categories" className="section category-section"><p className="eyebrow">Browse your way</p><div className="section-heading"><h2>Shop by category</h2><a href="#catalogue">View all products →</a></div>
-      <div className="category-grid">{categories.slice(1).map(cat => <button key={cat} onClick={() => { setCategory(cat); document.querySelector("#catalogue")?.scrollIntoView({ behavior: "smooth" }); }}>
-        <span className="category-photo"><img src={categoryImages[cat]} alt="" /></span>
+    <section id="categories" className="section category-section" data-reveal><p className="eyebrow">Browse your way</p><div className="section-heading"><h2>Shop by category</h2><a href="#catalogue">View all products →</a></div>
+      <div className="category-grid">{categories.slice(1).map(cat => <button data-reveal key={cat} onClick={() => { setCategory(cat); document.querySelector("#catalogue")?.scrollIntoView({ behavior: "smooth" }); }}>
+        <span className="category-photo"><img src={categoryImageFor(cat)} alt="" /></span>
         <span className="category-copy"><b>{cat}</b><small>{catalogue.filter(p => p.category === cat).length} products</small></span>
       </button>)}</div>
     </section>
 
-    <section id="catalogue" className="section catalogue-section"><p className="eyebrow">The catalogue</p><div className="section-heading"><h2>What are you looking for?</h2><span>{filtered.length} products</span></div>
+    <section id="catalogue" className="section catalogue-section" data-reveal><p className="eyebrow">The catalogue</p><div className="section-heading"><h2>What are you looking for?</h2><span>{filtered.length} products</span></div>
       <div className="catalogue-controls">
         <label className="search"><span>⌕</span><input value={query} onChange={e => setQuery(e.target.value)} placeholder="Search flavour, product, or brand" /></label>
         <select value={category} onChange={e => setCategory(e.target.value)} aria-label="Filter by category">{categories.map(x => <option key={x}>{x}</option>)}</select>
@@ -258,6 +293,6 @@ export function Storefront({ catalogue = products, banners = defaultArrivalBanne
       {filtered.length ? <><div className="product-grid">{filtered.slice(0, limit).map(p => <ProductCard product={p} key={p.id} />)}</div>{limit < filtered.length && <div className="load-more"><button className="primary" onClick={() => setLimit(value => value + 24)}>Load more products</button><small>Showing {Math.min(limit, filtered.length)} of {filtered.length}</small></div>}</> : <div className="empty-state"><b>No matches yet.</b><p>Try a different flavour, brand, or category.</p></div>}
     </section>
 
-    <section className="visit"><div><p className="eyebrow">Come say hello</p><h2>Your local Vape Mart</h2><p>See something you like? Check availability, then visit our Barrie store for age-verified, in-person service.</p><Link className="primary" href="/contact">Store details & hours</Link></div><div className="hours-card"><b>Weekday hours</b><strong>9:00 AM — 10:00 PM</strong><span>{store.address}</span></div></section>
+    <section className="visit" data-reveal><div><p className="eyebrow">Come say hello</p><h2>Your local Vape Mart</h2><p>See something you like? Check availability, then visit our Barrie store for age-verified, in-person service.</p><Link className="primary" href="/contact">Store details & hours</Link></div><div className="hours-card"><b>Weekday hours</b><strong>9:00 AM — 10:00 PM</strong><span>{store.address}</span></div></section>
   </main><Footer /></>;
 }
