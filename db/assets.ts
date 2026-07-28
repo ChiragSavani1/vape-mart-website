@@ -1,4 +1,5 @@
 import { importedProducts } from "../app/products.generated";
+import { reconcileTemporaryBanners } from "./image-workflow";
 import { ensureDatabase } from "./runtime";
 
 export type SiteBanner={id:string;src:string;alt:string;position:number};
@@ -8,9 +9,12 @@ export const assetUrl=(key:string)=>`/api/assets/${key.split("/").map(encodeURIC
 export const normalizeAssetName=(value:string)=>value.toLowerCase().normalize("NFKD").replace(/\.[a-z0-9]+$/i,"").replace(/[^a-z0-9]+/g," ").trim();
 
 export async function loadBanners():Promise<SiteBanner[]>{
+  await reconcileTemporaryBanners();
   const db=await ensureDatabase();
-  const result=await db.prepare("SELECT id,object_key,alt_text,position FROM banners ORDER BY position ASC LIMIT 6").all<{id:string;object_key:string;alt_text:string;position:number}>();
-  return (result.results||[]).map(row=>({id:row.id,src:assetUrl(row.object_key),alt:row.alt_text,position:row.position}));
+  const result=await db.prepare(`SELECT id,public_url,alt_text,position FROM banners
+    WHERE public_url IS NOT NULL AND image_status IN ('temporary','pending_deployment','archiving','archived_verified')
+    ORDER BY position ASC LIMIT 6`).all<{id:string;public_url:string;alt_text:string;position:number}>();
+  return (result.results||[]).map(row=>({id:row.id,src:row.public_url,alt:row.alt_text,position:row.position}));
 }
 
 function scoreAsset(asset:ImageAsset,upc:string,name:string,brand:string){

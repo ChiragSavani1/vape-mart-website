@@ -9,7 +9,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const origin = `${protocol}://${host}`;
   return {
     title: { default: "Vape Mart | Ontario Vape Catalogue", template: "%s | Vape Mart" },
-    description: "Browse Vape Mart products and check in-store availability. Ontario adults 19+ only. No online sales, shipping, or delivery.",
+    description: "Browse Vape Mart products and ask our Barrie store to confirm current in-store availability. Ontario adults 19+ only.",
     icons: { icon: "/brand/vape-mart-logo-black.png" },
     openGraph: { title: "Vape Mart", description: "Find your flavour. Check it in store.", images: [`${origin}/og-monochrome.png`] },
     twitter: { card: "summary_large_image", title: "Vape Mart", description: "Find your flavour. Check it in store.", images: [`${origin}/og-monochrome.png`] },

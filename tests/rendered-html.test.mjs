@@ -64,16 +64,25 @@ test("uses exact Envi Apex artwork and price-validated e-liquid bottle sizes", a
   assert.match(storefront, /eliquid/);
 });
 
-test("provides a non-transactional cart with Ontario HST and no checkout", async () => {
-  const [cart, storefront] = await Promise.all([
+test("provides a persistent availability cart with Ontario HST", async () => {
+  const [cart, storage, storefront] = await Promise.all([
     readFile(new URL("app/cart/cart-client.tsx", root), "utf8"),
+    readFile(new URL("app/cart/cart-storage.ts", root), "utf8"),
     readFile(new URL("app/storefront.tsx", root), "utf8"),
   ]);
-  assert.match(storefront, /Add to cart/);
+  assert.match(storefront, /Add to Cart/);
   assert.match(storefront, /href="\/cart"/);
-  assert.match(cart, /subtotal\*0\.13/);
-  assert.match(cart, /Checkout coming soon/);
+  assert.match(storefront, /selectedQuantity/);
+  assert.match(storefront, /vapemart-cart/);
+  assert.match(storage, /localStorage/);
+  assert.match(storage, /subtotal\*0\.13/);
+  assert.match(cart, /<h1>Cart<\/h1>/);
+  assert.match(cart, /Check availability/);
+  assert.match(cart, /setAvailability\(item\)/);
+  assert.match(cart, /initialQuantity=\{availability\.quantity\}/);
   assert.doesNotMatch(cart, /paymentIntent|checkoutSession|Place order/);
+  assert.doesNotMatch(cart, /checkout|payment unavailable|online ordering is disabled/i);
+  assert.doesNotMatch(`${storefront}\n${cart}`, /My List|Add to List/);
 });
 
 test("product pages use a dark detail layout with cart and availability actions", async () => {
@@ -84,10 +93,11 @@ test("product pages use a dark detail layout with cart and availability actions"
   ]);
   assert.match(page, /product-detail-theme/);
   assert.doesNotMatch(page, /ProductCard/);
-  assert.match(detail, /Add to cart/);
+  assert.match(detail, /Add to Cart/);
   assert.match(detail, /Check availability/);
   assert.match(detail, /addToCart/);
   assert.match(detail, /<Inquiry/);
+  assert.doesNotMatch(detail, /checkout|payment remains|catalogue cart/i);
   assert.match(css, /Dark editorial product-detail experience/);
   assert.match(css, /\.product-detail-page/);
 });
@@ -106,8 +116,34 @@ test("admin product controls persist through protected APIs", async () => {
   assert.match(dashboard, /Change image/);
   assert.match(dashboard, /compressProductImage/);
   assert.match(productImageApi, /manual_image=1/);
-  assert.match(productImageApi, /getStorage\(\)\.put/);
+  assert.match(productImageApi, /writeTemporaryProductImage/);
+  assert.match(productImageApi, /markImageTemporary/);
   assert.doesNotMatch(dashboard, /Taylor M\.|taylor@example\.com/);
+});
+
+test("admin can persist public store hours shown across customer pages", async () => {
+  const [dashboard,adminPage,api,settings,home,contact,storefront,css] = await Promise.all([
+    readFile(new URL("app/admin/dashboard.tsx", root), "utf8"),
+    readFile(new URL("app/admin/page.tsx", root), "utf8"),
+    readFile(new URL("app/api/admin/store-hours/route.ts", root), "utf8"),
+    readFile(new URL("db/store-settings.ts", root), "utf8"),
+    readFile(new URL("app/page.tsx", root), "utf8"),
+    readFile(new URL("app/contact/page.tsx", root), "utf8"),
+    readFile(new URL("app/storefront.tsx", root), "utf8"),
+    readFile(new URL("app/globals.css", root), "utf8"),
+  ]);
+  assert.match(dashboard, /"Store Hours"/);
+  assert.match(dashboard, /Save store hours/);
+  assert.match(dashboard, /\/api\/admin\/store-hours/);
+  assert.match(adminPage, /initialStoreHours/);
+  assert.match(api, /authorizeAdmin/);
+  assert.match(api, /saveStoreHours/);
+  assert.match(settings, /ON CONFLICT \(key\) DO UPDATE/);
+  assert.match(settings, /store_hours_weekdays/);
+  assert.match(home, /loadStoreHours/);
+  assert.match(contact, /loadStoreHours/);
+  assert.match(storefront, /storeHours\.weekdays/);
+  assert.match(css, /\.store-hours-admin/);
 });
 
 test("database overlay keeps the complete catalogue without a heavy startup seed", async () => {
@@ -162,10 +198,47 @@ test("admin can run a controlled missing-image search", async () => {
   assert.match(imageSearch, /authorizeAdmin/);
   assert.match(imageSearch, /duckduckgo\.com/);
   assert.match(imageSearch, /trustedOfficialHosts/);
-  assert.match(imageSearch, /confidence >= \.72/);
-  assert.match(imageSearch, /getStorage\(\)\.put/);
+  assert.match(imageSearch, /confidence>=\.72/);
+  assert.match(imageSearch, /BATCH_SIZE=5/);
+  assert.match(imageSearch, /writeTemporaryProductImage/);
   assert.match(imageSearch, /image_matches/);
   assert.match(imageSearch, /NoMatch/);
+});
+
+test("temporary product images recover safely and require an explicit GitHub archive action", async () => {
+  const [workflow,temporary,imageRoute,imageSearch,archiveRoute,dashboard,catalogue,storefront,schema] = await Promise.all([
+    readFile(new URL("db/image-workflow.ts", root), "utf8"),
+    readFile(new URL("db/temporary-images.ts", root), "utf8"),
+    readFile(new URL("app/api/temporary-images/[file]/route.ts", root), "utf8"),
+    readFile(new URL("app/api/admin/image-search/route.ts", root), "utf8"),
+    readFile(new URL("app/api/admin/image-archive/route.ts", root), "utf8"),
+    readFile(new URL("app/admin/dashboard.tsx", root), "utf8"),
+    readFile(new URL("db/catalog.ts", root), "utf8"),
+    readFile(new URL("app/storefront.tsx", root), "utf8"),
+    readFile(new URL("db/schema.ts", root), "utf8"),
+  ]);
+  assert.match(schema, /productImageStates/);
+  assert.match(schema, /retryCount/);
+  assert.match(schema, /lastFailureReason/);
+  assert.match(workflow, /Temporary image file disappeared from Render storage/);
+  assert.match(workflow, /status='missing'/);
+  assert.match(workflow, /status='temporary'/);
+  assert.match(workflow, /status='pending_deployment'/);
+  assert.match(workflow, /status='archived'/);
+  assert.match(temporary, /productStem/);
+  assert.match(temporary, /existing\.startsWith/);
+  assert.match(imageRoute, /markMissingByTemporaryFile/);
+  assert.match(catalogue, /reconcileTemporaryImages/);
+  assert.match(storefront, /onError=\{\(\)=>setImageFailed\(true\)\}/);
+  assert.match(dashboard, /Temporary images/);
+  assert.match(dashboard, /Pending deployment/);
+  assert.match(dashboard, /Missing images/);
+  assert.match(dashboard, /Failed images/);
+  assert.match(dashboard, /Archived history/);
+  assert.match(dashboard, /Retry this product/);
+  assert.match(dashboard, /Archive Images to GitHub/);
+  assert.match(archiveRoute, /GITHUB_IMAGE_ARCHIVE_TOKEN/);
+  assert.doesNotMatch(imageSearch, /image-archive/);
 });
 
 test("mobile catalogue defers and caches product imagery", async () => {
@@ -181,6 +254,72 @@ test("mobile catalogue defers and caches product imagery", async () => {
   assert.match(storefront, /vape-mart-logo-small\.webp/);
   assert.match(assetRoute, /max-age=31536000, immutable/);
   assert.match(css, /content-visibility:auto/);
+  assert.match(css, /repeat\(2,minmax\(0,1fr\)\)/);
+  assert.match(css, /\.category-grid\{display:grid;grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
+  assert.doesNotMatch(css, /\.category-grid\{display:flex/);
+  assert.match(css, /repeat\(3,minmax\(0,1fr\)\)/);
+  assert.match(css, /repeat\(5,minmax\(0,1fr\)\)/);
+  assert.match(css, /-webkit-line-clamp:2/);
+  assert.match(storefront, /Filter &amp; Sort/);
+  assert.match(storefront, /No products found/);
+  assert.match(storefront, /Clear search &amp; filters/);
+});
+
+test("shared customer header keeps search, list quantity, and navigation accessible", async () => {
+  const [storefront,contact,legal,cartPage,productPage,css] = await Promise.all([
+    readFile(new URL("app/storefront.tsx", root), "utf8"),
+    readFile(new URL("app/contact/page.tsx", root), "utf8"),
+    readFile(new URL("app/legal/[page]/page.tsx", root), "utf8"),
+    readFile(new URL("app/cart/page.tsx", root), "utf8"),
+    readFile(new URL("app/products/[slug]/page.tsx", root), "utf8"),
+    readFile(new URL("app/globals.css", root), "utf8"),
+  ]);
+  assert.match(storefront, /aria-label="Search products"/);
+  assert.match(storefront, /action="\/#catalogue"/);
+  assert.match(storefront, /Cart, \$\{quantity\}/);
+  assert.match(storefront, /back-to-top/);
+  assert.match(storefront, /<AgeGate \/>/);
+  assert.doesNotMatch(storefront, /href="\/admin"/);
+  for(const page of [contact,legal,cartPage,productPage])assert.match(page, /<Header/);
+  assert.match(css, /\.site-header/);
+  assert.match(css, /position:sticky/);
+  assert.doesNotMatch(`${storefront}\n${cartPage}`, /checkout disabled|payment unavailable|cart preview|\bMVP\b|email notification is still being configured/i);
+});
+
+test("availability uses one page-level responsive dialog with complete fields", async () => {
+  const [storefront,cart,css,api] = await Promise.all([
+    readFile(new URL("app/storefront.tsx", root), "utf8"),
+    readFile(new URL("app/cart/cart-client.tsx", root), "utf8"),
+    readFile(new URL("app/globals.css", root), "utf8"),
+    readFile(new URL("app/api/inquiries/route.ts", root), "utf8"),
+  ]);
+  const cardSource=storefront.slice(storefront.indexOf("export function ProductCard"),storefront.indexOf("export const defaultArrivalBanners"));
+  assert.doesNotMatch(cardSource, /<Inquiry/);
+  assert.match(storefront, /role="dialog"/);
+  assert.match(storefront, /aria-modal="true"/);
+  assert.match(storefront, /Selected quantity/);
+  assert.match(storefront, /name="message"/);
+  assert.match(storefront, /document\.body\.style\.overflow="hidden"/);
+  assert.match(storefront, /event\.key==="Escape"/);
+  assert.match(cart, /<Inquiry product=\{availability\}/);
+  assert.match(api, /quantity: input\.quantity|Quantity: \$\{input\.quantity\}/);
+  assert.match(api, /Message: \$\{input\.message/);
+  assert.match(css, /\.inquiry-product/);
+  assert.match(css, /align-items:end/);
+});
+
+test("hero carousel supports deliberate touch swipes and pauses rotation", async () => {
+  const [storefront,css] = await Promise.all([
+    readFile(new URL("app/storefront.tsx", root), "utf8"),
+    readFile(new URL("app/globals.css", root), "utf8"),
+  ]);
+  assert.match(storefront, /onPointerDown=\{touchStart\}/);
+  assert.match(storefront, /onPointerMoveCapture=\{touchMove\}/);
+  assert.match(storefront, /onPointerUp=\{touchEnd\}/);
+  assert.match(storefront, /carouselSwipeStep\(dx,dy\)/);
+  assert.match(storefront, /setPaused\(true\)/);
+  assert.match(css, /touch-action:pan-y/);
+  assert.match(css, /--hero-drag/);
 });
 
 test("availability requests remain saved and report email delivery state", async () => {
@@ -197,6 +336,6 @@ test("availability requests remain saved and report email delivery state", async
   assert.match(email, /transactional_email_rejected/);
   assert.match(adminApi, /manual_phone_follow_up/);
   assert.match(adminApi, /delivery/);
-  assert.match(storefront, /request is saved in the store dashboard/i);
+  assert.match(storefront, /Our store team will check this product/i);
   assert.match(dashboard, /Status saved and the customer email was sent/);
 });

@@ -16,6 +16,8 @@ export async function POST(request: NextRequest) {
     const contact = String(body.contact || "").trim().slice(0, 200);
     const productId = String(body.productId || "").trim().slice(0, 80);
     const productName = String(body.productName || "").trim().slice(0, 200);
+    const quantity = Math.max(1, Math.min(99, Number.parseInt(String(body.quantity || "1"), 10) || 1));
+    const message = String(body.message || "").trim().slice(0, 1000);
     if (name.length < 2 || !validContact(contact) || !productId || !productName) {
       return NextResponse.json({ error: "Please provide a valid name and email or phone number." }, { status: 400 });
     }
@@ -29,7 +31,7 @@ export async function POST(request: NextRequest) {
     const createdAt = new Date().toISOString();
     await db.prepare("INSERT INTO inquiries (id, product_id, product_name, customer_name, contact, status, ip_hash, created_at) VALUES (?, ?, ?, ?, ?, 'Pending', ?, ?)")
       .bind(id, productId, productName, name, contact, ipHash, createdAt).run();
-    const notification = await notifyStore({ id, name, contact, productName, createdAt });
+    const notification = await notifyStore({ id, name, contact, productName, quantity, message, createdAt });
     return NextResponse.json({ ok: true, id, notification: notification.status }, { status: 201 });
   } catch (error) {
     console.error("inquiry_create_failed", error);
@@ -37,10 +39,10 @@ export async function POST(request: NextRequest) {
   }
 }
 
-async function notifyStore(input: {id:string;name:string;contact:string;productName:string;createdAt:string}) {
+async function notifyStore(input: {id:string;name:string;contact:string;productName:string;quantity:number;message:string;createdAt:string}) {
   return sendEmail({
     to: process.env.AVAILABILITY_TO || "vapemart307@gmail.com",
     subject: `Availability request: ${input.productName}`,
-    text: `New availability request\n\nProduct: ${input.productName}\nCustomer: ${input.name}\nContact: ${input.contact}\nRequest: ${input.id}\nReceived: ${input.createdAt}`,
+    text: `New availability request\n\nProduct: ${input.productName}\nQuantity: ${input.quantity}\nCustomer: ${input.name}\nContact: ${input.contact}\nMessage: ${input.message || "None provided"}\nRequest: ${input.id}\nReceived: ${input.createdAt}`,
   });
 }

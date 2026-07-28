@@ -33,3 +33,15 @@ export const store = {
     ["Sunday", "10:00 AM – 9:00 PM"],
   ],
 };
+
+export type StoreHours = {
+  weekdays:string;
+  saturday:string;
+  sunday:string;
+};
+
+export const defaultStoreHours:StoreHours = {
+  weekdays:store.hours[0][1],
+  saturday:store.hours[1][1],
+  sunday:store.hours[2][1],
+};

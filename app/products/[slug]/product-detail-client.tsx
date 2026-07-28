@@ -38,7 +38,7 @@ export function ProductDetailClient({ product }: { product: Product }) {
             <strong>${currentPrice.toFixed(2)}</strong>
             {product.promoPrice && <span>Promotional price</span>}
           </div>
-          <p className="detail-description">Add this product to your catalogue cart or ask the Barrie store to confirm current availability. Availability requests do not reserve or purchase the product.</p>
+          <p className="detail-description">Add this product to your cart or ask our Barrie store to confirm current in-store availability.</p>
 
           <div className="detail-facts-dark">
             <div><small>Flavour / variant</small><b>{product.flavour || "See product name"}</b></div>
@@ -48,14 +48,14 @@ export function ProductDetailClient({ product }: { product: Product }) {
 
           <div className="detail-actions">
             <button className={`detail-add ${added ? "added" : ""}`} onClick={add}>
-              <span>{added ? "✓" : "+"}</span>{added ? "Added to cart" : "Add to cart"}
+              <span>{added ? "✓" : "+"}</span>{added ? "Added to Cart" : "Add to Cart"}
             </button>
             <button className="detail-availability" onClick={() => setAsk(true)}>Check availability <span>↗</span></button>
           </div>
-          {added && <Link className="detail-view-cart" href="/cart">View cart and tax estimate →</Link>}
+          {added && <Link className="detail-view-cart" href="/cart">View Cart →</Link>}
 
           <div className="detail-assurance">
-            <span>01</span><p><b>No online checkout yet</b>Your cart shows the subtotal and Ontario HST, but payment remains disabled until the store receives approval.</p>
+            <span>01</span><p><b>Build your cart</b>Keep products together while you browse and review an estimated total with Ontario HST.</p>
             <span>02</span><p><b>Local availability</b>Send a request and Vape Mart will confirm whether this exact item is currently in the Barrie store.</p>
           </div>
         </div>
