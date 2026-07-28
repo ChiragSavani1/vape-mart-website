@@ -27,7 +27,13 @@ export function selectedQuantity(items=readCart()) {
   return items.reduce((total,item)=>total+item.quantity,0);
 }
 
-export function addToList(product:Product) {
+export function calculateCartTotals(items:CartItem[]) {
+  const subtotal=items.reduce((sum,item)=>sum+item.price*item.quantity,0);
+  const tax=Math.round(subtotal*0.13*100)/100;
+  return {subtotal,tax,total:subtotal+tax};
+}
+
+export function addToCart(product:Product) {
   const items=readCart();
   const found=items.find(item=>item.id===product.id);
   if(found) found.quantity=Math.min(99,found.quantity+1);
@@ -35,4 +41,4 @@ export function addToList(product:Product) {
   writeCart(items);
 }
 
-export const addToCart=addToList;
+export const addToList=addToCart;

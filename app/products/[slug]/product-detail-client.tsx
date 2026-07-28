@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import type { Product } from "../../data";
 import { getProductVolume } from "../../data";
-import { addToList } from "../../cart/cart-storage";
+import { addToCart } from "../../cart/cart-storage";
 import { Inquiry, ProductArt } from "../../storefront";
 
 export function ProductDetailClient({ product }: { product: Product }) {
@@ -13,7 +13,7 @@ export function ProductDetailClient({ product }: { product: Product }) {
   const volume = getProductVolume(product);
   const currentPrice = product.promoPrice || product.price;
   const add = () => {
-    addToList(product);
+    addToCart(product);
     setAdded(true);
     window.setTimeout(() => setAdded(false), 1800);
   };
@@ -38,7 +38,7 @@ export function ProductDetailClient({ product }: { product: Product }) {
             <strong>${currentPrice.toFixed(2)}</strong>
             {product.promoPrice && <span>Promotional price</span>}
           </div>
-          <p className="detail-description">Save this product to My List or ask our Barrie store to confirm current in-store availability.</p>
+          <p className="detail-description">Add this product to your cart or ask our Barrie store to confirm current in-store availability.</p>
 
           <div className="detail-facts-dark">
             <div><small>Flavour / variant</small><b>{product.flavour || "See product name"}</b></div>
@@ -48,14 +48,14 @@ export function ProductDetailClient({ product }: { product: Product }) {
 
           <div className="detail-actions">
             <button className={`detail-add ${added ? "added" : ""}`} onClick={add}>
-              <span>{added ? "✓" : "+"}</span>{added ? "Added to My List" : "Add to List"}
+              <span>{added ? "✓" : "+"}</span>{added ? "Added to Cart" : "Add to Cart"}
             </button>
             <button className="detail-availability" onClick={() => setAsk(true)}>Check availability <span>↗</span></button>
           </div>
-          {added && <Link className="detail-view-cart" href="/cart">View My List →</Link>}
+          {added && <Link className="detail-view-cart" href="/cart">View Cart →</Link>}
 
           <div className="detail-assurance">
-            <span>01</span><p><b>Build your list</b>Keep products together while you browse and review an estimated total with Ontario HST.</p>
+            <span>01</span><p><b>Build your cart</b>Keep products together while you browse and review an estimated total with Ontario HST.</p>
             <span>02</span><p><b>Local availability</b>Send a request and Vape Mart will confirm whether this exact item is currently in the Barrie store.</p>
           </div>
         </div>

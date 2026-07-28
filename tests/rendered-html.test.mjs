@@ -64,25 +64,28 @@ test("uses exact Envi Apex artwork and price-validated e-liquid bottle sizes", a
   assert.match(storefront, /eliquid/);
 });
 
-test("provides a persistent availability list with Ontario HST", async () => {
+test("provides a persistent availability cart with Ontario HST", async () => {
   const [cart, storage, storefront] = await Promise.all([
     readFile(new URL("app/cart/cart-client.tsx", root), "utf8"),
     readFile(new URL("app/cart/cart-storage.ts", root), "utf8"),
     readFile(new URL("app/storefront.tsx", root), "utf8"),
   ]);
-  assert.match(storefront, /Add to List/);
+  assert.match(storefront, /Add to Cart/);
   assert.match(storefront, /href="\/cart"/);
   assert.match(storefront, /selectedQuantity/);
   assert.match(storefront, /vapemart-cart/);
   assert.match(storage, /localStorage/);
-  assert.match(cart, /subtotal\*0\.13/);
-  assert.match(cart, /My List/);
+  assert.match(storage, /subtotal\*0\.13/);
+  assert.match(cart, /<h1>Cart<\/h1>/);
   assert.match(cart, /Check availability/);
+  assert.match(cart, /setAvailability\(item\)/);
+  assert.match(cart, /initialQuantity=\{availability\.quantity\}/);
   assert.doesNotMatch(cart, /paymentIntent|checkoutSession|Place order/);
   assert.doesNotMatch(cart, /checkout|payment unavailable|online ordering is disabled/i);
+  assert.doesNotMatch(`${storefront}\n${cart}`, /My List|Add to List/);
 });
 
-test("product pages use a dark detail layout with list and availability actions", async () => {
+test("product pages use a dark detail layout with cart and availability actions", async () => {
   const [page, detail, css] = await Promise.all([
     readFile(new URL("app/products/[slug]/page.tsx", root), "utf8"),
     readFile(new URL("app/products/[slug]/product-detail-client.tsx", root), "utf8"),
@@ -90,9 +93,9 @@ test("product pages use a dark detail layout with list and availability actions"
   ]);
   assert.match(page, /product-detail-theme/);
   assert.doesNotMatch(page, /ProductCard/);
-  assert.match(detail, /Add to List/);
+  assert.match(detail, /Add to Cart/);
   assert.match(detail, /Check availability/);
-  assert.match(detail, /addToList/);
+  assert.match(detail, /addToCart/);
   assert.match(detail, /<Inquiry/);
   assert.doesNotMatch(detail, /checkout|payment remains|catalogue cart/i);
   assert.match(css, /Dark editorial product-detail experience/);
@@ -208,13 +211,50 @@ test("shared customer header keeps search, list quantity, and navigation accessi
   ]);
   assert.match(storefront, /aria-label="Search products"/);
   assert.match(storefront, /action="\/#catalogue"/);
-  assert.match(storefront, /My List, \$\{quantity\}/);
+  assert.match(storefront, /Cart, \$\{quantity\}/);
   assert.match(storefront, /back-to-top/);
   assert.match(storefront, /<AgeGate \/>/);
+  assert.doesNotMatch(storefront, /href="\/admin"/);
   for(const page of [contact,legal,cartPage,productPage])assert.match(page, /<Header/);
   assert.match(css, /\.site-header/);
   assert.match(css, /position:sticky/);
   assert.doesNotMatch(`${storefront}\n${cartPage}`, /checkout disabled|payment unavailable|cart preview|\bMVP\b|email notification is still being configured/i);
+});
+
+test("availability uses one page-level responsive dialog with complete fields", async () => {
+  const [storefront,cart,css,api] = await Promise.all([
+    readFile(new URL("app/storefront.tsx", root), "utf8"),
+    readFile(new URL("app/cart/cart-client.tsx", root), "utf8"),
+    readFile(new URL("app/globals.css", root), "utf8"),
+    readFile(new URL("app/api/inquiries/route.ts", root), "utf8"),
+  ]);
+  const cardSource=storefront.slice(storefront.indexOf("export function ProductCard"),storefront.indexOf("export const defaultArrivalBanners"));
+  assert.doesNotMatch(cardSource, /<Inquiry/);
+  assert.match(storefront, /role="dialog"/);
+  assert.match(storefront, /aria-modal="true"/);
+  assert.match(storefront, /Selected quantity/);
+  assert.match(storefront, /name="message"/);
+  assert.match(storefront, /document\.body\.style\.overflow="hidden"/);
+  assert.match(storefront, /event\.key==="Escape"/);
+  assert.match(cart, /<Inquiry product=\{availability\}/);
+  assert.match(api, /quantity: input\.quantity|Quantity: \$\{input\.quantity\}/);
+  assert.match(api, /Message: \$\{input\.message/);
+  assert.match(css, /\.inquiry-product/);
+  assert.match(css, /align-items:end/);
+});
+
+test("hero carousel supports deliberate touch swipes and pauses rotation", async () => {
+  const [storefront,css] = await Promise.all([
+    readFile(new URL("app/storefront.tsx", root), "utf8"),
+    readFile(new URL("app/globals.css", root), "utf8"),
+  ]);
+  assert.match(storefront, /onPointerDown=\{touchStart\}/);
+  assert.match(storefront, /onPointerMoveCapture=\{touchMove\}/);
+  assert.match(storefront, /onPointerUp=\{touchEnd\}/);
+  assert.match(storefront, /carouselSwipeStep\(dx,dy\)/);
+  assert.match(storefront, /setPaused\(true\)/);
+  assert.match(css, /touch-action:pan-y/);
+  assert.match(css, /--hero-drag/);
 });
 
 test("availability requests remain saved and report email delivery state", async () => {
