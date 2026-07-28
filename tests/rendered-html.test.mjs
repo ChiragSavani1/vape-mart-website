@@ -217,6 +217,8 @@ test("mobile catalogue defers and caches product imagery", async () => {
   assert.match(assetRoute, /max-age=31536000, immutable/);
   assert.match(css, /content-visibility:auto/);
   assert.match(css, /repeat\(2,minmax\(0,1fr\)\)/);
+  assert.match(css, /\.category-grid\{display:grid;grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
+  assert.doesNotMatch(css, /\.category-grid\{display:flex/);
   assert.match(css, /repeat\(3,minmax\(0,1fr\)\)/);
   assert.match(css, /repeat\(5,minmax\(0,1fr\)\)/);
   assert.match(css, /-webkit-line-clamp:2/);
