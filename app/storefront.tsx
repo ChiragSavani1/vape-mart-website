@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
-import { getProductVolume, products, type Product, store } from "./data";
+import { defaultStoreHours, getProductVolume, products, type Product, store, type StoreHours } from "./data";
 import { addToCart, readCart, selectedQuantity } from "./cart/cart-storage";
 import { carouselSwipeStep } from "./carousel-swipe";
 
@@ -340,7 +340,7 @@ function MotionLayer() {
   return <><div className="scroll-progress" ref={progress} aria-hidden="true"/><div className="pointer-halo" ref={halo} aria-hidden="true"/></>;
 }
 
-export function Storefront({ catalogue = products, banners = defaultArrivalBanners }: { catalogue?: Product[];banners?:{src:string;alt:string}[] }) {
+export function Storefront({ catalogue = products, banners = defaultArrivalBanners, storeHours = defaultStoreHours }: { catalogue?: Product[];banners?:{src:string;alt:string}[];storeHours?:StoreHours }) {
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState("All products");
   const [brand, setBrand] = useState("All brands");
@@ -398,6 +398,6 @@ export function Storefront({ catalogue = products, banners = defaultArrivalBanne
       {sorted.length ? <><div className="product-grid">{sorted.slice(0, limit).map(p => <ProductCard product={p} onAvailability={(product,quantity)=>setAvailability({product,quantity})} key={p.id} />)}</div>{limit < sorted.length && <div className="load-more"><button className="primary" onClick={() => setLimit(value => value + 24)}>Load more products</button><small>Showing {Math.min(limit, sorted.length)} of {sorted.length}</small></div>}</> : <div className="empty-state"><b>No products found</b><p>Try a different search or clear your filters.</p><button className="primary" onClick={clearFilters}>Clear search &amp; filters</button></div>}
     </section>
 
-    <section className="visit" data-reveal><div><p className="eyebrow">Come say hello</p><h2>Your local Vape Mart</h2><p>See something you like? Check availability, then visit our Barrie store for age-verified, in-person service.</p><Link className="primary" href="/contact">Store details & hours</Link></div><div className="hours-card"><b>Weekday hours</b><strong>9:00 AM — 10:00 PM</strong><span>{store.address}</span></div></section>
+    <section className="visit" data-reveal><div><p className="eyebrow">Come say hello</p><h2>Your local Vape Mart</h2><p>See something you like? Check availability, then visit our Barrie store for age-verified, in-person service.</p><Link className="primary" href="/contact">Store details & hours</Link></div><div className="hours-card"><b>Weekday hours</b><strong>{storeHours.weekdays}</strong><span>{store.address}</span></div></section>
   </main><Footer />{availability&&<Inquiry product={availability.product} initialQuantity={availability.quantity} close={()=>setAvailability(null)}/>}</>;
 }

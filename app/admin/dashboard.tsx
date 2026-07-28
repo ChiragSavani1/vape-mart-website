@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import type { AdminProduct } from "../../db/catalog";
 import type { SiteBanner } from "../../db/assets";
+import type { StoreHours } from "../data";
 
 type RequestStatus = "Pending" | "Available" | "Unavailable";
 export type AdminInquiry = {
@@ -14,7 +15,7 @@ export type AdminInquiry = {
   time:string;
   status:RequestStatus;
 };
-const tabs = ["Overview","Products","Imports","Banners","Requests"];
+const tabs = ["Overview","Products","Imports","Banners","Store Hours","Requests"];
 
 async function compressImage(file:File,maxWidth:number,maxHeight:number,targetBytes:number){
   const source=URL.createObjectURL(file);
@@ -54,6 +55,7 @@ export function AdminDashboard({
   databaseError,
   initialProducts,
   initialBanners,
+  initialStoreHours,
 }: {
   user:string;
   signOut:string;
@@ -62,6 +64,7 @@ export function AdminDashboard({
   databaseError:string;
   initialProducts:AdminProduct[];
   initialBanners:SiteBanner[];
+  initialStoreHours:StoreHours;
 }) {
   const [tab,setTab]=useState("Overview");
   const [products,setProducts]=useState(initialProducts);
@@ -78,6 +81,8 @@ export function AdminDashboard({
   const [uploading,setUploading]=useState(false);
   const [searchingImages,setSearchingImages]=useState(false);
   const [imageSearchSummary,setImageSearchSummary]=useState("");
+  const [storeHours,setStoreHours]=useState(initialStoreHours);
+  const [savingHours,setSavingHours]=useState(false);
 
   async function importFile(file?:File){
     if(!file)return; setImporting(true);
@@ -173,6 +178,19 @@ export function AdminDashboard({
     const data=await response.json().catch(()=>null);
     if(response.ok)setBanners(data.banners);else setRequestError(data?.error||"The banner could not be removed.");
   }
+  async function saveHours(event:React.FormEvent<HTMLFormElement>){
+    event.preventDefault();setSavingHours(true);setRequestError("");setRequestNotice("");
+    try{
+      const response=await fetch("/api/admin/store-hours",{
+        method:"PUT",headers:{"content-type":"application/json"},body:JSON.stringify(storeHours)
+      });
+      const data=await response.json().catch(()=>null);
+      if(!response.ok)throw new Error(data?.error||"Store hours could not be saved.");
+      setStoreHours(data.hours);
+      setRequestNotice("Store hours saved. The homepage and contact page now show the new schedule.");
+    }catch(reason){setRequestError(reason instanceof Error?reason.message:"Store hours could not be saved.")}
+    finally{setSavingHours(false)}
+  }
   const categories=["All categories",...Array.from(new Set(products.map(product=>product.category))).sort()];
   const filteredProducts=products.filter(product=>(productCategory==="All categories"||product.category===productCategory)&&`${product.name} ${product.upc} ${product.brand}`.toLowerCase().includes(productQuery.toLowerCase()));
   return <div className="admin-shell">
@@ -185,6 +203,13 @@ export function AdminDashboard({
       {tab==="Products"&&<Panel title="Product catalogue" action={()=>setEditing({visible:true,featured:false,price:0})} actionLabel="Add product"><div className="admin-toolbar"><input value={productQuery} onChange={event=>setProductQuery(event.target.value)} placeholder="Search by name, UPC, or brand"/><select value={productCategory} onChange={event=>setProductCategory(event.target.value)}>{categories.map(category=><option key={category}>{category}</option>)}</select><button className="admin-primary image-search-button" disabled={searchingImages||!products.some(product=>!product.image)} onClick={searchMissingImages}>{searchingImages?"Searching 5 products…":"Find missing images"}</button></div>{imageSearchSummary&&<p className="image-search-summary" role="status">{imageSearchSummary}</p>}<div className="table-scroll"><table className="admin-table"><thead><tr><th>Product</th><th>UPC</th><th>Price</th><th>Featured</th><th>Visible</th><th>Actions</th></tr></thead><tbody>{filteredProducts.slice(0,300).map(p=><tr key={p.id}><td><span className="mini-art" style={{background:p.accent}}></span><b>{p.name}</b><small>{p.brand} · {p.category}</small></td><td>{p.upc}</td><td>${p.price.toFixed(2)}</td><td><input type="checkbox" checked={!!p.featured} onChange={()=>updateProduct(p.id,{featured:!p.featured})}/></td><td><input type="checkbox" checked={p.visible} onChange={()=>updateProduct(p.id,{visible:!p.visible})}/></td><td><button className="table-action" onClick={()=>setEditing(p)}>Edit</button><button className="table-action danger" onClick={()=>deleteProduct(p)}>Delete</button></td></tr>)}</tbody></table></div><p className="panel-intro">Showing {Math.min(300,filteredProducts.length)} of {filteredProducts.length} matching products. {products.filter(product=>!product.image).length} currently use a placeholder. Changes are saved to the live catalogue database.</p></Panel>}
       {tab==="Imports"&&<div className="two-columns"><Panel title="Import RetailzPOS Excel export"><div className="upload-zone"><span>⇧</span><h3>Drop an .xlsx, .xls, or .csv file here</h3><p>RetailzPOS columns such as Item Name, Department Name, Category Name, and Sub Category Name are recognized automatically. Products match by UPC, Hardware is excluded, and missing rows are flagged—not deleted.</p><label className="admin-primary">{importing?"Analysing…":"Choose Excel file"}<input type="file" accept=".xlsx,.xls,.csv" hidden onChange={e=>importFile(e.target.files?.[0])}/></label></div></Panel><Panel title="Last import summary">{importSummary?<div className="summary-grid"><Metric label="Added" value={String(importSummary.added)} note="New UPCs"/><Metric label="Updated" value={String(importSummary.updated)} note="Prices & details"/><Metric label="Images found" value={String(importSummary.imagesMatched)} note="Matched automatically"/><Metric label="Need an image" value={String(importSummary.imagesUnmatched)} note="New products to review" warn={importSummary.imagesUnmatched>0}/><Metric label="Duplicates" value={String(importSummary.duplicates)} note="Review required" warn/><Metric label="Hardware skipped" value={String(importSummary.hardware)} note="Automatic"/><Metric label="Rows skipped" value={String(importSummary.skippedRows)} note={`of ${importSummary.totalRows} rows`} warn={importSummary.skippedRows>0}/><Metric label="Missing / review" value={String(importSummary.review)} note="Not deleted"/></div>:<div className="blank"><b>No import in this session</b><p>Upload a RetailzPOS export to see product and automatic-image matching results.</p></div>}</Panel></div>}
       {tab==="Banners"&&<><Panel title={`Hero banners (${banners.length}/6)`}><form className="banner-upload" onSubmit={event=>{event.preventDefault();uploadBanner(event.currentTarget)}}><label>Banner image<input name="file" type="file" accept="image/*" required disabled={banners.length>=6}/></label><label>Accessible description<input name="alt" placeholder="New arrival promotion" required/></label><button className="admin-primary" disabled={uploading||banners.length>=6}>{uploading?"Uploading…":"Upload banner"}</button></form><p className="panel-intro">{banners.length?"These banners replace the default hero rotation. Delete all custom banners to restore the original three.":"No custom banners uploaded. The original three banners are currently shown."}</p><div className="banner-admin-grid">{banners.map(banner=><article key={banner.id}><img src={banner.src} alt=""/><div><b>{banner.alt}</b><button onClick={()=>deleteBanner(banner.id)}>Remove</button></div></article>)}</div></Panel></>}
+      {tab==="Store Hours"&&<Panel title="Public store hours"><form className="store-hours-admin" onSubmit={saveHours}>
+        <p>Update the schedule shown on the homepage and contact page. Include AM/PM and use “Closed” whenever the store will not open.</p>
+        <label><span>Monday – Friday</span><input required maxLength={80} value={storeHours.weekdays} onChange={event=>setStoreHours(current=>({...current,weekdays:event.target.value}))} placeholder="9:00 AM – 10:00 PM"/></label>
+        <label><span>Saturday</span><input required maxLength={80} value={storeHours.saturday} onChange={event=>setStoreHours(current=>({...current,saturday:event.target.value}))} placeholder="10:00 AM – 8:00 PM"/></label>
+        <label><span>Sunday</span><input required maxLength={80} value={storeHours.sunday} onChange={event=>setStoreHours(current=>({...current,sunday:event.target.value}))} placeholder="10:00 AM – 9:00 PM"/></label>
+        <button className="admin-primary" disabled={savingHours}>{savingHours?"Saving…":"Save store hours"}</button>
+      </form></Panel>}
       {tab==="Requests"&&<Panel title="Availability requests"><RequestTable rows={requests} status={status}/></Panel>}
       {editing&&<ProductEditor product={editing} saving={savingProduct} close={()=>setEditing(null)} save={saveProduct} imageUploaded={(id,image)=>setProducts(rows=>rows.map(row=>row.id===id?{...row,image}:row))}/>}
     </main>

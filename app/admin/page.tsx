@@ -5,6 +5,7 @@ import { ensureDatabase } from "../../db/runtime";
 import { loadProducts, type AdminProduct } from "../../db/catalog";
 import { loadBanners, type SiteBanner } from "../../db/assets";
 import { emailIsConfigured } from "../../db/email";
+import { loadStoreHours } from "../../db/store-settings";
 
 export const dynamic = "force-dynamic";
 
@@ -14,6 +15,7 @@ export default async function AdminPage() {
   let databaseError = "";
   let adminProducts:AdminProduct[] = [];
   let initialBanners:SiteBanner[] = [];
+  const initialStoreHours=await loadStoreHours();
   let initialRequests: Array<{id:string;customer:string;contact:string;product:string;time:string;status:"Pending"|"Available"|"Unavailable"}> = [];
   try {
     const db = await ensureDatabase();
@@ -46,5 +48,6 @@ export default async function AdminPage() {
     databaseError={databaseError}
     initialProducts={adminProducts}
     initialBanners={initialBanners}
+    initialStoreHours={initialStoreHours}
   />;
 }

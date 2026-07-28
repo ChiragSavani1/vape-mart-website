@@ -233,3 +233,15 @@ html,body{max-width:100%;overflow-x:hidden}.site-header{isolation:isolate;box-sh
   .site-header{column-gap:6px}
   .site-header .header-actions{gap:3px}
 }
+
+.store-hours-admin{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;padding:24px}
+.store-hours-admin>p{grid-column:1/-1;margin:0;color:var(--muted);line-height:1.55}
+.store-hours-admin label{display:grid;gap:8px;min-width:0;font-size:12px;font-weight:800}
+.store-hours-admin input{width:100%;height:48px;border:1px solid #ccd2cb;border-radius:8px;padding:0 13px;background:#fff}
+.store-hours-admin input:focus{outline:3px solid rgba(0,0,0,.1);border-color:#111}
+.store-hours-admin .admin-primary{grid-column:1/-1;justify-self:start;min-height:46px}
+@media(max-width:760px){
+  .store-hours-admin{grid-template-columns:1fr;padding:18px}
+  .store-hours-admin>p,.store-hours-admin .admin-primary{grid-column:1}
+  .store-hours-admin .admin-primary{width:100%}
+}

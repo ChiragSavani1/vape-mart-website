@@ -120,6 +120,31 @@ test("admin product controls persist through protected APIs", async () => {
   assert.doesNotMatch(dashboard, /Taylor M\.|taylor@example\.com/);
 });
 
+test("admin can persist public store hours shown across customer pages", async () => {
+  const [dashboard,adminPage,api,settings,home,contact,storefront,css] = await Promise.all([
+    readFile(new URL("app/admin/dashboard.tsx", root), "utf8"),
+    readFile(new URL("app/admin/page.tsx", root), "utf8"),
+    readFile(new URL("app/api/admin/store-hours/route.ts", root), "utf8"),
+    readFile(new URL("db/store-settings.ts", root), "utf8"),
+    readFile(new URL("app/page.tsx", root), "utf8"),
+    readFile(new URL("app/contact/page.tsx", root), "utf8"),
+    readFile(new URL("app/storefront.tsx", root), "utf8"),
+    readFile(new URL("app/globals.css", root), "utf8"),
+  ]);
+  assert.match(dashboard, /"Store Hours"/);
+  assert.match(dashboard, /Save store hours/);
+  assert.match(dashboard, /\/api\/admin\/store-hours/);
+  assert.match(adminPage, /initialStoreHours/);
+  assert.match(api, /authorizeAdmin/);
+  assert.match(api, /saveStoreHours/);
+  assert.match(settings, /ON CONFLICT \(key\) DO UPDATE/);
+  assert.match(settings, /store_hours_weekdays/);
+  assert.match(home, /loadStoreHours/);
+  assert.match(contact, /loadStoreHours/);
+  assert.match(storefront, /storeHours\.weekdays/);
+  assert.match(css, /\.store-hours-admin/);
+});
+
 test("database overlay keeps the complete catalogue without a heavy startup seed", async () => {
   const catalogue = await readFile(new URL("db/catalog.ts", root), "utf8");
   assert.match(catalogue, /for\(const product of importedProducts\)/);
