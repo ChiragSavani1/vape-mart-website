@@ -32,7 +32,11 @@ Configure every environment variable shown in `.env.example`. Use Render's inter
 
 ## Persistent images
 
-Uploaded banners and product images must use external S3-compatible object storage (AWS S3, Cloudflare R2, Backblaze B2, DigitalOcean Spaces, etc.). Configure the `S3_*` variables. Do not store uploads on Render's ephemeral filesystem.
+Uploaded banners and the distributor image library use external S3-compatible object storage (AWS S3, Cloudflare R2, Backblaze B2, DigitalOcean Spaces, etc.). Configure the `S3_*` variables.
+
+Images recovered by the missing-image finder are intentionally downloaded to Render's temporary filesystem first. Their database status is `temporary` until an administrator chooses **Archive Images to GitHub**. If Render removes a temporary file, the catalogue immediately returns to its normal placeholder and the product re-enters the missing-image queue without losing its UPC, SKU, source URL, retry count, failure reason, or search history.
+
+To enable the manual archive action, create a dedicated branch such as `product-images`, then configure `GITHUB_IMAGE_ARCHIVE_TOKEN`, `GITHUB_IMAGE_ARCHIVE_REPOSITORY`, and `GITHUB_IMAGE_ARCHIVE_BRANCH`. The token needs Contents read/write access to the configured repository. Images are not committed automatically.
 
 The RetailzPOS import matches UPCs first, adds and updates products, excludes Hardware, flags missing products for review, preserves manual fields, and attempts to match approved existing images. The admin can upload a product image or run the controlled missing-image search.
 

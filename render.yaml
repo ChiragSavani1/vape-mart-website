@@ -45,6 +45,15 @@ services:
       - key: S3_FORCE_PATH_STYLE
         value: "false"
 
+      - key: GITHUB_IMAGE_ARCHIVE_TOKEN
+        sync: false
+
+      - key: GITHUB_IMAGE_ARCHIVE_REPOSITORY
+        value: ChiragSavani1/vape-mart-website
+
+      - key: GITHUB_IMAGE_ARCHIVE_BRANCH
+        value: product-images
+
       - key: RESEND_API_KEY
         sync: false
 

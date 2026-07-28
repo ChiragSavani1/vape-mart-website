@@ -5,6 +5,7 @@ import Link from "next/link";
 import type { AdminProduct } from "../../db/catalog";
 import type { SiteBanner } from "../../db/assets";
 import type { StoreHours } from "../data";
+import type { ImageWorkflowItem } from "../../db/image-workflow";
 
 type RequestStatus = "Pending" | "Available" | "Unavailable";
 export type AdminInquiry = {
@@ -15,7 +16,7 @@ export type AdminInquiry = {
   time:string;
   status:RequestStatus;
 };
-const tabs = ["Overview","Products","Imports","Banners","Store Hours","Requests"];
+const tabs = ["Overview","Products","Image Archive","Imports","Banners","Store Hours","Requests"];
 
 async function compressImage(file:File,maxWidth:number,maxHeight:number,targetBytes:number){
   const source=URL.createObjectURL(file);
@@ -56,6 +57,7 @@ export function AdminDashboard({
   initialProducts,
   initialBanners,
   initialStoreHours,
+  initialImageWorkflow,
 }: {
   user:string;
   signOut:string;
@@ -65,6 +67,7 @@ export function AdminDashboard({
   initialProducts:AdminProduct[];
   initialBanners:SiteBanner[];
   initialStoreHours:StoreHours;
+  initialImageWorkflow:ImageWorkflowItem[];
 }) {
   const [tab,setTab]=useState("Overview");
   const [products,setProducts]=useState(initialProducts);
@@ -83,6 +86,8 @@ export function AdminDashboard({
   const [imageSearchSummary,setImageSearchSummary]=useState("");
   const [storeHours,setStoreHours]=useState(initialStoreHours);
   const [savingHours,setSavingHours]=useState(false);
+  const [imageWorkflow,setImageWorkflow]=useState(initialImageWorkflow);
+  const [archivingImages,setArchivingImages]=useState(false);
 
   async function importFile(file?:File){
     if(!file)return; setImporting(true);
@@ -95,14 +100,21 @@ export function AdminDashboard({
     if(refreshed?.products)setProducts(refreshed.products);
     setImporting(false);
   }
-  async function searchMissingImages(){
+  async function refreshImageWorkflow(){
+    const data=await fetch("/api/admin/image-workflow").then(response=>response.json()).catch(()=>null);
+    if(data?.items)setImageWorkflow(data.items);
+  }
+  async function searchMissingImages(productId?:string){
     setSearchingImages(true);setRequestError("");setImageSearchSummary("");
     try{
-      const response=await fetch("/api/admin/image-search",{method:"POST"});
+      const response=await fetch("/api/admin/image-search",{
+        method:"POST",headers:{"content-type":"application/json"},body:JSON.stringify(productId?{productId}:{})
+      });
       const data=await response.json().catch(()=>null);
       if(!response.ok)throw new Error(data?.error||"The missing-image search could not be completed.");
       const refreshed=await fetch("/api/admin/products").then(result=>result.json()).catch(()=>null);
       if(refreshed?.products)setProducts(refreshed.products);
+      await refreshImageWorkflow();
       if(!data.searched)setImageSearchSummary("Every product already has an image.");
       else setImageSearchSummary(
         `Searched ${data.searched} missing products and added ${data.matched} high-confidence image${data.matched===1?"":"s"}. `
@@ -110,6 +122,19 @@ export function AdminDashboard({
       );
     }catch(reason){setRequestError(reason instanceof Error?reason.message:"The missing-image search could not be completed.")}
     finally{setSearchingImages(false)}
+  }
+  async function archiveImages(){
+    setArchivingImages(true);setRequestError("");setImageSearchSummary("");
+    try{
+      const response=await fetch("/api/admin/image-archive",{method:"POST"});
+      const data=await response.json().catch(()=>null);
+      if(!response.ok)throw new Error(data?.error||"The images could not be archived.");
+      await refreshImageWorkflow();
+      const refreshed=await fetch("/api/admin/products").then(result=>result.json()).catch(()=>null);
+      if(refreshed?.products)setProducts(refreshed.products);
+      setImageSearchSummary(`Archived ${data.archived} image${data.archived===1?"":"s"}. ${data.missing} missing temporary file${data.missing===1?" was":"s were"} returned to the search queue.${data.failed?` ${data.failed} archive attempt${data.failed===1?"":"s"} need attention.`:""}`);
+    }catch(reason){setRequestError(reason instanceof Error?reason.message:"The images could not be archived.")}
+    finally{setArchivingImages(false)}
   }
   async function status(id:string,status:RequestStatus){
     const previous=requests;
@@ -200,7 +225,18 @@ export function AdminDashboard({
       {requestError&&<div className="admin-alert error" role="alert">{requestError}</div>}
       {requestNotice&&<div className="admin-alert success" role="status">{requestNotice}</div>}
       {tab==="Overview"&&<><div className="metric-grid"><Metric label="Visible products" value={String(products.filter(p=>p.visible).length)} note="Hardware excluded"/><Metric label="Pending requests" value={String(requests.filter(r=>r.status==="Pending").length)} note="Needs a reply" warn/><Metric label="Products with images" value={String(products.filter(p=>p.image).length)} note={`of ${products.length}`}/><Metric label="Import review" value={String(products.filter(p=>p.missingReview).length)} note="Missing from latest file"/></div><div className="admin-grid"><Panel title="Recent availability requests" action={()=>setTab("Requests")} actionLabel="View all">{<RequestTable rows={requests.slice(0,8)} status={status}/>}</Panel><Panel title="Launch status"><div className="health-list"><Health label="Catalogue database" value="Connected" good/><Health label="Cart & tax estimate" value="Live" good/><Health label="Checkout & payment" value="Disabled"/><Health label="Hardware products" value="Excluded" good/></div></Panel></div></>}
-      {tab==="Products"&&<Panel title="Product catalogue" action={()=>setEditing({visible:true,featured:false,price:0})} actionLabel="Add product"><div className="admin-toolbar"><input value={productQuery} onChange={event=>setProductQuery(event.target.value)} placeholder="Search by name, UPC, or brand"/><select value={productCategory} onChange={event=>setProductCategory(event.target.value)}>{categories.map(category=><option key={category}>{category}</option>)}</select><button className="admin-primary image-search-button" disabled={searchingImages||!products.some(product=>!product.image)} onClick={searchMissingImages}>{searchingImages?"Searching 5 products…":"Find missing images"}</button></div>{imageSearchSummary&&<p className="image-search-summary" role="status">{imageSearchSummary}</p>}<div className="table-scroll"><table className="admin-table"><thead><tr><th>Product</th><th>UPC</th><th>Price</th><th>Featured</th><th>Visible</th><th>Actions</th></tr></thead><tbody>{filteredProducts.slice(0,300).map(p=><tr key={p.id}><td><span className="mini-art" style={{background:p.accent}}></span><b>{p.name}</b><small>{p.brand} · {p.category}</small></td><td>{p.upc}</td><td>${p.price.toFixed(2)}</td><td><input type="checkbox" checked={!!p.featured} onChange={()=>updateProduct(p.id,{featured:!p.featured})}/></td><td><input type="checkbox" checked={p.visible} onChange={()=>updateProduct(p.id,{visible:!p.visible})}/></td><td><button className="table-action" onClick={()=>setEditing(p)}>Edit</button><button className="table-action danger" onClick={()=>deleteProduct(p)}>Delete</button></td></tr>)}</tbody></table></div><p className="panel-intro">Showing {Math.min(300,filteredProducts.length)} of {filteredProducts.length} matching products. {products.filter(product=>!product.image).length} currently use a placeholder. Changes are saved to the live catalogue database.</p></Panel>}
+      {tab==="Products"&&<Panel title="Product catalogue" action={()=>setEditing({visible:true,featured:false,price:0})} actionLabel="Add product"><div className="admin-toolbar"><input value={productQuery} onChange={event=>setProductQuery(event.target.value)} placeholder="Search by name, UPC, or brand"/><select value={productCategory} onChange={event=>setProductCategory(event.target.value)}>{categories.map(category=><option key={category}>{category}</option>)}</select><button className="admin-primary image-search-button" disabled={searchingImages||!products.some(product=>!product.image)} onClick={()=>searchMissingImages()}>{searchingImages?"Searching 5 products…":"Find missing images"}</button></div>{imageSearchSummary&&<p className="image-search-summary" role="status">{imageSearchSummary}</p>}<div className="table-scroll"><table className="admin-table"><thead><tr><th>Product</th><th>UPC</th><th>Price</th><th>Featured</th><th>Visible</th><th>Actions</th></tr></thead><tbody>{filteredProducts.slice(0,300).map(p=><tr key={p.id}><td><span className="mini-art" style={{background:p.accent}}></span><b>{p.name}</b><small>{p.brand} · {p.category}</small></td><td>{p.upc}</td><td>${p.price.toFixed(2)}</td><td><input type="checkbox" checked={!!p.featured} onChange={()=>updateProduct(p.id,{featured:!p.featured})}/></td><td><input type="checkbox" checked={p.visible} onChange={()=>updateProduct(p.id,{visible:!p.visible})}/></td><td><button className="table-action" onClick={()=>setEditing(p)}>Edit</button><button className="table-action danger" onClick={()=>deleteProduct(p)}>Delete</button></td></tr>)}</tbody></table></div><p className="panel-intro">Showing {Math.min(300,filteredProducts.length)} of {filteredProducts.length} matching products. {products.filter(product=>!product.image).length} currently use a placeholder. Changes are saved to the live catalogue database.</p></Panel>}
+      {tab==="Image Archive"&&<div className="image-workflow-page">
+        <div className="image-workflow-actions">
+          <div><h2>Product image recovery</h2><p>Missing images stay on the normal placeholder until a replacement is found. Searches run in batches of five.</p></div>
+          <div><button className="admin-primary" disabled={searchingImages} onClick={()=>searchMissingImages()}>{searchingImages?"Searching 5 products…":"Search next 5 missing images"}</button><button className="admin-primary secondary-admin" disabled={archivingImages||!imageWorkflow.some(item=>item.status==="temporary")} onClick={archiveImages}>{archivingImages?"Archiving…":"Archive Images to GitHub"}</button></div>
+        </div>
+        {imageSearchSummary&&<p className="image-search-summary" role="status">{imageSearchSummary}</p>}
+        <ImageQueue title="Temporary images ready to archive" items={imageWorkflow.filter(item=>item.status==="temporary"||item.status==="archiving")} empty="No temporary images are waiting."/>
+        <ImageQueue title="Missing images needing search" items={imageWorkflow.filter(item=>item.status==="missing"&&!item.lastFailureReason)} empty="No missing images are waiting." retry={id=>searchMissingImages(id)} busy={searchingImages}/>
+        <ImageQueue title="Failed searches" items={imageWorkflow.filter(item=>item.status==="missing"&&Boolean(item.lastFailureReason))} empty="No failed image searches." retry={id=>searchMissingImages(id)} busy={searchingImages}/>
+        <ImageQueue title="Archived images" items={imageWorkflow.filter(item=>item.status==="archived")} empty="No recovered images have been archived yet."/>
+      </div>}
       {tab==="Imports"&&<div className="two-columns"><Panel title="Import RetailzPOS Excel export"><div className="upload-zone"><span>⇧</span><h3>Drop an .xlsx, .xls, or .csv file here</h3><p>RetailzPOS columns such as Item Name, Department Name, Category Name, and Sub Category Name are recognized automatically. Products match by UPC, Hardware is excluded, and missing rows are flagged—not deleted.</p><label className="admin-primary">{importing?"Analysing…":"Choose Excel file"}<input type="file" accept=".xlsx,.xls,.csv" hidden onChange={e=>importFile(e.target.files?.[0])}/></label></div></Panel><Panel title="Last import summary">{importSummary?<div className="summary-grid"><Metric label="Added" value={String(importSummary.added)} note="New UPCs"/><Metric label="Updated" value={String(importSummary.updated)} note="Prices & details"/><Metric label="Images found" value={String(importSummary.imagesMatched)} note="Matched automatically"/><Metric label="Need an image" value={String(importSummary.imagesUnmatched)} note="New products to review" warn={importSummary.imagesUnmatched>0}/><Metric label="Duplicates" value={String(importSummary.duplicates)} note="Review required" warn/><Metric label="Hardware skipped" value={String(importSummary.hardware)} note="Automatic"/><Metric label="Rows skipped" value={String(importSummary.skippedRows)} note={`of ${importSummary.totalRows} rows`} warn={importSummary.skippedRows>0}/><Metric label="Missing / review" value={String(importSummary.review)} note="Not deleted"/></div>:<div className="blank"><b>No import in this session</b><p>Upload a RetailzPOS export to see product and automatic-image matching results.</p></div>}</Panel></div>}
       {tab==="Banners"&&<><Panel title={`Hero banners (${banners.length}/6)`}><form className="banner-upload" onSubmit={event=>{event.preventDefault();uploadBanner(event.currentTarget)}}><label>Banner image<input name="file" type="file" accept="image/*" required disabled={banners.length>=6}/></label><label>Accessible description<input name="alt" placeholder="New arrival promotion" required/></label><button className="admin-primary" disabled={uploading||banners.length>=6}>{uploading?"Uploading…":"Upload banner"}</button></form><p className="panel-intro">{banners.length?"These banners replace the default hero rotation. Delete all custom banners to restore the original three.":"No custom banners uploaded. The original three banners are currently shown."}</p><div className="banner-admin-grid">{banners.map(banner=><article key={banner.id}><img src={banner.src} alt=""/><div><b>{banner.alt}</b><button onClick={()=>deleteBanner(banner.id)}>Remove</button></div></article>)}</div></Panel></>}
       {tab==="Store Hours"&&<Panel title="Public store hours"><form className="store-hours-admin" onSubmit={saveHours}>
@@ -218,6 +254,19 @@ export function AdminDashboard({
 function Metric({label,value,note,warn}:{label:string,value:string,note:string,warn?:boolean}){return <div className="metric"><span>{label}</span><strong className={warn?"warn":""}>{value}</strong><small>{note}</small></div>}
 function Panel({title,children,action,actionLabel}:{title:string;children:React.ReactNode;action?:()=>void;actionLabel?:string}){return <section className="admin-panel"><header><h2>{title}</h2>{actionLabel&&<button onClick={action}>{actionLabel} →</button>}</header>{children}</section>}
 function Health({label,value,good}:{label:string,value:string,good?:boolean}){return <div><span>{label}</span><b className={good?"good":""}>{value}</b></div>}
+function ImageQueue({title,items,empty,retry,busy=false}:{title:string;items:ImageWorkflowItem[];empty:string;retry?:(id:string)=>void;busy?:boolean}) {
+  return <section className="admin-panel image-queue"><header><h2>{title}</h2><span>{items.length}</span></header>
+    {!items.length?<div className="blank"><p>{empty}</p></div>:<div className="image-queue-grid">{items.map(item=><article key={item.productId}>
+      <div className="image-queue-preview">{item.image?<img src={item.image} alt=""/>:<span aria-hidden="true">Image pending</span>}</div>
+      <div className="image-queue-copy"><b>{item.name}</b><small>{item.brand} · UPC {item.upc}{item.sku?` · SKU ${item.sku}`:""}</small>
+        <dl><div><dt>Status</dt><dd>{item.status}</dd></div><div><dt>Retries</dt><dd>{item.retryCount}</dd></div><div><dt>Last search</dt><dd>{item.lastSearchAt?new Date(item.lastSearchAt).toLocaleString():"Not searched yet"}</dd></div></dl>
+        {item.previousSourceUrl&&<p>Previous source: <span>{item.previousSourceUrl}</span></p>}
+        {item.lastFailureReason&&<p className="image-failure">{item.lastFailureReason}</p>}
+        {retry&&<button className="table-action" disabled={busy} onClick={()=>retry(item.productId)}>Retry this product</button>}
+      </div>
+    </article>)}</div>}
+  </section>;
+}
 function RequestTable({rows,status}:{rows:AdminInquiry[];status:(id:string,status:RequestStatus)=>void}){
   if(!rows.length)return <div className="blank"><b>No availability requests yet</b><p>New customer requests will appear here automatically.</p></div>;
   return <div className="table-scroll"><table className="admin-table request-table"><thead><tr><th>Request</th><th>Customer</th><th>Product</th><th>Received</th><th>Status / reply</th></tr></thead><tbody>{rows.map(r=><tr key={r.id}><td><b>{r.id}</b></td><td>{r.customer}<small>{r.contact}</small></td><td>{r.product}</td><td>{r.time}</td><td><select value={r.status} onChange={e=>status(r.id,e.target.value as RequestStatus)} className={`status ${r.status.toLowerCase()}`}><option>Pending</option><option>Available</option><option>Unavailable</option></select></td></tr>)}</tbody></table></div>;

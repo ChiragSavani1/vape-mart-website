@@ -21,7 +21,7 @@ export function CartClient(){
     <section className="cart-items"><p className="eyebrow">Your selection</p><h1>Cart</h1>
       <p className="muted">Review your saved products and open any item to send an in-store availability request.</p>
       {items.map(item=><article className="cart-row" key={item.id}>
-        <div className="cart-thumb">{item.image?<img src={item.image} alt="" loading="lazy" decoding="async"/>:<span>VM</span>}</div>
+        <div className="cart-thumb"><span>VM</span>{item.image&&<img src={item.image} alt="" loading="lazy" decoding="async" onError={event=>event.currentTarget.remove()}/>}</div>
         <div><Link href={`/products/${item.slug}`}><b>{item.name}</b></Link><small>{money(item.price)} each</small><button className="cart-availability-link" onClick={()=>setAvailability(item)}>Check availability</button></div>
         <div className="quantity"><button onClick={()=>update(item.id,item.quantity-1)} aria-label={`Decrease ${item.name}`}>−</button><span>{item.quantity}</span><button onClick={()=>update(item.id,item.quantity+1)} aria-label={`Increase ${item.name}`}>+</button></div>
         <strong>{money(item.price*item.quantity)}</strong>

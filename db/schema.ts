@@ -27,5 +27,22 @@ export const settings=pgTable("settings",{key:text("key").primaryKey(),value:tex
 export const productDeletions=pgTable("product_deletions",{productId:text("product_id").primaryKey(),deletedAt:text("deleted_at").notNull()});
 export const banners=pgTable("banners",{id:text("id").primaryKey(),objectKey:text("object_key").notNull(),altText:text("alt_text").notNull(),position:integer("position").notNull(),createdAt:text("created_at").notNull()},table=>[uniqueIndex("banners_object_key_unique").on(table.objectKey)]);
 export const imageAssets=pgTable("image_assets",{id:text("id").primaryKey(),objectKey:text("object_key").notNull(),originalName:text("original_name").notNull(),normalizedName:text("normalized_name").notNull(),createdAt:text("created_at").notNull()},table=>[uniqueIndex("image_assets_object_key_unique").on(table.objectKey)]);
+export const productImageStates=pgTable("product_image_states",{
+  productId:text("product_id").primaryKey(),
+  status:text("status").notNull().default("missing"),
+  sku:text("sku"),
+  upc:text("upc").notNull(),
+  previousSourceUrl:text("previous_source_url"),
+  temporaryPath:text("temporary_path"),
+  archivedUrl:text("archived_url"),
+  retryCount:integer("retry_count").notNull().default(0),
+  retryRequested:integer("retry_requested").notNull().default(0),
+  lastSearchAt:text("last_search_at"),
+  lastFailureReason:text("last_failure_reason"),
+  updatedAt:text("updated_at").notNull(),
+},table=>[
+  index("product_image_states_status_idx").on(table.status),
+  index("product_image_states_retry_idx").on(table.retryRequested,table.lastSearchAt),
+]);
 export const adminSessions=pgTable("admin_sessions",{id:text("id").primaryKey(),email:text("email").notNull(),tokenHash:text("token_hash").notNull(),createdAt:text("created_at").notNull(),expiresAt:text("expires_at").notNull()},table=>[uniqueIndex("admin_sessions_token_hash_unique").on(table.tokenHash),index("admin_sessions_expires_idx").on(table.expiresAt)]);
 export const adminLoginAttempts=pgTable("admin_login_attempts",{id:text("id").primaryKey(),ipHash:text("ip_hash").notNull(),attemptedAt:text("attempted_at").notNull(),successful:integer("successful").notNull().default(0)},table=>[index("admin_login_attempts_ip_time_idx").on(table.ipHash,table.attemptedAt)]);

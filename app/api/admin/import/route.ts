@@ -4,6 +4,7 @@ import { ensureDatabase, type PostgresPreparedQuery } from "../../../../db/runti
 import { findAutomaticImage } from "../../../../db/assets";
 import { authorizeAdmin } from "../authorize";
 import { importedProducts } from "../../../products.generated";
+import { reconcileTemporaryImages } from "../../../../db/image-workflow";
 
 export const dynamic = "force-dynamic";
 
@@ -41,10 +42,11 @@ export async function POST(request:NextRequest) {
     const rows = readRows(workbook);
     if(!rows)return NextResponse.json({error:"No RetailzPOS product table was found. The file must include UPC, Item Name, and Retail Price columns."},{status:400});
     const seen = new Set<string>();
-    const products:{upc:string;name:string;category:string;brand:string;flavour:string;price:number}[]=[];
+    const products:{upc:string;sku:string;name:string;category:string;brand:string;flavour:string;price:number}[]=[];
     let duplicates=0,hardware=0,skippedRows=0;
     for(const row of rows){
       const upc=cleanUpc(findValue(row,["upc","barcode","upc code","sku/upc"]));
+      const sku=String(findValue(row,["sku","item sku","product sku","item number"])).trim();
       const name=String(findValue(row,["item name","product name","name","item","description"])).trim();
       const category=String(findValue(row,["department name","department","category","product category"])).trim();
       const brand=String(findValue(row,["category name","brand","manufacturer"])).trim()||"Unbranded";
@@ -53,17 +55,19 @@ export async function POST(request:NextRequest) {
       if(category.toLowerCase().includes("hardware")){hardware++;continue}
       if(!upc||!name||!category||category.toLowerCase()==="null"||!Number.isFinite(price)){skippedRows++;continue}
       if(seen.has(upc)){duplicates++;continue}
-      seen.add(upc);products.push({upc,name,category,brand,flavour,price});
+      seen.add(upc);products.push({upc,sku,name,category,brand,flavour,price});
     }
     if(!products.length)return NextResponse.json({error:"No importable products were found. Check the UPC, Item Name, Department Name, and Retail Price columns."},{status:400});
     const db = await ensureDatabase();
+    await reconcileTemporaryImages();
     const imported = new Set(products.map(product=>product.upc));
     const staticByUpc=new Map(importedProducts.map(product=>[product.upc,product]));
     const databaseRows=await db.prepare("SELECT id,upc,slug,image_key FROM products").all<{id:string;upc:string;slug:string;image_key:string|null}>();
     const databaseByUpc=new Map((databaseRows.results||[]).map(product=>[product.upc,product]));
     const writes:PostgresPreparedQuery[]=[];
+    const missingImageStates:{id:string;upc:string;sku:string}[]=[];
     let added=0,updated=0,imagesMatched=0,imagesUnmatched=0;
-    for(const {upc,name,category,brand,flavour,price} of products){
+    for(const {upc,sku,name,category,brand,flavour,price} of products){
       const existing=databaseByUpc.get(upc);
       const staticProduct=staticByUpc.get(upc);
       let image=existing?.image_key||staticProduct?.image||null;
@@ -73,6 +77,8 @@ export async function POST(request:NextRequest) {
         if(match)imagesMatched++;
       }
       if(existing||staticProduct)updated++;else{added++;if(!image)imagesUnmatched++}
+      const productId=existing?.id||staticProduct?.id||crypto.randomUUID();
+      if(!image)missingImageStates.push({id:productId,upc,sku});
       writes.push(db.prepare(`INSERT INTO products (id,upc,slug,name,brand,category,flavour,price,image_key,visible,featured,updated_at)
         VALUES (?,?,?,?,?,?,?,?,?,?,?,?)
         ON CONFLICT(upc) DO UPDATE SET
@@ -82,10 +88,23 @@ export async function POST(request:NextRequest) {
           flavour=excluded.flavour,price=excluded.price,
           image_key=CASE WHEN products.manual_image=1 THEN products.image_key ELSE COALESCE(NULLIF(products.image_key,''),excluded.image_key) END,
           missing_review=0,updated_at=excluded.updated_at`)
-        .bind(existing?.id||staticProduct?.id||crypto.randomUUID(),upc,existing?.slug||staticProduct?.slug||`${slugify(name)}-${upc.slice(-4)}`,
+        .bind(productId,upc,existing?.slug||staticProduct?.slug||`${slugify(name)}-${upc.slice(-4)}`,
           name,brand,category,flavour,price,image,1,staticProduct?.featured?1:0,new Date().toISOString()));
     }
     for(let index=0;index<writes.length;index+=75)await db.batch(writes.slice(index,index+75));
+    if(missingImageStates.length) {
+      const now=new Date().toISOString();
+      const stateWrites=missingImageStates.map(product=>db.prepare(`INSERT INTO product_image_states
+        (product_id,status,sku,upc,retry_count,retry_requested,updated_at)
+        VALUES (?,?,?,?,0,0,?)
+        ON CONFLICT(product_id) DO UPDATE SET
+          sku=COALESCE(NULLIF(excluded.sku,''),product_image_states.sku),
+          upc=excluded.upc,
+          status=CASE WHEN product_image_states.status='archived' THEN product_image_states.status ELSE 'missing' END,
+          updated_at=excluded.updated_at`)
+        .bind(product.id,"missing",product.sku||null,product.upc,now));
+      for(let index=0;index<stateWrites.length;index+=75)await db.batch(stateWrites.slice(index,index+75));
+    }
     const existingUpcs=await db.prepare("SELECT upc FROM products WHERE visible = 1").all<{upc:string}>();
     const missing=existingUpcs.results.filter(x=>!imported.has(x.upc)).map(x=>x.upc);
     if(missing.length) await db.batch(missing.map(upc=>db.prepare("UPDATE products SET missing_review = 1 WHERE upc = ?").bind(upc)));

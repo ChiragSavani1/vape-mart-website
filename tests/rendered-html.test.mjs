@@ -116,7 +116,8 @@ test("admin product controls persist through protected APIs", async () => {
   assert.match(dashboard, /Change image/);
   assert.match(dashboard, /compressProductImage/);
   assert.match(productImageApi, /manual_image=1/);
-  assert.match(productImageApi, /putObject\(/);
+  assert.match(productImageApi, /writeTemporaryProductImage/);
+  assert.match(productImageApi, /markImageTemporary/);
   assert.doesNotMatch(dashboard, /Taylor M\.|taylor@example\.com/);
 });
 
@@ -197,10 +198,46 @@ test("admin can run a controlled missing-image search", async () => {
   assert.match(imageSearch, /authorizeAdmin/);
   assert.match(imageSearch, /duckduckgo\.com/);
   assert.match(imageSearch, /trustedOfficialHosts/);
-  assert.match(imageSearch, /confidence >= \.72/);
-  assert.match(imageSearch, /putObject\(/);
+  assert.match(imageSearch, /confidence>=\.72/);
+  assert.match(imageSearch, /BATCH_SIZE=5/);
+  assert.match(imageSearch, /writeTemporaryProductImage/);
   assert.match(imageSearch, /image_matches/);
   assert.match(imageSearch, /NoMatch/);
+});
+
+test("temporary product images recover safely and require an explicit GitHub archive action", async () => {
+  const [workflow,temporary,imageRoute,imageSearch,archiveRoute,dashboard,catalogue,storefront,schema] = await Promise.all([
+    readFile(new URL("db/image-workflow.ts", root), "utf8"),
+    readFile(new URL("db/temporary-images.ts", root), "utf8"),
+    readFile(new URL("app/api/temporary-images/[file]/route.ts", root), "utf8"),
+    readFile(new URL("app/api/admin/image-search/route.ts", root), "utf8"),
+    readFile(new URL("app/api/admin/image-archive/route.ts", root), "utf8"),
+    readFile(new URL("app/admin/dashboard.tsx", root), "utf8"),
+    readFile(new URL("db/catalog.ts", root), "utf8"),
+    readFile(new URL("app/storefront.tsx", root), "utf8"),
+    readFile(new URL("db/schema.ts", root), "utf8"),
+  ]);
+  assert.match(schema, /productImageStates/);
+  assert.match(schema, /retryCount/);
+  assert.match(schema, /lastFailureReason/);
+  assert.match(workflow, /Temporary image file disappeared from Render storage/);
+  assert.match(workflow, /status='missing'/);
+  assert.match(workflow, /status='temporary'/);
+  assert.match(workflow, /status='archiving'/);
+  assert.match(workflow, /status='archived'/);
+  assert.match(temporary, /productStem/);
+  assert.match(temporary, /existing\.startsWith/);
+  assert.match(imageRoute, /markMissingByTemporaryFile/);
+  assert.match(catalogue, /reconcileTemporaryImages/);
+  assert.match(storefront, /onError=\{\(\)=>setImageFailed\(true\)\}/);
+  assert.match(dashboard, /Temporary images ready to archive/);
+  assert.match(dashboard, /Missing images needing search/);
+  assert.match(dashboard, /Failed searches/);
+  assert.match(dashboard, /Archived images/);
+  assert.match(dashboard, /Retry this product/);
+  assert.match(dashboard, /Archive Images to GitHub/);
+  assert.match(archiveRoute, /GITHUB_IMAGE_ARCHIVE_TOKEN/);
+  assert.doesNotMatch(imageSearch, /image-archive/);
 });
 
 test("mobile catalogue defers and caches product imagery", async () => {

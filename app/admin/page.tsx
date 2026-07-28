@@ -6,6 +6,7 @@ import { loadProducts, type AdminProduct } from "../../db/catalog";
 import { loadBanners, type SiteBanner } from "../../db/assets";
 import { emailIsConfigured } from "../../db/email";
 import { loadStoreHours } from "../../db/store-settings";
+import { loadImageWorkflow, type ImageWorkflowItem } from "../../db/image-workflow";
 
 export const dynamic = "force-dynamic";
 
@@ -15,6 +16,7 @@ export default async function AdminPage() {
   let databaseError = "";
   let adminProducts:AdminProduct[] = [];
   let initialBanners:SiteBanner[] = [];
+  let initialImageWorkflow:ImageWorkflowItem[]=[];
   const initialStoreHours=await loadStoreHours();
   let initialRequests: Array<{id:string;customer:string;contact:string;product:string;time:string;status:"Pending"|"Available"|"Unavailable"}> = [];
   try {
@@ -35,7 +37,7 @@ export default async function AdminPage() {
     databaseError = "Availability requests could not be loaded. Refresh the page to try again.";
   }
   try {
-    [adminProducts,initialBanners] = await Promise.all([loadProducts(true),loadBanners()]);
+    [adminProducts,initialBanners,initialImageWorkflow] = await Promise.all([loadProducts(true),loadBanners(),loadImageWorkflow()]);
   } catch (error) {
     console.error("admin_products_load_failed", error);
     databaseError = databaseError || "Products could not be loaded. Refresh the page to try again.";
@@ -49,5 +51,6 @@ export default async function AdminPage() {
     initialProducts={adminProducts}
     initialBanners={initialBanners}
     initialStoreHours={initialStoreHours}
+    initialImageWorkflow={initialImageWorkflow}
   />;
 }

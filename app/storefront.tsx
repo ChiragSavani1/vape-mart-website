@@ -81,9 +81,12 @@ function AgeGate() {
 }
 
 export function ProductArt({ product, priority = false }: { product: Product; priority?: boolean }) {
-  if (product.image) return <div className="product-art product-photo"><img
+  const [imageFailed,setImageFailed]=useState(false);
+  useEffect(()=>setImageFailed(false),[product.image]);
+  if (product.image&&!imageFailed) return <div className="product-art product-photo"><img
     src={product.image}
     alt={product.name}
+    onError={()=>setImageFailed(true)}
     loading={priority ? "eager" : "lazy"}
     decoding="async"
     fetchPriority={priority ? "high" : "auto"}
@@ -138,7 +141,7 @@ export function Inquiry({ product, close, initialQuantity = 1 }: { product: Avai
     <button ref={closeButton} className="modal-close" onClick={close} aria-label="Close availability form">×</button>
     {receipt ? <div className="success"><span>✓</span><h2>Request received</h2><p>Our store team will check this product and reply using the contact details you provided.</p>{receipt.id&&<small>Request reference: {receipt.id.slice(0,8).toUpperCase()}</small>}<button className="primary" onClick={close}>Done</button></div> : <>
       <div className="inquiry-product">
-        <div className="inquiry-product-image">{product.image?<img src={product.image} alt="" loading="eager"/>:<span>VM</span>}</div>
+        <div className="inquiry-product-image"><span>VM</span>{product.image&&<img src={product.image} alt="" loading="eager" onError={event=>event.currentTarget.remove()}/>}</div>
         <div><p className="eyebrow">In-store availability</p><h2 id={titleId}>{product.name}</h2></div>
       </div>
       <p className="muted">This is an availability request only—not an order or reservation.</p>
