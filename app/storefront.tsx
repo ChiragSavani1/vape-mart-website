@@ -209,14 +209,18 @@ const priceRanges = [
 function HeroCarousel({banners}:{banners:{src:string;alt:string}[]}) {
   const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [failedBanners,setFailedBanners]=useState<string[]>([]);
+  const availableBanners=banners.filter(banner=>!failedBanners.includes(banner.src));
+  const slides=availableBanners.length?availableBanners:defaultArrivalBanners;
   const pointer = useRef<{id:number;x:number;y:number;horizontal:boolean}|null>(null);
   const dragged = useRef(false);
   useEffect(() => {
     if (paused) return;
-    const timer = window.setInterval(() => setActive(value => (value + 1) % banners.length), 5500);
+    const timer = window.setInterval(() => setActive(value => (value + 1) % slides.length), 5500);
     return () => window.clearInterval(timer);
-  }, [paused,banners.length]);
-  const select = (index: number) => setActive((index + banners.length) % banners.length);
+  }, [paused,slides.length]);
+  useEffect(()=>{if(active>=slides.length)setActive(0)},[active,slides.length]);
+  const select = (index: number) => setActive((index + slides.length) % slides.length);
   const move = (event: React.PointerEvent<HTMLElement>) => {
     if (event.pointerType === "touch") return;
     const bounds = event.currentTarget.getBoundingClientRect();
@@ -271,19 +275,19 @@ function HeroCarousel({banners}:{banners:{src:string;alt:string}[]}) {
     onPointerCancel={event => { pointer.current=null;setPaused(false);reset(event.currentTarget); }}
   >
     <div className="banner-stack">
-      {banners.map((banner, index) => <a
+      {slides.map((banner, index) => <a
         className={`banner-slide ${index === active ? "active" : ""}`}
         href="#catalogue"
         aria-hidden={index !== active}
         tabIndex={index === active ? 0 : -1}
         onClick={event=>{if(dragged.current){event.preventDefault();dragged.current=false}}}
         key={banner.src}
-      ><img src={banner.src} alt={banner.alt} loading={index === active ? "eager" : "lazy"} decoding="async" fetchPriority={index === active ? "high" : "low"}/></a>)}
+      ><img src={banner.src} alt={banner.alt} loading={index === active ? "eager" : "lazy"} decoding="async" fetchPriority={index === active ? "high" : "low"} onError={()=>setFailedBanners(current=>current.includes(banner.src)?current:[...current,banner.src])}/></a>)}
     </div>
     <button className="carousel-arrow previous" onClick={() => select(active - 1)} aria-label="Previous poster">←</button>
     <button className="carousel-arrow next" onClick={() => select(active + 1)} aria-label="Next poster">→</button>
     <div className="carousel-dots">
-      {banners.map((banner, index) => <button
+      {slides.map((banner, index) => <button
         className={index === active ? "active" : ""}
         onClick={() => select(index)}
         aria-label={`Show banner ${index + 1}: ${banner.alt}`}

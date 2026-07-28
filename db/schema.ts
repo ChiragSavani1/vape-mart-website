@@ -25,7 +25,15 @@ export const promotions=pgTable("promotions",{id:text("id").primaryKey(),name:te
 export const promotionProducts=pgTable("promotion_products",{promotionId:text("promotion_id").notNull(),productId:text("product_id").notNull()});
 export const settings=pgTable("settings",{key:text("key").primaryKey(),value:text("value").notNull(),updatedAt:text("updated_at").notNull()});
 export const productDeletions=pgTable("product_deletions",{productId:text("product_id").primaryKey(),deletedAt:text("deleted_at").notNull()});
-export const banners=pgTable("banners",{id:text("id").primaryKey(),objectKey:text("object_key").notNull(),altText:text("alt_text").notNull(),position:integer("position").notNull(),createdAt:text("created_at").notNull()},table=>[uniqueIndex("banners_object_key_unique").on(table.objectKey)]);
+export const banners=pgTable("banners",{
+  id:text("id").primaryKey(),objectKey:text("object_key").notNull(),altText:text("alt_text").notNull(),
+  position:integer("position").notNull(),createdAt:text("created_at").notNull(),
+  originalFilename:text("original_filename"),temporaryPath:text("temporary_path"),publicUrl:text("public_url"),
+  imageStatus:text("image_status").notNull().default("missing"),sourceType:text("source_type").notNull().default("admin_upload"),
+  githubPath:text("github_path"),githubCommitSha:text("github_commit_sha"),archivedAt:text("archived_at"),
+  hiddenFromAdmin:integer("hidden_from_admin").notNull().default(0),dismissedAt:text("dismissed_at"),
+  dismissedBy:text("dismissed_by"),lastFailureReason:text("last_failure_reason"),updatedAt:text("updated_at"),
+},table=>[uniqueIndex("banners_object_key_unique").on(table.objectKey),index("banners_image_status_idx").on(table.imageStatus)]);
 export const imageAssets=pgTable("image_assets",{id:text("id").primaryKey(),objectKey:text("object_key").notNull(),originalName:text("original_name").notNull(),normalizedName:text("normalized_name").notNull(),createdAt:text("created_at").notNull()},table=>[uniqueIndex("image_assets_object_key_unique").on(table.objectKey)]);
 export const productImageStates=pgTable("product_image_states",{
   productId:text("product_id").primaryKey(),
@@ -39,6 +47,12 @@ export const productImageStates=pgTable("product_image_states",{
   retryRequested:integer("retry_requested").notNull().default(0),
   lastSearchAt:text("last_search_at"),
   lastFailureReason:text("last_failure_reason"),
+  githubPath:text("github_path"),
+  githubCommitSha:text("github_commit_sha"),
+  archivedAt:text("archived_at"),
+  hiddenFromAdmin:integer("hidden_from_admin").notNull().default(0),
+  dismissedAt:text("dismissed_at"),
+  dismissedBy:text("dismissed_by"),
   updatedAt:text("updated_at").notNull(),
 },table=>[
   index("product_image_states_status_idx").on(table.status),

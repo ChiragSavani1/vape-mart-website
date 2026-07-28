@@ -14,7 +14,8 @@ export async function GET(_:Request,{params}:{params:Promise<{file:string}>}) {
   const repository=process.env.GITHUB_IMAGE_ARCHIVE_REPOSITORY;
   const branch=process.env.GITHUB_IMAGE_ARCHIVE_BRANCH;
   if(!token||!repository||!branch)return NextResponse.json({error:"Image archive is unavailable."},{status:404});
-  const response=await fetch(`https://api.github.com/repos/${repository}/contents/public/products/archived/${file}?ref=${encodeURIComponent(branch)}`,{
+  const repositoryPath=file.startsWith("banner-")?`public/banners/${file}`:`public/products/archived/${file}`;
+  const response=await fetch(`https://api.github.com/repos/${repository}/contents/${repositoryPath}?ref=${encodeURIComponent(branch)}`,{
     headers:{accept:"application/vnd.github.raw+json",authorization:`Bearer ${token}`,"x-github-api-version":"2022-11-28"},
     next:{revalidate:3600},
   });

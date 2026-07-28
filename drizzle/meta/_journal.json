@@ -15,6 +15,13 @@
       "when": 1785273820452,
       "tag": "0001_lowly_the_watchers",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1785277633484,
+      "tag": "0002_optimal_korath",
+      "breakpoints": true
     }
   ]
 }

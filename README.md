@@ -32,11 +32,11 @@ Configure every environment variable shown in `.env.example`. Use Render's inter
 
 ## Persistent images
 
-Uploaded banners and the distributor image library use external S3-compatible object storage (AWS S3, Cloudflare R2, Backblaze B2, DigitalOcean Spaces, etc.). Configure the `S3_*` variables.
+The optional distributor image library uses external S3-compatible object storage (AWS S3, Cloudflare R2, Backblaze B2, DigitalOcean Spaces, etc.). Configure the `S3_*` variables only when that library is used. Banner uploads do not require S3.
 
-Images recovered by the missing-image finder are intentionally downloaded to Render's temporary filesystem first. Their database status is `temporary` until an administrator chooses **Archive Images to GitHub**. If Render removes a temporary file, the catalogue immediately returns to its normal placeholder and the product re-enters the missing-image queue without losing its UPC, SKU, source URL, retry count, failure reason, or search history.
+Uploaded banners and images recovered by the missing-image finder are intentionally written to Render's temporary filesystem first. Their database status is `temporary` until an administrator chooses **Archive Images to GitHub**. If Render removes a temporary product image, the catalogue returns to its normal placeholder and the product re-enters the missing-image queue. If a temporary banner disappears, it is removed from the carousel and the bundled banners remain as the fallback.
 
-To enable the manual archive action, create a dedicated branch such as `product-images`, then configure `GITHUB_IMAGE_ARCHIVE_TOKEN`, `GITHUB_IMAGE_ARCHIVE_REPOSITORY`, and `GITHUB_IMAGE_ARCHIVE_BRANCH`. The token needs Contents read/write access to the configured repository. Images are not committed automatically.
+To enable the manual archive action, create a dedicated branch such as `product-images`, then configure `GITHUB_IMAGE_ARCHIVE_TOKEN`, `GITHUB_IMAGE_ARCHIVE_REPOSITORY`, and `GITHUB_IMAGE_ARCHIVE_BRANCH`. The token needs Contents read/write access to the configured repository. Images and banners are not committed automatically.
 
 The RetailzPOS import matches UPCs first, adds and updates products, excludes Hardware, flags missing products for review, preserves manual fields, and attempts to match approved existing images. The admin can upload a product image or run the controlled missing-image search.
 
@@ -47,7 +47,7 @@ Set `RESEND_API_KEY` and a verified `EMAIL_FROM`. Requests are stored even if ma
 ## Backups and launch
 
 - Enable Render Postgres backups and periodically verify a restore.
-- Enable versioning/lifecycle protection on the S3 bucket.
+- If the optional S3 image library is enabled, use bucket versioning/lifecycle protection.
 - Keep a secure copy of Render environment variables.
 - Test login/logout, Excel import, image upload, availability request/reply, mobile catalogue, and `/api/health`.
 - Keep the existing Cloudflare deployment live until the Render service, database, storage, email, and custom domain have all been verified.
