@@ -64,19 +64,25 @@ test("uses exact Envi Apex artwork and price-validated e-liquid bottle sizes", a
   assert.match(storefront, /eliquid/);
 });
 
-test("provides a non-transactional cart with Ontario HST and no checkout", async () => {
-  const [cart, storefront] = await Promise.all([
+test("provides a persistent availability list with Ontario HST", async () => {
+  const [cart, storage, storefront] = await Promise.all([
     readFile(new URL("app/cart/cart-client.tsx", root), "utf8"),
+    readFile(new URL("app/cart/cart-storage.ts", root), "utf8"),
     readFile(new URL("app/storefront.tsx", root), "utf8"),
   ]);
-  assert.match(storefront, /Add to cart/);
+  assert.match(storefront, /Add to List/);
   assert.match(storefront, /href="\/cart"/);
+  assert.match(storefront, /selectedQuantity/);
+  assert.match(storefront, /vapemart-cart/);
+  assert.match(storage, /localStorage/);
   assert.match(cart, /subtotal\*0\.13/);
-  assert.match(cart, /Checkout coming soon/);
+  assert.match(cart, /My List/);
+  assert.match(cart, /Check availability/);
   assert.doesNotMatch(cart, /paymentIntent|checkoutSession|Place order/);
+  assert.doesNotMatch(cart, /checkout|payment unavailable|online ordering is disabled/i);
 });
 
-test("product pages use a dark detail layout with cart and availability actions", async () => {
+test("product pages use a dark detail layout with list and availability actions", async () => {
   const [page, detail, css] = await Promise.all([
     readFile(new URL("app/products/[slug]/page.tsx", root), "utf8"),
     readFile(new URL("app/products/[slug]/product-detail-client.tsx", root), "utf8"),
@@ -84,10 +90,11 @@ test("product pages use a dark detail layout with cart and availability actions"
   ]);
   assert.match(page, /product-detail-theme/);
   assert.doesNotMatch(page, /ProductCard/);
-  assert.match(detail, /Add to cart/);
+  assert.match(detail, /Add to List/);
   assert.match(detail, /Check availability/);
-  assert.match(detail, /addToCart/);
+  assert.match(detail, /addToList/);
   assert.match(detail, /<Inquiry/);
+  assert.doesNotMatch(detail, /checkout|payment remains|catalogue cart/i);
   assert.match(css, /Dark editorial product-detail experience/);
   assert.match(css, /\.product-detail-page/);
 });
@@ -181,6 +188,33 @@ test("mobile catalogue defers and caches product imagery", async () => {
   assert.match(storefront, /vape-mart-logo-small\.webp/);
   assert.match(assetRoute, /max-age=31536000, immutable/);
   assert.match(css, /content-visibility:auto/);
+  assert.match(css, /repeat\(2,minmax\(0,1fr\)\)/);
+  assert.match(css, /repeat\(3,minmax\(0,1fr\)\)/);
+  assert.match(css, /repeat\(5,minmax\(0,1fr\)\)/);
+  assert.match(css, /-webkit-line-clamp:2/);
+  assert.match(storefront, /Filter &amp; Sort/);
+  assert.match(storefront, /No products found/);
+  assert.match(storefront, /Clear search &amp; filters/);
+});
+
+test("shared customer header keeps search, list quantity, and navigation accessible", async () => {
+  const [storefront,contact,legal,cartPage,productPage,css] = await Promise.all([
+    readFile(new URL("app/storefront.tsx", root), "utf8"),
+    readFile(new URL("app/contact/page.tsx", root), "utf8"),
+    readFile(new URL("app/legal/[page]/page.tsx", root), "utf8"),
+    readFile(new URL("app/cart/page.tsx", root), "utf8"),
+    readFile(new URL("app/products/[slug]/page.tsx", root), "utf8"),
+    readFile(new URL("app/globals.css", root), "utf8"),
+  ]);
+  assert.match(storefront, /aria-label="Search products"/);
+  assert.match(storefront, /action="\/#catalogue"/);
+  assert.match(storefront, /My List, \$\{quantity\}/);
+  assert.match(storefront, /back-to-top/);
+  assert.match(storefront, /<AgeGate \/>/);
+  for(const page of [contact,legal,cartPage,productPage])assert.match(page, /<Header/);
+  assert.match(css, /\.site-header/);
+  assert.match(css, /position:sticky/);
+  assert.doesNotMatch(`${storefront}\n${cartPage}`, /checkout disabled|payment unavailable|cart preview|\bMVP\b|email notification is still being configured/i);
 });
 
 test("availability requests remain saved and report email delivery state", async () => {
@@ -197,6 +231,6 @@ test("availability requests remain saved and report email delivery state", async
   assert.match(email, /transactional_email_rejected/);
   assert.match(adminApi, /manual_phone_follow_up/);
   assert.match(adminApi, /delivery/);
-  assert.match(storefront, /request is saved in the store dashboard/i);
+  assert.match(storefront, /Our store team will check this product/i);
   assert.match(dashboard, /Status saved and the customer email was sent/);
 });

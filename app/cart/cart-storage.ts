@@ -23,10 +23,16 @@ export function writeCart(items:CartItem[]) {
   window.dispatchEvent(new CustomEvent("vapemart-cart",{detail:items}));
 }
 
-export function addToCart(product:Product) {
+export function selectedQuantity(items=readCart()) {
+  return items.reduce((total,item)=>total+item.quantity,0);
+}
+
+export function addToList(product:Product) {
   const items=readCart();
   const found=items.find(item=>item.id===product.id);
   if(found) found.quantity=Math.min(99,found.quantity+1);
   else items.push({id:product.id,slug:product.slug,name:product.name,price:product.promoPrice||product.price,image:product.image,quantity:1});
   writeCart(items);
 }
+
+export const addToCart=addToList;

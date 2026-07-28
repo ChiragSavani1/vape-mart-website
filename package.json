@@ -9,7 +9,7 @@
     "dev": "next dev",
     "build": "next build && node scripts/prepare-standalone.mjs",
     "start": "node scripts/start-render.mjs",
-    "test": "npm run typecheck && node --test tests/rendered-html.test.mjs",
+    "test": "npm run typecheck && node --experimental-strip-types --test tests/*.test.mjs",
     "typecheck": "tsc --noEmit",
     "lint": "eslint . --ignore-pattern .next",
     "db:generate": "drizzle-kit generate",

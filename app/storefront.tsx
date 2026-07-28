@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { getProductVolume, products, type Product, store } from "./data";
-import { addToCart } from "./cart/cart-storage";
+import { addToList, readCart, selectedQuantity } from "./cart/cart-storage";
 
 function Logo() {
   return <Link className="logo" href="/"><span><img src="/brand/vape-mart-logo-small.webp" width="160" height="160" alt="" /></span> VAPE MART</Link>;
@@ -11,19 +11,45 @@ function Logo() {
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [searchOpen,setSearchOpen]=useState(false);
+  const [headerQuery,setHeaderQuery]=useState("");
+  const [quantity,setQuantity]=useState(0);
+  const [showTop,setShowTop]=useState(false);
+  const searchInput=useRef<HTMLInputElement>(null);
+  useEffect(()=>{
+    const refresh=()=>setQuantity(selectedQuantity(readCart()));
+    const scroll=()=>setShowTop(window.scrollY>700);
+    refresh();scroll();
+    window.addEventListener("vapemart-cart",refresh);
+    window.addEventListener("storage",refresh);
+    window.addEventListener("scroll",scroll,{passive:true});
+    return()=>{window.removeEventListener("vapemart-cart",refresh);window.removeEventListener("storage",refresh);window.removeEventListener("scroll",scroll)};
+  },[]);
+  useEffect(()=>{if(searchOpen)searchInput.current?.focus()},[searchOpen]);
   return <>
+    <AgeGate />
     <div className="warning-bar">WARNING: Vaping products contain nicotine. Nicotine is highly addictive. Adults 19+ only.</div>
-    <header>
+    <header className="site-header">
       <Logo />
-      <button className="menu" onClick={() => setOpen(!open)} aria-label="Toggle menu">Menu</button>
       <nav className={open ? "nav-open" : ""}>
         <Link href="/#catalogue">Shop catalogue</Link>
         <Link href="/#categories">Categories</Link>
         <Link href="/contact">Visit us</Link>
-        <Link className="nav-cart" href="/cart">Cart</Link>
         <Link className="nav-admin" href="/admin">Admin</Link>
       </nav>
+      <div className="header-actions">
+        <button className="header-icon" onClick={()=>setSearchOpen(value=>!value)} aria-label="Search products" aria-expanded={searchOpen} aria-controls="header-search"><span aria-hidden="true">⌕</span></button>
+        <Link className="header-icon list-icon" href="/cart" aria-label={`My List, ${quantity} selected item${quantity===1?"":"s"}`}><span aria-hidden="true">▤</span>{quantity>0&&<b aria-hidden="true">{quantity>99?"99+":quantity}</b>}</Link>
+        <button className="menu" onClick={() => setOpen(!open)} aria-label="Toggle menu" aria-expanded={open}>Menu</button>
+      </div>
+      <form id="header-search" className={`header-search ${searchOpen?"open":""}`} action="/#catalogue" method="get" role="search">
+        <label htmlFor="header-product-search">Search products</label>
+        <input ref={searchInput} id="header-product-search" name="search" value={headerQuery} onChange={event=>setHeaderQuery(event.target.value)} placeholder="Search flavour, product, or brand" autoComplete="off"/>
+        {headerQuery&&<button type="button" className="search-clear" onClick={()=>{setHeaderQuery("");searchInput.current?.focus()}} aria-label="Clear search">×</button>}
+        <button type="submit" className="search-submit">Search</button>
+      </form>
     </header>
+    <button className={`back-to-top ${showTop?"visible":""}`} onClick={()=>window.scrollTo({top:0,behavior:"smooth"})} aria-label="Back to top">↑</button>
   </>;
 }
 
@@ -33,7 +59,7 @@ export function Footer() {
     <div><b>Explore</b><Link href="/#catalogue">Products</Link><Link href="/contact">Contact</Link><Link href="/admin">Admin dashboard</Link></div>
     <div><b>Legal</b><Link href="/legal/privacy">Privacy policy</Link><Link href="/legal/terms">Terms of use</Link><Link href="/legal/age-restriction">Age restriction</Link><Link href="/legal/warnings">Vaping warnings</Link></div>
     <div><b>Contact</b><a href={`mailto:${store.email}`}>{store.email}</a><a href={`tel:${store.phone}`}>{store.phone}</a><span>{store.address}</span></div>
-    <small>© {new Date().getFullYear()} Vape Mart. Ontario, Canada. No online sales or delivery. Adults 19+ only.</small>
+    <small>© {new Date().getFullYear()} Vape Mart. Ontario, Canada. Adults 19+ only.</small>
   </footer>;
 }
 
@@ -86,7 +112,6 @@ export function Inquiry({ product, close }: { product: Product; close: () => voi
       }), headers: { "content-type": "application/json" } });
       const data = await response.json().catch(() => null);
       if (!response.ok) {
-        if (response.status === 401) throw new Error("Your sign-in has expired. Refresh the page and sign in again.");
         throw new Error(data?.error || "We could not send your request right now.");
       }
       setReceipt({id:String(data?.id||""),notification:String(data?.notification||"saved")});
@@ -98,9 +123,7 @@ export function Inquiry({ product, close }: { product: Product; close: () => voi
   }
   return <div className="modal-backdrop" onMouseDown={close}><div className="inquiry-modal" onMouseDown={e => e.stopPropagation()}>
     <button className="modal-close" onClick={close} aria-label="Close">×</button>
-    {receipt ? <div className="success"><span>✓</span><h2>Request received</h2><p>{receipt.notification==="sent"
-      ?"The store has been notified. We’ll check the product and reply using the contact details you provided."
-      :"Your request is saved in the store dashboard. Email notification is still being configured; for an urgent answer, call (705) 721-8181."}</p>{receipt.id&&<small>Request reference: {receipt.id.slice(0,8).toUpperCase()}</small>}<button className="primary" onClick={close}>Done</button></div> : <>
+    {receipt ? <div className="success"><span>✓</span><h2>Request received</h2><p>Our store team will check this product and reply using the contact details you provided.</p>{receipt.id&&<small>Request reference: {receipt.id.slice(0,8).toUpperCase()}</small>}<button className="primary" onClick={close}>Done</button></div> : <>
       <p className="eyebrow">In-store availability</p><h2>Check {product.name}</h2>
       <p className="muted">This is an availability request only—not an order or reservation.</p>
       <form onSubmit={submit}>
@@ -123,7 +146,7 @@ export function ProductCard({ product }: { product: Product }) {
     <Link href={`/products/${product.slug}`} className="product-image"><ProductArt product={product} />{product.promoPrice && <span className="sale-badge">Sale</span>}</Link>
     <div className="product-meta"><span>{product.brand} · {product.category}{volume ? ` · ${volume}` : ""}</span><h3><Link href={`/products/${product.slug}`}>{product.name}</Link></h3>
       <div className="price">{product.promoPrice ? <><del>${product.price.toFixed(2)}</del> ${product.promoPrice.toFixed(2)}</> : `$${product.price.toFixed(2)}`}</div>
-      <button className="primary add-cart" onClick={()=>{addToCart(product);setAdded(true);window.setTimeout(()=>setAdded(false),1600)}}>{added?"Added to cart ✓":"Add to cart"}</button>
+      <button className="primary add-cart" onClick={()=>{addToList(product);setAdded(true);window.setTimeout(()=>setAdded(false),1600)}}>{added?"Added to My List ✓":"Add to List"}</button>
       <button className="outline-button" onClick={() => setAsk(true)}>Check availability <span>→</span></button>
     </div>
     {ask && <Inquiry product={product} close={() => setAsk(false)} />}
@@ -269,6 +292,8 @@ export function Storefront({ catalogue = products, banners = defaultArrivalBanne
   const [category, setCategory] = useState("All products");
   const [brand, setBrand] = useState("All brands");
   const [priceRange, setPriceRange] = useState("all");
+  const [sort,setSort]=useState("featured");
+  const [filtersOpen,setFiltersOpen]=useState(false);
   const [limit, setLimit] = useState(12);
   const categories = useMemo(()=>["All products",...Array.from(new Set(catalogue.map(product=>product.category))).sort()],[catalogue]);
   const brands = useMemo(()=>["All brands",...Array.from(new Set(catalogue.map(product=>product.brand))).sort()],[catalogue]);
@@ -279,8 +304,22 @@ export function Storefront({ catalogue = products, banners = defaultArrivalBanne
     p.price >= selectedPrice.min && p.price < selectedPrice.max &&
     `${p.name} ${p.brand} ${p.flavour}`.toLowerCase().includes(query.toLowerCase())
   ), [query, category, brand, selectedPrice, catalogue]);
-  useEffect(() => setLimit(12), [query, category, brand, priceRange]);
-  return <><AgeGate /><MotionLayer /><Header /><main>
+  const sorted=useMemo(()=>[...filtered].sort((a,b)=>{
+    if(sort==="price-low")return (a.promoPrice||a.price)-(b.promoPrice||b.price);
+    if(sort==="price-high")return (b.promoPrice||b.price)-(a.promoPrice||a.price);
+    if(sort==="name")return a.name.localeCompare(b.name);
+    return Number(b.featured)-Number(a.featured);
+  }),[filtered,sort]);
+  useEffect(() => setLimit(12), [query, category, brand, priceRange,sort]);
+  useEffect(()=>{
+    const incoming=new URLSearchParams(window.location.search).get("search");
+    if(incoming){setQuery(incoming);window.setTimeout(()=>document.querySelector("#catalogue")?.scrollIntoView(),0)}
+  },[]);
+  const clearFilters=()=>{
+    setQuery("");setCategory("All products");setBrand("All brands");setPriceRange("all");setSort("featured");
+    const url=new URL(window.location.href);url.searchParams.delete("search");window.history.replaceState(null,"",`${url.pathname}${url.hash}`);
+  };
+  return <><MotionLayer /><Header /><main>
     <HeroCarousel banners={banners.length?banners:defaultArrivalBanners} />
 
     <section className="trust-strip" data-reveal><span>19+ age verified</span><span>Ontario retail store</span><span>Fast availability replies</span><span>Trusted brands</span></section>
@@ -292,14 +331,17 @@ export function Storefront({ catalogue = products, banners = defaultArrivalBanne
       </button>)}</div>
     </section>
 
-    <section id="catalogue" className="section catalogue-section" data-reveal><p className="eyebrow">The catalogue</p><div className="section-heading"><h2>What are you looking for?</h2><span>{filtered.length} products</span></div>
-      <div className="catalogue-controls">
-        <label className="search"><span>⌕</span><input value={query} onChange={e => setQuery(e.target.value)} placeholder="Search flavour, product, or brand" /></label>
+    <section id="catalogue" className="section catalogue-section" data-reveal><p className="eyebrow">The catalogue</p><div className="section-heading"><h2>What are you looking for?</h2><span>{sorted.length} products</span></div>
+      <div className="category-scroll" aria-label="Product categories">{categories.map(item=><button className={category===item?"active":""} onClick={()=>setCategory(item)} key={item}>{item}</button>)}</div>
+      <button className="mobile-filter-toggle" onClick={()=>setFiltersOpen(value=>!value)} aria-expanded={filtersOpen} aria-controls="catalogue-filters">Filter &amp; Sort <span>{filtersOpen?"−":"+"}</span></button>
+      <div id="catalogue-filters" className={`catalogue-controls ${filtersOpen?"mobile-open":""}`}>
+        <label className="search"><span aria-hidden="true">⌕</span><input value={query} onChange={e => setQuery(e.target.value)} placeholder="Search flavour, product, or brand" aria-label="Search catalogue"/>{query&&<button type="button" onClick={()=>{setQuery("");const url=new URL(window.location.href);url.searchParams.delete("search");window.history.replaceState(null,"",`${url.pathname}${url.hash}`)}} aria-label="Clear catalogue search">×</button>}</label>
         <select value={category} onChange={e => setCategory(e.target.value)} aria-label="Filter by category">{categories.map(x => <option key={x}>{x}</option>)}</select>
         <select value={brand} onChange={e => setBrand(e.target.value)} aria-label="Filter by brand">{brands.map(x => <option key={x}>{x}</option>)}</select>
         <select value={priceRange} onChange={e => setPriceRange(e.target.value)} aria-label="Filter by price">{priceRanges.map(range => <option value={range.value} key={range.value}>{range.label}</option>)}</select>
+        <select value={sort} onChange={e=>setSort(e.target.value)} aria-label="Sort products"><option value="featured">Featured first</option><option value="name">Name A–Z</option><option value="price-low">Price: low to high</option><option value="price-high">Price: high to low</option></select>
       </div>
-      {filtered.length ? <><div className="product-grid">{filtered.slice(0, limit).map(p => <ProductCard product={p} key={p.id} />)}</div>{limit < filtered.length && <div className="load-more"><button className="primary" onClick={() => setLimit(value => value + 24)}>Load more products</button><small>Showing {Math.min(limit, filtered.length)} of {filtered.length}</small></div>}</> : <div className="empty-state"><b>No matches yet.</b><p>Try a different flavour, brand, or category.</p></div>}
+      {sorted.length ? <><div className="product-grid">{sorted.slice(0, limit).map(p => <ProductCard product={p} key={p.id} />)}</div>{limit < sorted.length && <div className="load-more"><button className="primary" onClick={() => setLimit(value => value + 24)}>Load more products</button><small>Showing {Math.min(limit, sorted.length)} of {sorted.length}</small></div>}</> : <div className="empty-state"><b>No products found</b><p>Try a different search or clear your filters.</p><button className="primary" onClick={clearFilters}>Clear search &amp; filters</button></div>}
     </section>
 
     <section className="visit" data-reveal><div><p className="eyebrow">Come say hello</p><h2>Your local Vape Mart</h2><p>See something you like? Check availability, then visit our Barrie store for age-verified, in-person service.</p><Link className="primary" href="/contact">Store details & hours</Link></div><div className="hours-card"><b>Weekday hours</b><strong>9:00 AM — 10:00 PM</strong><span>{store.address}</span></div></section>
