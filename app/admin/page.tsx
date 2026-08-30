@@ -37,7 +37,7 @@ export default async function AdminPage() {
     databaseError = "Availability requests could not be loaded. Refresh the page to try again.";
   }
   try {
-    [adminProducts,initialBanners,initialImageWorkflow] = await Promise.all([loadProducts(true),loadBanners(),loadImageWorkflow()]);
+    [adminProducts,initialBanners,initialImageWorkflow] = await Promise.all([loadProducts(true),loadBanners(true),loadImageWorkflow()]);
   } catch (error) {
     console.error("admin_products_load_failed", error);
     databaseError = databaseError || "Products could not be loaded. Refresh the page to try again.";

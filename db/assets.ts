@@ -2,19 +2,20 @@ import { importedProducts } from "../app/products.generated";
 import { reconcileTemporaryBanners } from "./image-workflow";
 import { ensureDatabase } from "./runtime";
 
-export type SiteBanner={id:string;src:string;alt:string;position:number};
+export type SiteBanner={id:string;src:string;alt:string;position:number;headline:string;subtitle:string;label:string;ctaText:string;ctaUrl:string;active:boolean};
 type ImageAsset={object_key:string;original_name:string;normalized_name:string};
 
 export const assetUrl=(key:string)=>`/api/assets/${key.split("/").map(encodeURIComponent).join("/")}`;
 export const normalizeAssetName=(value:string)=>value.toLowerCase().normalize("NFKD").replace(/\.[a-z0-9]+$/i,"").replace(/[^a-z0-9]+/g," ").trim();
 
-export async function loadBanners():Promise<SiteBanner[]>{
+export async function loadBanners(includeInactive=false):Promise<SiteBanner[]>{
+  if(!process.env.DATABASE_URL)return [];
   await reconcileTemporaryBanners();
   const db=await ensureDatabase();
-  const result=await db.prepare(`SELECT id,public_url,alt_text,position FROM banners
-    WHERE public_url IS NOT NULL AND image_status IN ('temporary','pending_deployment','archiving','archived_verified')
+  const result=await db.prepare(`SELECT id,public_url,alt_text,position,headline,subtitle,label,cta_text,cta_url,active FROM banners
+    WHERE public_url IS NOT NULL ${includeInactive?"":"AND active=1"} AND image_status IN ('temporary','pending_deployment','archiving','archived_verified')
     ORDER BY position ASC LIMIT 6`).all<{id:string;public_url:string;alt_text:string;position:number}>();
-  return (result.results||[]).map(row=>({id:row.id,src:row.public_url,alt:row.alt_text,position:row.position}));
+  return (result.results||[]).map(row=>{const item=row as typeof row&{headline?:string;subtitle?:string;label?:string;cta_text?:string;cta_url?:string;active?:number};return {id:item.id,src:item.public_url,alt:item.alt_text,position:item.position,headline:item.headline||"",subtitle:item.subtitle||"",label:item.label||"",ctaText:item.cta_text||"",ctaUrl:item.cta_url||"/#catalogue",active:Boolean(item.active)}});
 }
 
 function scoreAsset(asset:ImageAsset,upc:string,name:string,brand:string){

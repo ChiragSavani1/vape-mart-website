@@ -78,7 +78,8 @@ test("provides a persistent availability cart with Ontario HST", async () => {
   assert.match(storage, /subtotal\*0\.13/);
   assert.match(cart, /<h1>Cart<\/h1>/);
   assert.match(cart, /Check availability/);
-  assert.match(cart, /setAvailability\(item\)/);
+  assert.match(cart, /setAvailability\(\{product:item,quantity:item\.quantity\}\)/);
+  assert.match(cart, /Cart request:/);
   assert.match(cart, /initialQuantity=\{availability\.quantity\}/);
   assert.doesNotMatch(cart, /paymentIntent|checkoutSession|Place order/);
   assert.doesNotMatch(cart, /checkout|payment unavailable|online ordering is disabled/i);
@@ -301,7 +302,7 @@ test("availability uses one page-level responsive dialog with complete fields", 
   assert.match(storefront, /name="message"/);
   assert.match(storefront, /document\.body\.style\.overflow="hidden"/);
   assert.match(storefront, /event\.key==="Escape"/);
-  assert.match(cart, /<Inquiry product=\{availability\}/);
+  assert.match(cart, /<Inquiry product=\{availability\.product\}/);
   assert.match(api, /quantity: input\.quantity|Quantity: \$\{input\.quantity\}/);
   assert.match(api, /Message: \$\{input\.message/);
   assert.match(css, /\.inquiry-product/);

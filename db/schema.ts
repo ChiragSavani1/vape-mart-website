@@ -28,6 +28,7 @@ export const productDeletions=pgTable("product_deletions",{productId:text("produ
 export const banners=pgTable("banners",{
   id:text("id").primaryKey(),objectKey:text("object_key").notNull(),altText:text("alt_text").notNull(),
   position:integer("position").notNull(),createdAt:text("created_at").notNull(),
+  headline:text("headline"),subtitle:text("subtitle"),label:text("label"),ctaText:text("cta_text"),ctaUrl:text("cta_url"),active:integer("active").notNull().default(1),
   originalFilename:text("original_filename"),temporaryPath:text("temporary_path"),publicUrl:text("public_url"),
   imageStatus:text("image_status").notNull().default("missing"),sourceType:text("source_type").notNull().default("admin_upload"),
   githubPath:text("github_path"),githubCommitSha:text("github_commit_sha"),archivedAt:text("archived_at"),

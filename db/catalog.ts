@@ -22,6 +22,10 @@ function fromRow(row:ProductRow,fallback?:Product,imageStatus?:ImageWorkflowStat
 }
 
 export async function loadProducts(includeHidden=false):Promise<AdminProduct[]>{
+  if(!process.env.DATABASE_URL)return importedProducts
+    .filter(product=>!["hardware","null"].includes(product.category.toLowerCase()))
+    .map(product=>({...product,visible:true,missingReview:false}))
+    .sort((a,b)=>Number(Boolean(b.featured))-Number(Boolean(a.featured))||a.name.localeCompare(b.name));
   const db=await ensureDatabase();
   await reconcileTemporaryImages();
   const [rows,deletions,imageStates]=await Promise.all([

@@ -7,13 +7,14 @@ import { getProductVolume } from "../../data";
 import { addToCart } from "../../cart/cart-storage";
 import { Inquiry, ProductArt } from "../../storefront";
 
-export function ProductDetailClient({ product }: { product: Product }) {
+export function ProductDetailClient({ product, related = [] }: { product: Product; related?: Product[] }) {
   const [ask, setAsk] = useState(false);
   const [added, setAdded] = useState(false);
+  const [quantity,setQuantity]=useState(1);
   const volume = getProductVolume(product);
   const currentPrice = product.promoPrice || product.price;
   const add = () => {
-    addToCart(product);
+    for(let index=0;index<quantity;index++)addToCart(product);
     setAdded(true);
     window.setTimeout(() => setAdded(false), 1800);
   };
@@ -46,6 +47,8 @@ export function ProductDetailClient({ product }: { product: Product }) {
             <div><small>UPC</small><b>{product.upc}</b></div>
           </div>
 
+          <div className="detail-quantity"><span>Quantity</span><div><button onClick={()=>setQuantity(value=>Math.max(1,value-1))} aria-label="Decrease quantity">−</button><b>{quantity}</b><button onClick={()=>setQuantity(value=>Math.min(99,value+1))} aria-label="Increase quantity">+</button></div></div>
+
           <div className="detail-actions">
             <button className={`detail-add ${added ? "added" : ""}`} onClick={add}>
               <span>{added ? "✓" : "+"}</span>{added ? "Added to Cart" : "Add to Cart"}
@@ -60,7 +63,8 @@ export function ProductDetailClient({ product }: { product: Product }) {
           </div>
         </div>
       </section>
+      {related.length>0&&<section className="detail-related"><p className="eyebrow">Continue browsing</p><h2>More from {product.category}</h2><div>{related.map(item=><Link href={`/products/${item.slug}`} key={item.id}><ProductArt product={item}/><span>{item.brand}</span><b>{item.name}</b><strong>${(item.promoPrice||item.price).toFixed(2)}</strong></Link>)}</div></section>}
     </div>
-    {ask && <Inquiry product={product} close={() => setAsk(false)}/>}
+    {ask && <Inquiry product={product} initialQuantity={quantity} close={() => setAsk(false)}/>}
   </main>;
 }
